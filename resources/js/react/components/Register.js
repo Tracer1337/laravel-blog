@@ -9,7 +9,7 @@ const Register = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post("api/register", { ...formState, password_confirmation: formState.password })
+        axios.post("api/auth/register", { ...formState, password_confirmation: formState.password })
     }
 
     const handleChange = event => {

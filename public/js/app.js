@@ -66411,7 +66411,7 @@ var Register = function Register() {
 
   var handleSubmit = function handleSubmit(event) {
     event.preventDefault();
-    axios.post("api/register", _objectSpread({}, formState, {
+    axios.post("api/auth/register", _objectSpread({}, formState, {
       password_confirmation: formState.password
     }));
   };
