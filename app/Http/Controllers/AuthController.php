@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use JWTAuth;
 
 class AuthController extends Controller
 {
@@ -26,7 +26,7 @@ class AuthController extends Controller
             "password" => $request->input("password")
         ];
 
-        $token = $this->guard()->attempt($credentials);
+        $token = JWTAuth::attempt($credentials);
 
         if(!$token) {
             return response(null, 401);
@@ -36,24 +36,17 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request){
-        $this->guard()->logout();
-
-        return response()->json(true);
+        return "Hello";
     }
 
     public function profile(Request $request){
-        return response()->json($this->guard()->user());
+        return "Hello";
     }
 
     public function respond_with_token($token){
         return response()->json([
             "access_token" => $token,
-            "token_type" => "bearer",
-            "expires_in" => $this->guard()->factory()->getTTL() * 60
+            "token_type" => "bearer"
         ]);
-    }
-
-    public function guard() {
-        return Auth::guard();
     }
 }
