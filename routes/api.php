@@ -32,3 +32,10 @@ Route::put("/blogpost", "BlogpostController@store");
 
 // Delete blogposts
 Route::delete("/blogpost/{id}", "BlogpostController@destroy");
+
+Route::get("/profile", "ProfileController@index");
+
+Route::group(["middleware" => ["web"]], function () {
+    Auth::Routes();
+});
+  
