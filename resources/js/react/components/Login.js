@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 
+import { login } from "../config/API.js"
+
 const Login = () => {
     const [formState, setFormState] = useState({
         email: "",
@@ -8,12 +10,12 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post("api/login", formState)
-        .then(() => {
-            alert("Logged in")
-        }).catch(() => {
-            alert("Wrong credentials")
-        })
+        login(formState)
+            .then(() => {
+                alert("Logged in")
+            }).catch(() => {
+                alert("Wrong credentials")
+            })
     }
 
     const handleChange = event => {

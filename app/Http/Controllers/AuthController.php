@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
+use Illuminate\Support\Facades\Hash;
 use JWTAuth;
 
 class AuthController extends Controller
 {
     public function __construct() {
-        $this->middleware("auth:api", ["except" => ["login"]]);
+        $this->middleware("auth:api", ["except" => ["login", "register"]]);
     }
 
     public function register(Request $request) {
@@ -36,11 +38,17 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request){
-        return "Hello";
+        auth()->logout();
     }
 
     public function profile(Request $request){
-        return "Hello";
+        $user = $request->user();
+
+        return response()->json([
+            "username"   => $user->username,
+            "avatar_url" => $user->avatar_url,
+            "id"         => $user->id
+        ]);
     }
 
     public function respond_with_token($token){

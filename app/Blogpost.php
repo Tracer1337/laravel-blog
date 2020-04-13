@@ -11,7 +11,7 @@ class Blogpost extends Model
     }
 
     public function topic() {
-        return $this->hasOne("App\Topic");
+        return $this->belongsTo("App\Topic");
     }
 
     public function recommendations() {
@@ -27,6 +27,6 @@ class Blogpost extends Model
     }
 
     public function tags() {
-        return $this->hasMany("App\Tag", "blogposts_tags");
+        return $this->belongsToMany("App\Tag", "blogposts_tags");
     }
 }

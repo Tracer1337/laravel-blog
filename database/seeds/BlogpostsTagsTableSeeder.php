@@ -11,10 +11,10 @@ class BlogpostsTagsTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 2; $i < 30; $i++) {
+        for($i = 2; $i < 40; $i++) {
             DB::table("blogposts_tags")->insert([
-                "blogpost_id" => floor($i/2),
-                "tag_id"      => rand(0, 3)
+                "blogpost_id" => floor($i / 2),
+                "tag_id"      => $i % 2 + 1
             ]);
         }
     }

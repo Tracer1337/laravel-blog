@@ -1,23 +1,38 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
-const Header = ({ onLogin, onRegister, onLogout }) => {
+import { logout } from "../config/API.js"
+
+const Header = ({ isLoggedIn, profile }) => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-            <a href="#" className="navbar-brand">API Testing</a>
+            <Link to="/" className="navbar-brand">API Testing</Link>
 
             <div className="collapse navbar-collapse">
                 <ul className="navbar-nav mr-auto">
-                    <li className="nav-item">
-                        <a href="#" className="nav-link" onClick={onLogin}>Login</a>
-                    </li>
-                    
-                    <li className="nav-item">
-                        <a href="#" className="nav-link" onClick={onRegister}>Register</a>
-                    </li>
+                    {!isLoggedIn ? (
+                        <>
+                            <li className="nav-item">
+                                <Link to="/login" className="nav-link">Login</Link>
+                            </li>
 
-                    <li className="nav-item">
-                        <a href="#" className="nav-link" onClick={onLogout}>Logout</a>
-                    </li>
+                            <li className="nav-item">
+                                <Link to="/register" className="nav-link">Register</Link>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li className="nav-item">
+                                <a href="#" className="nav-link">
+                                    Logged in as: {profile.username}
+                                </a>
+                            </li>
+
+                            <li className="nav-item">
+                                <a href="#" className="nav-link" onClick={logout}>Logout</a>
+                            </li>
+                        </>
+                    )}
                 </ul>
             </div>
         </nav>

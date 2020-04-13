@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 
+import { register } from "../config/API.js"
+
 const Register = () => {
     const [formState, setFormState] = useState({
         username: "",
@@ -9,7 +11,7 @@ const Register = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        axios.post("api/auth/register", { ...formState, password_confirmation: formState.password })
+        register({ ...formState, password_confirmation: formState.password })
     }
 
     const handleChange = event => {

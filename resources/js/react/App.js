@@ -1,57 +1,60 @@
 import React, { useState, useEffect } from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import Header from "./components/Header.js"
-import Login from "./components/Login.js"
-import Register from "./components/Register.js"
-import BlogpostForm from "./components/BlogpostForm.js"
-import Blogposts from "./components/Blogposts.js"
+
+import IndexPage from "./pages/Index.js"
+import LoginPage from "./pages/Login.js"
+import RegisterPage from "./pages/Register.js"
+import BlogpostPage from "./pages/Blogpost.js"
+
+import { getProfile } from "./config/API.js"
 
 const App = () => {
-    const [form] = useState(new EventTarget())
+    const [profile, setProfile] = useState({})
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-    const [showLogin, setShowLogin] = useState(false)
-    const [showRegister, setShowRegister] = useState(false)
-
-    const handleLogin = () => {
-        setShowRegister(false)
-        setShowLogin(true)
-    }
-
-    const handleRegister = () => {
-        setShowLogin(false)
-        setShowRegister(true)
-    }
-
-    const handleLogout = () => {
-        axios.post("api/logout")
+    const requestProfile = () => {
+        getProfile()
+            .then(res => {
+                setIsLoggedIn(true)
+                setProfile(res.data)
+            })
+            .catch(() => {
+                setIsLoggedIn(false)
+                setProfile({})
+            })
     }
 
     useEffect(() => {
-        axios.get("api/profile").then(res => {
-            console.log(res)
-        })
+        requestProfile()
     }, [])
 
     return (
-        <div>
-
+        <Router>
             <Header
-                onLogin={handleLogin}
-                onRegister={handleRegister}
-                onLogout={handleLogout}
+                isLoggedIn={isLoggedIn}
+                profile={profile}
             />
-            
-            <div className="container">
-                {showLogin ? <Login/> : null}
-                {showRegister ? <Register/> : null}
 
-                <BlogpostForm form={form} />
-                
-                <hr className="my-4"/>
+            <Switch>
+                <Route path="/login">
+                    <LoginPage/>
+                </Route>
 
-                <Blogposts form={form} />
-            </div>
-        </div>
+                <Route path="/register">
+                    <RegisterPage/>
+                </Route>
+
+                <Route path="/blogpost/:id">
+                    <BlogpostPage profile={profile}/>
+                </Route>
+
+                <Route path="/">
+                    <IndexPage profile={profile}/>
+                </Route>
+            </Switch>
+        </Router>
     )
 }
 

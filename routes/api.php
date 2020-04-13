@@ -14,29 +14,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Blogposts
 
-// List blogposts
 Route::get("/blogposts", "BlogpostController@index");
 
-// Show single blogposts
 Route::get("/blogpost/{id}", "BlogpostController@show");
 
-// Create new blogposts
 Route::post("/blogpost", "BlogpostController@store");
 
-// Update blogposts
 Route::put("/blogpost", "BlogpostController@store");
 
-// Delete blogposts
 Route::delete("/blogpost/{id}", "BlogpostController@destroy");
+
+// Topics
+
+Route::get("/topics", "TopicsController@index");
+
+// Tags
+
+Route::get("/tags", "TagsController@index");
+
+// Comments
+
+Route::post("/comment", "CommentsController@store");
+
+Route::put("/comment", "CommentsController@store");
+
+Route::delete("/comment/{id}", "CommentsController@destroy");
+
+// Authentication
 
 Route::group(["prefix" => "auth", "middleware" => ["api"]], function () {
     Route::post("login", "AuthController@login");
+
     Route::post("logout", "AuthController@logout");
+
     Route::post("register", "AuthController@register");
-    Route::post("profile", "AuthController@profile");
+
+    Route::get("profile", "AuthController@profile");
 });
-  

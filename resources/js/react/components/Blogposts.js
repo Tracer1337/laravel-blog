@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+
+import { deleteBlogpost, getBlogposts } from "../config/API.js"
 
 const deletePost = id => {
     return new Promise(resolve => {
-        fetch(`api/blogpost/${id}`, {
-            method: "DELETE"
-        }).then(resolve)
+        deleteBlogpost(id).then(resolve)
     })
 }
 
-const Blogposts = ({ form }) => {
+const Blogposts = ({ form, profile }) => {
     const [posts, setPosts] = useState()
 
     const fetchPosts = () => {
-        fetch("/api/blogposts").then(res => res.json()).then(res => {
-            setPosts(res.data)
+        getBlogposts().then(res => {
+            console.log(res)
+            setPosts(res.data.data)
         })
     }
 
@@ -40,24 +42,42 @@ const Blogposts = ({ form }) => {
         )
     }
 
+    console.log(posts)
+    
     return (
         <div>
             {posts.map(post => (
-                <div className="card card-body my-3" key={post.id}>
-                    <h4>{post.title}</h4>
-                    <p>{post.teaser}</p>
-
-                    <div className="row">
-                        <div className="col-sm">
-                            <button className="btn btn-secondary w-100" onClick={() => handleEdit(post.id)}>Edit</button>
+                    <div className="card card-body my-3" key={post.id}>
+                        <div className="d-flex justify-content-between">
+                            <Link to={`blogpost/${post.id}`}>
+                                <h4>Title: {post.title}</h4>
+                            </Link>
+                            <p>Topic: {post.topic.name}</p>
                         </div>
+                        <p>Teaser: {post.teaser}</p>
+                        <p>User: {post.user.username}</p>
 
-                        <div className="col-sm">
-                            <button className="btn btn-danger w-100" onClick={() => handleDelete(post.id)}>Delete</button>
-                        </div>
+                        <label>Tags:</label>
+                        <ul>
+                            {post.tags.map(tag => (
+                                <li key={tag.id}>{tag.name}</li>
+                            ))}
+                        </ul>
+
+                        {post.user_id === profile.id ? (
+                            <div className="row">
+                                <div className="col-sm">
+                                    <button className="btn btn-secondary w-100" onClick={() => handleEdit(post.id)}>Edit</button>
+                                </div>
+
+                                <div className="col-sm">
+                                    <button className="btn btn-danger w-100" onClick={() => handleDelete(post.id)}>Delete</button>
+                                </div>
+                            </div>
+                        ) : null}
                     </div>
-                </div>
-            ))}
+                )
+            )}
         </div>
     )
 }

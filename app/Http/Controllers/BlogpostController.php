@@ -9,28 +9,26 @@ use App\Http\Resources\Blogpost as BlogpostResource;
 
 class BlogpostController extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth:api", ["except" => ["index", "show"]]);
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        // Get blogposts
+    public function index() {
         $blogposts = Blogpost::orderBy("id", "desc")->Paginate(5);
 
-        // Return collection of blogposts as a resource
-        return BlogpostResource::collection($blogposts);
-    }
+        $users = [];
+        foreach($blogposts as $blogpost) {
+            $blogpost->user;
+            $blogpost->topic;
+            $blogpost->tags;
+        }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return BlogpostResource::collection($blogposts);
     }
 
     /**
@@ -39,13 +37,18 @@ class BlogpostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $blogpost = $request->isMethod("put") ? Blogpost::findOrFail($request->id) : new Blogpost;
+    public function store(Request $request) {
+        $isUpdate = $request->isMethod("put");
+        $blogpost = $isUpdate ? Blogpost::findOrFail($request->id) : new Blogpost;
+        $user = $request->user();
+
+        if($isUpdate && $blogpost->user()->get()[0]->id != $user->id) {
+            return response(null, 401);
+        }
 
         $blogpost->id = $request->input("id");
-        $blogpost->user_id = 0;
-        $blogpost->topic_id = 0;
+        $blogpost->user_id = $user->id;
+        $blogpost->topic_id = $request->input("topic_id");
         $blogpost->title = $request->input("title");
         $blogpost->teaser = $request->input("teaser");
         $blogpost->content = $request->input("content");
@@ -53,6 +56,7 @@ class BlogpostController extends Controller
         $blogpost->is_pinned = false;
 
         if($blogpost->save()) {
+            $blogpost->tags()->sync($request->input("tag_ids"));
             return new BlogpostResource($blogpost);
         }
     }
@@ -63,12 +67,17 @@ class BlogpostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        // Get blogpost
+    public function show($id) {
         $blogpost = Blogpost::findOrFail($id);
+        $blogpost->user;
+        $blogpost->topic;
+        $blogpost->tags;
+        $blogpost->comments;
 
-        // Return blogpost as resource
+        foreach($blogpost->comments as $comment) {
+            $comment->user;
+        }
+
         return new BlogpostResource($blogpost);
     }
 
@@ -78,9 +87,14 @@ class BlogpostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id, Request $request) {
         $blogpost = BlogPost::findOrFail($id);
+        $user = $request->user();
+
+        if($blogpost->user_id != $user->id) {
+            return response(null, 401);
+        }
+
         if($blogpost->delete()) {
             return new BlogpostResource($blogpost);
         }
