@@ -1,7 +1,11 @@
 const url = path => `${window.location.origin}/api/${path}`
 
 // Auth
-export const register = args => axios.post(url("auth/register"), args)
+export const register = formData => axios.post(url("auth/register"), formData, {
+    headers: {
+        "Content-Type": "multipart/form-data"
+    }
+})
 
 export const login = args => {
     return new Promise((resolve, reject) => {
@@ -23,6 +27,12 @@ export const logout = () => {
 
 export const getProfile = () => axios.get(url("auth/profile"))
 
+export const editProfile = formData => axios.post(url("auth/profile"), formData, {
+    headers: {
+        "Content-Type": "multipart/form-data"
+    }
+})
+
 // Blogposts
 export const getBlogposts = () => axios.get(url("blogposts"))
 
@@ -33,6 +43,8 @@ export const addBlogpost = args => axios.post(url("blogpost"), args)
 export const editBlogpost = args => axios.put(url("blogpost"), args)
 
 export const deleteBlogpost = id => axios.delete(url("blogpost/"+id))
+
+export const likeBlogpost = id => axios.post(url("blogpost/like"), {id})
 
 // Topics
 export const getTopics = () => axios.get(url("topics"))
@@ -46,3 +58,12 @@ export const addComment = args => axios.post(url("comment"), args)
 export const editComment = args => axios.put(url("comment"), args)
 
 export const deleteComment = id => axios.delete(url("comment/"+id))
+
+// Users
+export const getUser = id => axios.get(url("user/"+id))
+
+export const followUser = id => axios.post(url("user/follow"), {id})
+
+export const unfollowUser = id => axios.post(url("user/unfollow"), {id})
+
+export const followsUser = id => axios.get(url("user/follows/"+id))

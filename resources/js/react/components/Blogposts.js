@@ -47,37 +47,36 @@ const Blogposts = ({ form, profile }) => {
     return (
         <div>
             {posts.map(post => (
-                    <div className="card card-body my-3" key={post.id}>
-                        <div className="d-flex justify-content-between">
-                            <Link to={`blogpost/${post.id}`}>
-                                <h4>Title: {post.title}</h4>
-                            </Link>
-                            <p>Topic: {post.topic.name}</p>
-                        </div>
-                        <p>Teaser: {post.teaser}</p>
-                        <p>User: {post.user.username}</p>
-
-                        <label>Tags:</label>
-                        <ul>
-                            {post.tags.map(tag => (
-                                <li key={tag.id}>{tag.name}</li>
-                            ))}
-                        </ul>
-
-                        {post.user_id === profile.id ? (
-                            <div className="row">
-                                <div className="col-sm">
-                                    <button className="btn btn-secondary w-100" onClick={() => handleEdit(post.id)}>Edit</button>
-                                </div>
-
-                                <div className="col-sm">
-                                    <button className="btn btn-danger w-100" onClick={() => handleDelete(post.id)}>Delete</button>
-                                </div>
-                            </div>
-                        ) : null}
+                <div className="card card-body my-3" key={post.id}>
+                    <div className="d-flex justify-content-between">
+                        <Link to={`blogpost/${post.id}`}>
+                            <h4>Title: {post.title}</h4>
+                        </Link>
+                        <p>Topic: {post.topic.name}</p>
                     </div>
-                )
-            )}
+                    <p>Teaser: {post.teaser}</p>
+                    <Link to={`user/${post.user.id}`}>User: {post.user.username}</Link>
+
+                    <label>Tags:</label>
+                    <ul>
+                        {post.tags.map(tag => (
+                            <li key={tag.id}>{tag.name}</li>
+                        ))}
+                    </ul>
+
+                    {post.user_id === profile.id ? (
+                        <div className="row">
+                            <div className="col-sm">
+                                <button className="btn btn-secondary w-100" onClick={() => handleEdit(post.id)}>Edit</button>
+                            </div>
+
+                            <div className="col-sm">
+                                <button className="btn btn-danger w-100" onClick={() => handleDelete(post.id)}>Delete</button>
+                            </div>
+                        </div>
+                    ) : null}
+                </div>
+            ))}
         </div>
     )
 }

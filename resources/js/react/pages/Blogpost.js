@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 
-import { getBlogpost, addComment, editComment, deleteComment } from "../config/API.js"
+import { getBlogpost, addComment, editComment, deleteComment, likeBlogpost } from "../config/API.js"
 
-const BlogpostPage = ({ profile }) => {
+const BlogpostPage = ({ profile, isLoggedIn }) => {
     const [post, setPost] = useState(null)
     const [comment, setComment] = useState("")
     const [editId, setEditId] = useState(null)
@@ -26,14 +26,12 @@ const BlogpostPage = ({ profile }) => {
             editComment({
                 ...args,
                 id: editId
-            })
+            }).then(fetchPost)
             setComment("")
             setEditId(null)
         } else {
-            addComment(args)
+            addComment(args).then(fetchPost)
         }
-
-        fetchPost()
     }
 
     const handleEdit = id => {
@@ -42,8 +40,11 @@ const BlogpostPage = ({ profile }) => {
     }
 
     const handleDelete = id => {
-        deleteComment(id)
-        fetchPost()
+        deleteComment(id).then(fetchPost)
+    }
+
+    const handleLike = () => {
+        likeBlogpost(id).then(fetchPost)
     }
 
     useEffect(() => {
@@ -63,13 +64,19 @@ const BlogpostPage = ({ profile }) => {
             <h2 className="text-center">{post.title}</h2>
             <h4>From: {post.user.username}</h4>
             <p>{post.content}</p>
+            
+            <h4>Likes: {post.likesCount}</h4>
+
+            {isLoggedIn ? (
+                <button className="btn btn-primary" onClick={handleLike}>Like</button>
+            ) : null}
 
             <hr className="my-4"/>
 
             <h4>Comments</h4>
 
             {post.comments.map(comment => (
-                <div className="card card-body my-2">
+                <div className="card card-body my-2" key={comment.id}>
                     <h4>From: {comment.user.username}</h4>
                     <p>{comment.content}</p>
 
@@ -87,14 +94,16 @@ const BlogpostPage = ({ profile }) => {
                 </div>
             ))}
 
-            <form onSubmit={handleCommentSubmit}>
-                <div className="form-group">
-                    <label>Content</label>
-                    <textarea name="content" value={comment} onChange={event => setComment(event.target.value)} className="form-control"/>
-                </div>
-                
-                <input type="submit" value="Send" className="form-control"/>
-            </form>
+            {isLoggedIn ? (
+                <form onSubmit={handleCommentSubmit}>
+                    <div className="form-group">
+                        <label>Content</label>
+                        <textarea name="content" value={comment} onChange={event => setComment(event.target.value)} className="form-control"/>
+                    </div>
+                    
+                    <input type="submit" value="Send" className="form-control"/>
+                </form>
+            ) : null}
         </div>
     )
 }

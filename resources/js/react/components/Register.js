@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 
 import { register } from "../config/API.js"
 
@@ -8,10 +8,24 @@ const Register = () => {
         email: "",
         password: ""
     })
+    const avatarRef = useRef()
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        register({ ...formState, password_confirmation: formState.password })
+        
+        const avatar = avatarRef.current.files[0]
+
+        const formData = new FormData()
+        for(let key in formState) {
+            formData.append(key, formState[key])
+        }
+        formData.append("password_confirmation", formState.password)
+
+        if(avatar) {
+            formData.append("avatar", avatar)
+        }
+
+        register(formData)
     }
 
     const handleChange = event => {
@@ -40,6 +54,11 @@ const Register = () => {
                     <div className="form-group">
                         <label>Password</label>
                         <input type="password" name="password" value={formState["password"]} onChange={handleChange} className="form-control"/>
+                    </div>
+
+                    <div className="form-group">
+                        <label>Avatar</label>
+                        <input type="file" name="avatar" className="form-control-file" ref={avatarRef}/>
                     </div>
 
                     <input type="submit" value="Register" className="btn btn-primary"/>

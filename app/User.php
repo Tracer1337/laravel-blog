@@ -66,18 +66,18 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function likes() {
-        return $this->hasMany("App\Blogpost", "likes");
+        return $this->belongsToMany("App\Blogpost", "likes");
     }
 
     public function follows() {
-        return $this->hasMany("App\Follower", "followers");
+        return $this->belongsToMany("App\User", "followers", "user_from_id", "user_to_id");
     }
 
     public function followers() {
-        return $this->belongsToMany("App\Follower", "followers");
+        return $this->belongsToMany("App\User", "followers", "user_to_id", "user_from_id");
     }
 
     public function recommendations() {
-        return $this->hasMany("App\Blogpost", "recommendations");
+        return $this->belongsToMany("App\Blogpost", "recommendations");
     }
 }

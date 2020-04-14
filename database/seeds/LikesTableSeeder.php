@@ -11,7 +11,7 @@ class LikesTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 1; $i < 15; $i++) {
+        for($i = 1; $i < 20; $i++) {
             for($j = 1; $j <= 2; $j++) {
                 DB::table("likes")->insert([
                     "blogpost_id" => $i,

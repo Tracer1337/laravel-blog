@@ -1,14 +1,32 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 
 import { logout } from "../config/API.js"
 
 const Header = ({ isLoggedIn, profile }) => {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-primary">
-            <Link to="/" className="navbar-brand">API Testing</Link>
+    const [isNavbarOpen, setIsNavbarOpen] = useState(false)
 
-            <div className="collapse navbar-collapse">
+    const toggleNavbar = () => {
+        setIsNavbarOpen(!isNavbarOpen)
+    }
+
+    return (
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div>
+                <Link to="/" className="navbar-brand pr-3" style={{
+                    borderRight: "1px solid"
+                }}>API Testing</Link>
+
+                {isLoggedIn ? (
+                    <img src={`${window.location.origin}/${profile.avatar_url}`} className="rounded-circle border border-dark" style={{ height: 40 }}/>
+                ) : null}
+            </div>
+
+            <button className="navbar-toggler" onClick={toggleNavbar}>
+                <span className="navbar-toggler-icon"></span>
+            </button>
+
+            <div className={`collapse navbar-collapse ${isNavbarOpen ? "show" : ""}`} id="navbarNavDropdown">
                 <ul className="navbar-nav mr-auto">
                     {!isLoggedIn ? (
                         <>
@@ -23,9 +41,9 @@ const Header = ({ isLoggedIn, profile }) => {
                     ) : (
                         <>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">
+                                <Link to={"/user/"+profile.id} className="nav-link">
                                     Logged in as: {profile.username}
-                                </a>
+                                </Link>
                             </li>
 
                             <li className="nav-item">

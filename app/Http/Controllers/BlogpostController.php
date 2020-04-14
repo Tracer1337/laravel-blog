@@ -20,6 +20,7 @@ class BlogpostController extends Controller
      */
     public function index() {
         $blogposts = Blogpost::orderBy("id", "desc")->Paginate(5);
+        $blogposts->makeHidden(["content"]);
 
         $users = [];
         foreach($blogposts as $blogpost) {
@@ -73,6 +74,7 @@ class BlogpostController extends Controller
         $blogpost->topic;
         $blogpost->tags;
         $blogpost->comments;
+        $blogpost->likesCount = $blogpost->likes()->count();
 
         foreach($blogpost->comments as $comment) {
             $comment->user;
@@ -98,5 +100,14 @@ class BlogpostController extends Controller
         if($blogpost->delete()) {
             return new BlogpostResource($blogpost);
         }
+    }
+
+    public function like(Request $request) {
+        $blogpost = BlogPost::findOrFail($request->id);
+        $user = $request->user();
+
+        $blogpost->likes()->attach($user);
+
+        return response(null, 200);
     }
 }

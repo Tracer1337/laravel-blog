@@ -19,7 +19,7 @@ class Blogpost extends Model
     }
 
     public function likes() {
-        return $this->hasMany("App\User", "likes");
+        return $this->belongsToMany("App\User", "likes");
     }
 
     public function comments() {

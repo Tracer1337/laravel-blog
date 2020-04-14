@@ -26,6 +26,8 @@ Route::put("/blogpost", "BlogpostController@store");
 
 Route::delete("/blogpost/{id}", "BlogpostController@destroy");
 
+Route::post("/blogpost/like", "BlogpostController@like");
+
 // Topics
 
 Route::get("/topics", "TopicsController@index");
@@ -42,6 +44,16 @@ Route::put("/comment", "CommentsController@store");
 
 Route::delete("/comment/{id}", "CommentsController@destroy");
 
+// User
+
+Route::get("/user/{id}", "UserController@index");
+
+Route::post("/user/follow", "UserController@follow");
+
+Route::post("/user/unfollow", "UserController@unfollow");
+
+Route::get("/user/follows/{id}", "UserController@follows");
+
 // Authentication
 
 Route::group(["prefix" => "auth", "middleware" => ["api"]], function () {
@@ -52,4 +64,6 @@ Route::group(["prefix" => "auth", "middleware" => ["api"]], function () {
     Route::post("register", "AuthController@register");
 
     Route::get("profile", "AuthController@profile");
+
+    Route::post("profile", "AuthController@update");
 });
