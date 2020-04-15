@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use JWTAuth;
 use App\Http\Resources\User as UserResource;
+use App\Http\Resources\Blogpost as BlogpostResource;
 
 class AuthController extends Controller
 {
@@ -23,17 +24,18 @@ class AuthController extends Controller
         $user->last_name = $request->last_name;
         $user->username = $request->username;
         $user->biography = $request->biography;
+        $user->links = $request->links;
 
         if($request->file("avatar")) {
             $request->validate([
                 "avatar" => [
                     "image",
-                    Rule::dimensions()->maxWidth(500)->maxHeight(500)->ratio(1)
+                    Rule::dimensions()->maxWidth(512)->maxHeight(512)->ratio(1)
                 ]
             ]);
 
-            $request->file("avatar")->storeAs("public/avatars", $user->id);
-            $user->avatar_url = "storage/avatars/".$user->id;
+            $path = $request->file("avatar")->storeAs("public/avatars", $user->id);
+            $user->avatar_url = Storage::url($path);
         }
 
         if($user->save()) {
@@ -87,5 +89,13 @@ class AuthController extends Controller
             "access_token" => $token,
             "token_type" => "bearer"
         ]);
+    }
+
+    public function blogposts(Request $request) {
+        $user = $request->user();
+        $blogposts = $user->blogposts()->orderBy("id", "DESC")->Paginate(5);
+        $blogposts->makeHidden("content");
+
+        return BlogpostResource::collection($blogposts);
     }
 }

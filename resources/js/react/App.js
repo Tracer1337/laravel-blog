@@ -9,6 +9,8 @@ import RegisterPage from "./pages/Register.js"
 import BlogpostPage from "./pages/Blogpost.js"
 import UserPage from "./pages/User.js"
 import EditProfilePage from "./pages/EditProfile.js"
+import CreateBlogpostPage from "./pages/CreateBlogpost.js"
+import ProfileBlogpostsPage from "./pages/ProfileBlogposts.js"
 
 import { getProfile } from "./config/API.js"
 
@@ -20,6 +22,8 @@ const App = () => {
     const requestProfile = () => {
         getProfile()
             .then(res => {
+                res.data.data.links = JSON.parse(res.data.data.links)
+                
                 setIsLoggedIn(true)
                 setProfile(res.data.data)
                 setLoaded(true)
@@ -69,6 +73,14 @@ const App = () => {
 
                 <Route path="/edit-profile">
                     <EditProfilePage profile={profile}/>
+                </Route>
+
+                <Route path="/create-blogpost/:id?">
+                    <CreateBlogpostPage/>
+                </Route>
+
+                <Route path="/my-blogposts">
+                    <ProfileBlogpostsPage/>
                 </Route>
 
                 <Route path="/">

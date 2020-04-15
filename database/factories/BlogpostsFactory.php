@@ -4,6 +4,7 @@
 
 use App\Model;
 use Faker\Generator as Faker;
+use Carbon\Carbon;
 
 $factory->define(App\Blogpost::class, function (Faker $faker) {
     return [
@@ -13,6 +14,6 @@ $factory->define(App\Blogpost::class, function (Faker $faker) {
         "teaser"       => $faker->text(15),
         "content"      => $faker->text(300),
         "cover_url"    => $faker->word,
-        "is_pinned"    => false
+        "published_at" => Carbon::now()
     ];
 });

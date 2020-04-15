@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { useHistory } from "react-router-dom"
 import { editProfile } from "../config/API"
 
@@ -30,8 +30,24 @@ const EditProfilePage = ({ profile }) => {
             formData.append("avatar", avatar)
         }
 
+        const links = {}
+        for(let key of ["github", "website"]) {
+            links[key] = formState[key]
+        }
+        formData.append("links", JSON.stringify(links))
+
         editProfile(formData).then(() => history.push("/user/"+profile.id))
     }
+
+    useEffect(() => {
+        const newFormState = {...formState}
+
+        for(let key in profile.links) {
+            newFormState[key] = profile.links[key]
+        }
+
+        setFormState(newFormState)
+    }, [])
 
     return (
         <div className="container my-4">
@@ -59,6 +75,16 @@ const EditProfilePage = ({ profile }) => {
                 <div className="form-group">
                     <label>Avatar</label>
                     <input type="file" ref={avatarRef} className="form-control-file"/>
+                </div>
+                
+                <div className="form-group">
+                    <label>Github</label>
+                    <input type="text" name="github" value={formState["github"]} onChange={handleChange} className="form-control"/>
+                </div>
+
+                <div className="form-group">
+                    <label>Website</label>
+                    <input type="text" name="website" value={formState["website"]} onChange={handleChange} className="form-control" />
                 </div>
                 
                 <input type="submit" value="Save Changes" className="btn btn-primary"/> 

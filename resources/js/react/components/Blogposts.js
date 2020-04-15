@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 import { deleteBlogpost, getBlogposts } from "../config/API.js"
 
@@ -9,18 +9,18 @@ const deletePost = id => {
     })
 }
 
-const Blogposts = ({ form, profile }) => {
-    const [posts, setPosts] = useState()
+const Blogposts = ({ profile }) => {
+    const [data, setData] = useState()
+    const history = useHistory()
 
-    const fetchPosts = () => {
-        getBlogposts().then(res => {
-            console.log(res)
-            setPosts(res.data.data)
+    const fetchPosts = (page = 1) => {
+        getBlogposts(page).then(res => {
+            setData(res.data)
         })
     }
 
     const handleEdit = id => {
-        form.dispatchEvent(new CustomEvent("edit", { detail: { id } }))
+        history.push("/create-blogpost/"+id)
     }
 
     const handleDelete = id => {
@@ -28,13 +28,10 @@ const Blogposts = ({ form, profile }) => {
     }
 
     useEffect(() => {
-        form.addEventListener("change", fetchPosts)
         fetchPosts()
-
-        return () => form.removeEventListener("change", fetchPosts)
     }, [])
 
-    if(!posts) {
+    if(!data) {
         return (
             <div className="d-flex justify-content-center my-3">
                 <div className="spinner-border text-primary"/>
@@ -42,7 +39,9 @@ const Blogposts = ({ form, profile }) => {
         )
     }
 
-    console.log(posts)
+    console.log(data)
+
+    const posts = data.data
     
     return (
         <div>
@@ -77,6 +76,30 @@ const Blogposts = ({ form, profile }) => {
                     ) : null}
                 </div>
             ))}
+
+            <nav className="pagination justify-content-center">
+                <li className={`page-item ${!data.links.prev ? "disabled" : ""}`} onClick={() => fetchPosts(data.meta.current_page - 1)}>
+                    <button className="page-link">Previous</button>
+                </li>
+                
+                {(() => {
+                    const pageLinks = []
+
+                    for(let i = 1; i <= data.meta.last_page; i++) {
+                        pageLinks[i] = (
+                            <li className={`page-item ${i === data.meta.current_page ? "active" : ""}`} onClick={() => fetchPosts(i)} key={i}>
+                                <button className="page-link">{i}</button>
+                            </li>
+                        )
+                    }
+
+                    return pageLinks
+                })()}
+
+                <li className={`page-item ${!data.links.next ? "disabled" : ""}`} onClick={() => fetchPosts(data.meta.current_page + 1)}>
+                    <button className="page-link">Next</button>
+                </li>
+            </nav>
         </div>
     )
 }

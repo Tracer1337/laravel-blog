@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 
-import { getBlogpost, addComment, editComment, deleteComment, likeBlogpost } from "../config/API.js"
+import { getBlogpost, addComment, editComment, deleteComment, likeBlogpost, addRecommendation } from "../config/API.js"
 
 const BlogpostPage = ({ profile, isLoggedIn }) => {
     const [post, setPost] = useState(null)
@@ -47,10 +47,14 @@ const BlogpostPage = ({ profile, isLoggedIn }) => {
         likeBlogpost(id).then(fetchPost)
     }
 
+    const handleRecommend = () => {
+        addRecommendation(id).then(fetchPost)
+    }
+
     useEffect(() => {
         fetchPost()
     }, [])
-    
+
     if(!post) {
         return (
             <div className="w-100 d-flex justify-content-center">
@@ -62,13 +66,17 @@ const BlogpostPage = ({ profile, isLoggedIn }) => {
     return (
         <div className="container my-3">
             <h2 className="text-center">{post.title}</h2>
-            <h4>From: {post.user.username}</h4>
+            <h4>From: <Link to={"/user/"+post.user.id}>{post.user.username}</Link></h4>
             <p>{post.content}</p>
             
             <h4>Likes: {post.likesCount}</h4>
+            <h4>Recommendations: {post.recommendationsCount}</h4>
 
             {isLoggedIn ? (
-                <button className="btn btn-primary" onClick={handleLike}>Like</button>
+                <>
+                    <button className="btn btn-primary d-block my-2" onClick={handleLike}>Like</button>
+                    <button className="btn btn-primary d-block my-2" onClick={handleRecommend}>Recommend this post</button>
+                </>
             ) : null}
 
             <hr className="my-4"/>

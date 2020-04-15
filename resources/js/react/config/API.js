@@ -25,16 +25,8 @@ export const logout = () => {
     localStorage.removeItem("JWTToken")
 }
 
-export const getProfile = () => axios.get(url("auth/profile"))
-
-export const editProfile = formData => axios.post(url("auth/profile"), formData, {
-    headers: {
-        "Content-Type": "multipart/form-data"
-    }
-})
-
 // Blogposts
-export const getBlogposts = () => axios.get(url("blogposts"))
+export const getBlogposts = page => axios.get(url("blogposts"), { params: { page } })
 
 export const getBlogpost = id => axios.get(url("blogpost/"+id))
 
@@ -45,6 +37,10 @@ export const editBlogpost = args => axios.put(url("blogpost"), args)
 export const deleteBlogpost = id => axios.delete(url("blogpost/"+id))
 
 export const likeBlogpost = id => axios.post(url("blogpost/like"), {id})
+
+export const addRecommendation = id => axios.put(url("blogpost/recommend/"+id))
+
+export const removeRecommendation = id => axios.delete(url("blogpost/recommend/"+id))
 
 // Topics
 export const getTopics = () => axios.get(url("topics"))
@@ -67,3 +63,14 @@ export const followUser = id => axios.post(url("user/follow"), {id})
 export const unfollowUser = id => axios.post(url("user/unfollow"), {id})
 
 export const followsUser = id => axios.get(url("user/follows/"+id))
+
+// Profile
+export const getProfile = () => axios.get(url("profile"))
+
+export const editProfile = formData => axios.post(url("profile"), formData, {
+    headers: {
+        "Content-Type": "multipart/form-data"
+    }
+})
+
+export const getProfileBlogposts = () => axios.get(url("profile/blogposts"))

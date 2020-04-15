@@ -47,7 +47,13 @@ class UserController extends Controller
     public function follows($id, Request $request) {
         $user = $request->user();
         $followsUser = User::findOrFail($id);
-        $isFollowing = !!DB::table("followers")->select("user_from_id", "user_to_id")->where("user_to_id", $id)->count();
+        $isFollowing = !!DB::table("followers")
+            ->select("user_from_id", "user_to_id")
+            ->where([
+                ["user_from_id", $user->id],
+                ["user_to_id", $id]
+            ])
+            ->count();
 
         return response()->json($isFollowing);
     }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Blogpost;
 use App\Http\Resources\Blogpost as BlogpostResource;
+use Carbon\Carbon;
 
 class BlogpostController extends Controller
 {
@@ -19,7 +20,7 @@ class BlogpostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $blogposts = Blogpost::orderBy("id", "desc")->Paginate(5);
+        $blogposts = Blogpost::whereNotNull("published_at")->orderBy("id", "desc")->Paginate(5);
         $blogposts->makeHidden(["content"]);
 
         $users = [];
@@ -54,7 +55,10 @@ class BlogpostController extends Controller
         $blogpost->teaser = $request->input("teaser");
         $blogpost->content = $request->input("content");
         $blogpost->cover_url = "abc";
-        $blogpost->is_pinned = false;
+
+        if($request->publish) {
+            $blogpost->published_at = Carbon::now();
+        }
 
         if($blogpost->save()) {
             $blogpost->tags()->sync($request->input("tag_ids"));
@@ -68,16 +72,21 @@ class BlogpostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($id, Request $request) {
         $blogpost = Blogpost::findOrFail($id);
         $blogpost->user;
         $blogpost->topic;
         $blogpost->tags;
         $blogpost->comments;
         $blogpost->likesCount = $blogpost->likes()->count();
+        $blogpost->recommendationsCount = $blogpost->recommendations->count();
 
         foreach($blogpost->comments as $comment) {
             $comment->user;
+        }
+
+        if(!$blogpost->published_at && (!$request->user() || $blogpost->user->id != $request->user()->id)) {
+            return response(null, 401);
         }
 
         return new BlogpostResource($blogpost);
@@ -107,6 +116,20 @@ class BlogpostController extends Controller
         $user = $request->user();
 
         $blogpost->likes()->attach($user);
+
+        return response(null, 200);
+    }
+
+    public function recommend($id, Request $request) {
+        $blogpost = Blogpost::findOrFail($id);
+        $user = $request->user();
+        $isDelete = $request->isMethod("delete");
+
+        if($isDelete) {
+            $blogpost->recommendations()->detach($user);
+        } else {
+            $blogpost->recommendations()->sync($user);
+        }
 
         return response(null, 200);
     }

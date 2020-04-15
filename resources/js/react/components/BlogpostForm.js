@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { useHistory, useLocation } from "react-router-dom"
 
 import { addBlogpost, editBlogpost, getBlogpost, getTopics, getTags } from "../config/API.js"
 
@@ -10,12 +11,13 @@ const defaultFormState = {
     tag_ids: []
 }
 
-const BlogpostForm = ({ form }) => {
+const BlogpostForm = ({ editId }) => {
     const [formState, setFormState] = useState(defaultFormState)
     const [topics, setTopics] = useState([])
     const [tags, setTags] = useState([])
 
-    const [editId, setEditId] = useState(null)
+    const history = useHistory()
+    const location = useLocation()
 
     const handleChange = event => {
         setFormState({
@@ -37,60 +39,55 @@ const BlogpostForm = ({ form }) => {
         })
     }
 
-    const handleSubmit = event => {
-        event.preventDefault()
-        
+    const handleSave = () => handleSubmit(false)
+    const handlePublish = () => handleSubmit(true)
+
+    const handleSubmit = publish => {
         const data = {
             ...formState,
             id: editId !== null ? editId : undefined
         }
 
+        if(publish) {
+            data.publish = true
+        }
+
         ;(editId ? editBlogpost(data) : addBlogpost(data))
-        .then(() => {
-            setFormState(defaultFormState)
-            setEditId(null)
-            
-            form.dispatchEvent(new CustomEvent("change"))
-        })
-    }
-
-    const handleEdit = event => {
-        const id = event.detail.id
-
-        getBlogpost(id)
-            .then(res => {
-                const post = res.data.data
-
-                setEditId(id)
-
-                const newFormState = {...defaultFormState}
-                for(let key in newFormState) {
-                    newFormState[key] = post[key]
-                }
-                newFormState["tag_ids"] = post.tags.map(tag => tag.id)
-                
-                setFormState(newFormState)
-
-                window.scrollTo({ top: 0, behavior: "smooth" })
-            })
+        .then(() => history.push("/"))
     }
 
     useEffect(() => {
-        form.addEventListener("edit", handleEdit)
         getTopics().then(res => setTopics(res.data.data))
         getTags().then(res => setTags(res.data.data))
-
-        return () => form.removeEventListener("edit", handleEdit)
     }, [])
 
+    useEffect(() => {
+        if(editId) {
+            getBlogpost(editId)
+                .then(res => {
+                    const post = res.data.data
+
+                    const newFormState = { ...defaultFormState }
+                    for (let key in newFormState) {
+                        newFormState[key] = post[key]
+                    }
+                    newFormState["tag_ids"] = post.tags.map(tag => tag.id)
+
+                    setFormState(newFormState)
+                })
+        } else {
+            setFormState(defaultFormState)
+        }
+    }, [location])
+
     return (
-        <form onSubmit={handleSubmit} className="my-3">
+        <form onSubmit={e => e.preventDefault()} className="my-3">
             
             <h3>
                 {editId !== null ? (
-                    <> Editing Blogpost {editId} </>
+                    <> Edit Blogpost </>
                 ) : (
-                    <> Add Blogpost </>
+                    <> Create Blogpost </>
                 )}
             </h3>
 
@@ -127,7 +124,8 @@ const BlogpostForm = ({ form }) => {
                 </select>
             </div>
 
-            <input type="submit" value="Save" className="btn btn-primary"/>
+            <input onClick={handleSave} type="submit" value="Save" className="btn btn-primary mr-2"/>
+            <input onClick={handlePublish} type="submit" value="Publish" className="btn btn-primary mr-2"/>
         </form>
     )
 }

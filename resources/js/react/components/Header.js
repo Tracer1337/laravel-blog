@@ -18,7 +18,7 @@ const Header = ({ isLoggedIn, profile }) => {
                 }}>API Testing</Link>
 
                 {isLoggedIn ? (
-                    <img src={`${window.location.origin}/${profile.avatar_url}`} className="rounded-circle border border-dark" style={{ height: 40 }}/>
+                    <img src={profile.avatar_url} className="rounded-circle border border-dark" style={{ height: 40 }}/>
                 ) : null}
             </div>
 
@@ -43,6 +43,12 @@ const Header = ({ isLoggedIn, profile }) => {
                             <li className="nav-item">
                                 <Link to={"/user/"+profile.id} className="nav-link">
                                     Logged in as: {profile.username}
+                                </Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link to="/create-blogpost" className="nav-link">
+                                    Create Blogpost
                                 </Link>
                             </li>
 

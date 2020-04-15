@@ -15,7 +15,7 @@ class Blogpost extends Model
     }
 
     public function recommendations() {
-        return $this->hasMany("App\User", "recommendations");
+        return $this->belongsToMany("App\User", "recommendations");
     }
 
     public function likes() {

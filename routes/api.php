@@ -28,6 +28,10 @@ Route::delete("/blogpost/{id}", "BlogpostController@destroy");
 
 Route::post("/blogpost/like", "BlogpostController@like");
 
+Route::put("/blogpost/recommend/{id}", "BlogpostController@recommend");
+
+Route::delete("/blogpost/recommend/{id}", "BlogpostController@recommend");
+
 // Topics
 
 Route::get("/topics", "TopicsController@index");
@@ -62,8 +66,11 @@ Route::group(["prefix" => "auth", "middleware" => ["api"]], function () {
     Route::post("logout", "AuthController@logout");
 
     Route::post("register", "AuthController@register");
-
-    Route::get("profile", "AuthController@profile");
-
-    Route::post("profile", "AuthController@update");
 });
+
+// Profile
+Route::get("profile", "AuthController@profile");
+
+Route::post("profile", "AuthController@update");
+
+Route::get("profile/blogposts", "AuthController@blogposts");

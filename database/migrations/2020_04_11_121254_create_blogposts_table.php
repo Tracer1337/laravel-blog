@@ -24,7 +24,6 @@ class CreateBlogpostsTable extends Migration
             $table->timestamp("created_at")->nullable();
             $table->timestamp("published_at")->nullable();
             $table->timestamp("updated_at")->nullable();
-            $table->boolean("is_pinned");
         });
     }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useParams, useLocation, Link } from "react-router-dom"
 
-import { getUser, followUser, followsUser, unfollowUser } from "../config/API.js"
+import { getUser, followUser, followsUser, unfollowUser, removeRecommendation } from "../config/API.js"
 
 const UserPage = ({ profile }) => {
     const { id } = useParams()
@@ -13,7 +13,10 @@ const UserPage = ({ profile }) => {
     const [follows, setFollows] = useState(false)
 
     const fetchUser = () => {
-        getUser(id).then(res => setUser(res.data.data))
+        getUser(id).then(res => {
+            res.data.data.links = JSON.parse(res.data.data.links)
+            setUser(res.data.data)
+        })
     }
 
     const handleFollow = () => {
@@ -30,6 +33,10 @@ const UserPage = ({ profile }) => {
         })
     }
 
+    const handleRemoveRecommendation = id => {
+        removeRecommendation(id).then(fetchUser)
+    }
+
     useEffect(() => {
         fetchUser()
         followsUser(id).then(res => setFollows(res.data))
@@ -44,10 +51,15 @@ const UserPage = ({ profile }) => {
         )
     }
 
+    console.log(user)
+
     return (
         <div className="container my-4">
             {isProfilePage ? (
-                <Link to="/edit-profile" className="btn btn-outline-primary">Edit this page</Link>
+                <>
+                    <Link to="/edit-profile" className="btn btn-outline-primary mr-2">Edit profile</Link>
+                    <Link to="/my-blogposts" className="btn btn-outline-primary mr-2">My Posts</Link>
+                </>
             ) : null}
 
             <div className="my-4" style={{
@@ -55,11 +67,16 @@ const UserPage = ({ profile }) => {
                 gridTemplate: "80px 20px / 1fr 100px"
             }}>
                 <h3>Username: {user.username}</h3>
-                <img src={`${window.location.origin}/${user.avatar_url}`} className="rounded" style={{ 
+                <img src={user.avatar_url} className="rounded" style={{ 
                     height: 100,
                     gridArea: "1 / 2 / 3 / 3",
                 }}/>
                 <p>Followers: {user.followersCount}</p>
+                
+                <div className="mt-4">
+                    {user.links?.github && <a href={user.links.github} target="_blank" className="mr-2">Github</a>}
+                    {user.links?.website && <a href={user.links.website} target="_blank" className="mr-2">Website</a>}
+                </div>
             </div>
 
             {!isProfilePage ? (
@@ -76,10 +93,21 @@ const UserPage = ({ profile }) => {
 
             <hr className="my-4"/>
 
+            {user.biography ? (
+                <>
+                    <h4>Biography</h4>
+                    {user.biography}
+                    <hr className="my-4" />
+                </>
+            ) : null}
+
             <h4>Recommendations:</h4>
 
             {user.recommendations.map(recommendation => (
-                <Link to={"/blogpost/"+recommendation.id} key={recommendation.id}>{recommendation.title}</Link>
+                <div className="border border-grey rounded d-flex justify-content-between p-2 my-2">
+                    <Link to={"/blogpost/"+recommendation.id} key={recommendation.id}>{recommendation.title}</Link>
+                    <button className="btn btn-danger d-inline" onClick={() => handleRemoveRecommendation(recommendation.id)}>Remove</button>
+                </div>
             ))}
         </div>
     )
