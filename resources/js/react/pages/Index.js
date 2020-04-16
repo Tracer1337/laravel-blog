@@ -1,15 +1,11 @@
 import React from "react"
 
-import Blogposts from "../components/Blogposts.js"
-
-const IndexPage = ({ profile }) => {
+const Index = () => {
     return (
-        <div className="container my-4">
-            <h4>Newest Blogposts</h4>
-            
-            <Blogposts profile={profile} />
+        <div>
+            Index
         </div>
     )
 }
 
-export default IndexPage
+export default Index
