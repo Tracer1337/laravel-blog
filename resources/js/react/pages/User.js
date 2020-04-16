@@ -51,8 +51,6 @@ const UserPage = ({ profile }) => {
         )
     }
 
-    console.log(user)
-
     return (
         <div className="container my-4">
             {isProfilePage ? (
@@ -106,7 +104,7 @@ const UserPage = ({ profile }) => {
             {user.recommendations.map(recommendation => (
                 <div className="border border-grey rounded d-flex justify-content-between p-2 my-2">
                     <Link to={"/blogpost/"+recommendation.id} key={recommendation.id}>{recommendation.title}</Link>
-                    <button className="btn btn-danger d-inline" onClick={() => handleRemoveRecommendation(recommendation.id)}>Remove</button>
+                    {user.id === profile.id && <button className="btn btn-danger d-inline" onClick={() => handleRemoveRecommendation(recommendation.id)}>Remove</button>}
                 </div>
             ))}
         </div>

@@ -115,6 +115,10 @@ class BlogpostController extends Controller
         $blogpost = BlogPost::findOrFail($request->id);
         $user = $request->user();
 
+        if($blogpost->user->id == $user->id) {
+            return response(null, 403);
+        }
+
         $blogpost->likes()->attach($user);
 
         return response(null, 200);

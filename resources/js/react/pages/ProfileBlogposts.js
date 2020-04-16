@@ -1,13 +1,21 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 
-import { getProfileBlogposts } from "../config/API.js"
+import { getProfileBlogposts, deleteBlogpost } from "../config/API.js"
 
 const ProfileBlogpostsPage = () => {
     const [data, setData] = useState(null)
 
-    useEffect(() => {
+    const fetchData = () => {
         getProfileBlogposts().then(res => setData(res.data))
+    }
+
+    const handleDelete = id => {
+        deleteBlogpost(id).then(fetchData)
+    }
+
+    useEffect(() => {
+        fetchData()
     }, [])
 
     if(!data) {
@@ -31,6 +39,7 @@ const ProfileBlogpostsPage = () => {
                     <div className="d-flex">
                         <Link to={"/create-blogpost/"+post.id} className="mr-2">Edit</Link>
                         <Link to={"/blogpost/"+post.id} className="mr-2">View</Link>
+                        <button onClick={() => handleDelete(post.id)} className="btn btn-danger mr-2">Delete</button>
                     </div>
                 </div>
             ))}

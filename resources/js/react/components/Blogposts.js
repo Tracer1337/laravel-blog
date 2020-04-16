@@ -1,30 +1,15 @@
 import React, { useEffect, useState } from "react"
-import { Link, useHistory } from "react-router-dom"
+import { Link } from "react-router-dom"
 
-import { deleteBlogpost, getBlogposts } from "../config/API.js"
-
-const deletePost = id => {
-    return new Promise(resolve => {
-        deleteBlogpost(id).then(resolve)
-    })
-}
+import { getBlogposts } from "../config/API.js"
 
 const Blogposts = ({ profile }) => {
     const [data, setData] = useState()
-    const history = useHistory()
 
     const fetchPosts = (page = 1) => {
         getBlogposts(page).then(res => {
             setData(res.data)
         })
-    }
-
-    const handleEdit = id => {
-        history.push("/create-blogpost/"+id)
-    }
-
-    const handleDelete = id => {
-        deletePost(id).then(fetchPosts)
     }
 
     useEffect(() => {
@@ -38,8 +23,6 @@ const Blogposts = ({ profile }) => {
             </div>
         )
     }
-
-    console.log(data)
 
     const posts = data.data
     
@@ -62,18 +45,6 @@ const Blogposts = ({ profile }) => {
                             <li key={tag.id}>{tag.name}</li>
                         ))}
                     </ul>
-
-                    {post.user_id === profile.id ? (
-                        <div className="row">
-                            <div className="col-sm">
-                                <button className="btn btn-secondary w-100" onClick={() => handleEdit(post.id)}>Edit</button>
-                            </div>
-
-                            <div className="col-sm">
-                                <button className="btn btn-danger w-100" onClick={() => handleDelete(post.id)}>Delete</button>
-                            </div>
-                        </div>
-                    ) : null}
                 </div>
             ))}
 

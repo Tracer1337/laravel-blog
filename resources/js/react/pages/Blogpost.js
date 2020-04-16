@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useParams, Link } from "react-router-dom"
+import Markdown from "react-markdown"
 
 import { getBlogpost, addComment, editComment, deleteComment, likeBlogpost, addRecommendation } from "../config/API.js"
 
@@ -67,14 +68,21 @@ const BlogpostPage = ({ profile, isLoggedIn }) => {
         <div className="container my-3">
             <h2 className="text-center">{post.title}</h2>
             <h4>From: <Link to={"/user/"+post.user.id}>{post.user.username}</Link></h4>
-            <p>{post.content}</p>
+
+            <hr className="my-4"/>
+
+            <Markdown source={post.content}/>
+            
+            <hr className="my-4"/>
             
             <h4>Likes: {post.likesCount}</h4>
             <h4>Recommendations: {post.recommendationsCount}</h4>
 
             {isLoggedIn ? (
                 <>
-                    <button className="btn btn-primary d-block my-2" onClick={handleLike}>Like</button>
+                    {post.user_id !== profile.id ? (
+                        <button className="btn btn-primary d-block my-2" onClick={handleLike}>Like</button>
+                    ) : null} 
                     <button className="btn btn-primary d-block my-2" onClick={handleRecommend}>Recommend this post</button>
                 </>
             ) : null}

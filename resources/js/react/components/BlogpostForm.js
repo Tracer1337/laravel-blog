@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react"
+import ReactDOMServer from "react-dom/server"
 import { useHistory, useLocation } from "react-router-dom"
+import MarkdownEditor from "react-simplemde-editor"
+import Markdown from "react-markdown"
+import "easymde/dist/easymde.min.css"
 
 import { addBlogpost, editBlogpost, getBlogpost, getTopics, getTags } from "../config/API.js"
+
+const markdownEditorId = "blogpost_markdown_editor"
 
 const defaultFormState = {
     title: "",
@@ -13,17 +19,28 @@ const defaultFormState = {
 
 const BlogpostForm = ({ editId }) => {
     const [formState, setFormState] = useState(defaultFormState)
+    const [content, setContent] = useState(!editId ? (localStorage.getItem("smde_" + markdownEditorId) || "") : "")
     const [topics, setTopics] = useState([])
     const [tags, setTags] = useState([])
 
+    const [mdeInstance, setMdeInstance] = useState(null)
+
     const history = useHistory()
     const location = useLocation()
+
+    const handleMdeInstance = instance => {
+        setMdeInstance(instance)
+    }
 
     const handleChange = event => {
         setFormState({
             ...formState,
             [event.target.name]: event.target.value
         })
+    }
+
+    const handleContentChange = value => {
+        setContent(value)
     }
 
     const handleMultiSelectChange = event => {
@@ -45,6 +62,7 @@ const BlogpostForm = ({ editId }) => {
     const handleSubmit = publish => {
         const data = {
             ...formState,
+            content,
             id: editId !== null ? editId : undefined
         }
 
@@ -53,7 +71,10 @@ const BlogpostForm = ({ editId }) => {
         }
 
         ;(editId ? editBlogpost(data) : addBlogpost(data))
-        .then(() => history.push("/"))
+        .then(() => {
+            mdeInstance.clearAutosavedValue()
+            history.push("/")
+        })
     }
 
     useEffect(() => {
@@ -74,6 +95,7 @@ const BlogpostForm = ({ editId }) => {
                     newFormState["tag_ids"] = post.tags.map(tag => tag.id)
 
                     setFormState(newFormState)
+                    setContent(newFormState["content"])
                 })
         } else {
             setFormState(defaultFormState)
@@ -112,7 +134,23 @@ const BlogpostForm = ({ editId }) => {
 
             <div className="form-group">
                 <label>Content</label>
-                <textarea name="content" value={formState["content"]} onChange={handleChange} className="form-control"/>
+                <MarkdownEditor 
+                    value={content} 
+                    onChange={handleContentChange}
+                    getMdeInstance={handleMdeInstance}
+                    options={{
+                        autosave: {
+                            enabled: !editId,
+                            uniqueId: markdownEditorId
+                        },
+
+                        previewRender(text) {
+                            return ReactDOMServer.renderToString(
+                                <Markdown source={text}/>
+                            )
+                        }
+                    }}
+                />
             </div>
 
             <div className="form-group">
