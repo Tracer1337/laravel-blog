@@ -646,6 +646,35 @@ function _unsupportedIterableToArray(o, minLen) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/extends.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/extends.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _extends() {
+  module.exports = _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+module.exports = _extends;
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/inheritsLoose.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/inheritsLoose.js ***!
@@ -660,6 +689,23 @@ function _inheritsLoose(subClass, superClass) {
 }
 
 module.exports = _inheritsLoose;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
 
 /***/ }),
 
@@ -36104,6 +36150,7469 @@ var withWidth = function withWidth() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (withWidth);
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/DeleteForever.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@material-ui/icons/DeleteForever.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)(_react.default.createElement("path", {
+  d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"
+}), 'DeleteForever');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/utils/createSvgIcon.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/icons/utils/createSvgIcon.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createSvgIcon;
+
+var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js"));
+
+var _react = _interopRequireDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _SvgIcon = _interopRequireDefault(__webpack_require__(/*! @material-ui/core/SvgIcon */ "./node_modules/@material-ui/core/esm/SvgIcon/index.js"));
+
+function createSvgIcon(path, displayName) {
+  var Component = _react.default.memo(_react.default.forwardRef(function (props, ref) {
+    return _react.default.createElement(_SvgIcon.default, (0, _extends2.default)({
+      ref: ref
+    }, props), path);
+  }));
+
+  if (true) {
+    Component.displayName = "".concat(displayName, "Icon");
+  }
+
+  Component.muiName = _SvgIcon.default.muiName;
+  return Component;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Alert/Alert.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Alert/Alert.js ***!
+  \**********************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js");
+/* harmony import */ var _internal_svg_icons_SuccessOutlined__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../internal/svg-icons/SuccessOutlined */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/SuccessOutlined.js");
+/* harmony import */ var _internal_svg_icons_ReportProblemOutlined__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../internal/svg-icons/ReportProblemOutlined */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/ReportProblemOutlined.js");
+/* harmony import */ var _internal_svg_icons_ErrorOutline__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../internal/svg-icons/ErrorOutline */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/ErrorOutline.js");
+/* harmony import */ var _internal_svg_icons_InfoOutlined__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../internal/svg-icons/InfoOutlined */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/InfoOutlined.js");
+/* harmony import */ var _internal_svg_icons_Close__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../internal/svg-icons/Close */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/Close.js");
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/IconButton */ "./node_modules/@material-ui/core/esm/IconButton/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  var getColor = theme.palette.type === 'light' ? _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["darken"] : _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["lighten"];
+  var getBackgroundColor = theme.palette.type === 'light' ? _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["lighten"] : _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["darken"];
+  return {
+    /* Styles applied to the root element. */
+    root: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, theme.typography.body2, {
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: 'transparent',
+      display: 'flex',
+      padding: '6px 16px'
+    }),
+
+    /* Styles applied to the root element if `variant="standard"` and `color="success"`. */
+    standardSuccess: {
+      color: getColor(theme.palette.success.main, 0.6),
+      backgroundColor: getBackgroundColor(theme.palette.success.main, 0.9),
+      '& $icon': {
+        color: theme.palette.success.main
+      }
+    },
+
+    /* Styles applied to the root element if `variant="standard"` and `color="info"`. */
+    standardInfo: {
+      color: getColor(theme.palette.info.main, 0.6),
+      backgroundColor: getBackgroundColor(theme.palette.info.main, 0.9),
+      '& $icon': {
+        color: theme.palette.info.main
+      }
+    },
+
+    /* Styles applied to the root element if `variant="standard"` and `color="warning"`. */
+    standardWarning: {
+      color: getColor(theme.palette.warning.main, 0.6),
+      backgroundColor: getBackgroundColor(theme.palette.warning.main, 0.9),
+      '& $icon': {
+        color: theme.palette.warning.main
+      }
+    },
+
+    /* Styles applied to the root element if `variant="standard"` and `color="error"`. */
+    standardError: {
+      color: getColor(theme.palette.error.main, 0.6),
+      backgroundColor: getBackgroundColor(theme.palette.error.main, 0.9),
+      '& $icon': {
+        color: theme.palette.error.main
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="success"`. */
+    outlinedSuccess: {
+      color: getColor(theme.palette.success.main, 0.6),
+      border: "1px solid ".concat(theme.palette.success.main),
+      '& $icon': {
+        color: theme.palette.success.main
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="info"`. */
+    outlinedInfo: {
+      color: getColor(theme.palette.info.main, 0.6),
+      border: "1px solid ".concat(theme.palette.info.main),
+      '& $icon': {
+        color: theme.palette.info.main
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="warning"`. */
+    outlinedWarning: {
+      color: getColor(theme.palette.warning.main, 0.6),
+      border: "1px solid ".concat(theme.palette.warning.main),
+      '& $icon': {
+        color: theme.palette.warning.main
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="error"`. */
+    outlinedError: {
+      color: getColor(theme.palette.error.main, 0.6),
+      border: "1px solid ".concat(theme.palette.error.main),
+      '& $icon': {
+        color: theme.palette.error.main
+      }
+    },
+
+    /* Styles applied to the root element if `variant="filled"` and `color="success"`. */
+    filledSuccess: {
+      color: '#fff',
+      fontWeight: theme.typography.fontWeightMedium,
+      backgroundColor: theme.palette.success.main
+    },
+
+    /* Styles applied to the root element if `variant="filled"` and `color="info"`. */
+    filledInfo: {
+      color: '#fff',
+      fontWeight: theme.typography.fontWeightMedium,
+      backgroundColor: theme.palette.info.main
+    },
+
+    /* Styles applied to the root element if `variant="filled"` and `color="warning"`. */
+    filledWarning: {
+      color: '#fff',
+      fontWeight: theme.typography.fontWeightMedium,
+      backgroundColor: theme.palette.warning.main
+    },
+
+    /* Styles applied to the root element if `variant="filled"` and `color="error"`. */
+    filledError: {
+      color: '#fff',
+      fontWeight: theme.typography.fontWeightMedium,
+      backgroundColor: theme.palette.error.main
+    },
+
+    /* Styles applied to the icon wrapper element. */
+    icon: {
+      marginRight: 12,
+      padding: '7px 0',
+      display: 'flex',
+      fontSize: 22,
+      opacity: 0.9
+    },
+
+    /* Styles applied to the message wrapper element. */
+    message: {
+      padding: '8px 0'
+    },
+
+    /* Styles applied to the action wrapper element if `action` is provided. */
+    action: {
+      display: 'flex',
+      alignItems: 'center',
+      marginLeft: 'auto',
+      paddingLeft: 16,
+      marginRight: -8
+    }
+  };
+};
+var defaultIconMapping = {
+  success: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_svg_icons_SuccessOutlined__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    fontSize: "inherit"
+  }),
+  warning: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_svg_icons_ReportProblemOutlined__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    fontSize: "inherit"
+  }),
+  error: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_svg_icons_ErrorOutline__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    fontSize: "inherit"
+  }),
+  info: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_svg_icons_InfoOutlined__WEBPACK_IMPORTED_MODULE_10__["default"], {
+    fontSize: "inherit"
+  })
+};
+
+var _ref = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_svg_icons_Close__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  fontSize: "small"
+});
+
+var Alert = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function Alert(props, ref) {
+  var action = props.action,
+      children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$closeText = props.closeText,
+      closeText = _props$closeText === void 0 ? 'Close' : _props$closeText,
+      color = props.color,
+      icon = props.icon,
+      _props$iconMapping = props.iconMapping,
+      iconMapping = _props$iconMapping === void 0 ? defaultIconMapping : _props$iconMapping,
+      onClose = props.onClose,
+      _props$role = props.role,
+      role = _props$role === void 0 ? 'alert' : _props$role,
+      _props$severity = props.severity,
+      severity = _props$severity === void 0 ? 'success' : _props$severity,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'standard' : _props$variant,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(props, ["action", "children", "classes", "className", "closeText", "color", "icon", "iconMapping", "onClose", "role", "severity", "variant"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_6__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    role: role,
+    square: true,
+    elevation: 0,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, classes["".concat(variant).concat(Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_13__["capitalize"])(color || severity))], className),
+    ref: ref
+  }, other), icon !== false ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: classes.icon
+  }, icon || iconMapping[severity] || defaultIconMapping[severity]) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: classes.message
+  }, children), action != null ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: classes.action
+  }, action) : null, action == null && onClose ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: classes.action
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_12__["default"], {
+    size: "small",
+    "aria-label": closeText,
+    title: closeText,
+    color: "inherit",
+    onClick: onClose
+  }, _ref)) : null);
+});
+ true ? Alert.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The action to display. It renders after the message, at the end of the alert.
+   */
+  action: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * The content of the component.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * Override the default label for the *close popup* icon button.
+   *
+   * For localization purposes, you can use the provided [translations](/guides/localization/).
+   */
+  closeText: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The main color for the alert. Unless provided, the value is taken from the `severity` prop.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['error', 'info', 'success', 'warning']),
+
+  /**
+   * Override the icon displayed before the children.
+   * Unless provided, the icon is mapped to the value of the `severity` prop.
+   */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * The component maps the `severity` prop to a range of different icons,
+   * for instance success to `<SuccessOutlined>`.
+   * If you wish to change this mapping, you can provide your own.
+   * Alternatively, you can use the `icon` prop to override the icon displayed.
+   */
+  iconMapping: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.shape({
+    error: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+    info: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+    success: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+    warning: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node
+  }),
+
+  /**
+   * Callback fired when the component requests to be closed.
+   * When provided and no `action` prop is set, a close icon button is displayed that triggers the callback when clicked.
+   *
+   * @param {object} event The event source of the callback.
+   */
+  onClose: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * The ARIA role attribute of the element.
+   */
+  role: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The severity of the alert. This defines the color and icon used.
+   */
+  severity: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['error', 'info', 'success', 'warning']),
+
+  /**
+   * The variant to use.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['filled', 'outlined', 'standard'])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(styles, {
+  name: 'MuiAlert'
+})(Alert));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Alert/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Alert/index.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Alert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Alert */ "./node_modules/@material-ui/lab/esm/Alert/Alert.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Alert__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/AlertTitle/AlertTitle.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/AlertTitle/AlertTitle.js ***!
+  \********************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      fontWeight: theme.typography.fontWeightMedium,
+      marginTop: -2
+    }
+  };
+};
+var AlertTitle = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function AlertTitle(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "className"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["Typography"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    gutterBottom: true,
+    component: "div",
+    ref: ref,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_6__["default"])(classes.root, className)
+  }, other));
+});
+ true ? AlertTitle.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the component.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["withStyles"])(styles, {
+  name: 'MuiAlertTitle'
+})(AlertTitle));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/AlertTitle/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/AlertTitle/index.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AlertTitle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AlertTitle */ "./node_modules/@material-ui/lab/esm/AlertTitle/AlertTitle.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _AlertTitle__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Autocomplete/Autocomplete.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Autocomplete/Autocomplete.js ***!
+  \************************************************************************/
+/*! exports provided: createFilterOptions, styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Popper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Popper */ "./node_modules/@material-ui/core/esm/Popper/index.js");
+/* harmony import */ var _material_ui_core_ListSubheader__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/ListSubheader */ "./node_modules/@material-ui/core/esm/ListSubheader/index.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js");
+/* harmony import */ var _material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/IconButton */ "./node_modules/@material-ui/core/esm/IconButton/index.js");
+/* harmony import */ var _material_ui_core_Chip__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/Chip */ "./node_modules/@material-ui/core/esm/Chip/index.js");
+/* harmony import */ var _internal_svg_icons_Close__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../internal/svg-icons/Close */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/Close.js");
+/* harmony import */ var _internal_svg_icons_ArrowDropDown__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../internal/svg-icons/ArrowDropDown */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/ArrowDropDown.js");
+/* harmony import */ var _useAutocomplete__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../useAutocomplete */ "./node_modules/@material-ui/lab/esm/useAutocomplete/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createFilterOptions", function() { return _useAutocomplete__WEBPACK_IMPORTED_MODULE_14__["createFilterOptions"]; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  var _option;
+
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      '&:hover $clearIndicatorDirty, &$focused $clearIndicatorDirty': {
+        visibility: 'visible'
+      }
+    },
+
+    /* Pseudo-class applied to the root element if focused. */
+    focused: {},
+
+    /* Styles applied to the tag elements, e.g. the chips. */
+    tag: {
+      margin: 3,
+      maxWidth: 'calc(100% - 6px)'
+    },
+
+    /* Styles applied to the tag elements, e.g. the chips if `size="small"`. */
+    tagSizeSmall: {
+      margin: 2,
+      maxWidth: 'calc(100% - 4px)'
+    },
+
+    /* Styles applied when the popup icon is rendered. */
+    hasPopupIcon: {},
+
+    /* Styles applied when the clear icon is rendered. */
+    hasClearIcon: {},
+
+    /* Styles applied to the Input element. */
+    inputRoot: {
+      flexWrap: 'wrap',
+      '$hasPopupIcon &, $hasClearIcon &': {
+        paddingRight: 26 + 4
+      },
+      '$hasPopupIcon$hasClearIcon &': {
+        paddingRight: 52 + 4
+      },
+      '& $input': {
+        width: 0,
+        minWidth: 30
+      },
+      '&[class*="MuiInput-root"]': {
+        paddingBottom: 1,
+        '& $input': {
+          padding: 4
+        },
+        '& $input:first-child': {
+          padding: '6px 0'
+        }
+      },
+      '&[class*="MuiInput-root"][class*="MuiInput-marginDense"]': {
+        '& $input': {
+          padding: '4px 4px 5px'
+        },
+        '& $input:first-child': {
+          padding: '3px 0 6px'
+        }
+      },
+      '&[class*="MuiOutlinedInput-root"]': {
+        padding: 9,
+        '$hasPopupIcon &, $hasClearIcon &': {
+          paddingRight: 26 + 4 + 9
+        },
+        '$hasPopupIcon$hasClearIcon &': {
+          paddingRight: 52 + 4 + 9
+        },
+        '& $input': {
+          padding: '9.5px 4px'
+        },
+        '& $input:first-child': {
+          paddingLeft: 6
+        },
+        '& $endAdornment': {
+          right: 9
+        }
+      },
+      '&[class*="MuiOutlinedInput-root"][class*="MuiOutlinedInput-marginDense"]': {
+        padding: 6,
+        '& $input': {
+          padding: '4.5px 4px'
+        }
+      },
+      '&[class*="MuiFilledInput-root"]': {
+        paddingTop: 19,
+        paddingLeft: 8,
+        '$hasPopupIcon &, $hasClearIcon &': {
+          paddingRight: 26 + 4 + 9
+        },
+        '$hasPopupIcon$hasClearIcon &': {
+          paddingRight: 52 + 4 + 9
+        },
+        '& $input': {
+          padding: '9px 4px'
+        },
+        '& $endAdornment': {
+          right: 9
+        }
+      },
+      '&[class*="MuiFilledInput-root"][class*="MuiFilledInput-marginDense"]': {
+        paddingBottom: 1,
+        '& $input': {
+          padding: '4.5px 4px'
+        }
+      }
+    },
+
+    /* Styles applied to the input element. */
+    input: {
+      flexGrow: 1,
+      textOverflow: 'ellipsis',
+      opacity: 0
+    },
+
+    /* Styles applied to the input element if tag focused. */
+    inputFocused: {
+      opacity: 1
+    },
+
+    /* Styles applied to the endAdornment element. */
+    endAdornment: {
+      // We use a position absolute to support wrapping tags.
+      position: 'absolute',
+      right: 0,
+      top: 'calc(50% - 14px)' // Center vertically
+
+    },
+
+    /* Styles applied to the clear indicator. */
+    clearIndicator: {
+      marginRight: -2,
+      padding: 4,
+      visibility: 'hidden'
+    },
+
+    /* Styles applied to the clear indicator if the input is dirty. */
+    clearIndicatorDirty: {},
+
+    /* Styles applied to the popup indicator. */
+    popupIndicator: {
+      padding: 2,
+      marginRight: -2
+    },
+
+    /* Styles applied to the popup indicator if the popup is open. */
+    popupIndicatorOpen: {
+      transform: 'rotate(180deg)'
+    },
+
+    /* Styles applied to the popper element. */
+    popper: {
+      zIndex: theme.zIndex.modal
+    },
+
+    /* Styles applied to the popper element if `disablePortal={true}`. */
+    popperDisablePortal: {
+      position: 'absolute'
+    },
+
+    /* Styles applied to the `Paper` component. */
+    paper: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, theme.typography.body1, {
+      overflow: 'hidden',
+      margin: '4px 0'
+    }),
+
+    /* Styles applied to the `listbox` component. */
+    listbox: {
+      listStyle: 'none',
+      margin: 0,
+      padding: '8px 0px',
+      maxHeight: '40vh',
+      overflow: 'auto'
+    },
+
+    /* Styles applied to the loading wrapper. */
+    loading: {
+      color: theme.palette.text.secondary,
+      padding: '14px 16px'
+    },
+
+    /* Styles applied to the no option wrapper. */
+    noOptions: {
+      color: theme.palette.text.secondary,
+      padding: '14px 16px'
+    },
+
+    /* Styles applied to the option elements. */
+    option: (_option = {
+      minHeight: 48,
+      display: 'flex',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      cursor: 'pointer',
+      paddingTop: 6,
+      boxSizing: 'border-box',
+      outline: '0',
+      WebkitTapHighlightColor: 'transparent',
+      paddingBottom: 6,
+      paddingLeft: 16,
+      paddingRight: 16
+    }, Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_option, theme.breakpoints.up('sm'), {
+      minHeight: 'auto'
+    }), Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_option, '&[aria-selected="true"]', {
+      backgroundColor: theme.palette.action.selected
+    }), Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_option, '&[data-focus="true"]', {
+      backgroundColor: theme.palette.action.hover
+    }), Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_option, '&:active', {
+      backgroundColor: theme.palette.action.selected
+    }), Object(_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_1__["default"])(_option, '&[aria-disabled="true"]', {
+      opacity: theme.palette.action.disabledOpacity,
+      pointerEvents: 'none'
+    }), _option),
+
+    /* Styles applied to the group's label elements. */
+    groupLabel: {
+      backgroundColor: theme.palette.background.paper,
+      top: -8
+    },
+
+    /* Styles applied to the group's ul elements. */
+    groupUl: {
+      padding: 0,
+      '& $option': {
+        paddingLeft: 24
+      }
+    }
+  };
+};
+
+function DisablePortal(props) {
+  // eslint-disable-next-line react/prop-types
+  var anchorEl = props.anchorEl,
+      open = props.open,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(props, ["anchorEl", "open"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"]("div", other);
+}
+
+var _ref = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](_internal_svg_icons_Close__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  fontSize: "small"
+});
+
+var _ref2 = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](_internal_svg_icons_ArrowDropDown__WEBPACK_IMPORTED_MODULE_13__["default"], null);
+
+var Autocomplete = react__WEBPACK_IMPORTED_MODULE_3__["forwardRef"](function Autocomplete(props, ref) {
+  /* eslint-disable no-unused-vars */
+  var _props$autoComplete = props.autoComplete,
+      autoComplete = _props$autoComplete === void 0 ? false : _props$autoComplete,
+      _props$autoHighlight = props.autoHighlight,
+      autoHighlight = _props$autoHighlight === void 0 ? false : _props$autoHighlight,
+      _props$autoSelect = props.autoSelect,
+      autoSelect = _props$autoSelect === void 0 ? false : _props$autoSelect,
+      _props$blurOnSelect = props.blurOnSelect,
+      blurOnSelect = _props$blurOnSelect === void 0 ? false : _props$blurOnSelect,
+      ChipProps = props.ChipProps,
+      classes = props.classes,
+      className = props.className,
+      _props$clearOnEscape = props.clearOnEscape,
+      clearOnEscape = _props$clearOnEscape === void 0 ? false : _props$clearOnEscape,
+      _props$clearText = props.clearText,
+      clearText = _props$clearText === void 0 ? 'Clear' : _props$clearText,
+      _props$closeIcon = props.closeIcon,
+      closeIcon = _props$closeIcon === void 0 ? _ref : _props$closeIcon,
+      _props$closeText = props.closeText,
+      closeText = _props$closeText === void 0 ? 'Close' : _props$closeText,
+      _props$debug = props.debug,
+      debug = _props$debug === void 0 ? false : _props$debug,
+      _props$defaultValue = props.defaultValue,
+      defaultValue = _props$defaultValue === void 0 ? props.multiple ? [] : null : _props$defaultValue,
+      _props$disableClearab = props.disableClearable,
+      disableClearable = _props$disableClearab === void 0 ? false : _props$disableClearab,
+      _props$disableCloseOn = props.disableCloseOnSelect,
+      disableCloseOnSelect = _props$disableCloseOn === void 0 ? false : _props$disableCloseOn,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$disabledItemsF = props.disabledItemsFocusable,
+      disabledItemsFocusable = _props$disabledItemsF === void 0 ? false : _props$disabledItemsF,
+      _props$disableListWra = props.disableListWrap,
+      disableListWrap = _props$disableListWra === void 0 ? false : _props$disableListWra,
+      _props$disablePortal = props.disablePortal,
+      disablePortal = _props$disablePortal === void 0 ? false : _props$disablePortal,
+      filterOptions = props.filterOptions,
+      _props$filterSelected = props.filterSelectedOptions,
+      filterSelectedOptions = _props$filterSelected === void 0 ? false : _props$filterSelected,
+      _props$forcePopupIcon = props.forcePopupIcon,
+      forcePopupIcon = _props$forcePopupIcon === void 0 ? 'auto' : _props$forcePopupIcon,
+      _props$freeSolo = props.freeSolo,
+      freeSolo = _props$freeSolo === void 0 ? false : _props$freeSolo,
+      _props$getLimitTagsTe = props.getLimitTagsText,
+      getLimitTagsText = _props$getLimitTagsTe === void 0 ? function (more) {
+    return "+".concat(more);
+  } : _props$getLimitTagsTe,
+      getOptionDisabled = props.getOptionDisabled,
+      _props$getOptionLabel = props.getOptionLabel,
+      getOptionLabel = _props$getOptionLabel === void 0 ? function (x) {
+    return x;
+  } : _props$getOptionLabel,
+      getOptionSelected = props.getOptionSelected,
+      groupBy = props.groupBy,
+      idProp = props.id,
+      _props$includeInputIn = props.includeInputInList,
+      includeInputInList = _props$includeInputIn === void 0 ? false : _props$includeInputIn,
+      inputValueProp = props.inputValue,
+      _props$limitTags = props.limitTags,
+      limitTags = _props$limitTags === void 0 ? -1 : _props$limitTags,
+      _props$ListboxCompone = props.ListboxComponent,
+      ListboxComponent = _props$ListboxCompone === void 0 ? 'ul' : _props$ListboxCompone,
+      ListboxProps = props.ListboxProps,
+      _props$loading = props.loading,
+      loading = _props$loading === void 0 ? false : _props$loading,
+      _props$loadingText = props.loadingText,
+      loadingText = _props$loadingText === void 0 ? 'Loading…' : _props$loadingText,
+      _props$multiple = props.multiple,
+      multiple = _props$multiple === void 0 ? false : _props$multiple,
+      _props$noOptionsText = props.noOptionsText,
+      noOptionsText = _props$noOptionsText === void 0 ? 'No options' : _props$noOptionsText,
+      onChange = props.onChange,
+      onClose = props.onClose,
+      onInputChange = props.onInputChange,
+      onOpen = props.onOpen,
+      open = props.open,
+      _props$openOnFocus = props.openOnFocus,
+      openOnFocus = _props$openOnFocus === void 0 ? false : _props$openOnFocus,
+      _props$openText = props.openText,
+      openText = _props$openText === void 0 ? 'Open' : _props$openText,
+      options = props.options,
+      _props$PaperComponent = props.PaperComponent,
+      PaperComponent = _props$PaperComponent === void 0 ? _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_9__["default"] : _props$PaperComponent,
+      _props$PopperComponen = props.PopperComponent,
+      PopperComponentProp = _props$PopperComponen === void 0 ? _material_ui_core_Popper__WEBPACK_IMPORTED_MODULE_7__["default"] : _props$PopperComponen,
+      _props$popupIcon = props.popupIcon,
+      popupIcon = _props$popupIcon === void 0 ? _ref2 : _props$popupIcon,
+      renderGroupProp = props.renderGroup,
+      renderInput = props.renderInput,
+      renderOptionProp = props.renderOption,
+      renderTags = props.renderTags,
+      _props$selectOnFocus = props.selectOnFocus,
+      selectOnFocus = _props$selectOnFocus === void 0 ? !props.freeSolo : _props$selectOnFocus,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      valueProp = props.value,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(props, ["autoComplete", "autoHighlight", "autoSelect", "blurOnSelect", "ChipProps", "classes", "className", "clearOnEscape", "clearText", "closeIcon", "closeText", "debug", "defaultValue", "disableClearable", "disableCloseOnSelect", "disabled", "disabledItemsFocusable", "disableListWrap", "disablePortal", "filterOptions", "filterSelectedOptions", "forcePopupIcon", "freeSolo", "getLimitTagsText", "getOptionDisabled", "getOptionLabel", "getOptionSelected", "groupBy", "id", "includeInputInList", "inputValue", "limitTags", "ListboxComponent", "ListboxProps", "loading", "loadingText", "multiple", "noOptionsText", "onChange", "onClose", "onInputChange", "onOpen", "open", "openOnFocus", "openText", "options", "PaperComponent", "PopperComponent", "popupIcon", "renderGroup", "renderInput", "renderOption", "renderTags", "selectOnFocus", "size", "value"]);
+  /* eslint-enable no-unused-vars */
+
+
+  var PopperComponent = disablePortal ? DisablePortal : PopperComponentProp;
+
+  var _useAutocomplete = Object(_useAutocomplete__WEBPACK_IMPORTED_MODULE_14__["default"])(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, props, {
+    componentName: 'Autocomplete'
+  })),
+      getRootProps = _useAutocomplete.getRootProps,
+      getInputProps = _useAutocomplete.getInputProps,
+      getInputLabelProps = _useAutocomplete.getInputLabelProps,
+      getPopupIndicatorProps = _useAutocomplete.getPopupIndicatorProps,
+      getClearProps = _useAutocomplete.getClearProps,
+      getTagProps = _useAutocomplete.getTagProps,
+      getListboxProps = _useAutocomplete.getListboxProps,
+      getOptionProps = _useAutocomplete.getOptionProps,
+      value = _useAutocomplete.value,
+      dirty = _useAutocomplete.dirty,
+      id = _useAutocomplete.id,
+      popupOpen = _useAutocomplete.popupOpen,
+      focused = _useAutocomplete.focused,
+      focusedTag = _useAutocomplete.focusedTag,
+      anchorEl = _useAutocomplete.anchorEl,
+      setAnchorEl = _useAutocomplete.setAnchorEl,
+      inputValue = _useAutocomplete.inputValue,
+      groupedOptions = _useAutocomplete.groupedOptions;
+
+  var startAdornment;
+
+  if (multiple && value.length > 0) {
+    var getCustomizedTagProps = function getCustomizedTagProps(params) {
+      return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.tag, size === 'small' && classes.tagSizeSmall),
+        disabled: disabled
+      }, getTagProps(params));
+    };
+
+    if (renderTags) {
+      startAdornment = renderTags(value, getCustomizedTagProps);
+    } else {
+      startAdornment = value.map(function (option, index) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](_material_ui_core_Chip__WEBPACK_IMPORTED_MODULE_11__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+          label: getOptionLabel(option),
+          size: size
+        }, getCustomizedTagProps({
+          index: index
+        }), ChipProps));
+      });
+    }
+  }
+
+  if (limitTags > -1 && Array.isArray(startAdornment)) {
+    var more = startAdornment.length - limitTags;
+
+    if (limitTags && !focused && more > 0) {
+      startAdornment = startAdornment.splice(0, limitTags);
+      startAdornment.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"]("span", {
+        className: classes.tag,
+        key: startAdornment.length
+      }, getLimitTagsText(more)));
+    }
+  }
+
+  var defaultRenderGroup = function defaultRenderGroup(params) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"]("li", {
+      key: params.key
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](_material_ui_core_ListSubheader__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      className: classes.groupLabel,
+      component: "div"
+    }, params.group), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"]("ul", {
+      className: classes.groupUl
+    }, params.children));
+  };
+
+  var renderGroup = renderGroupProp || defaultRenderGroup;
+  var renderOption = renderOptionProp || getOptionLabel;
+
+  var renderListOption = function renderListOption(option, index) {
+    var optionProps = getOptionProps({
+      option: option,
+      index: index
+    });
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"]("li", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, optionProps, {
+      className: classes.option
+    }), renderOption(option, {
+      selected: optionProps['aria-selected'],
+      inputValue: inputValue
+    }));
+  };
+
+  var hasClearIcon = !disableClearable && !disabled;
+  var hasPopupIcon = (!freeSolo || forcePopupIcon === true) && forcePopupIcon !== false;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](react__WEBPACK_IMPORTED_MODULE_3__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"]("div", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+    ref: ref,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.root, className, focused && classes.focused, hasClearIcon && classes.hasClearIcon, hasPopupIcon && classes.hasPopupIcon)
+  }, getRootProps(other)), renderInput({
+    id: id,
+    disabled: disabled,
+    fullWidth: true,
+    size: size === 'small' ? 'small' : undefined,
+    InputLabelProps: getInputLabelProps(),
+    InputProps: {
+      ref: setAnchorEl,
+      className: classes.inputRoot,
+      startAdornment: startAdornment,
+      endAdornment: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"]("div", {
+        className: classes.endAdornment
+      }, hasClearIcon ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_10__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, getClearProps(), {
+        "aria-label": clearText,
+        title: clearText,
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.clearIndicator, dirty && classes.clearIndicatorDirty)
+      }), closeIcon) : null, hasPopupIcon ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](_material_ui_core_IconButton__WEBPACK_IMPORTED_MODULE_10__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({}, getPopupIndicatorProps(), {
+        disabled: disabled,
+        "aria-label": popupOpen ? closeText : openText,
+        title: popupOpen ? closeText : openText,
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.popupIndicator, popupOpen && classes.popupIndicatorOpen)
+      }), popupIcon) : null)
+    },
+    inputProps: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+      className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.input, focusedTag === -1 && classes.inputFocused),
+      disabled: disabled
+    }, getInputProps())
+  })), popupOpen && anchorEl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](PopperComponent, {
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.popper, disablePortal && classes.popperDisablePortal),
+    style: {
+      width: anchorEl ? anchorEl.clientWidth : null
+    },
+    role: "presentation",
+    anchorEl: anchorEl,
+    open: true
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](PaperComponent, {
+    className: classes.paper
+  }, loading && groupedOptions.length === 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"]("div", {
+    className: classes.loading
+  }, loadingText) : null, groupedOptions.length === 0 && !freeSolo && !loading ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"]("div", {
+    className: classes.noOptions
+  }, noOptionsText) : null, groupedOptions.length > 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"](ListboxComponent, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_2__["default"])({
+    className: classes.listbox
+  }, getListboxProps(), ListboxProps), groupedOptions.map(function (option, index) {
+    if (groupBy) {
+      return renderGroup({
+        key: option.key,
+        group: option.group,
+        children: option.options.map(function (option2, index2) {
+          return renderListOption(option2, option.index + index2);
+        })
+      });
+    }
+
+    return renderListOption(option, index);
+  })) : null)) : null);
+});
+ true ? Autocomplete.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * If `true`, the portion of the selected suggestion that has not been typed by the user,
+   * known as the completion string, appears inline after the input cursor in the textbox.
+   * The inline completion string is visually highlighted and has a selected state.
+   */
+  autoComplete: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * If `true`, the first option is automatically highlighted.
+   */
+  autoHighlight: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * If `true`, the selected option becomes the value of the input
+   * when the Autocomplete loses focus unless the user chooses
+   * a different option or changes the character string in the input.
+   */
+  autoSelect: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * Control if the input should be blurred when an option is selected:
+   *
+   * - `false` the input is not blurred.
+   * - `true` the input is always blurred.
+   * - `touch` the input is blurred after a touch event.
+   * - `mouse` the input is blurred after a mouse event.
+   */
+  blurOnSelect: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['mouse', 'touch']), prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool]),
+
+  /**
+   * Props applied to the [`Chip`](/api/chip/) element.
+   */
+  ChipProps: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+
+  /**
+   * If `true`, clear all values when the user presses escape and the popup is closed.
+   */
+  clearOnEscape: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * Override the default text for the *clear* icon button.
+   *
+   * For localization purposes, you can use the provided [translations](/guides/localization/).
+   */
+  clearText: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+
+  /**
+   * The icon to display in place of the default close icon.
+   */
+  closeIcon: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * Override the default text for the *close popup* icon button.
+   *
+   * For localization purposes, you can use the provided [translations](/guides/localization/).
+   */
+  closeText: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+
+  /**
+   * If `true`, the popup will ignore the blur event if the input is filled.
+   * You can inspect the popup markup with your browser tools.
+   * Consider this option when you need to customize the component.
+   */
+  debug: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * The default input value. Use when the component is not controlled.
+   */
+  defaultValue: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.any, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array]),
+
+  /**
+   * If `true`, the input can't be cleared.
+   */
+  disableClearable: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * If `true`, the popup won't close when a value is selected.
+   */
+  disableCloseOnSelect: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * If `true`, the input will be disabled.
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * If `true`, will allow focus on disabled items.
+   */
+  disabledItemsFocusable: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * If `true`, the list box in the popup will not wrap focus.
+   */
+  disableListWrap: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * Disable the portal behavior.
+   * The children stay within it's parent DOM hierarchy.
+   */
+  disablePortal: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * A filter function that determines the options that are eligible.
+   *
+   * @param {T[]} options The options to render.
+   * @param {object} state The state of the component.
+   * @returns {T[]}
+   */
+  filterOptions: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * If `true`, hide the selected options from the list box.
+   */
+  filterSelectedOptions: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * Force the visibility display of the popup icon.
+   */
+  forcePopupIcon: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['auto']), prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool]),
+
+  /**
+   * If `true`, the Autocomplete is free solo, meaning that the user input is not bound to provided options.
+   */
+  freeSolo: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * The label to display when the tags are truncated (`limitTags`).
+   *
+   * @param {number} more The number of truncated tags.
+   * @returns {ReactNode}
+   */
+  getLimitTagsText: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Used to determine the disabled state for a given option.
+   */
+  getOptionDisabled: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Used to determine the string value for a given option.
+   * It's used to fill the input (and the list box options if `renderOption` is not provided).
+   */
+  getOptionLabel: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Used to determine if an option is selected.
+   * Uses strict equality by default.
+   */
+  getOptionSelected: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * If provided, the options will be grouped under the returned string.
+   * The groupBy value is also used as the text for group headings when `renderGroup` is not provided.
+   *
+   * @param {T} options The option to group.
+   * @returns {string}
+   */
+  groupBy: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * This prop is used to help implement the accessibility logic.
+   * If you don't provide this prop. It falls back to a randomly generated id.
+   */
+  id: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+
+  /**
+   * If `true`, the highlight can move to the input.
+   */
+  includeInputInList: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * The input value.
+   */
+  inputValue: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+
+  /**
+   * The maximum number of tags that will be visible when not focused.
+   * Set `-1` to disable the limit.
+   */
+  limitTags: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number,
+
+  /**
+   * The component used to render the listbox.
+   */
+  ListboxComponent: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.elementType,
+
+  /**
+   * Props applied to the Listbox element.
+   */
+  ListboxProps: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+
+  /**
+   * If `true`, the component is in a loading state.
+   */
+  loading: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * Text to display when in a loading state.
+   *
+   * For localization purposes, you can use the provided [translations](/guides/localization/).
+   */
+  loadingText: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * If `true`, `value` must be an array and the menu will support multiple selections.
+   */
+  multiple: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * Text to display when there are no options.
+   *
+   * For localization purposes, you can use the provided [translations](/guides/localization/).
+   */
+  noOptionsText: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * Callback fired when the value changes.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {T} value
+   * @param {string} reason One of "create-option", "select-option", "remove-option", "blur" or "clear".
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Callback fired when the popup requests to be closed.
+   * Use in controlled mode (see open).
+   *
+   * @param {object} event The event source of the callback.
+   * @param {string} reason Can be: `"toggleInput"`, `"escape"`, `"select-option"`, `"blur"`.
+   */
+  onClose: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Callback fired when the input value changes.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {string} value The new value of the text input.
+   * @param {string} reason Can be: `"input"` (user input), `"reset"` (programmatic change), `"clear"`.
+   */
+  onInputChange: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Callback fired when the popup requests to be opened.
+   * Use in controlled mode (see open).
+   *
+   * @param {object} event The event source of the callback.
+   */
+  onOpen: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Control the popup` open state.
+   */
+  open: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * If `true`, the popup will open on input focus.
+   */
+  openOnFocus: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * Override the default text for the *open popup* icon button.
+   *
+   * For localization purposes, you can use the provided [translations](/guides/localization/).
+   */
+  openText: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+
+  /**
+   * Array of options.
+   */
+  options: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array.isRequired,
+
+  /**
+   * The component used to render the body of the popup.
+   */
+  PaperComponent: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.elementType,
+
+  /**
+   * The component used to position the popup.
+   */
+  PopperComponent: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.elementType,
+
+  /**
+   * The icon to display in place of the default popup icon.
+   */
+  popupIcon: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * Render the group.
+   *
+   * @param {any} option The group to render.
+   * @returns {ReactNode}
+   */
+  renderGroup: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Render the input.
+   *
+   * @param {object} params
+   * @returns {ReactNode}
+   */
+  renderInput: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func.isRequired,
+
+  /**
+   * Render the option, use `getOptionLabel` by default.
+   *
+   * @param {T} option The option to render.
+   * @param {object} state The state of the component.
+   * @returns {ReactNode}
+   */
+  renderOption: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Render the selected value.
+   *
+   * @param {T[]} value The `value` provided to the component.
+   * @param {function} getTagProps A tag props getter.
+   * @returns {ReactNode}
+   */
+  renderTags: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * If `true`, the input's text will be selected on focus.
+   * It helps the user clear the selected value.
+   */
+  selectOnFocus: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * The size of the autocomplete.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['medium', 'small']),
+
+  /**
+   * The value of the autocomplete.
+   *
+   * The value must have reference equality with the option in order to be selected.
+   * You can customize the equality behavior with the `getOptionSelected` prop.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.any, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["withStyles"])(styles, {
+  name: 'MuiAutocomplete'
+})(Autocomplete));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Autocomplete/index.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Autocomplete/index.js ***!
+  \*****************************************************************/
+/*! exports provided: default, createFilterOptions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Autocomplete__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Autocomplete */ "./node_modules/@material-ui/lab/esm/Autocomplete/Autocomplete.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Autocomplete__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createFilterOptions", function() { return _Autocomplete__WEBPACK_IMPORTED_MODULE_0__["createFilterOptions"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/AvatarGroup/AvatarGroup.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/AvatarGroup/AvatarGroup.js ***!
+  \**********************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_is__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Avatar */ "./node_modules/@material-ui/core/esm/Avatar/index.js");
+
+
+
+
+
+
+
+
+var SPACINGS = {
+  small: -16,
+  medium: null
+};
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'flex'
+    },
+
+    /* Styles applied to the avatar elements. */
+    avatar: {
+      border: "2px solid ".concat(theme.palette.background.default),
+      marginLeft: -8
+    }
+  };
+};
+var AvatarGroup = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function AvatarGroup(props, ref) {
+  var childrenProp = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$spacing = props.spacing,
+      spacing = _props$spacing === void 0 ? 'medium' : _props$spacing,
+      _props$max = props.max,
+      max = _props$max === void 0 ? 5 : _props$max,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["children", "classes", "className", "spacing", "max"]);
+
+  var children = react__WEBPACK_IMPORTED_MODULE_2__["Children"].toArray(childrenProp).filter(function (child) {
+    if (true) {
+      if (Object(react_is__WEBPACK_IMPORTED_MODULE_4__["isFragment"])(child)) {
+        console.error(["Material-UI: the AvatarGroup component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
+      }
+    }
+
+    return react__WEBPACK_IMPORTED_MODULE_2__["isValidElement"](child);
+  });
+  var extraAvatars = children.length > max ? children.length - max : 0;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.root, className),
+    ref: ref
+  }, other), children.slice(0, children.length - extraAvatars).map(function (child, index) {
+    return react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"](child, {
+      className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(child.props.className, classes.avatar),
+      style: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        zIndex: children.length - index,
+        marginLeft: spacing && SPACINGS[spacing] !== undefined ? SPACINGS[spacing] : -spacing
+      }, child.props.style)
+    });
+  }), extraAvatars ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_material_ui_core_Avatar__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    className: classes.avatar,
+    style: {
+      zIndex: 0,
+      marginLeft: spacing && SPACINGS[spacing] !== undefined ? SPACINGS[spacing] : -spacing
+    }
+  }, "+", extraAvatars) : null);
+});
+ true ? AvatarGroup.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The avatars to stack.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * Max avatars to show before +x.
+   */
+  max: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * Spacing between avatars.
+   */
+  spacing: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['medium', 'small']), prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["withStyles"])(styles, {
+  name: 'MuiAvatarGroup'
+})(AvatarGroup));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/AvatarGroup/index.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/AvatarGroup/index.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AvatarGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AvatarGroup */ "./node_modules/@material-ui/lab/esm/AvatarGroup/AvatarGroup.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _AvatarGroup__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Pagination/Pagination.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Pagination/Pagination.js ***!
+  \********************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _usePagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./usePagination */ "./node_modules/@material-ui/lab/esm/Pagination/usePagination.js");
+/* harmony import */ var _PaginationItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../PaginationItem */ "./node_modules/@material-ui/lab/esm/PaginationItem/index.js");
+
+
+
+
+
+
+
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {},
+
+  /* Styles applied to the ul element. */
+  ul: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    padding: 0,
+    margin: 0,
+    listStyle: 'none'
+  }
+};
+
+function defaultGetAriaLabel(type, page, selected) {
+  if (type === 'page') {
+    return "".concat(selected ? '' : 'Go to ', "page ").concat(page);
+  }
+
+  return "Go to ".concat(type, " page");
+}
+
+var Pagination = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function Pagination(props, ref) {
+  var boundaryCount = props.boundaryCount,
+      classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'standard' : _props$color,
+      count = props.count,
+      defaultPage = props.defaultPage,
+      disabled = props.disabled,
+      _props$getItemAriaLab = props.getItemAriaLabel,
+      getAriaLabel = _props$getItemAriaLab === void 0 ? defaultGetAriaLabel : _props$getItemAriaLab,
+      hideNextButton = props.hideNextButton,
+      hidePrevButton = props.hidePrevButton,
+      onChange = props.onChange,
+      page = props.page,
+      _props$renderItem = props.renderItem,
+      renderItem = _props$renderItem === void 0 ? function (item) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_PaginationItem__WEBPACK_IMPORTED_MODULE_7__["default"], item);
+  } : _props$renderItem,
+      _props$shape = props.shape,
+      shape = _props$shape === void 0 ? 'round' : _props$shape,
+      showFirstButton = props.showFirstButton,
+      showLastButton = props.showLastButton,
+      siblingCount = props.siblingCount,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'text' : _props$variant,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["boundaryCount", "classes", "className", "color", "count", "defaultPage", "disabled", "getItemAriaLabel", "hideNextButton", "hidePrevButton", "onChange", "page", "renderItem", "shape", "showFirstButton", "showLastButton", "siblingCount", "size", "variant"]);
+
+  var _usePagination = Object(_usePagination__WEBPACK_IMPORTED_MODULE_6__["default"])(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+    componentName: 'Pagination'
+  })),
+      items = _usePagination.items;
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("nav", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    "aria-label": "pagination navigation",
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className),
+    ref: ref
+  }, other), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("ul", {
+    className: classes.ul
+  }, items.map(function (item, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("li", {
+      key: index
+    }, renderItem(Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, item, {
+      color: color,
+      'aria-label': getAriaLabel(item.type, item.page, item.selected),
+      shape: shape,
+      size: size,
+      variant: variant
+    })));
+  })));
+}); // @default tags synced with default values from usePagination
+
+ true ? Pagination.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Number of always visible pages at the beginning and end.
+   * @default 1
+   */
+  boundaryCount: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The active color.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['default', 'primary', 'secondary']),
+
+  /**
+   * The total number of pages.
+   * @default 1
+   */
+  count: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * The page selected by default when the component is uncontrolled.
+   * @default 1
+   */
+  defaultPage: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * If `true`, the pagination component will be disabled.
+   * @default false
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * Accepts a function which returns a string value that provides a user-friendly name for the current page.
+   *
+   * For localization purposes, you can use the provided [translations](/guides/localization/).
+   *
+   * @param {string} type The link or button type to format ('page' | 'first' | 'last' | 'next' | 'previous'). Defaults to 'page'.
+   * @param {number} page The page number to format.
+   * @param {bool} selected If true, the current page is selected.
+   * @returns {string}
+   */
+  getItemAriaLabel: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * If `true`, hide the next-page button.
+   * @default false
+   */
+  hideNextButton: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * If `true`, hide the previous-page button.
+   * @default false
+   */
+  hidePrevButton: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * Callback fired when the page is changed.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {number} page The page selected.
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * The current page.
+   */
+  page: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * Render the item.
+   *
+   * @param {object} params The props to spread on a PaginationItem.
+   * @returns {ReactNode}
+   */
+  renderItem: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * The shape of the pagination items.
+   */
+  shape: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['round', 'rounded']),
+
+  /**
+   * If `true`, show the first-page button.
+   * @default false
+   */
+  showFirstButton: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * If `true`, show the last-page button.
+   * @default false
+   */
+  showLastButton: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * Number of always visible pages before and after the current page.
+   * @default 1
+   */
+  siblingCount: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * The size of the pagination component.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['large', 'medium', 'small']),
+
+  /**
+   * The variant to use.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['outlined', 'text'])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(styles, {
+  name: 'MuiPagination'
+})(Pagination));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Pagination/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Pagination/index.js ***!
+  \***************************************************************/
+/*! exports provided: default, usePagination */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Pagination */ "./node_modules/@material-ui/lab/esm/Pagination/Pagination.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Pagination__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _usePagination__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./usePagination */ "./node_modules/@material-ui/lab/esm/Pagination/usePagination.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePagination", function() { return _usePagination__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Pagination/usePagination.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Pagination/usePagination.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return usePagination; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+
+
+
+function usePagination() {
+  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+  // keep default values in sync with @default tags in Pagination.propTypes
+  var _props$boundaryCount = props.boundaryCount,
+      boundaryCountProp = _props$boundaryCount === void 0 ? 1 : _props$boundaryCount,
+      _props$componentName = props.componentName,
+      componentName = _props$componentName === void 0 ? 'usePagination' : _props$componentName,
+      _props$count = props.count,
+      count = _props$count === void 0 ? 1 : _props$count,
+      _props$defaultPage = props.defaultPage,
+      defaultPage = _props$defaultPage === void 0 ? 1 : _props$defaultPage,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$hideNextButton = props.hideNextButton,
+      hideNextButton = _props$hideNextButton === void 0 ? false : _props$hideNextButton,
+      _props$hidePrevButton = props.hidePrevButton,
+      hidePrevButton = _props$hidePrevButton === void 0 ? false : _props$hidePrevButton,
+      handleChange = props.onChange,
+      pageProp = props.page,
+      _props$showFirstButto = props.showFirstButton,
+      showFirstButton = _props$showFirstButto === void 0 ? false : _props$showFirstButto,
+      _props$showLastButton = props.showLastButton,
+      showLastButton = _props$showLastButton === void 0 ? false : _props$showLastButton,
+      _props$siblingCount = props.siblingCount,
+      siblingCount = _props$siblingCount === void 0 ? 1 : _props$siblingCount,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__["default"])(props, ["boundaryCount", "componentName", "count", "defaultPage", "disabled", "hideNextButton", "hidePrevButton", "onChange", "page", "showFirstButton", "showLastButton", "siblingCount"]); // TODO: Update all formulae to remove this adjustment
+
+
+  var boundaryCount = boundaryCountProp - 1;
+
+  var _useControlled = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_4__["useControlled"])({
+    controlled: pageProp,
+    default: defaultPage,
+    name: componentName,
+    state: 'page'
+  }),
+      _useControlled2 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useControlled, 2),
+      page = _useControlled2[0],
+      setPageState = _useControlled2[1];
+
+  var handleClick = function handleClick(event, value) {
+    if (!pageProp) {
+      setPageState(value);
+    }
+
+    if (handleChange) {
+      handleChange(event, value);
+    }
+  }; // https://dev.to/namirsab/comment/2050
+
+
+  var range = function range(start, end) {
+    var length = end - start + 1;
+    return Array.from({
+      length: length
+    }, function (_, i) {
+      return start + i;
+    });
+  };
+
+  var startPages = range(1, Math.min(boundaryCount + 1, count));
+  var endPages = range(Math.max(count - boundaryCount, boundaryCount + 2), count);
+  var siblingsStart = Math.max(Math.min( // Natural start
+  page - siblingCount, // Lower boundary when page is high
+  count - boundaryCount - siblingCount * 2 - 2), // Greater than startPages
+  boundaryCount + 3);
+  var siblingsEnd = Math.min(Math.max( // Natural end
+  page + siblingCount, // Upper boundary when page is low
+  boundaryCount + siblingCount * 2 + 3), // Less than endPages
+  endPages[0] - 2); // Basic list of items to render
+  // e.g. itemList = ['first', 'previous', 1, 'ellipsis', 4, 5, 6, 'ellipsis', 10, 'next', 'last']
+
+  var itemList = [].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(showFirstButton ? ['first'] : []), Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(hidePrevButton ? [] : ['previous']), Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(startPages), Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(siblingsStart > boundaryCount + 3 ? ['start-ellipsis'] : 2 + boundaryCount < count - boundaryCount - 1 ? [2 + boundaryCount] : []), Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(range(siblingsStart, siblingsEnd)), Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(siblingsEnd < count - boundaryCount - 2 ? ['end-ellipsis'] : count - boundaryCount - 1 > boundaryCount + 1 ? [count - boundaryCount - 1] : []), Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(endPages), Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(hideNextButton ? [] : ['next']), Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(showLastButton ? ['last'] : [])); // Map the button type to its page number
+
+  var buttonPage = function buttonPage(type) {
+    switch (type) {
+      case 'first':
+        return 1;
+
+      case 'previous':
+        return page - 1;
+
+      case 'next':
+        return page + 1;
+
+      case 'last':
+        return count;
+
+      default:
+        return null;
+    }
+  }; // Convert the basic item list to PaginationItem props objects
+
+
+  var items = itemList.map(function (item) {
+    return typeof item === 'number' ? {
+      onClick: function onClick(event) {
+        handleClick(event, item);
+      },
+      type: 'page',
+      page: item,
+      selected: item === page,
+      disabled: disabled,
+      'aria-current': item === page ? 'true' : undefined
+    } : {
+      onClick: function onClick(event) {
+        handleClick(event, buttonPage(item));
+      },
+      type: item,
+      page: buttonPage(item),
+      selected: false,
+      disabled: disabled || item.indexOf('ellipsis') === -1 && (item === 'next' || item === 'last' ? page >= count : page <= 1)
+    };
+  });
+  return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    items: items
+  }, other);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/PaginationItem/PaginationItem.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/PaginationItem/PaginationItem.js ***!
+  \****************************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_ButtonBase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/ButtonBase */ "./node_modules/@material-ui/core/esm/ButtonBase/index.js");
+/* harmony import */ var _internal_svg_icons_FirstPage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../internal/svg-icons/FirstPage */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/FirstPage.js");
+/* harmony import */ var _internal_svg_icons_LastPage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../internal/svg-icons/LastPage */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/LastPage.js");
+/* harmony import */ var _internal_svg_icons_NavigateBefore__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../internal/svg-icons/NavigateBefore */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateBefore.js");
+/* harmony import */ var _internal_svg_icons_NavigateNext__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../internal/svg-icons/NavigateNext */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateNext.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, theme.typography.body2, {
+      borderRadius: 32 / 2,
+      textAlign: 'center',
+      boxSizing: 'border-box',
+      minWidth: 32,
+      height: 32,
+      padding: '0 6px',
+      margin: '0 3px',
+      color: theme.palette.text.primary
+    }),
+
+    /* Styles applied to the root element if `type="page"`. */
+    page: {
+      transition: theme.transitions.create(['color', 'background-color'], {
+        duration: theme.transitions.duration.short
+      }),
+      '&:hover': {
+        backgroundColor: theme.palette.action.hover,
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: 'transparent'
+        }
+      },
+      '&$focusVisible': {
+        backgroundColor: theme.palette.action.focus
+      },
+      '&$selected': {
+        backgroundColor: theme.palette.action.selected,
+        '&:hover, &$focusVisible': {
+          backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.action.selected, theme.palette.action.selectedOpacity + theme.palette.action.hoverOpacity),
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: 'transparent'
+          }
+        },
+        '&$disabled': {
+          opacity: 1,
+          color: theme.palette.action.disabled,
+          backgroundColor: theme.palette.action.selected
+        }
+      },
+      '&$disabled': {
+        opacity: theme.palette.action.disabledOpacity
+      }
+    },
+
+    /* Styles applied applied to the root element if `size="small"`. */
+    sizeSmall: {
+      minWidth: 26,
+      height: 26,
+      borderRadius: 26 / 2,
+      margin: '0 1px',
+      padding: '0 4px',
+      '& $icon': {
+        fontSize: theme.typography.pxToRem(18)
+      }
+    },
+
+    /* Styles applied applied to the root element if `size="large"`. */
+    sizeLarge: {
+      minWidth: 40,
+      height: 40,
+      borderRadius: 40 / 2,
+      padding: '0 10px',
+      fontSize: theme.typography.pxToRem(15),
+      '& $icon': {
+        fontSize: theme.typography.pxToRem(22)
+      }
+    },
+
+    /* Styles applied to the root element if `variant="text"` and `color="primary"`. */
+    textPrimary: {
+      '&$selected': {
+        color: theme.palette.primary.contrastText,
+        backgroundColor: theme.palette.primary.main,
+        '&:hover, &$focusVisible': {
+          backgroundColor: theme.palette.primary.dark,
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: theme.palette.primary.main
+          }
+        },
+        '&$disabled': {
+          color: theme.palette.action.disabled
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `variant="text"` and `color="secondary"`. */
+    textSecondary: {
+      '&$selected': {
+        color: theme.palette.secondary.contrastText,
+        backgroundColor: theme.palette.secondary.main,
+        '&:hover, &$focusVisible': {
+          backgroundColor: theme.palette.secondary.dark,
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: theme.palette.secondary.main
+          }
+        },
+        '&$disabled': {
+          color: theme.palette.action.disabled
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `outlined="true"`. */
+    outlined: {
+      border: "1px solid ".concat(theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)'),
+      '&$selected': {
+        '&$disabled': {
+          border: "1px solid ".concat(theme.palette.action.disabledBackground)
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="primary"`. */
+    outlinedPrimary: {
+      '&$selected': {
+        color: theme.palette.primary.main,
+        border: "1px solid ".concat(Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.primary.main, 0.5)),
+        backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.primary.main, theme.palette.action.activatedOpacity),
+        '&:hover, &$focusVisible': {
+          backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.primary.main, theme.palette.action.activatedOpacity + theme.palette.action.hoverOpacity),
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: 'transparent'
+          }
+        },
+        '&$disabled': {
+          color: theme.palette.action.disabled
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"` and `color="secondary"`. */
+    outlinedSecondary: {
+      '&$selected': {
+        color: theme.palette.secondary.main,
+        border: "1px solid ".concat(Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.secondary.main, 0.5)),
+        backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.secondary.main, theme.palette.action.activatedOpacity),
+        '&:hover, &$focusVisible': {
+          backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.secondary.main, theme.palette.action.activatedOpacity + theme.palette.action.hoverOpacity),
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: 'transparent'
+          }
+        },
+        '&$disabled': {
+          color: theme.palette.action.disabled
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `rounded="true"`. */
+    rounded: {
+      borderRadius: theme.shape.borderRadius
+    },
+
+    /* Styles applied to the root element if `type="start-ellipsis"` or `type="end-ellipsis"`. */
+    ellipsis: {
+      height: 'auto',
+      '&$disabled': {
+        opacity: theme.palette.action.disabledOpacity
+      }
+    },
+
+    /* Pseudo-class applied to the root element if keyboard focused. */
+    focusVisible: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Pseudo-class applied to the root element if `selected={true}`. */
+    selected: {},
+
+    /* Styles applied to the icon element. */
+    icon: {
+      fontSize: theme.typography.pxToRem(20),
+      margin: '0 -8px'
+    }
+  };
+};
+var PaginationItem = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function PaginationItem(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'standard' : _props$color,
+      component = props.component,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      page = props.page,
+      _props$selected = props.selected,
+      selected = _props$selected === void 0 ? false : _props$selected,
+      _props$shape = props.shape,
+      shape = _props$shape === void 0 ? 'round' : _props$shape,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      _props$type = props.type,
+      type = _props$type === void 0 ? 'page' : _props$type,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'text' : _props$variant,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(props, ["classes", "className", "color", "component", "disabled", "page", "selected", "shape", "size", "type", "variant"]);
+
+  var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["useTheme"])();
+  var normalizedIcons = theme.direction === 'rtl' ? {
+    previous: _internal_svg_icons_NavigateNext__WEBPACK_IMPORTED_MODULE_10__["default"],
+    next: _internal_svg_icons_NavigateBefore__WEBPACK_IMPORTED_MODULE_9__["default"],
+    last: _internal_svg_icons_FirstPage__WEBPACK_IMPORTED_MODULE_7__["default"],
+    first: _internal_svg_icons_LastPage__WEBPACK_IMPORTED_MODULE_8__["default"]
+  } : {
+    previous: _internal_svg_icons_NavigateBefore__WEBPACK_IMPORTED_MODULE_9__["default"],
+    next: _internal_svg_icons_NavigateNext__WEBPACK_IMPORTED_MODULE_10__["default"],
+    first: _internal_svg_icons_FirstPage__WEBPACK_IMPORTED_MODULE_7__["default"],
+    last: _internal_svg_icons_LastPage__WEBPACK_IMPORTED_MODULE_8__["default"]
+  };
+  var Icon = normalizedIcons[type];
+  return type === 'start-ellipsis' || type === 'end-ellipsis' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    ref: ref,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, classes.ellipsis, disabled && classes.disabled, size !== 'medium' && classes["size".concat(Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_11__["capitalize"])(size))])
+  }, "\u2026") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_material_ui_core_ButtonBase__WEBPACK_IMPORTED_MODULE_6__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    ref: ref,
+    component: component,
+    disabled: disabled,
+    focusVisibleClassName: classes.focusVisible,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, classes.page, classes[variant], classes[shape], className, color !== 'standard' && classes["".concat(variant).concat(Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_11__["capitalize"])(color))], disabled && classes.disabled, selected && classes.selected, size !== 'medium' && classes["size".concat(Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_11__["capitalize"])(size))])
+  }, other), type === 'page' && page, Icon ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](Icon, {
+    className: classes.icon
+  }) : null);
+});
+ true ? PaginationItem.propTypes = {
+  /**
+   * @ignore
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The active color.
+   */
+  color: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['standard', 'primary', 'secondary']),
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.elementType,
+
+  /**
+   * If `true`, the item will be disabled.
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The current page number.
+   */
+  page: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * If `true` the pagination item is selected.
+   */
+  selected: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The shape of the pagination item.
+   */
+  shape: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['round', 'rounded']),
+
+  /**
+   * The size of the pagination item.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['small', 'medium', 'large']),
+
+  /**
+   * The type of pagination item.
+   */
+  type: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['page', 'first', 'last', 'next', 'previous', 'start-ellipsis', 'end-ellipsis']),
+
+  /**
+   * The pagination item variant.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['text', 'outlined'])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(styles, {
+  name: 'MuiPaginationItem'
+})(PaginationItem));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/PaginationItem/index.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/PaginationItem/index.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PaginationItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PaginationItem */ "./node_modules/@material-ui/lab/esm/PaginationItem/PaginationItem.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _PaginationItem__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Rating/Rating.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Rating/Rating.js ***!
+  \************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/utils */ "./node_modules/@material-ui/utils/esm/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+/* harmony import */ var _internal_svg_icons_Star__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../internal/svg-icons/Star */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/Star.js");
+
+
+
+
+
+
+
+
+
+
+function clamp(value, min, max) {
+  if (value < min) {
+    return min;
+  }
+
+  if (value > max) {
+    return max;
+  }
+
+  return value;
+}
+
+function getDecimalPrecision(num) {
+  var decimalPart = num.toString().split('.')[1];
+  return decimalPart ? decimalPart.length : 0;
+}
+
+function roundValueToPrecision(value, precision) {
+  if (value == null) {
+    return value;
+  }
+
+  var nearest = Math.round(value / precision) * precision;
+  return Number(nearest.toFixed(getDecimalPrecision(precision)));
+}
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'inline-flex',
+      position: 'relative',
+      fontSize: theme.typography.pxToRem(24),
+      color: '#ffb400',
+      cursor: 'pointer',
+      textAlign: 'left',
+      WebkitTapHighlightColor: 'transparent',
+      '&$disabled': {
+        opacity: 0.5,
+        pointerEvents: 'none'
+      },
+      '&$focusVisible $iconActive': {
+        outline: '1px solid #999'
+      }
+    },
+
+    /* Styles applied to the root element if `size="small"`. */
+    sizeSmall: {
+      fontSize: theme.typography.pxToRem(18)
+    },
+
+    /* Styles applied to the root element if `size="large"`. */
+    sizeLarge: {
+      fontSize: theme.typography.pxToRem(30)
+    },
+
+    /* Styles applied to the root element if `readOnly={true}`. */
+    readOnly: {
+      pointerEvents: 'none'
+    },
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Pseudo-class applied to the root element if keyboard focused. */
+    focusVisible: {},
+
+    /* Visually hide an element. */
+    visuallyhidden: {
+      border: 0,
+      clip: 'rect(0 0 0 0)',
+      height: 1,
+      margin: -1,
+      color: '#000',
+      overflow: 'hidden',
+      padding: 0,
+      position: 'absolute',
+      top: 20,
+      width: 1
+    },
+
+    /* Styles applied to the pristine label. */
+    pristine: {
+      'input:focus + &': {
+        top: 0,
+        bottom: 0,
+        position: 'absolute',
+        outline: '1px solid #999',
+        width: '100%'
+      }
+    },
+
+    /* Styles applied to the label elements. */
+    label: {
+      cursor: 'inherit'
+    },
+
+    /* Styles applied to the icon wrapping elements. */
+    icon: {
+      display: 'flex',
+      transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest
+      }),
+      // Fix mouseLeave issue.
+      // https://github.com/facebook/react/issues/4492
+      pointerEvents: 'none'
+    },
+
+    /* Styles applied to the icon wrapping elements when empty. */
+    iconEmpty: {
+      color: theme.palette.action.disabled
+    },
+
+    /* Styles applied to the icon wrapping elements when filled. */
+    iconFilled: {},
+
+    /* Styles applied to the icon wrapping elements when hover. */
+    iconHover: {},
+
+    /* Styles applied to the icon wrapping elements when focus. */
+    iconFocus: {},
+
+    /* Styles applied to the icon wrapping elements when active. */
+    iconActive: {
+      transform: 'scale(1.2)'
+    },
+
+    /* Styles applied to the icon wrapping elements when decimals are necessary. */
+    decimal: {
+      position: 'relative'
+    }
+  };
+};
+
+function IconContainer(props) {
+  var value = props.value,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["value"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", other);
+}
+
+ true ? IconContainer.propTypes = {
+  value: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number.isRequired
+} : undefined;
+var defaultIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_svg_icons_Star__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  fontSize: "inherit"
+});
+
+function defaultLabelText(value) {
+  return "".concat(value, " Star").concat(value !== 1 ? 's' : '');
+}
+
+var Rating = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function Rating(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$defaultValue = props.defaultValue,
+      defaultValue = _props$defaultValue === void 0 ? null : _props$defaultValue,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      emptyIcon = props.emptyIcon,
+      _props$emptyLabelText = props.emptyLabelText,
+      emptyLabelText = _props$emptyLabelText === void 0 ? 'Empty' : _props$emptyLabelText,
+      _props$getLabelText = props.getLabelText,
+      getLabelText = _props$getLabelText === void 0 ? defaultLabelText : _props$getLabelText,
+      _props$icon = props.icon,
+      icon = _props$icon === void 0 ? defaultIcon : _props$icon,
+      _props$IconContainerC = props.IconContainerComponent,
+      IconContainerComponent = _props$IconContainerC === void 0 ? IconContainer : _props$IconContainerC,
+      _props$max = props.max,
+      max = _props$max === void 0 ? 5 : _props$max,
+      nameProp = props.name,
+      onChange = props.onChange,
+      onChangeActive = props.onChangeActive,
+      onMouseLeave = props.onMouseLeave,
+      onMouseMove = props.onMouseMove,
+      _props$precision = props.precision,
+      precision = _props$precision === void 0 ? 1 : _props$precision,
+      _props$readOnly = props.readOnly,
+      readOnly = _props$readOnly === void 0 ? false : _props$readOnly,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      valueProp = props.value,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["classes", "className", "defaultValue", "disabled", "emptyIcon", "emptyLabelText", "getLabelText", "icon", "IconContainerComponent", "max", "name", "onChange", "onChangeActive", "onMouseLeave", "onMouseMove", "precision", "readOnly", "size", "value"]);
+
+  var name = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_7__["unstable_useId"])(nameProp);
+
+  var _React$useRef = react__WEBPACK_IMPORTED_MODULE_2__["useRef"](valueProp !== undefined),
+      isControlled = _React$useRef.current;
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_2__["useState"](defaultValue),
+      valueState = _React$useState[0],
+      setValueState = _React$useState[1];
+
+  var valueDerived = isControlled ? valueProp : valueState;
+
+  if (true) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    react__WEBPACK_IMPORTED_MODULE_2__["useEffect"](function () {
+      if (isControlled !== (valueProp !== undefined)) {
+        console.error(["Material-UI: A component is changing ".concat(isControlled ? 'a ' : 'an un', "controlled Rating to be ").concat(isControlled ? 'un' : '', "controlled."), 'Elements should not switch from uncontrolled to controlled (or vice versa).', 'Decide between using a controlled or uncontrolled Rating ' + 'element for the lifetime of the component.', 'More info: https://fb.me/react-controlled-components'].join('\n'));
+      }
+    }, [valueProp, isControlled]);
+  }
+
+  var valueRounded = roundValueToPrecision(valueDerived, precision);
+  var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["useTheme"])();
+
+  var _React$useState2 = react__WEBPACK_IMPORTED_MODULE_2__["useState"]({
+    hover: -1,
+    focus: -1
+  }),
+      _React$useState2$ = _React$useState2[0],
+      hover = _React$useState2$.hover,
+      focus = _React$useState2$.focus,
+      setState = _React$useState2[1];
+
+  var value = valueRounded;
+
+  if (hover !== -1) {
+    value = hover;
+  }
+
+  if (focus !== -1) {
+    value = focus;
+  }
+
+  var _useIsFocusVisible = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_7__["useIsFocusVisible"])(),
+      isFocusVisible = _useIsFocusVisible.isFocusVisible,
+      onBlurVisible = _useIsFocusVisible.onBlurVisible,
+      focusVisibleRef = _useIsFocusVisible.ref;
+
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_2__["useState"](false),
+      focusVisible = _React$useState3[0],
+      setFocusVisible = _React$useState3[1];
+
+  var rootRef = react__WEBPACK_IMPORTED_MODULE_2__["useRef"]();
+  var handleFocusRef = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_7__["useForkRef"])(focusVisibleRef, rootRef);
+  var handleRef = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_7__["useForkRef"])(handleFocusRef, ref);
+
+  var handleMouseMove = function handleMouseMove(event) {
+    if (onMouseMove) {
+      onMouseMove(event);
+    }
+
+    var rootNode = rootRef.current;
+
+    var _rootNode$getBounding = rootNode.getBoundingClientRect(),
+        right = _rootNode$getBounding.right,
+        left = _rootNode$getBounding.left;
+
+    var _rootNode$firstChild$ = rootNode.firstChild.getBoundingClientRect(),
+        width = _rootNode$firstChild$.width;
+
+    var percent;
+
+    if (theme.direction === 'rtl') {
+      percent = (right - event.clientX) / (width * max);
+    } else {
+      percent = (event.clientX - left) / (width * max);
+    }
+
+    var newHover = roundValueToPrecision(max * percent + precision / 2, precision);
+    newHover = clamp(newHover, precision, max);
+    setState(function (prev) {
+      return prev.hover === newHover && prev.focus === newHover ? prev : {
+        hover: newHover,
+        focus: newHover
+      };
+    });
+    setFocusVisible(false);
+
+    if (onChangeActive && hover !== newHover) {
+      onChangeActive(event, newHover);
+    }
+  };
+
+  var handleMouseLeave = function handleMouseLeave(event) {
+    if (onMouseLeave) {
+      onMouseLeave(event);
+    }
+
+    var newHover = -1;
+    setState({
+      hover: newHover,
+      focus: newHover
+    });
+
+    if (onChangeActive && hover !== newHover) {
+      onChangeActive(event, newHover);
+    }
+  };
+
+  var handleChange = function handleChange(event) {
+    var newValue = parseFloat(event.target.value);
+
+    if (!isControlled) {
+      setValueState(newValue);
+    }
+
+    if (onChange) {
+      onChange(event, newValue);
+    }
+  };
+
+  var handleClear = function handleClear(event) {
+    // Ignore keyboard events
+    // https://github.com/facebook/react/issues/7407
+    if (event.clientX === 0 && event.clientY === 0) {
+      return;
+    }
+
+    setState({
+      hover: -1,
+      focus: -1
+    });
+
+    if (!isControlled) {
+      setValueState(null);
+    }
+
+    if (onChange && parseFloat(event.target.value) === valueRounded) {
+      onChange(event, null);
+    }
+  };
+
+  var handleFocus = function handleFocus(event) {
+    if (isFocusVisible(event)) {
+      setFocusVisible(true);
+    }
+
+    var newFocus = parseFloat(event.target.value);
+    setState(function (prev) {
+      return {
+        hover: prev.hover,
+        focus: newFocus
+      };
+    });
+
+    if (onChangeActive && focus !== newFocus) {
+      onChangeActive(event, newFocus);
+    }
+  };
+
+  var handleBlur = function handleBlur(event) {
+    if (hover !== -1) {
+      return;
+    }
+
+    if (focusVisible !== false) {
+      setFocusVisible(false);
+      onBlurVisible();
+    }
+
+    var newFocus = -1;
+    setState(function (prev) {
+      return {
+        hover: prev.hover,
+        focus: newFocus
+      };
+    });
+
+    if (onChangeActive && focus !== newFocus) {
+      onChangeActive(event, newFocus);
+    }
+  };
+
+  var item = function item(state, labelProps) {
+    var id = "".concat(name, "-").concat(String(state.value).replace('.', '-'));
+    var container = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](IconContainerComponent, {
+      value: state.value,
+      className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.icon, state.filled ? classes.iconFilled : classes.iconEmpty, state.hover && classes.iconHover, state.focus && classes.iconFocus, state.active && classes.iconActive)
+    }, emptyIcon && !state.filled ? emptyIcon : icon);
+
+    if (readOnly) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        key: state.value
+      }, labelProps), container);
+    }
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](react__WEBPACK_IMPORTED_MODULE_2__["Fragment"], {
+      key: state.value
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("label", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      className: classes.label,
+      htmlFor: id
+    }, labelProps), container, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", {
+      className: classes.visuallyhidden
+    }, getLabelText(state.value))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("input", {
+      onFocus: handleFocus,
+      onBlur: handleBlur,
+      onChange: handleChange,
+      onClick: handleClear,
+      disabled: disabled,
+      value: state.value,
+      id: id,
+      type: "radio",
+      name: name,
+      checked: state.checked,
+      className: classes.visuallyhidden
+    }));
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    ref: handleRef,
+    onMouseMove: handleMouseMove,
+    onMouseLeave: handleMouseLeave,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className, size !== 'medium' && classes["size".concat(Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_7__["capitalize"])(size))], disabled && classes.disabled, focusVisible && classes.focusVisible, readOnly && classes.readOnly),
+    role: readOnly ? 'img' : null,
+    "aria-label": readOnly ? getLabelText(value) : null
+  }, other), Array.from(new Array(max)).map(function (_, index) {
+    var itemValue = index + 1;
+
+    if (precision < 1) {
+      var items = Array.from(new Array(1 / precision));
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", {
+        key: itemValue,
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.decimal, itemValue === Math.ceil(value) && (hover !== -1 || focus !== -1) && classes.iconActive)
+      }, items.map(function ($, indexDecimal) {
+        var itemDecimalValue = roundValueToPrecision(itemValue - 1 + (indexDecimal + 1) * precision, precision);
+        return item({
+          value: itemDecimalValue,
+          filled: itemDecimalValue <= value,
+          hover: itemDecimalValue <= hover,
+          focus: itemDecimalValue <= focus,
+          checked: itemDecimalValue === valueRounded
+        }, {
+          style: items.length - 1 === indexDecimal ? {} : {
+            width: itemDecimalValue === value ? "".concat((indexDecimal + 1) * precision * 100, "%") : '0%',
+            overflow: 'hidden',
+            zIndex: 1,
+            position: 'absolute'
+          }
+        });
+      }));
+    }
+
+    return item({
+      value: itemValue,
+      active: itemValue === value && (hover !== -1 || focus !== -1),
+      filled: itemValue <= value,
+      hover: itemValue <= hover,
+      focus: itemValue <= focus,
+      checked: itemValue === valueRounded
+    });
+  }), !readOnly && !disabled && valueRounded == null && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](react__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("input", {
+    value: "",
+    id: "".concat(name, "-empty"),
+    type: "radio",
+    name: name,
+    defaultChecked: true,
+    className: classes.visuallyhidden
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("label", {
+    className: classes.pristine,
+    htmlFor: "".concat(name, "-empty")
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", {
+    className: classes.visuallyhidden
+  }, emptyLabelText))));
+});
+ true ? Rating.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The default value. Use when the component is not controlled.
+   */
+  defaultValue: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * If `true`, the rating will be disabled.
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The icon to display when empty.
+   */
+  emptyIcon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * The label read when the rating input is empty.
+   */
+  emptyLabelText: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * Accepts a function which returns a string value that provides a user-friendly name for the current value of the rating.
+   *
+   * For localization purposes, you can use the provided [translations](/guides/localization/).
+   *
+   * @param {number} value The rating label's value to format.
+   * @returns {string}
+   */
+  getLabelText: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * The icon to display.
+   */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * The component containing the icon.
+   */
+  IconContainerComponent: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.elementType,
+
+  /**
+   * Maximum rating.
+   */
+  max: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * The name attribute of the radio `input` elements.
+   * If `readOnly` is false, the prop is required,
+   * this input name`should be unique within the parent form.
+   */
+  name: Object(_material_ui_utils__WEBPACK_IMPORTED_MODULE_5__["chainPropTypes"])(prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string, function (props) {
+    if (!props.readOnly && !props.name) {
+      return new Error(['Material-UI: the prop `name` is required (when `readOnly` is false).', 'Additionally, the input name should be unique within the parent form.'].join('\n'));
+    }
+
+    return null;
+  }),
+
+  /**
+   * Callback fired when the value changes.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {number} value The new value.
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * Callback function that is fired when the hover state changes.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {number} value The new value.
+   */
+  onChangeActive: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onMouseLeave: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onMouseMove: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * The minimum increment value change allowed.
+   */
+  precision: Object(_material_ui_utils__WEBPACK_IMPORTED_MODULE_5__["chainPropTypes"])(prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number, function (props) {
+    if (props.precision < 0.1) {
+      return new Error(['Material-UI: the prop `precision` should be above 0.1.', 'A value below this limit has an imperceptible impact.'].join('\n'));
+    }
+
+    return null;
+  }),
+
+  /**
+   * Removes all hover effects and pointer events.
+   */
+  readOnly: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The size of the rating.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['large', 'medium', 'small']),
+
+  /**
+   * The rating value.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["withStyles"])(styles, {
+  name: 'MuiRating'
+})(Rating));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Rating/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Rating/index.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Rating__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Rating */ "./node_modules/@material-ui/lab/esm/Rating/Rating.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Rating__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Skeleton/Skeleton.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Skeleton/Skeleton.js ***!
+  \****************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'block',
+      backgroundColor: theme.palette.action.hover,
+      height: '1.2em'
+    },
+
+    /* Styles applied to the root element if `variant="text"`. */
+    text: {
+      marginTop: 0,
+      marginBottom: 0,
+      height: 'auto',
+      transformOrigin: '0 60%',
+      transform: 'scale(1, 0.60)',
+      borderRadius: theme.shape.borderRadius,
+      '&:empty:before': {
+        content: '"\\00a0"'
+      }
+    },
+
+    /* Styles applied to the root element if `variant="rect"`. */
+    rect: {},
+
+    /* Styles applied to the root element if `variant="circle"`. */
+    circle: {
+      borderRadius: '50%'
+    },
+
+    /* Styles applied to the root element if `animation="pulse"`. */
+    pulse: {
+      animation: '$pulse 1.5s ease-in-out 0.5s infinite'
+    },
+    '@keyframes pulse': {
+      '0%': {
+        opacity: 1
+      },
+      '50%': {
+        opacity: 0.4
+      },
+      '100%': {
+        opacity: 1
+      }
+    },
+
+    /* Styles applied to the root element if `animation="wave"`. */
+    wave: {
+      position: 'relative',
+      overflow: 'hidden',
+      '&::after': {
+        animation: '$wave 1.6s linear 0.5s infinite',
+        background: "linear-gradient(90deg, transparent, ".concat(theme.palette.action.hover, ", transparent)"),
+        content: '""',
+        position: 'absolute',
+        transform: 'translateX(-100%)',
+        // Avoid flash during server-side hydration
+        bottom: 0,
+        left: 0,
+        right: 0,
+        top: 0,
+        zIndex: 1
+      }
+    },
+    '@keyframes wave': {
+      '0%': {
+        transform: 'translateX(-100%)'
+      },
+      '60%': {
+        // +0.5s of delay between each loop
+        transform: 'translateX(100%)'
+      },
+      '100%': {
+        transform: 'translateX(100%)'
+      }
+    }
+  };
+};
+var Skeleton = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function Skeleton(props, ref) {
+  var _props$animation = props.animation,
+      animation = _props$animation === void 0 ? 'pulse' : _props$animation,
+      classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'span' : _props$component,
+      height = props.height,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'text' : _props$variant,
+      width = props.width,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["animation", "classes", "className", "component", "height", "variant", "width"]);
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](Component, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    ref: ref,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(classes.root, classes[variant], className, animation !== false && classes[animation])
+  }, other, {
+    style: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      width: width,
+      height: height
+    }, other.style)
+  }));
+});
+ true ? Skeleton.propTypes = {
+  /**
+   * The animation.
+   * If `false` the animation effect is disabled.
+   */
+  animation: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['pulse', 'wave', false]),
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+
+  /**
+   * The component used for the root node.
+   * Either a string to use a DOM element or a component.
+   */
+  component: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.elementType,
+
+  /**
+   * Height of the skeleton.
+   * Useful when you don't want to adapt the skeleton to a text element but for instance a card.
+   */
+  height: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string]),
+
+  /**
+   * The type of content that will be rendered.
+   */
+  variant: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['text', 'rect', 'circle']),
+
+  /**
+   * Width of the skeleton.
+   * Useful when the skeleton is inside an inline element with no width of its own.
+   */
+  width: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(styles, {
+  name: 'MuiSkeleton'
+})(Skeleton));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/Skeleton/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Skeleton/index.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Skeleton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Skeleton */ "./node_modules/@material-ui/lab/esm/Skeleton/Skeleton.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _Skeleton__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/SpeedDial/SpeedDial.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/SpeedDial/SpeedDial.js ***!
+  \******************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_is__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Zoom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Zoom */ "./node_modules/@material-ui/core/esm/Zoom/index.js");
+/* harmony import */ var _material_ui_core_Fab__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Fab */ "./node_modules/@material-ui/core/esm/Fab/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+
+
+
+
+
+
+
+
+
+function getOrientation(direction) {
+  if (direction === 'up' || direction === 'down') {
+    return 'vertical';
+  }
+
+  if (direction === 'right' || direction === 'left') {
+    return 'horizontal';
+  }
+
+  return undefined;
+}
+
+function clamp(value, min, max) {
+  if (value < min) {
+    return min;
+  }
+
+  if (value > max) {
+    return max;
+  }
+
+  return value;
+}
+
+var dialRadius = 32;
+var spacingActions = 16;
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      zIndex: theme.zIndex.speedDial,
+      display: 'flex',
+      alignItems: 'center',
+      pointerEvents: 'none'
+    },
+
+    /* Styles applied to the Fab component. */
+    fab: {
+      pointerEvents: 'auto'
+    },
+
+    /* Styles applied to the root if direction="up" */
+    directionUp: {
+      flexDirection: 'column-reverse',
+      '& $actions': {
+        flexDirection: 'column-reverse',
+        marginBottom: -dialRadius,
+        paddingBottom: spacingActions + dialRadius
+      }
+    },
+
+    /* Styles applied to the root if direction="down" */
+    directionDown: {
+      flexDirection: 'column',
+      '& $actions': {
+        flexDirection: 'column',
+        marginTop: -dialRadius,
+        paddingTop: spacingActions + dialRadius
+      }
+    },
+
+    /* Styles applied to the root if direction="left" */
+    directionLeft: {
+      flexDirection: 'row-reverse',
+      '& $actions': {
+        flexDirection: 'row-reverse',
+        marginRight: -dialRadius,
+        paddingRight: spacingActions + dialRadius
+      }
+    },
+
+    /* Styles applied to the root if direction="right" */
+    directionRight: {
+      flexDirection: 'row',
+      '& $actions': {
+        flexDirection: 'row',
+        marginLeft: -dialRadius,
+        paddingLeft: spacingActions + dialRadius
+      }
+    },
+
+    /* Styles applied to the actions (`children` wrapper) element. */
+    actions: {
+      display: 'flex',
+      pointerEvents: 'auto'
+    },
+
+    /* Styles applied to the actions (`children` wrapper) element if `open={false}`. */
+    actionsClosed: {
+      transition: 'top 0s linear 0.2s',
+      pointerEvents: 'none'
+    }
+  };
+};
+var SpeedDial = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function SpeedDial(props, ref) {
+  var ariaLabel = props.ariaLabel,
+      _props$FabProps = props.FabProps;
+  _props$FabProps = _props$FabProps === void 0 ? {} : _props$FabProps;
+
+  var origDialButtonRef = _props$FabProps.ref,
+      FabProps = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_props$FabProps, ["ref"]),
+      childrenProp = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$direction = props.direction,
+      direction = _props$direction === void 0 ? 'up' : _props$direction,
+      _props$hidden = props.hidden,
+      hidden = _props$hidden === void 0 ? false : _props$hidden,
+      icon = props.icon,
+      onBlur = props.onBlur,
+      onClose = props.onClose,
+      onFocus = props.onFocus,
+      onKeyDown = props.onKeyDown,
+      onMouseEnter = props.onMouseEnter,
+      onMouseLeave = props.onMouseLeave,
+      onOpen = props.onOpen,
+      open = props.open,
+      openIcon = props.openIcon,
+      _props$TransitionComp = props.TransitionComponent,
+      TransitionComponent = _props$TransitionComp === void 0 ? _material_ui_core_Zoom__WEBPACK_IMPORTED_MODULE_7__["default"] : _props$TransitionComp,
+      _props$transitionDura = props.transitionDuration,
+      transitionDuration = _props$transitionDura === void 0 ? {
+    enter: _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["duration"].enteringScreen,
+    exit: _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["duration"].leavingScreen
+  } : _props$transitionDura,
+      TransitionProps = props.TransitionProps,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["ariaLabel", "FabProps", "children", "classes", "className", "direction", "hidden", "icon", "onBlur", "onClose", "onFocus", "onKeyDown", "onMouseEnter", "onMouseLeave", "onOpen", "open", "openIcon", "TransitionComponent", "transitionDuration", "TransitionProps"]);
+
+  var eventTimer = react__WEBPACK_IMPORTED_MODULE_2__["useRef"]();
+  react__WEBPACK_IMPORTED_MODULE_2__["useEffect"](function () {
+    return function () {
+      clearTimeout(eventTimer.current);
+    };
+  }, []);
+  /**
+   * an index in actions.current
+   */
+
+  var focusedAction = react__WEBPACK_IMPORTED_MODULE_2__["useRef"](0);
+  /**
+   * pressing this key while the focus is on a child SpeedDialAction focuses
+   * the next SpeedDialAction.
+   * It is equal to the first arrow key pressed while focus is on the SpeedDial
+   * that is not orthogonal to the direction.
+   * @type {utils.ArrowKey?}
+   */
+
+  var nextItemArrowKey = react__WEBPACK_IMPORTED_MODULE_2__["useRef"]();
+  /**
+   * refs to the Button that have an action associated to them in this SpeedDial
+   * [Fab, ...(SpeedDialActions > Button)]
+   * @type {HTMLButtonElement[]}
+   */
+
+  var actions = react__WEBPACK_IMPORTED_MODULE_2__["useRef"]([]);
+  actions.current = [actions.current[0]];
+  var handleOwnFabRef = react__WEBPACK_IMPORTED_MODULE_2__["useCallback"](function (fabFef) {
+    actions.current[0] = fabFef;
+  }, []);
+  var handleFabRef = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_9__["useForkRef"])(origDialButtonRef, handleOwnFabRef);
+  /**
+   * creates a ref callback for the Button in a SpeedDialAction
+   * Is called before the original ref callback for Button that was set in buttonProps
+   *
+   * @param dialActionIndex {number}
+   * @param origButtonRef {React.RefObject?}
+   */
+
+  var createHandleSpeedDialActionButtonRef = function createHandleSpeedDialActionButtonRef(dialActionIndex, origButtonRef) {
+    return function (buttonRef) {
+      actions.current[dialActionIndex + 1] = buttonRef;
+
+      if (origButtonRef) {
+        origButtonRef(buttonRef);
+      }
+    };
+  };
+
+  var handleKeyDown = function handleKeyDown(event) {
+    if (onKeyDown) {
+      onKeyDown(event);
+    }
+
+    var key = event.key.replace('Arrow', '').toLowerCase();
+    var _nextItemArrowKey$cur = nextItemArrowKey.current,
+        nextItemArrowKeyCurrent = _nextItemArrowKey$cur === void 0 ? key : _nextItemArrowKey$cur;
+
+    if (event.key === 'Escape') {
+      if (onClose) {
+        actions.current[0].focus();
+        onClose(event, 'escapeKeyDown');
+      }
+
+      return;
+    }
+
+    if (getOrientation(key) === getOrientation(nextItemArrowKeyCurrent) && getOrientation(key) !== undefined) {
+      event.preventDefault();
+      var actionStep = key === nextItemArrowKeyCurrent ? 1 : -1; // stay within array indices
+
+      var nextAction = clamp(focusedAction.current + actionStep, 0, actions.current.length - 1);
+      actions.current[nextAction].focus();
+      focusedAction.current = nextAction;
+      nextItemArrowKey.current = nextItemArrowKeyCurrent;
+    }
+  };
+
+  react__WEBPACK_IMPORTED_MODULE_2__["useEffect"](function () {
+    // actions were closed while navigation state was not reset
+    if (!open) {
+      focusedAction.current = 0;
+      nextItemArrowKey.current = undefined;
+    }
+  }, [open]);
+
+  var handleClose = function handleClose(event) {
+    if (event.type === 'mouseleave' && onMouseLeave) {
+      onMouseLeave(event);
+    }
+
+    if (event.type === 'blur' && onBlur) {
+      onBlur(event);
+    }
+
+    clearTimeout(eventTimer.current);
+
+    if (onClose) {
+      if (event.type === 'blur') {
+        event.persist();
+        eventTimer.current = setTimeout(function () {
+          onClose(event, 'blur');
+        });
+      } else {
+        onClose(event, 'mouseLeave');
+      }
+    }
+  };
+
+  var handleClick = function handleClick(event) {
+    if (FabProps.onClick) {
+      FabProps.onClick(event);
+    }
+
+    clearTimeout(eventTimer.current);
+
+    if (open) {
+      if (onClose) {
+        onClose(event, 'toggle');
+      }
+    } else if (onOpen) {
+      onOpen(event, 'toggle');
+    }
+  };
+
+  var handleOpen = function handleOpen(event) {
+    if (event.type === 'mouseenter' && onMouseEnter) {
+      onMouseEnter(event);
+    }
+
+    if (event.type === 'focus' && onFocus) {
+      onFocus(event);
+    } // When moving the focus between two items,
+    // a chain if blur and focus event is triggered.
+    // We only handle the last event.
+
+
+    clearTimeout(eventTimer.current);
+
+    if (onOpen && !open) {
+      event.persist(); // Wait for a future focus or click event
+
+      eventTimer.current = setTimeout(function () {
+        var eventMap = {
+          focus: 'focus',
+          mouseenter: 'mouseEnter'
+        };
+        onOpen(event, eventMap[event.type]);
+      });
+    }
+  }; // Filter the label for valid id characters.
+
+
+  var id = ariaLabel.replace(/^[^a-z]+|[^\w:.-]+/gi, '');
+  var allItems = react__WEBPACK_IMPORTED_MODULE_2__["Children"].toArray(childrenProp).filter(function (child) {
+    if (true) {
+      if (Object(react_is__WEBPACK_IMPORTED_MODULE_3__["isFragment"])(child)) {
+        console.error(["Material-UI: the SpeedDial component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
+      }
+    }
+
+    return react__WEBPACK_IMPORTED_MODULE_2__["isValidElement"](child);
+  });
+  var children = allItems.map(function (child, index) {
+    var _child$props$FabProps = child.props.FabProps;
+    _child$props$FabProps = _child$props$FabProps === void 0 ? {} : _child$props$FabProps;
+
+    var origButtonRef = _child$props$FabProps.ref,
+        ChildFabProps = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(_child$props$FabProps, ["ref"]);
+
+    return react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"](child, {
+      FabProps: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, ChildFabProps, {
+        ref: createHandleSpeedDialActionButtonRef(index, origButtonRef)
+      }),
+      delay: 30 * (open ? index : allItems.length - index),
+      open: open,
+      id: "".concat(id, "-action-").concat(index)
+    });
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.root, classes["direction".concat(Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_9__["capitalize"])(direction))], className),
+    ref: ref,
+    role: "presentation",
+    onKeyDown: handleKeyDown,
+    onBlur: handleClose,
+    onFocus: handleOpen,
+    onMouseEnter: handleOpen,
+    onMouseLeave: handleClose
+  }, other), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](TransitionComponent, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    in: !hidden,
+    timeout: transitionDuration,
+    unmountOnExit: true
+  }, TransitionProps), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_material_ui_core_Fab__WEBPACK_IMPORTED_MODULE_8__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    color: "primary",
+    "aria-label": ariaLabel,
+    "aria-haspopup": "true",
+    "aria-expanded": open,
+    "aria-controls": "".concat(id, "-actions")
+  }, FabProps, {
+    onClick: handleClick,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.fab, FabProps.className),
+    ref: handleFabRef
+  }), react__WEBPACK_IMPORTED_MODULE_2__["isValidElement"](icon) && Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_9__["isMuiElement"])(icon, ['SpeedDialIcon']) ? react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"](icon, {
+    open: open
+  }) : icon)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    id: "".concat(id, "-actions"),
+    role: "menu",
+    "aria-orientation": getOrientation(direction),
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.actions, !open && classes.actionsClosed)
+  }, children));
+});
+ true ? SpeedDial.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The aria-label of the button element.
+   * Also used to provide the `id` for the `SpeedDial` element and its children.
+   */
+  ariaLabel: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string.isRequired,
+
+  /**
+   * SpeedDialActions to display when the SpeedDial is `open`.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+
+  /**
+   * The direction the actions open relative to the floating action button.
+   */
+  direction: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOf(['down', 'left', 'right', 'up']),
+
+  /**
+   * Props applied to the [`Fab`](/api/fab/) element.
+   */
+  FabProps: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+
+  /**
+   * If `true`, the SpeedDial will be hidden.
+   */
+  hidden: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+
+  /**
+   * The icon to display in the SpeedDial Fab. The `SpeedDialIcon` component
+   * provides a default Icon with animation.
+   */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * @ignore
+   */
+  onBlur: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Callback fired when the component requests to be closed.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {string} reason Can be: `"toggle"`, `"blur"`, `"mouseLeave"`, `"escapeKeyDown"`.
+   */
+  onClose: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onFocus: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onKeyDown: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onMouseEnter: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onMouseLeave: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * Callback fired when the component requests to be open.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {string} reason Can be: `"toggle"`, `"focus"`, `"mouseEnter"`.
+   */
+  onOpen: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * If `true`, the SpeedDial is open.
+   */
+  open: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool.isRequired,
+
+  /**
+   * The icon to display in the SpeedDial Fab when the SpeedDial is open.
+   */
+  openIcon: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * The component used for the transition.
+   * [Follow this guide](/components/transitions/#transitioncomponent-prop) to learn more about the requirements for this component.
+   */
+  TransitionComponent: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.elementType,
+
+  /**
+   * The duration for the transition, in milliseconds.
+   * You may specify a single timeout for all transitions, or individually with an object.
+   */
+  transitionDuration: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number, prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.shape({
+    appear: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number,
+    enter: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number,
+    exit: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number
+  })]),
+
+  /**
+   * Props applied to the [`Transition`](http://reactcommunity.org/react-transition-group/transition#Transition-props) element.
+   */
+  TransitionProps: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["withStyles"])(styles, {
+  name: 'MuiSpeedDial'
+})(SpeedDial));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/SpeedDial/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/SpeedDial/index.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SpeedDial__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SpeedDial */ "./node_modules/@material-ui/lab/esm/SpeedDial/SpeedDial.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _SpeedDial__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/SpeedDialAction/SpeedDialAction.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/SpeedDialAction/SpeedDialAction.js ***!
+  \******************************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_Fab__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Fab */ "./node_modules/@material-ui/core/esm/Fab/index.js");
+/* harmony import */ var _material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Tooltip */ "./node_modules/@material-ui/core/esm/Tooltip/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+// @inheritedComponent Tooltip
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the Fab component. */
+    fab: {
+      margin: 8,
+      color: theme.palette.text.secondary,
+      backgroundColor: theme.palette.background.paper,
+      '&:hover': {
+        backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["emphasize"])(theme.palette.background.paper, 0.15)
+      },
+      transition: "".concat(theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shorter
+      }), ", opacity 0.8s"),
+      opacity: 1
+    },
+
+    /* Styles applied to the Fab component if `open={false}`. */
+    fabClosed: {
+      opacity: 0,
+      transform: 'scale(0)'
+    },
+
+    /* Styles applied to the root element if `tooltipOpen={true}`. */
+    staticTooltip: {
+      position: 'relative',
+      display: 'flex',
+      '& $staticTooltipLabel': {
+        transition: theme.transitions.create(['transform', 'opacity'], {
+          duration: theme.transitions.duration.shorter
+        }),
+        opacity: 1
+      }
+    },
+
+    /* Styles applied to the root element if `tooltipOpen={true}` and `open={false}`. */
+    staticTooltipClosed: {
+      '& $staticTooltipLabel': {
+        opacity: 0,
+        transform: 'scale(0.5)'
+      }
+    },
+
+    /* Styles applied to the static tooltip label if `tooltipOpen={true}`. */
+    staticTooltipLabel: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+      position: 'absolute'
+    }, theme.typography.body1, {
+      backgroundColor: theme.palette.background.paper,
+      borderRadius: theme.shape.borderRadius,
+      boxShadow: theme.shadows[1],
+      color: theme.palette.text.secondary,
+      padding: '4px 16px'
+    }),
+
+    /* Styles applied to the root if `tooltipOpen={true}` and `tooltipPlacement="left"`` */
+    tooltipPlacementLeft: {
+      alignItems: 'center',
+      '& $staticTooltipLabel': {
+        transformOrigin: '100% 50%',
+        right: '100%',
+        marginRight: 8
+      }
+    },
+
+    /* Styles applied to the root if `tooltipOpen={true}` and `tooltipPlacement="right"`` */
+    tooltipPlacementRight: {
+      alignItems: 'center',
+      '& $staticTooltipLabel': {
+        transformOrigin: '0% 50%',
+        left: '100%',
+        marginLeft: 8
+      }
+    }
+  };
+};
+var SpeedDialAction = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function SpeedDialAction(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$delay = props.delay,
+      delay = _props$delay === void 0 ? 0 : _props$delay,
+      _props$FabProps = props.FabProps,
+      FabProps = _props$FabProps === void 0 ? {} : _props$FabProps,
+      icon = props.icon,
+      id = props.id,
+      open = props.open,
+      TooltipClasses = props.TooltipClasses,
+      _props$tooltipOpen = props.tooltipOpen,
+      tooltipOpenProp = _props$tooltipOpen === void 0 ? false : _props$tooltipOpen,
+      _props$tooltipPlaceme = props.tooltipPlacement,
+      tooltipPlacement = _props$tooltipPlaceme === void 0 ? 'left' : _props$tooltipPlaceme,
+      tooltipTitle = props.tooltipTitle,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(props, ["classes", "className", "delay", "FabProps", "icon", "id", "open", "TooltipClasses", "tooltipOpen", "tooltipPlacement", "tooltipTitle"]);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_2__["useState"](tooltipOpenProp),
+      tooltipOpen = _React$useState[0],
+      setTooltipOpen = _React$useState[1];
+
+  var handleTooltipClose = function handleTooltipClose() {
+    setTooltipOpen(false);
+  };
+
+  var handleTooltipOpen = function handleTooltipOpen() {
+    setTooltipOpen(true);
+  };
+
+  var transitionStyle = {
+    transitionDelay: "".concat(delay, "ms")
+  };
+  var fab = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_material_ui_core_Fab__WEBPACK_IMPORTED_MODULE_6__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    size: "small",
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.fab, className, !open && classes.fabClosed),
+    tabIndex: -1,
+    role: "menuitem",
+    "aria-describedby": "".concat(id, "-label")
+  }, FabProps, {
+    style: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, transitionStyle, {}, FabProps.style)
+  }), icon);
+
+  if (tooltipOpenProp) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+      id: id,
+      ref: ref,
+      className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.staticTooltip, classes["tooltipPlacement".concat(Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_8__["capitalize"])(tooltipPlacement))], !open && classes.staticTooltipClosed)
+    }, other), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", {
+      style: transitionStyle,
+      id: "".concat(id, "-label"),
+      className: classes.staticTooltipLabel
+    }, tooltipTitle), fab);
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_material_ui_core_Tooltip__WEBPACK_IMPORTED_MODULE_7__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    id: id,
+    ref: ref,
+    title: tooltipTitle,
+    placement: tooltipPlacement,
+    onClose: handleTooltipClose,
+    onOpen: handleTooltipOpen,
+    open: open && tooltipOpen,
+    classes: TooltipClasses
+  }, other), fab);
+});
+ true ? SpeedDialAction.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * Adds a transition delay, to allow a series of SpeedDialActions to be animated.
+   */
+  delay: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.number,
+
+  /**
+   * Props applied to the [`Fab`](/api/fab/) component.
+   */
+  FabProps: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * The Icon to display in the SpeedDial Fab.
+   */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * This prop is used to help implement the accessibility logic.
+   * If you don't provide this prop. It falls back to a randomly generated id.
+   */
+  id: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * If `true`, the tooltip is shown.
+   */
+  open: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * `classes` prop applied to the [`Tooltip`](/api/tooltip/) element.
+   */
+  TooltipClasses: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * Make the tooltip always visible when the SpeedDial is open.
+   */
+  tooltipOpen: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * Placement of the tooltip.
+   */
+  tooltipPlacement: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['bottom-end', 'bottom-start', 'bottom', 'left-end', 'left-start', 'left', 'right-end', 'right-start', 'right', 'top-end', 'top-start', 'top']),
+
+  /**
+   * Label to display in the tooltip.
+   */
+  tooltipTitle: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(styles, {
+  name: 'MuiSpeedDialAction'
+})(SpeedDialAction));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/SpeedDialAction/index.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/SpeedDialAction/index.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SpeedDialAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SpeedDialAction */ "./node_modules/@material-ui/lab/esm/SpeedDialAction/SpeedDialAction.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _SpeedDialAction__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/SpeedDialIcon/SpeedDialIcon.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/SpeedDialIcon/SpeedDialIcon.js ***!
+  \**************************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _internal_svg_icons_Add__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../internal/svg-icons/Add */ "./node_modules/@material-ui/lab/esm/internal/svg-icons/Add.js");
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      height: 24
+    },
+
+    /* Styles applied to the icon component. */
+    icon: {
+      transition: theme.transitions.create(['transform', 'opacity'], {
+        duration: theme.transitions.duration.short
+      })
+    },
+
+    /* Styles applied to the icon component if `open={true}`. */
+    iconOpen: {
+      transform: 'rotate(45deg)'
+    },
+
+    /* Styles applied to the icon when and `openIcon` is provided and if `open={true}`. */
+    iconWithOpenIconOpen: {
+      opacity: 0
+    },
+
+    /* Styles applied to the `openIcon` if provided. */
+    openIcon: {
+      position: 'absolute',
+      transition: theme.transitions.create(['transform', 'opacity'], {
+        duration: theme.transitions.duration.short
+      }),
+      opacity: 0,
+      transform: 'rotate(-45deg)'
+    },
+
+    /* Styles applied to the `openIcon` if provided and if `open={true}`. */
+    openIconOpen: {
+      transform: 'rotate(0deg)',
+      opacity: 1
+    }
+  };
+};
+var SpeedDialIcon = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function SpeedDialIcon(props, ref) {
+  var className = props.className,
+      classes = props.classes,
+      iconProp = props.icon,
+      open = props.open,
+      openIconProp = props.openIcon,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["className", "classes", "icon", "open", "openIcon"]);
+
+  var iconClassName = Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.icon, open && [classes.iconOpen, openIconProp && classes.iconWithOpenIconOpen]);
+  var openIconClassName = Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.openIcon, open && classes.openIconOpen);
+
+  function formatIcon(icon, newClassName) {
+    if (react__WEBPACK_IMPORTED_MODULE_2__["isValidElement"](icon)) {
+      return react__WEBPACK_IMPORTED_MODULE_2__["cloneElement"](icon, {
+        className: newClassName
+      });
+    }
+
+    return icon;
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className),
+    ref: ref
+  }, other), openIconProp ? formatIcon(openIconProp, openIconClassName) : null, iconProp ? formatIcon(iconProp, iconClassName) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_internal_svg_icons_Add__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    className: iconClassName
+  }));
+});
+ true ? SpeedDialIcon.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * The icon to display in the SpeedDial Floating Action Button.
+   */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node,
+
+  /**
+   * @ignore
+   * If `true`, the SpeedDial is open.
+   */
+  open: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * The icon to display in the SpeedDial Floating Action Button when the SpeedDial is open.
+   */
+  openIcon: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node
+} : undefined;
+SpeedDialIcon.muiName = 'SpeedDialIcon';
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(styles, {
+  name: 'MuiSpeedDialIcon'
+})(SpeedDialIcon));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/SpeedDialIcon/index.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/SpeedDialIcon/index.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SpeedDialIcon__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SpeedDialIcon */ "./node_modules/@material-ui/lab/esm/SpeedDialIcon/SpeedDialIcon.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _SpeedDialIcon__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/ToggleButton/ToggleButton.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/ToggleButton/ToggleButton.js ***!
+  \************************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_ButtonBase__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/ButtonBase */ "./node_modules/@material-ui/core/esm/ButtonBase/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+// @inheritedComponent ButtonBase
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({}, theme.typography.button, {
+      boxSizing: 'border-box',
+      borderRadius: theme.shape.borderRadius,
+      height: 48,
+      padding: '0px 12px',
+      border: "1px solid ".concat(Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.action.active, 0.12)),
+      color: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.action.active, 0.38),
+      '&$selected': {
+        color: theme.palette.action.active,
+        backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.action.active, 0.12),
+        '&:hover': {
+          backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.action.active, 0.15)
+        },
+        '& + &': {
+          borderLeft: 0,
+          marginLeft: 0
+        }
+      },
+      '&$disabled': {
+        color: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.action.disabled, 0.12)
+      },
+      '&:hover': {
+        textDecoration: 'none',
+        // Reset on mouse devices
+        backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["fade"])(theme.palette.text.primary, 0.05),
+        '@media (hover: none)': {
+          backgroundColor: 'transparent'
+        },
+        '&$disabled': {
+          backgroundColor: 'transparent'
+        }
+      }
+    }),
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Pseudo-class applied to the root element if `selected={true}`. */
+    selected: {},
+
+    /* Styles applied to the `label` wrapper element. */
+    label: {
+      width: '100%',
+      // Ensure the correct width for iOS Safari
+      display: 'inherit',
+      alignItems: 'inherit',
+      justifyContent: 'inherit'
+    },
+
+    /* Styles applied to the root element if `size="small"`. */
+    sizeSmall: {
+      height: 40,
+      padding: '0px 8px',
+      fontSize: theme.typography.pxToRem(13)
+    },
+
+    /* Styles applied to the root element if `size="large"`. */
+    sizeLarge: {
+      height: 56,
+      padding: '0px 16px',
+      fontSize: theme.typography.pxToRem(15)
+    }
+  };
+};
+var ToggleButton = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function ToggleButton(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$disableFocusRi = props.disableFocusRipple,
+      disableFocusRipple = _props$disableFocusRi === void 0 ? false : _props$disableFocusRi,
+      onChange = props.onChange,
+      onClick = props.onClick,
+      selected = props.selected,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      value = props.value,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__["default"])(props, ["children", "classes", "className", "disabled", "disableFocusRipple", "onChange", "onClick", "selected", "size", "value"]);
+
+  var handleChange = function handleChange(event) {
+    if (onClick) {
+      onClick(event, value);
+
+      if (event.isDefaultPrevented()) {
+        return;
+      }
+    }
+
+    if (onChange) {
+      onChange(event, value);
+    }
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_material_ui_core_ButtonBase__WEBPACK_IMPORTED_MODULE_6__["default"], Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_1__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_4__["default"])(classes.root, className, disabled && classes.disabled, selected && classes.selected, size !== 'medium' && classes["size".concat(Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_7__["capitalize"])(size))]),
+    disabled: disabled,
+    focusRipple: !disableFocusRipple,
+    ref: ref,
+    onClick: handleChange,
+    onChange: onChange,
+    value: value,
+    "aria-pressed": selected
+  }, other), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("span", {
+    className: classes.label
+  }, children));
+});
+ true ? ToggleButton.propTypes = {
+  /**
+   * The content of the button.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.node.isRequired,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object.isRequired,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string,
+
+  /**
+   * If `true`, the button will be disabled.
+   */
+  disabled: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * If `true`, the  keyboard focus ripple will be disabled.
+   * `disableRipple` must also be true.
+   */
+  disableFocusRipple: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * If `true`, the ripple effect will be disabled.
+   */
+  disableRipple: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * @ignore
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func,
+
+  /**
+   * If `true`, the button will be rendered in an active state.
+   */
+  selected: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.bool,
+
+  /**
+   * @ignore
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.oneOf(['small', 'medium', 'large']),
+
+  /**
+   * The value to associate with the button when selected in a
+   * ToggleButtonGroup.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.any.isRequired
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(styles, {
+  name: 'MuiToggleButton'
+})(ToggleButton));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/ToggleButton/index.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/ToggleButton/index.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ToggleButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleButton */ "./node_modules/@material-ui/lab/esm/ToggleButton/ToggleButton.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _ToggleButton__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/ToggleButtonGroup/ToggleButtonGroup.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/ToggleButtonGroup/ToggleButtonGroup.js ***!
+  \**********************************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_is__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _isValueSelected__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./isValueSelected */ "./node_modules/@material-ui/lab/esm/ToggleButtonGroup/isValueSelected.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      backgroundColor: theme.palette.background.paper,
+      borderRadius: theme.shape.borderRadius,
+      display: 'inline-flex'
+    },
+
+    /* Styles applied to the children. */
+    grouped: {
+      padding: '0px 11px 0px 12px',
+      '&:not(:first-child)': {
+        marginLeft: -1,
+        borderLeft: '1px solid transparent',
+        borderTopLeftRadius: 0,
+        borderBottomLeftRadius: 0
+      },
+      '&:not(:last-child)': {
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0
+      }
+    },
+
+    /* Styles applied to the children if `size="small"`. */
+    groupedSizeSmall: {
+      padding: '0px 7px 0px 8px'
+    },
+
+    /* Styles applied to the children if `size="large"`. */
+    groupedSizeLarge: {
+      padding: '0px 15px 0px 16px'
+    }
+  };
+};
+var ToggleButtonGroup = react__WEBPACK_IMPORTED_MODULE_3__["forwardRef"](function ToggleButton(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$exclusive = props.exclusive,
+      exclusive = _props$exclusive === void 0 ? false : _props$exclusive,
+      onChange = props.onChange,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      value = props.value,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2__["default"])(props, ["children", "classes", "className", "exclusive", "onChange", "size", "value"]);
+
+  var handleChange = function handleChange(event, buttonValue) {
+    if (!onChange) {
+      return;
+    }
+
+    var index = value && value.indexOf(buttonValue);
+    var newValue;
+
+    if (value && index >= 0) {
+      newValue = Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(value);
+      newValue.splice(index, 1);
+    } else {
+      newValue = value ? [].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(value), [buttonValue]) : [buttonValue];
+    }
+
+    onChange(event, newValue);
+  };
+
+  var handleExclusiveChange = function handleExclusiveChange(event, buttonValue) {
+    if (!onChange) {
+      return;
+    }
+
+    onChange(event, value === buttonValue ? null : buttonValue);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__["createElement"]("div", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_6__["default"])(classes.root, className),
+    ref: ref,
+    role: "group"
+  }, other), react__WEBPACK_IMPORTED_MODULE_3__["Children"].map(children, function (child) {
+    if (!react__WEBPACK_IMPORTED_MODULE_3__["isValidElement"](child)) {
+      return null;
+    }
+
+    if (true) {
+      if (Object(react_is__WEBPACK_IMPORTED_MODULE_4__["isFragment"])(child)) {
+        console.error(["Material-UI: the ToggleButtonGroup component doesn't accept a Fragment as a child.", 'Consider providing an array instead.'].join('\n'));
+      }
+    }
+
+    var _child$props = child.props,
+        buttonSelected = _child$props.selected,
+        buttonValue = _child$props.value;
+    var selected = buttonSelected === undefined ? Object(_isValueSelected__WEBPACK_IMPORTED_MODULE_7__["default"])(buttonValue, value) : buttonSelected;
+    return react__WEBPACK_IMPORTED_MODULE_3__["cloneElement"](child, {
+      className: Object(clsx__WEBPACK_IMPORTED_MODULE_6__["default"])(classes.grouped, child.props.className, size !== 'medium' && classes["groupedSize".concat(Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_9__["capitalize"])(size))]),
+      selected: selected,
+      onChange: exclusive ? handleExclusiveChange : handleChange,
+      size: size
+    });
+  }));
+});
+ true ? ToggleButtonGroup.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the button.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.string,
+
+  /**
+   * If `true`, only allow one of the child ToggleButton values to be selected.
+   */
+  exclusive: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * Callback fired when the value changes.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {any} value of the selected buttons. When `exclusive` is true
+   * this is a single value; when false an array of selected values. If no value
+   * is selected and `exclusive` is true the value is null; when false an empty array.
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.func,
+
+  /**
+   * The size of the buttons.
+   */
+  size: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.oneOf(['large', 'medium', 'small']),
+
+  /**
+   * The currently selected value within the group or an array of selected
+   * values when `exclusive` is false.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.any
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8__["withStyles"])(styles, {
+  name: 'MuiToggleButtonGroup'
+})(ToggleButtonGroup));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/ToggleButtonGroup/index.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/ToggleButtonGroup/index.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ToggleButtonGroup__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ToggleButtonGroup */ "./node_modules/@material-ui/lab/esm/ToggleButtonGroup/ToggleButtonGroup.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _ToggleButtonGroup__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/ToggleButtonGroup/isValueSelected.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/ToggleButtonGroup/isValueSelected.js ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isValueSelected; });
+// Determine if the toggle button value matches, or is contained in, the
+// candidate group value.
+function isValueSelected(value, candidate) {
+  if (candidate === undefined || value === undefined) {
+    return false;
+  }
+
+  if (Array.isArray(candidate)) {
+    return candidate.indexOf(value) >= 0;
+  }
+
+  return value === candidate;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/TreeItem/TreeItem.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/TreeItem/TreeItem.js ***!
+  \****************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js");
+/* harmony import */ var _material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Collapse */ "./node_modules/@material-ui/core/esm/Collapse/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+/* harmony import */ var _TreeView_TreeViewContext__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../TreeView/TreeViewContext */ "./node_modules/@material-ui/lab/esm/TreeView/TreeViewContext.js");
+
+
+
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions  */
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      listStyle: 'none',
+      margin: 0,
+      padding: 0,
+      outline: 0,
+      WebkitTapHighlightColor: 'transparent',
+      '&:focus > $content $label': {
+        backgroundColor: theme.palette.action.hover
+      },
+      '&$selected > $content $label': {
+        backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__["fade"])(theme.palette.primary.main, theme.palette.action.selectedOpacity)
+      },
+      '&$selected > $content $label:hover, &$selected:focus > $content $label': {
+        backgroundColor: Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__["fade"])(theme.palette.primary.main, theme.palette.action.selectedOpacity + theme.palette.action.hoverOpacity),
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: 'transparent'
+        }
+      }
+    },
+
+    /* Pseudo-class applied to the root element when expanded. */
+    expanded: {},
+
+    /* Pseudo-class applied to the root element when selected. */
+    selected: {},
+
+    /* Styles applied to the `role="group"` element. */
+    group: {
+      margin: 0,
+      padding: 0,
+      marginLeft: 17
+    },
+
+    /* Styles applied to the tree node content. */
+    content: {
+      width: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      cursor: 'pointer'
+    },
+
+    /* Styles applied to the tree node icon and collapse/expand icon. */
+    iconContainer: {
+      marginRight: 4,
+      width: 15,
+      display: 'flex',
+      flexShrink: 0,
+      justifyContent: 'center',
+      '& svg': {
+        fontSize: 18
+      }
+    },
+
+    /* Styles applied to the label element. */
+    label: {
+      width: '100%',
+      paddingLeft: 4,
+      position: 'relative',
+      '&:hover': {
+        backgroundColor: theme.palette.action.hover,
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: 'transparent'
+        }
+      }
+    }
+  };
+};
+
+var isPrintableCharacter = function isPrintableCharacter(str) {
+  return str && str.length === 1 && str.match(/\S/);
+};
+
+var TreeItem = react__WEBPACK_IMPORTED_MODULE_2__["forwardRef"](function TreeItem(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      collapseIcon = props.collapseIcon,
+      endIcon = props.endIcon,
+      expandIcon = props.expandIcon,
+      iconProp = props.icon,
+      label = props.label,
+      nodeId = props.nodeId,
+      onClick = props.onClick,
+      onFocus = props.onFocus,
+      onKeyDown = props.onKeyDown,
+      onMouseDown = props.onMouseDown,
+      _props$TransitionComp = props.TransitionComponent,
+      TransitionComponent = _props$TransitionComp === void 0 ? _material_ui_core_Collapse__WEBPACK_IMPORTED_MODULE_6__["default"] : _props$TransitionComp,
+      TransitionProps = props.TransitionProps,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["children", "classes", "className", "collapseIcon", "endIcon", "expandIcon", "icon", "label", "nodeId", "onClick", "onFocus", "onKeyDown", "onMouseDown", "TransitionComponent", "TransitionProps"]);
+
+  var _React$useContext = react__WEBPACK_IMPORTED_MODULE_2__["useContext"](_TreeView_TreeViewContext__WEBPACK_IMPORTED_MODULE_9__["default"]),
+      contextIcons = _React$useContext.icons,
+      focus = _React$useContext.focus,
+      focusFirstNode = _React$useContext.focusFirstNode,
+      focusLastNode = _React$useContext.focusLastNode,
+      focusNextNode = _React$useContext.focusNextNode,
+      focusPreviousNode = _React$useContext.focusPreviousNode,
+      focusByFirstCharacter = _React$useContext.focusByFirstCharacter,
+      selectNode = _React$useContext.selectNode,
+      selectRange = _React$useContext.selectRange,
+      selectNextNode = _React$useContext.selectNextNode,
+      selectPreviousNode = _React$useContext.selectPreviousNode,
+      rangeSelectToFirst = _React$useContext.rangeSelectToFirst,
+      rangeSelectToLast = _React$useContext.rangeSelectToLast,
+      selectAllNodes = _React$useContext.selectAllNodes,
+      expandAllSiblings = _React$useContext.expandAllSiblings,
+      toggleExpansion = _React$useContext.toggleExpansion,
+      isExpanded = _React$useContext.isExpanded,
+      isFocused = _React$useContext.isFocused,
+      isSelected = _React$useContext.isSelected,
+      isTabbable = _React$useContext.isTabbable,
+      multiSelect = _React$useContext.multiSelect,
+      getParent = _React$useContext.getParent,
+      mapFirstChar = _React$useContext.mapFirstChar,
+      addNodeToNodeMap = _React$useContext.addNodeToNodeMap,
+      removeNodeFromNodeMap = _React$useContext.removeNodeFromNodeMap;
+
+  var nodeRef = react__WEBPACK_IMPORTED_MODULE_2__["useRef"](null);
+  var contentRef = react__WEBPACK_IMPORTED_MODULE_2__["useRef"](null);
+  var handleRef = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_8__["useForkRef"])(nodeRef, ref);
+  var icon = iconProp;
+  var expandable = Boolean(Array.isArray(children) ? children.length : children);
+  var expanded = isExpanded ? isExpanded(nodeId) : false;
+  var focused = isFocused ? isFocused(nodeId) : false;
+  var tabbable = isTabbable ? isTabbable(nodeId) : false;
+  var selected = isSelected ? isSelected(nodeId) : false;
+  var icons = contextIcons || {};
+  var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__["useTheme"])();
+
+  if (!icon) {
+    if (expandable) {
+      if (!expanded) {
+        icon = expandIcon || icons.defaultExpandIcon;
+      } else {
+        icon = collapseIcon || icons.defaultCollapseIcon;
+      }
+
+      if (!icon) {
+        icon = icons.defaultParentIcon;
+      }
+    } else {
+      icon = endIcon || icons.defaultEndIcon;
+    }
+  }
+
+  var handleClick = function handleClick(event) {
+    if (!focused) {
+      focus(nodeId);
+    }
+
+    var multiple = multiSelect && (event.shiftKey || event.ctrlKey || event.metaKey); // If already expanded and trying to toggle selection don't close
+
+    if (expandable && !(multiple && isExpanded(nodeId))) {
+      toggleExpansion(event, nodeId);
+    }
+
+    if (multiple) {
+      if (event.shiftKey) {
+        selectRange(event, {
+          end: nodeId
+        });
+      } else {
+        selectNode(event, nodeId, true);
+      }
+    } else {
+      selectNode(event, nodeId);
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
+  var handleMouseDown = function handleMouseDown(event) {
+    if (event.shiftKey || event.ctrlKey || event.metaKey) {
+      event.preventDefault();
+    }
+
+    if (onMouseDown) {
+      onMouseDown(event);
+    }
+  };
+
+  var handleNextArrow = function handleNextArrow(event) {
+    if (expandable) {
+      if (expanded) {
+        focusNextNode(nodeId);
+      } else {
+        toggleExpansion(event);
+      }
+    }
+
+    return true;
+  };
+
+  var handlePreviousArrow = function handlePreviousArrow(event) {
+    if (expanded) {
+      toggleExpansion(event, nodeId);
+      return true;
+    }
+
+    var parent = getParent(nodeId);
+
+    if (parent) {
+      focus(parent);
+      return true;
+    }
+
+    return false;
+  };
+
+  var handleKeyDown = function handleKeyDown(event) {
+    var flag = false;
+    var key = event.key;
+
+    if (event.altKey || event.currentTarget !== event.target) {
+      return;
+    }
+
+    var ctrlPressed = event.ctrlKey || event.metaKey;
+
+    switch (key) {
+      case ' ':
+        if (nodeRef.current === event.currentTarget) {
+          if (multiSelect && event.shiftKey) {
+            flag = selectRange(event, {
+              end: nodeId
+            });
+          } else if (multiSelect) {
+            flag = selectNode(event, nodeId, true);
+          } else {
+            flag = selectNode(event, nodeId);
+          }
+        }
+
+        event.stopPropagation();
+        break;
+
+      case 'Enter':
+        if (nodeRef.current === event.currentTarget && expandable) {
+          toggleExpansion(event);
+          flag = true;
+        }
+
+        event.stopPropagation();
+        break;
+
+      case 'ArrowDown':
+        if (multiSelect && event.shiftKey) {
+          selectNextNode(event, nodeId);
+        }
+
+        focusNextNode(nodeId);
+        flag = true;
+        break;
+
+      case 'ArrowUp':
+        if (multiSelect && event.shiftKey) {
+          selectPreviousNode(event, nodeId);
+        }
+
+        focusPreviousNode(nodeId);
+        flag = true;
+        break;
+
+      case 'ArrowRight':
+        if (theme.direction === 'rtl') {
+          flag = handlePreviousArrow(event);
+        } else {
+          flag = handleNextArrow(event);
+        }
+
+        break;
+
+      case 'ArrowLeft':
+        if (theme.direction === 'rtl') {
+          flag = handleNextArrow(event);
+        } else {
+          flag = handlePreviousArrow(event);
+        }
+
+        break;
+
+      case 'Home':
+        if (multiSelect && ctrlPressed && event.shiftKey) {
+          rangeSelectToFirst(event, nodeId);
+        }
+
+        focusFirstNode();
+        flag = true;
+        break;
+
+      case 'End':
+        if (multiSelect && ctrlPressed && event.shiftKey) {
+          rangeSelectToLast(event, nodeId);
+        }
+
+        focusLastNode();
+        flag = true;
+        break;
+
+      default:
+        if (key === '*') {
+          expandAllSiblings(event, nodeId);
+          flag = true;
+        } else if (multiSelect && ctrlPressed && key.toLowerCase() === 'a') {
+          flag = selectAllNodes(event);
+        } else if (!ctrlPressed && !event.shiftKey && isPrintableCharacter(key)) {
+          focusByFirstCharacter(nodeId, key);
+          flag = true;
+        }
+
+    }
+
+    if (flag) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    if (onKeyDown) {
+      onKeyDown(event);
+    }
+  };
+
+  var handleFocus = function handleFocus(event) {
+    if (!focused && event.currentTarget === event.target) {
+      focus(nodeId);
+    }
+
+    if (onFocus) {
+      onFocus(event);
+    }
+  };
+
+  react__WEBPACK_IMPORTED_MODULE_2__["useEffect"](function () {
+    if (addNodeToNodeMap) {
+      var childIds = [];
+      react__WEBPACK_IMPORTED_MODULE_2__["Children"].forEach(children, function (child) {
+        if (react__WEBPACK_IMPORTED_MODULE_2__["isValidElement"](child) && child.props.nodeId) {
+          childIds.push(child.props.nodeId);
+        }
+      });
+      addNodeToNodeMap(nodeId, childIds);
+    }
+  }, [children, nodeId, addNodeToNodeMap]);
+  react__WEBPACK_IMPORTED_MODULE_2__["useEffect"](function () {
+    if (removeNodeFromNodeMap) {
+      return function () {
+        removeNodeFromNodeMap(nodeId);
+      };
+    }
+
+    return undefined;
+  }, [nodeId, removeNodeFromNodeMap]);
+  react__WEBPACK_IMPORTED_MODULE_2__["useEffect"](function () {
+    if (mapFirstChar && label) {
+      mapFirstChar(nodeId, contentRef.current.textContent.substring(0, 1).toLowerCase());
+    }
+  }, [mapFirstChar, nodeId, label]);
+  react__WEBPACK_IMPORTED_MODULE_2__["useEffect"](function () {
+    if (focused) {
+      nodeRef.current.focus();
+    }
+  }, [focused]);
+  var ariaSelected;
+
+  if (multiSelect) {
+    ariaSelected = selected;
+  } else if (selected) {
+    // single-selection trees unset aria-selected
+    ariaSelected = true;
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("li", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(classes.root, className, expanded && classes.expanded, selected && classes.selected),
+    role: "treeitem",
+    onKeyDown: handleKeyDown,
+    onFocus: handleFocus,
+    "aria-expanded": expandable ? expanded : null,
+    "aria-selected": ariaSelected,
+    ref: handleRef,
+    tabIndex: tabbable ? 0 : -1
+  }, other), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: classes.content,
+    onClick: handleClick,
+    onMouseDown: handleMouseDown,
+    ref: contentRef
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"]("div", {
+    className: classes.iconContainer
+  }, icon), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    component: "div",
+    className: classes.label
+  }, label)), children && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__["createElement"](TransitionComponent, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    unmountOnExit: true,
+    className: classes.group,
+    in: expanded,
+    component: "ul",
+    role: "group"
+  }, TransitionProps), children));
+});
+ true ? TreeItem.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the component.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+
+  /**
+   * The icon used to collapse the node.
+   */
+  collapseIcon: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * The icon displayed next to a end node.
+   */
+  endIcon: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * The icon used to expand the node.
+   */
+  expandIcon: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * The icon to display next to the tree node's label.
+   */
+  icon: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * The tree node label.
+   */
+  label: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.node,
+
+  /**
+   * The id of the node.
+   */
+  nodeId: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string.isRequired,
+
+  /**
+   * @ignore
+   */
+  onClick: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onFocus: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onKeyDown: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * @ignore
+   */
+  onMouseDown: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func,
+
+  /**
+   * The component used for the transition.
+   * [Follow this guide](/components/transitions/#transitioncomponent-prop) to learn more about the requirements for this component.
+   */
+  TransitionComponent: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.elementType,
+
+  /**
+   * Props applied to the [`Transition`](http://reactcommunity.org/react-transition-group/transition#Transition-props) element.
+   */
+  TransitionProps: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.object
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__["withStyles"])(styles, {
+  name: 'MuiTreeItem'
+})(TreeItem));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/TreeItem/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/TreeItem/index.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TreeItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TreeItem */ "./node_modules/@material-ui/lab/esm/TreeItem/TreeItem.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _TreeItem__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/TreeView/TreeView.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/TreeView/TreeView.js ***!
+  \****************************************************************/
+/*! exports provided: styles, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "styles", function() { return styles; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _TreeViewContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TreeViewContext */ "./node_modules/@material-ui/lab/esm/TreeView/TreeViewContext.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+
+
+
+
+
+
+
+
+var styles = {
+  /* Styles applied to the root element. */
+  root: {
+    padding: 0,
+    margin: 0,
+    listStyle: 'none'
+  }
+};
+
+function arrayDiff(arr1, arr2) {
+  if (arr1.length !== arr2.length) return true;
+
+  for (var i = 0; i < arr1.length; i += 1) {
+    if (arr1[i] !== arr2[i]) return true;
+  }
+
+  return false;
+}
+
+var findNextFirstChar = function findNextFirstChar(firstChars, startIndex, char) {
+  for (var i = startIndex; i < firstChars.length; i += 1) {
+    if (char === firstChars[i]) {
+      return i;
+    }
+  }
+
+  return -1;
+};
+
+var defaultExpandedDefault = [];
+var defaultSelectedDefault = [];
+var TreeView = react__WEBPACK_IMPORTED_MODULE_4__["forwardRef"](function TreeView(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      defaultCollapseIcon = props.defaultCollapseIcon,
+      defaultEndIcon = props.defaultEndIcon,
+      _props$defaultExpande = props.defaultExpanded,
+      defaultExpanded = _props$defaultExpande === void 0 ? defaultExpandedDefault : _props$defaultExpande,
+      defaultExpandIcon = props.defaultExpandIcon,
+      defaultParentIcon = props.defaultParentIcon,
+      _props$defaultSelecte = props.defaultSelected,
+      defaultSelected = _props$defaultSelecte === void 0 ? defaultSelectedDefault : _props$defaultSelecte,
+      _props$disableSelecti = props.disableSelection,
+      disableSelection = _props$disableSelecti === void 0 ? false : _props$disableSelecti,
+      _props$multiSelect = props.multiSelect,
+      multiSelect = _props$multiSelect === void 0 ? false : _props$multiSelect,
+      expandedProp = props.expanded,
+      onNodeSelect = props.onNodeSelect,
+      onNodeToggle = props.onNodeToggle,
+      selectedProp = props.selected,
+      other = Object(_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_3__["default"])(props, ["children", "classes", "className", "defaultCollapseIcon", "defaultEndIcon", "defaultExpanded", "defaultExpandIcon", "defaultParentIcon", "defaultSelected", "disableSelection", "multiSelect", "expanded", "onNodeSelect", "onNodeToggle", "selected"]);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_4__["useState"](null),
+      tabbable = _React$useState[0],
+      setTabbable = _React$useState[1];
+
+  var _React$useState2 = react__WEBPACK_IMPORTED_MODULE_4__["useState"](null),
+      focusedNodeId = _React$useState2[0],
+      setFocusedNodeId = _React$useState2[1];
+
+  var nodeMap = react__WEBPACK_IMPORTED_MODULE_4__["useRef"]({});
+  var firstCharMap = react__WEBPACK_IMPORTED_MODULE_4__["useRef"]({});
+  var visibleNodes = react__WEBPACK_IMPORTED_MODULE_4__["useRef"]([]);
+
+  var _useControlled = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_9__["useControlled"])({
+    controlled: expandedProp,
+    default: defaultExpanded,
+    name: 'TreeView',
+    state: 'expanded'
+  }),
+      _useControlled2 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useControlled, 2),
+      expanded = _useControlled2[0],
+      setExpandedState = _useControlled2[1];
+
+  var _useControlled3 = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_9__["useControlled"])({
+    controlled: selectedProp,
+    default: defaultSelected,
+    name: 'TreeView',
+    state: 'selected'
+  }),
+      _useControlled4 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_2__["default"])(_useControlled3, 2),
+      selected = _useControlled4[0],
+      setSelectedState = _useControlled4[1];
+  /*
+   * Status Helpers
+   */
+
+
+  var isExpanded = react__WEBPACK_IMPORTED_MODULE_4__["useCallback"](function (id) {
+    return Array.isArray(expanded) ? expanded.indexOf(id) !== -1 : false;
+  }, [expanded]);
+  var isSelected = react__WEBPACK_IMPORTED_MODULE_4__["useCallback"](function (id) {
+    return Array.isArray(selected) ? selected.indexOf(id) !== -1 : selected === id;
+  }, [selected]);
+
+  var isTabbable = function isTabbable(id) {
+    return tabbable === id;
+  };
+
+  var isFocused = function isFocused(id) {
+    return focusedNodeId === id;
+  };
+  /*
+   * Node Helpers
+   */
+
+
+  var getNextNode = function getNextNode(id) {
+    var nodeIndex = visibleNodes.current.indexOf(id);
+
+    if (nodeIndex !== -1 && nodeIndex + 1 < visibleNodes.current.length) {
+      return visibleNodes.current[nodeIndex + 1];
+    }
+
+    return null;
+  };
+
+  var getPreviousNode = function getPreviousNode(id) {
+    var nodeIndex = visibleNodes.current.indexOf(id);
+
+    if (nodeIndex !== -1 && nodeIndex - 1 >= 0) {
+      return visibleNodes.current[nodeIndex - 1];
+    }
+
+    return null;
+  };
+
+  var getLastNode = function getLastNode() {
+    return visibleNodes.current[visibleNodes.current.length - 1];
+  };
+
+  var getFirstNode = function getFirstNode() {
+    return visibleNodes.current[0];
+  };
+
+  var getParent = function getParent(id) {
+    return nodeMap.current[id].parent;
+  };
+
+  var getNodesInRange = function getNodesInRange(a, b) {
+    var aIndex = visibleNodes.current.indexOf(a);
+    var bIndex = visibleNodes.current.indexOf(b);
+    var start = Math.min(aIndex, bIndex);
+    var end = Math.max(aIndex, bIndex);
+    return visibleNodes.current.slice(start, end + 1);
+  };
+  /*
+   * Focus Helpers
+   */
+
+
+  var focus = function focus(id) {
+    if (id) {
+      setTabbable(id);
+      setFocusedNodeId(id);
+    }
+  };
+
+  var focusNextNode = function focusNextNode(id) {
+    return focus(getNextNode(id));
+  };
+
+  var focusPreviousNode = function focusPreviousNode(id) {
+    return focus(getPreviousNode(id));
+  };
+
+  var focusFirstNode = function focusFirstNode() {
+    return focus(getFirstNode());
+  };
+
+  var focusLastNode = function focusLastNode() {
+    return focus(getLastNode());
+  };
+
+  var focusByFirstCharacter = function focusByFirstCharacter(id, char) {
+    var start;
+    var index;
+    var lowercaseChar = char.toLowerCase();
+    var firstCharIds = [];
+    var firstChars = []; // This really only works since the ids are strings
+
+    Object.keys(firstCharMap.current).forEach(function (nodeId) {
+      var firstChar = firstCharMap.current[nodeId];
+      var map = nodeMap.current[nodeId];
+      var visible = map.parent ? isExpanded(map.parent) : true;
+
+      if (visible) {
+        firstCharIds.push(nodeId);
+        firstChars.push(firstChar);
+      }
+    }); // Get start index for search based on position of currentItem
+
+    start = firstCharIds.indexOf(id) + 1;
+
+    if (start === nodeMap.current.length) {
+      start = 0;
+    } // Check remaining slots in the menu
+
+
+    index = findNextFirstChar(firstChars, start, lowercaseChar); // If not found in remaining slots, check from beginning
+
+    if (index === -1) {
+      index = findNextFirstChar(firstChars, 0, lowercaseChar);
+    } // If match was found...
+
+
+    if (index > -1) {
+      focus(firstCharIds[index]);
+    }
+  };
+  /*
+   * Expansion Helpers
+   */
+
+
+  var toggleExpansion = function toggleExpansion(event) {
+    var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : focusedNodeId;
+    var newExpanded;
+
+    if (expanded.indexOf(value) !== -1) {
+      newExpanded = expanded.filter(function (id) {
+        return id !== value;
+      });
+      setTabbable(function (oldTabbable) {
+        var map = nodeMap.current[oldTabbable];
+
+        if (oldTabbable && (map && map.parent ? map.parent.id : null) === value) {
+          return value;
+        }
+
+        return oldTabbable;
+      });
+    } else {
+      newExpanded = [value].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(expanded));
+    }
+
+    if (onNodeToggle) {
+      onNodeToggle(event, newExpanded);
+    }
+
+    setExpandedState(newExpanded);
+  };
+
+  var expandAllSiblings = function expandAllSiblings(event, id) {
+    var map = nodeMap.current[id];
+    var parent = nodeMap.current[map.parent];
+    var diff;
+
+    if (parent) {
+      diff = parent.children.filter(function (child) {
+        return !isExpanded(child);
+      });
+    } else {
+      var topLevelNodes = nodeMap.current[-1].children;
+      diff = topLevelNodes.filter(function (node) {
+        return !isExpanded(node);
+      });
+    }
+
+    var newExpanded = [].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(expanded), Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(diff));
+    setExpandedState(newExpanded);
+
+    if (onNodeToggle) {
+      onNodeToggle(event, newExpanded);
+    }
+  };
+  /*
+   * Selection Helpers
+   */
+
+
+  var lastSelectedNode = react__WEBPACK_IMPORTED_MODULE_4__["useRef"](null);
+  var lastSelectionWasRange = react__WEBPACK_IMPORTED_MODULE_4__["useRef"](false);
+  var currentRangeSelection = react__WEBPACK_IMPORTED_MODULE_4__["useRef"]([]);
+
+  var handleRangeArrowSelect = function handleRangeArrowSelect(event, nodes) {
+    var base = selected;
+    var start = nodes.start,
+        next = nodes.next,
+        current = nodes.current;
+
+    if (!next || !current) {
+      return;
+    }
+
+    if (currentRangeSelection.current.indexOf(current) === -1) {
+      currentRangeSelection.current = [];
+    }
+
+    if (lastSelectionWasRange.current) {
+      if (currentRangeSelection.current.indexOf(next) !== -1) {
+        base = base.filter(function (id) {
+          return id === start || id !== current;
+        });
+        currentRangeSelection.current = currentRangeSelection.current.filter(function (id) {
+          return id === start || id !== current;
+        });
+      } else {
+        base.push(next);
+        currentRangeSelection.current.push(next);
+      }
+    } else {
+      base.push(next);
+      currentRangeSelection.current.push(current, next);
+    }
+
+    if (onNodeSelect) {
+      onNodeSelect(event, base);
+    }
+
+    setSelectedState(base);
+  };
+
+  var handleRangeSelect = function handleRangeSelect(event, nodes) {
+    var base = selected;
+    var start = nodes.start,
+        end = nodes.end; // If last selection was a range selection ignore nodes that were selected.
+
+    if (lastSelectionWasRange.current) {
+      base = selected.filter(function (id) {
+        return currentRangeSelection.current.indexOf(id) === -1;
+      });
+    }
+
+    var range = getNodesInRange(start, end);
+    currentRangeSelection.current = range;
+    var newSelected = base.concat(range);
+    newSelected = newSelected.filter(function (id, i) {
+      return newSelected.indexOf(id) === i;
+    });
+
+    if (onNodeSelect) {
+      onNodeSelect(event, newSelected);
+    }
+
+    setSelectedState(newSelected);
+  };
+
+  var handleMultipleSelect = function handleMultipleSelect(event, value) {
+    var newSelected = [];
+
+    if (selected.indexOf(value) !== -1) {
+      newSelected = selected.filter(function (id) {
+        return id !== value;
+      });
+    } else {
+      newSelected = [value].concat(Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(selected));
+    }
+
+    if (onNodeSelect) {
+      onNodeSelect(event, newSelected);
+    }
+
+    setSelectedState(newSelected);
+  };
+
+  var handleSingleSelect = function handleSingleSelect(event, value) {
+    var newSelected = multiSelect ? [value] : value;
+
+    if (onNodeSelect) {
+      onNodeSelect(event, newSelected);
+    }
+
+    setSelectedState(newSelected);
+  };
+
+  var selectNode = function selectNode(event, id) {
+    var multiple = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+    if (id) {
+      if (multiple) {
+        handleMultipleSelect(event, id);
+      } else {
+        handleSingleSelect(event, id);
+      }
+
+      lastSelectedNode.current = id;
+      lastSelectionWasRange.current = false;
+      currentRangeSelection.current = [];
+      return true;
+    }
+
+    return false;
+  };
+
+  var selectRange = function selectRange(event, nodes) {
+    var stacked = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    var _nodes$start = nodes.start,
+        start = _nodes$start === void 0 ? lastSelectedNode.current : _nodes$start,
+        end = nodes.end,
+        current = nodes.current;
+
+    if (stacked) {
+      handleRangeArrowSelect(event, {
+        start: start,
+        next: end,
+        current: current
+      });
+    } else {
+      handleRangeSelect(event, {
+        start: start,
+        end: end
+      });
+    }
+
+    lastSelectionWasRange.current = true;
+    return true;
+  };
+
+  var rangeSelectToFirst = function rangeSelectToFirst(event, id) {
+    if (!lastSelectedNode.current) {
+      lastSelectedNode.current = id;
+    }
+
+    var start = lastSelectionWasRange.current ? lastSelectedNode.current : id;
+    return selectRange(event, {
+      start: start,
+      end: getFirstNode()
+    });
+  };
+
+  var rangeSelectToLast = function rangeSelectToLast(event, id) {
+    if (!lastSelectedNode.current) {
+      lastSelectedNode.current = id;
+    }
+
+    var start = lastSelectionWasRange.current ? lastSelectedNode.current : id;
+    return selectRange(event, {
+      start: start,
+      end: getLastNode()
+    });
+  };
+
+  var selectNextNode = function selectNextNode(event, id) {
+    return selectRange(event, {
+      end: getNextNode(id),
+      current: id
+    }, true);
+  };
+
+  var selectPreviousNode = function selectPreviousNode(event, id) {
+    return selectRange(event, {
+      end: getPreviousNode(id),
+      current: id
+    }, true);
+  };
+
+  var selectAllNodes = function selectAllNodes(event) {
+    return selectRange(event, {
+      start: getFirstNode(),
+      end: getLastNode()
+    });
+  };
+  /*
+   * Mapping Helpers
+   */
+
+
+  var addNodeToNodeMap = function addNodeToNodeMap(id, childrenIds) {
+    var currentMap = nodeMap.current[id];
+    nodeMap.current[id] = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, currentMap, {
+      children: childrenIds,
+      id: id
+    });
+    childrenIds.forEach(function (childId) {
+      var currentChildMap = nodeMap.current[childId];
+      nodeMap.current[childId] = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, currentChildMap, {
+        parent: id,
+        id: childId
+      });
+    });
+  };
+
+  var getNodesToRemove = react__WEBPACK_IMPORTED_MODULE_4__["useCallback"](function (id) {
+    var map = nodeMap.current[id];
+    var nodes = [];
+
+    if (map) {
+      nodes.push(id);
+
+      if (map.children) {
+        nodes.push.apply(nodes, Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(map.children));
+        map.children.forEach(function (node) {
+          nodes.push.apply(nodes, Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(getNodesToRemove(node)));
+        });
+      }
+    }
+
+    return nodes;
+  }, []);
+  var removeNodeFromNodeMap = react__WEBPACK_IMPORTED_MODULE_4__["useCallback"](function (id) {
+    var nodes = getNodesToRemove(id);
+
+    var newMap = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, nodeMap.current);
+
+    nodes.forEach(function (node) {
+      var map = newMap[node];
+
+      if (map) {
+        if (map.parent) {
+          var parentMap = newMap[map.parent];
+
+          if (parentMap && parentMap.children) {
+            var parentChildren = parentMap.children.filter(function (c) {
+              return c !== node;
+            });
+            newMap[map.parent] = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, parentMap, {
+              children: parentChildren
+            });
+          }
+        }
+
+        delete newMap[node];
+      }
+    });
+    nodeMap.current = newMap;
+    setFocusedNodeId(function (oldFocusedNodeId) {
+      if (oldFocusedNodeId === id) {
+        return null;
+      }
+
+      return oldFocusedNodeId;
+    });
+  }, [getNodesToRemove]);
+
+  var mapFirstChar = function mapFirstChar(id, firstChar) {
+    firstCharMap.current[id] = firstChar;
+  };
+
+  var prevChildIds = react__WEBPACK_IMPORTED_MODULE_4__["useRef"]([]);
+
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_4__["useState"](false),
+      childrenCalculated = _React$useState3[0],
+      setChildrenCalculated = _React$useState3[1];
+
+  react__WEBPACK_IMPORTED_MODULE_4__["useEffect"](function () {
+    var childIds = [];
+    react__WEBPACK_IMPORTED_MODULE_4__["Children"].forEach(children, function (child) {
+      if (react__WEBPACK_IMPORTED_MODULE_4__["isValidElement"](child) && child.props.nodeId) {
+        childIds.push(child.props.nodeId);
+      }
+    });
+
+    if (arrayDiff(prevChildIds.current, childIds)) {
+      nodeMap.current[-1] = {
+        parent: null,
+        children: childIds
+      };
+      childIds.forEach(function (id, index) {
+        if (index === 0) {
+          setTabbable(id);
+        }
+      });
+      visibleNodes.current = nodeMap.current[-1].children;
+      prevChildIds.current = childIds;
+      setChildrenCalculated(true);
+    }
+  }, [children]);
+  react__WEBPACK_IMPORTED_MODULE_4__["useEffect"](function () {
+    var buildVisible = function buildVisible(nodes) {
+      var list = [];
+
+      for (var i = 0; i < nodes.length; i += 1) {
+        var item = nodes[i];
+        list.push(item);
+        var childs = nodeMap.current[item].children;
+
+        if (isExpanded(item) && childs) {
+          list = list.concat(buildVisible(childs));
+        }
+      }
+
+      return list;
+    };
+
+    if (childrenCalculated) {
+      visibleNodes.current = buildVisible(nodeMap.current[-1].children);
+    }
+  }, [expanded, childrenCalculated, isExpanded, children]);
+
+  var noopSelection = function noopSelection() {
+    return false;
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__["createElement"](_TreeViewContext__WEBPACK_IMPORTED_MODULE_7__["default"].Provider, {
+    value: {
+      icons: {
+        defaultCollapseIcon: defaultCollapseIcon,
+        defaultExpandIcon: defaultExpandIcon,
+        defaultParentIcon: defaultParentIcon,
+        defaultEndIcon: defaultEndIcon
+      },
+      focus: focus,
+      focusFirstNode: focusFirstNode,
+      focusLastNode: focusLastNode,
+      focusNextNode: focusNextNode,
+      focusPreviousNode: focusPreviousNode,
+      focusByFirstCharacter: focusByFirstCharacter,
+      expandAllSiblings: expandAllSiblings,
+      toggleExpansion: toggleExpansion,
+      isExpanded: isExpanded,
+      isFocused: isFocused,
+      isSelected: isSelected,
+      selectNode: disableSelection ? noopSelection : selectNode,
+      selectRange: disableSelection ? noopSelection : selectRange,
+      selectNextNode: disableSelection ? noopSelection : selectNextNode,
+      selectPreviousNode: disableSelection ? noopSelection : selectPreviousNode,
+      rangeSelectToFirst: disableSelection ? noopSelection : rangeSelectToFirst,
+      rangeSelectToLast: disableSelection ? noopSelection : rangeSelectToLast,
+      selectAllNodes: disableSelection ? noopSelection : selectAllNodes,
+      isTabbable: isTabbable,
+      multiSelect: multiSelect,
+      getParent: getParent,
+      mapFirstChar: mapFirstChar,
+      addNodeToNodeMap: addNodeToNodeMap,
+      removeNodeFromNodeMap: removeNodeFromNodeMap
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4__["createElement"]("ul", Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    role: "tree",
+    "aria-multiselectable": multiSelect,
+    className: Object(clsx__WEBPACK_IMPORTED_MODULE_5__["default"])(classes.root, className),
+    ref: ref
+  }, other), children));
+});
+ true ? TreeView.propTypes = {
+  // ----------------------------- Warning --------------------------------
+  // | These PropTypes are generated from the TypeScript type definitions |
+  // |     To update them edit the d.ts file and run "yarn proptypes"     |
+  // ----------------------------------------------------------------------
+
+  /**
+   * The content of the component.
+   */
+  children: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.node,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.string,
+
+  /**
+   * The default icon used to collapse the node.
+   */
+  defaultCollapseIcon: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.node,
+
+  /**
+   * The default icon displayed next to a end node. This is applied to all
+   * tree nodes and can be overridden by the TreeItem `icon` prop.
+   */
+  defaultEndIcon: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.node,
+
+  /**
+   * Expanded node ids. (Uncontrolled)
+   */
+  defaultExpanded: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.string),
+
+  /**
+   * The default icon used to expand the node.
+   */
+  defaultExpandIcon: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.node,
+
+  /**
+   * The default icon displayed next to a parent node. This is applied to all
+   * parent nodes and can be overridden by the TreeItem `icon` prop.
+   */
+  defaultParentIcon: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.node,
+
+  /**
+   * Selected node ids. (Uncontrolled)
+   * When `multiSelect` is true this takes an array of strings; when false (default) a string.
+   */
+  defaultSelected: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.string), prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.string]),
+
+  /**
+   * If `true` selection is disabled.
+   */
+  disableSelection: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.bool,
+
+  /**
+   * Expanded node ids. (Controlled)
+   */
+  expanded: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.string),
+
+  /**
+   * If true `ctrl` and `shift` will trigger multiselect.
+   */
+  multiSelect: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.bool,
+
+  /**
+   * Callback fired when tree items are selected/unselected.
+   *
+   * @param {object} event The event source of the callback
+   * @param {(array|string)} value of the selected nodes. When `multiSelect` is true
+   * this is an array of strings; when false (default) a string.
+   */
+  onNodeSelect: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.func,
+
+  /**
+   * Callback fired when tree items are expanded/collapsed.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {array} nodeIds The ids of the expanded nodes.
+   */
+  onNodeToggle: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.func,
+
+  /**
+   * Selected node ids. (Controlled)
+   * When `multiSelect` is true this takes an array of strings; when false (default) a string.
+   */
+  selected: prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.string), prop_types__WEBPACK_IMPORTED_MODULE_6___default.a.string])
+} : undefined;
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_8__["withStyles"])(styles, {
+  name: 'MuiTreeView'
+})(TreeView));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/TreeView/TreeViewContext.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/TreeView/TreeViewContext.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * @ignore - internal component.
+ */
+
+var TreeViewContext = react__WEBPACK_IMPORTED_MODULE_0__["createContext"]({});
+
+if (true) {
+  TreeViewContext.displayName = 'TreeViewContext';
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (TreeViewContext);
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/TreeView/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/TreeView/index.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TreeView__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TreeView */ "./node_modules/@material-ui/lab/esm/TreeView/TreeView.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _TreeView__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/index.js ***!
+  \****************************************************/
+/*! exports provided: Alert, AlertTitle, Autocomplete, createFilterOptions, AvatarGroup, Pagination, usePagination, PaginationItem, Rating, Skeleton, SpeedDial, SpeedDialAction, SpeedDialIcon, ToggleButton, ToggleButtonGroup, TreeItem, TreeView, useAutocomplete */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Alert__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Alert */ "./node_modules/@material-ui/lab/esm/Alert/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Alert", function() { return _Alert__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _AlertTitle__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AlertTitle */ "./node_modules/@material-ui/lab/esm/AlertTitle/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AlertTitle", function() { return _AlertTitle__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Autocomplete__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Autocomplete */ "./node_modules/@material-ui/lab/esm/Autocomplete/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Autocomplete", function() { return _Autocomplete__WEBPACK_IMPORTED_MODULE_2__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createFilterOptions", function() { return _Autocomplete__WEBPACK_IMPORTED_MODULE_2__["createFilterOptions"]; });
+
+/* harmony import */ var _AvatarGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AvatarGroup */ "./node_modules/@material-ui/lab/esm/AvatarGroup/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AvatarGroup", function() { return _AvatarGroup__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Pagination */ "./node_modules/@material-ui/lab/esm/Pagination/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Pagination", function() { return _Pagination__WEBPACK_IMPORTED_MODULE_4__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "usePagination", function() { return _Pagination__WEBPACK_IMPORTED_MODULE_4__["usePagination"]; });
+
+/* harmony import */ var _PaginationItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./PaginationItem */ "./node_modules/@material-ui/lab/esm/PaginationItem/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "PaginationItem", function() { return _PaginationItem__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Rating__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Rating */ "./node_modules/@material-ui/lab/esm/Rating/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Rating", function() { return _Rating__WEBPACK_IMPORTED_MODULE_6__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _Skeleton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Skeleton */ "./node_modules/@material-ui/lab/esm/Skeleton/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Skeleton", function() { return _Skeleton__WEBPACK_IMPORTED_MODULE_7__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _SpeedDial__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./SpeedDial */ "./node_modules/@material-ui/lab/esm/SpeedDial/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpeedDial", function() { return _SpeedDial__WEBPACK_IMPORTED_MODULE_8__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _SpeedDialAction__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./SpeedDialAction */ "./node_modules/@material-ui/lab/esm/SpeedDialAction/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpeedDialAction", function() { return _SpeedDialAction__WEBPACK_IMPORTED_MODULE_9__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _SpeedDialIcon__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./SpeedDialIcon */ "./node_modules/@material-ui/lab/esm/SpeedDialIcon/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SpeedDialIcon", function() { return _SpeedDialIcon__WEBPACK_IMPORTED_MODULE_10__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _ToggleButton__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./ToggleButton */ "./node_modules/@material-ui/lab/esm/ToggleButton/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ToggleButton", function() { return _ToggleButton__WEBPACK_IMPORTED_MODULE_11__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _ToggleButtonGroup__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./ToggleButtonGroup */ "./node_modules/@material-ui/lab/esm/ToggleButtonGroup/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ToggleButtonGroup", function() { return _ToggleButtonGroup__WEBPACK_IMPORTED_MODULE_12__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _TreeItem__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./TreeItem */ "./node_modules/@material-ui/lab/esm/TreeItem/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TreeItem", function() { return _TreeItem__WEBPACK_IMPORTED_MODULE_13__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _TreeView__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./TreeView */ "./node_modules/@material-ui/lab/esm/TreeView/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "TreeView", function() { return _TreeView__WEBPACK_IMPORTED_MODULE_14__["default"]; });
+
+/* empty/unused harmony star reexport *//* harmony import */ var _useAutocomplete__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./useAutocomplete */ "./node_modules/@material-ui/lab/esm/useAutocomplete/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useAutocomplete", function() { return _useAutocomplete__WEBPACK_IMPORTED_MODULE_15__["default"]; });
+
+/** @license Material-UI v4.0.0-alpha.49
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+/* eslint-disable import/export */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // createFilterOptions is exported from Autocomplete
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/Add.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/Add.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+}), 'Add'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/ArrowDropDown.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/ArrowDropDown.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M7 10l5 5 5-5z"
+}), 'ArrowDropDown'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/Close.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/Close.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+}), 'Close'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/ErrorOutline.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/ErrorOutline.js ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+}), 'ErrorOutline'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/FirstPage.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/FirstPage.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z"
+}), 'FirstPage'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/InfoOutlined.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/InfoOutlined.js ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"
+}), 'InfoOutlined'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/LastPage.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/LastPage.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z"
+}), 'LastPage'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateBefore.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateBefore.js ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"
+}), 'NavigateBefore'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateNext.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/NavigateNext.js ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+}), 'NavigateNext'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/ReportProblemOutlined.js":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/ReportProblemOutlined.js ***!
+  \***************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M12 5.99L19.53 19H4.47L12 5.99M12 2L1 21h22L12 2zm1 14h-2v2h2v-2zm0-6h-2v4h2v-4z"
+}), 'ReportProblemOutlined'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/Star.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/Star.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+}), 'Star'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/internal/svg-icons/SuccessOutlined.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/SuccessOutlined.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_1__["createSvgIcon"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4C12.76,4 13.5,4.11 14.2, 4.31L15.77,2.74C14.61,2.26 13.34,2 12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0, 0 22,12M7.91,10.08L6.5,11.5L11,16L21,6L19.59,4.58L11,13.17L7.91,10.08Z"
+}), 'SuccessOutlined'));
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/useAutocomplete/index.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/useAutocomplete/index.js ***!
+  \********************************************************************/
+/*! exports provided: default, createFilterOptions */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _useAutocomplete__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./useAutocomplete */ "./node_modules/@material-ui/lab/esm/useAutocomplete/useAutocomplete.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _useAutocomplete__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createFilterOptions", function() { return _useAutocomplete__WEBPACK_IMPORTED_MODULE_0__["createFilterOptions"]; });
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/lab/esm/useAutocomplete/useAutocomplete.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/useAutocomplete/useAutocomplete.js ***!
+  \******************************************************************************/
+/*! exports provided: createFilterOptions, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createFilterOptions", function() { return createFilterOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return useAutocomplete; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _material_ui_core_utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/utils */ "./node_modules/@material-ui/core/esm/utils/index.js");
+
+
+
+
+
+/* eslint-disable no-constant-condition */
+
+
+ // https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
+// Give up on IE 11 support for this feature
+
+function stripDiacritics(string) {
+  return typeof string.normalize !== 'undefined' ? string.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : string;
+}
+
+function createFilterOptions() {
+  var config = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var _config$ignoreAccents = config.ignoreAccents,
+      ignoreAccents = _config$ignoreAccents === void 0 ? true : _config$ignoreAccents,
+      _config$ignoreCase = config.ignoreCase,
+      ignoreCase = _config$ignoreCase === void 0 ? true : _config$ignoreCase,
+      limit = config.limit,
+      _config$matchFrom = config.matchFrom,
+      matchFrom = _config$matchFrom === void 0 ? 'any' : _config$matchFrom,
+      _config$startAfter = config.startAfter,
+      startAfter = _config$startAfter === void 0 ? 0 : _config$startAfter,
+      stringify = config.stringify,
+      _config$trim = config.trim,
+      trim = _config$trim === void 0 ? false : _config$trim;
+  return function (options, _ref) {
+    var inputValue = _ref.inputValue,
+        getOptionLabel = _ref.getOptionLabel;
+    var input = trim ? inputValue.trim() : inputValue;
+
+    if (ignoreCase) {
+      input = input.toLowerCase();
+    }
+
+    if (ignoreAccents) {
+      input = stripDiacritics(input);
+    }
+
+    if (startAfter > 0 && input.length <= startAfter) {
+      return [];
+    }
+
+    var filteredOptions = options.filter(function (option) {
+      var candidate = (stringify || getOptionLabel)(option);
+
+      if (ignoreCase) {
+        candidate = candidate.toLowerCase();
+      }
+
+      if (ignoreAccents) {
+        candidate = stripDiacritics(candidate);
+      }
+
+      return matchFrom === 'start' ? candidate.indexOf(input) === 0 : candidate.indexOf(input) > -1;
+    });
+    return typeof limit === 'number' ? filteredOptions.slice(0, limit) : filteredOptions;
+  };
+} // To replace with .findIndex() once we stop IE 11 support.
+
+function findIndex(array, comp) {
+  for (var i = 0; i < array.length; i += 1) {
+    if (comp(array[i])) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+var defaultFilterOptions = createFilterOptions(); // Number of options to jump in list box when pageup and pagedown keys are used.
+
+var pageSize = 5;
+function useAutocomplete(props) {
+  var _props$autoComplete = props.autoComplete,
+      autoComplete = _props$autoComplete === void 0 ? false : _props$autoComplete,
+      _props$autoHighlight = props.autoHighlight,
+      autoHighlight = _props$autoHighlight === void 0 ? false : _props$autoHighlight,
+      _props$autoSelect = props.autoSelect,
+      autoSelect = _props$autoSelect === void 0 ? false : _props$autoSelect,
+      _props$blurOnSelect = props.blurOnSelect,
+      blurOnSelect = _props$blurOnSelect === void 0 ? false : _props$blurOnSelect,
+      _props$clearOnEscape = props.clearOnEscape,
+      clearOnEscape = _props$clearOnEscape === void 0 ? false : _props$clearOnEscape,
+      _props$componentName = props.componentName,
+      componentName = _props$componentName === void 0 ? 'useAutocomplete' : _props$componentName,
+      _props$debug = props.debug,
+      debug = _props$debug === void 0 ? false : _props$debug,
+      _props$defaultValue = props.defaultValue,
+      defaultValue = _props$defaultValue === void 0 ? props.multiple ? [] : null : _props$defaultValue,
+      _props$disableClearab = props.disableClearable,
+      disableClearable = _props$disableClearab === void 0 ? false : _props$disableClearab,
+      _props$disableCloseOn = props.disableCloseOnSelect,
+      disableCloseOnSelect = _props$disableCloseOn === void 0 ? false : _props$disableCloseOn,
+      _props$disabledItemsF = props.disabledItemsFocusable,
+      disabledItemsFocusable = _props$disabledItemsF === void 0 ? false : _props$disabledItemsF,
+      _props$disableListWra = props.disableListWrap,
+      disableListWrap = _props$disableListWra === void 0 ? false : _props$disableListWra,
+      _props$filterOptions = props.filterOptions,
+      filterOptions = _props$filterOptions === void 0 ? defaultFilterOptions : _props$filterOptions,
+      _props$filterSelected = props.filterSelectedOptions,
+      filterSelectedOptions = _props$filterSelected === void 0 ? false : _props$filterSelected,
+      _props$freeSolo = props.freeSolo,
+      freeSolo = _props$freeSolo === void 0 ? false : _props$freeSolo,
+      getOptionDisabled = props.getOptionDisabled,
+      _props$getOptionLabel = props.getOptionLabel,
+      getOptionLabel = _props$getOptionLabel === void 0 ? function (x) {
+    return x;
+  } : _props$getOptionLabel,
+      _props$getOptionSelec = props.getOptionSelected,
+      getOptionSelected = _props$getOptionSelec === void 0 ? function (option, value) {
+    return option === value;
+  } : _props$getOptionSelec,
+      groupBy = props.groupBy,
+      idProp = props.id,
+      _props$includeInputIn = props.includeInputInList,
+      includeInputInList = _props$includeInputIn === void 0 ? false : _props$includeInputIn,
+      inputValueProp = props.inputValue,
+      _props$multiple = props.multiple,
+      multiple = _props$multiple === void 0 ? false : _props$multiple,
+      onChange = props.onChange,
+      onClose = props.onClose,
+      onInputChange = props.onInputChange,
+      onOpen = props.onOpen,
+      openProp = props.open,
+      _props$openOnFocus = props.openOnFocus,
+      openOnFocus = _props$openOnFocus === void 0 ? false : _props$openOnFocus,
+      options = props.options,
+      _props$selectOnFocus = props.selectOnFocus,
+      selectOnFocus = _props$selectOnFocus === void 0 ? !props.freeSolo : _props$selectOnFocus,
+      valueProp = props.value;
+  var id = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_6__["unstable_useId"])(idProp);
+  var ignoreFocus = react__WEBPACK_IMPORTED_MODULE_4__["useRef"](false);
+  var firstFocus = react__WEBPACK_IMPORTED_MODULE_4__["useRef"](true);
+  var inputRef = react__WEBPACK_IMPORTED_MODULE_4__["useRef"](null);
+  var listboxRef = react__WEBPACK_IMPORTED_MODULE_4__["useRef"](null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_4__["useState"](null),
+      anchorEl = _React$useState[0],
+      setAnchorEl = _React$useState[1];
+
+  var _React$useState2 = react__WEBPACK_IMPORTED_MODULE_4__["useState"](-1),
+      focusedTag = _React$useState2[0],
+      setFocusedTag = _React$useState2[1];
+
+  var defaultHighlighted = autoHighlight ? 0 : -1;
+  var highlightedIndexRef = react__WEBPACK_IMPORTED_MODULE_4__["useRef"](defaultHighlighted);
+  var setHighlightedIndex = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_6__["useEventCallback"])(function (index) {
+    var mouse = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    highlightedIndexRef.current = index; // does the index exist?
+
+    if (index === -1) {
+      inputRef.current.removeAttribute('aria-activedescendant');
+    } else {
+      inputRef.current.setAttribute('aria-activedescendant', "".concat(id, "-option-").concat(index));
+    }
+
+    if (!listboxRef.current) {
+      return;
+    }
+
+    var prev = listboxRef.current.querySelector('[data-focus]');
+
+    if (prev) {
+      prev.removeAttribute('data-focus');
+    }
+
+    var listboxNode = listboxRef.current.parentElement.querySelector('[role="listbox"]'); // "No results"
+
+    if (!listboxNode) {
+      return;
+    }
+
+    if (index === -1) {
+      listboxNode.scrollTop = 0;
+      return;
+    }
+
+    var option = listboxRef.current.querySelector("[data-option-index=\"".concat(index, "\"]"));
+
+    if (!option) {
+      return;
+    }
+
+    option.setAttribute('data-focus', 'true'); // Scroll active descendant into view.
+    // Logic copied from https://www.w3.org/TR/wai-aria-practices/examples/listbox/js/listbox.js
+    //
+    // Consider this API instead once it has a better browser support:
+    // .scrollIntoView({ scrollMode: 'if-needed', block: 'nearest' });
+
+    if (listboxNode.scrollHeight > listboxNode.clientHeight && !mouse) {
+      var element = option;
+      var scrollBottom = listboxNode.clientHeight + listboxNode.scrollTop;
+      var elementBottom = element.offsetTop + element.offsetHeight;
+
+      if (elementBottom > scrollBottom) {
+        listboxNode.scrollTop = elementBottom - listboxNode.clientHeight;
+      } else if (element.offsetTop - element.offsetHeight * (groupBy ? 1.3 : 0) < listboxNode.scrollTop) {
+        listboxNode.scrollTop = element.offsetTop - element.offsetHeight * (groupBy ? 1.3 : 0);
+      }
+    }
+  });
+
+  var _useControlled = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_6__["useControlled"])({
+    controlled: valueProp,
+    default: defaultValue,
+    name: componentName
+  }),
+      _useControlled2 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__["default"])(_useControlled, 2),
+      value = _useControlled2[0],
+      setValue = _useControlled2[1];
+
+  var _useControlled3 = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_6__["useControlled"])({
+    controlled: inputValueProp,
+    default: '',
+    name: componentName,
+    state: 'inputValue'
+  }),
+      _useControlled4 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_3__["default"])(_useControlled3, 2),
+      inputValue = _useControlled4[0],
+      setInputValue = _useControlled4[1];
+
+  var _React$useState3 = react__WEBPACK_IMPORTED_MODULE_4__["useState"](false),
+      focused = _React$useState3[0],
+      setFocused = _React$useState3[1];
+
+  var resetInputValue = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_6__["useEventCallback"])(function (event, newValue) {
+    var newInputValue;
+
+    if (multiple) {
+      newInputValue = '';
+    } else if (newValue == null) {
+      newInputValue = '';
+    } else {
+      var optionLabel = getOptionLabel(newValue);
+
+      if (true) {
+        if (typeof optionLabel !== 'string') {
+          var erroneousReturn = optionLabel === undefined ? 'undefined' : "".concat(Object(_babel_runtime_helpers_esm_typeof__WEBPACK_IMPORTED_MODULE_2__["default"])(optionLabel), " (").concat(optionLabel, ")");
+          console.error("Material-UI: the `getOptionLabel` method of ".concat(componentName, " returned ").concat(erroneousReturn, " instead of a string for ").concat(JSON.stringify(newValue), "."));
+        }
+      }
+
+      newInputValue = typeof optionLabel === 'string' ? optionLabel : '';
+    }
+
+    if (inputValue === newInputValue) {
+      return;
+    }
+
+    setInputValue(newInputValue);
+
+    if (onInputChange) {
+      onInputChange(event, newInputValue, 'reset');
+    }
+  });
+  react__WEBPACK_IMPORTED_MODULE_4__["useEffect"](function () {
+    resetInputValue(null, value);
+  }, [value, resetInputValue]);
+
+  var _React$useRef = react__WEBPACK_IMPORTED_MODULE_4__["useRef"](openProp != null),
+      isOpenControlled = _React$useRef.current;
+
+  var _React$useState4 = react__WEBPACK_IMPORTED_MODULE_4__["useState"](false),
+      openState = _React$useState4[0],
+      setOpenState = _React$useState4[1];
+
+  var open = isOpenControlled ? openProp : openState;
+  var inputValueIsSelectedValue = !multiple && value != null && inputValue === getOptionLabel(value);
+  var popupOpen = open;
+  var filteredOptions = popupOpen ? filterOptions(options.filter(function (option) {
+    if (filterSelectedOptions && (multiple ? value : [value]).some(function (value2) {
+      return value2 !== null && getOptionSelected(option, value2);
+    })) {
+      return false;
+    }
+
+    return true;
+  }), // we use the empty string to manipulate `filterOptions` to not filter any options
+  // i.e. the filter predicate always returns true
+  {
+    inputValue: inputValueIsSelectedValue ? '' : inputValue,
+    getOptionLabel: getOptionLabel
+  }) : [];
+  popupOpen = freeSolo && filteredOptions.length === 0 ? false : popupOpen;
+
+  if (true) {
+    if (value !== null && !freeSolo && options.length > 0) {
+      var missingValue = (multiple ? value : [value]).filter(function (value2) {
+        return !options.some(function (option) {
+          return getOptionSelected(option, value2);
+        });
+      });
+
+      if (missingValue.length > 0) {
+        console.warn(["Material-UI: the value provided to ".concat(componentName, " is invalid."), "None of the options match with `".concat(missingValue.length > 1 ? JSON.stringify(missingValue) : JSON.stringify(missingValue[0]), "`."), 'You can use the `getOptionSelected` prop to customize the equality test.'].join('\n'));
+      }
+    }
+  }
+
+  var focusTag = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_6__["useEventCallback"])(function (tagToFocus) {
+    if (tagToFocus === -1) {
+      inputRef.current.focus();
+    } else {
+      anchorEl.querySelector("[data-tag-index=\"".concat(tagToFocus, "\"]")).focus();
+    }
+  }); // Ensure the focusedTag is never inconsistent
+
+  react__WEBPACK_IMPORTED_MODULE_4__["useEffect"](function () {
+    if (multiple && focusedTag > value.length - 1) {
+      setFocusedTag(-1);
+      focusTag(-1);
+    }
+  }, [value, multiple, focusedTag, focusTag]);
+
+  function validOptionIndex(index, direction) {
+    if (!listboxRef.current || index === -1) {
+      return -1;
+    }
+
+    var nextFocus = index;
+
+    while (true) {
+      // Out of range
+      if (direction === 'next' && nextFocus === filteredOptions.length || direction === 'previous' && nextFocus === -1) {
+        return -1;
+      }
+
+      var option = listboxRef.current.querySelector("[data-option-index=\"".concat(nextFocus, "\"]")); // Same logic as MenuList.js
+
+      var nextFocusDisabled = disabledItemsFocusable ? false : option && (option.disabled || option.getAttribute('aria-disabled') === 'true');
+
+      if (option && !option.hasAttribute('tabindex') || nextFocusDisabled) {
+        // Move to the next element.
+        nextFocus += direction === 'next' ? 1 : -1;
+      } else {
+        return nextFocus;
+      }
+    }
+  }
+
+  var changeHighlightedIndex = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_6__["useEventCallback"])(function (diff, direction) {
+    if (!popupOpen) {
+      return;
+    }
+
+    var getNextIndex = function getNextIndex() {
+      var maxIndex = filteredOptions.length - 1;
+
+      if (diff === 'reset') {
+        return defaultHighlighted;
+      }
+
+      if (diff === 'start') {
+        return 0;
+      }
+
+      if (diff === 'end') {
+        return maxIndex;
+      }
+
+      var newIndex = highlightedIndexRef.current + diff;
+
+      if (newIndex < 0) {
+        if (newIndex === -1 && includeInputInList) {
+          return -1;
+        }
+
+        if (disableListWrap && highlightedIndexRef.current !== -1 || Math.abs(diff) > 1) {
+          return 0;
+        }
+
+        return maxIndex;
+      }
+
+      if (newIndex > maxIndex) {
+        if (newIndex === maxIndex + 1 && includeInputInList) {
+          return -1;
+        }
+
+        if (disableListWrap || Math.abs(diff) > 1) {
+          return maxIndex;
+        }
+
+        return 0;
+      }
+
+      return newIndex;
+    };
+
+    var nextIndex = validOptionIndex(getNextIndex(), direction);
+    setHighlightedIndex(nextIndex);
+
+    if (autoComplete && diff !== 'reset') {
+      if (nextIndex === -1) {
+        inputRef.current.value = inputValue;
+      } else {
+        var option = getOptionLabel(filteredOptions[nextIndex]);
+        inputRef.current.value = option; // The portion of the selected suggestion that has not been typed by the user,
+        // a completion string, appears inline after the input cursor in the textbox.
+
+        var index = option.toLowerCase().indexOf(inputValue.toLowerCase());
+
+        if (index === 0 && inputValue.length > 0) {
+          inputRef.current.setSelectionRange(inputValue.length, option.length);
+        }
+      }
+    }
+  });
+  react__WEBPACK_IMPORTED_MODULE_4__["useEffect"](function () {
+    if (!open) {
+      return;
+    }
+
+    var valueItem = multiple ? value[0] : value; // The popup is empty
+
+    if (filteredOptions.length === 0 || valueItem == null) {
+      changeHighlightedIndex('reset', 'next');
+      return;
+    } // Synchronize the value with the highlighted index
+
+
+    if (!filterSelectedOptions && valueItem != null) {
+      var currentOption = filteredOptions[highlightedIndexRef.current]; // Keep the current highlighted index if possible
+
+      if (multiple && currentOption && findIndex(value, function (val) {
+        return getOptionSelected(currentOption, val);
+      }) !== -1) {
+        return;
+      }
+
+      var itemIndex = findIndex(filteredOptions, function (optionItem) {
+        return getOptionSelected(optionItem, valueItem);
+      });
+      setHighlightedIndex(itemIndex);
+      return;
+    } // Keep the index in the boundaries
+
+
+    if (highlightedIndexRef.current >= filteredOptions.length - 1) {
+      setHighlightedIndex(filteredOptions.length - 1);
+    } // Ignore filterOptions => options, getOptionSelected, getOptionLabel)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  }, [value, open, filterSelectedOptions, changeHighlightedIndex, setHighlightedIndex, inputValue, multiple]);
+
+  var handleOpen = function handleOpen(event) {
+    if (open) {
+      return;
+    }
+
+    if (onOpen) {
+      onOpen(event);
+    }
+
+    if (!isOpenControlled) {
+      setOpenState(true);
+    }
+  };
+
+  var handleClose = function handleClose(event, reason) {
+    if (!open) {
+      return;
+    }
+
+    if (onClose) {
+      onClose(event, reason);
+    }
+
+    if (!isOpenControlled) {
+      setOpenState(false);
+    }
+  };
+
+  var handleValue = function handleValue(event, newValue, reason, details) {
+    if (value === newValue) {
+      return;
+    }
+
+    if (onChange) {
+      onChange(event, newValue, reason, details);
+    }
+
+    setValue(newValue);
+  };
+
+  var isTouch = react__WEBPACK_IMPORTED_MODULE_4__["useRef"](false);
+
+  var selectNewValue = function selectNewValue(event, option) {
+    var reasonProp = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'select-option';
+    var origin = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'options';
+    var reason = reasonProp;
+    var newValue = option;
+
+    if (multiple) {
+      newValue = Array.isArray(value) ? Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(value) : [];
+
+      if (true) {
+        var matches = newValue.filter(function (val) {
+          return getOptionSelected(option, val);
+        });
+
+        if (matches.length > 1) {
+          console.error(["Material-UI: the `getOptionSelected` method of ".concat(componentName, " do not handle the arguments correctly."), "The component expects a single value to match a given option but found ".concat(matches.length, " matches.")].join('\n'));
+        }
+      }
+
+      var itemIndex = findIndex(newValue, function (valueItem) {
+        return getOptionSelected(option, valueItem);
+      });
+
+      if (itemIndex === -1) {
+        newValue.push(option);
+      } else if (origin !== 'freeSolo') {
+        newValue.splice(itemIndex, 1);
+        reason = 'remove-option';
+      }
+    }
+
+    resetInputValue(event, newValue);
+    handleValue(event, newValue, reason, {
+      option: option
+    });
+
+    if (!disableCloseOnSelect) {
+      handleClose(event, reason);
+    }
+
+    if (blurOnSelect === true || blurOnSelect === 'touch' && isTouch.current || blurOnSelect === 'mouse' && !isTouch.current) {
+      inputRef.current.blur();
+    }
+  };
+
+  function validTagIndex(index, direction) {
+    if (index === -1) {
+      return -1;
+    }
+
+    var nextFocus = index;
+
+    while (true) {
+      // Out of range
+      if (direction === 'next' && nextFocus === value.length || direction === 'previous' && nextFocus === -1) {
+        return -1;
+      }
+
+      var option = anchorEl.querySelector("[data-tag-index=\"".concat(nextFocus, "\"]")); // Same logic as MenuList.js
+
+      if (option && (!option.hasAttribute('tabindex') || option.disabled || option.getAttribute('aria-disabled') === 'true')) {
+        nextFocus += direction === 'next' ? 1 : -1;
+      } else {
+        return nextFocus;
+      }
+    }
+  }
+
+  var handleFocusTag = function handleFocusTag(event, direction) {
+    if (!multiple) {
+      return;
+    }
+
+    handleClose(event, 'toggleInput');
+    var nextTag = focusedTag;
+
+    if (focusedTag === -1) {
+      if (inputValue === '' && direction === 'previous') {
+        nextTag = value.length - 1;
+      }
+    } else {
+      nextTag += direction === 'next' ? 1 : -1;
+
+      if (nextTag < 0) {
+        nextTag = 0;
+      }
+
+      if (nextTag === value.length) {
+        nextTag = -1;
+      }
+    }
+
+    nextTag = validTagIndex(nextTag, direction);
+    setFocusedTag(nextTag);
+    focusTag(nextTag);
+  };
+
+  var handleClear = function handleClear(event) {
+    ignoreFocus.current = true;
+    setInputValue('');
+
+    if (onInputChange) {
+      onInputChange(event, '', 'clear');
+    }
+
+    handleValue(event, multiple ? [] : null, 'clear');
+  };
+
+  var handleKeyDown = function handleKeyDown(other) {
+    return function (event) {
+      if (focusedTag !== -1 && ['ArrowLeft', 'ArrowRight'].indexOf(event.key) === -1) {
+        setFocusedTag(-1);
+        focusTag(-1);
+      }
+
+      switch (event.key) {
+        case 'Home':
+          if (popupOpen) {
+            // Prevent scroll of the page
+            event.preventDefault();
+            changeHighlightedIndex('start', 'next');
+          }
+
+          break;
+
+        case 'End':
+          if (popupOpen) {
+            // Prevent scroll of the page
+            event.preventDefault();
+            changeHighlightedIndex('end', 'previous');
+          }
+
+          break;
+
+        case 'PageUp':
+          // Prevent scroll of the page
+          event.preventDefault();
+          changeHighlightedIndex(-pageSize, 'previous');
+          handleOpen(event);
+          break;
+
+        case 'PageDown':
+          // Prevent scroll of the page
+          event.preventDefault();
+          changeHighlightedIndex(pageSize, 'next');
+          handleOpen(event);
+          break;
+
+        case 'ArrowDown':
+          // Prevent cursor move
+          event.preventDefault();
+          changeHighlightedIndex(1, 'next');
+          handleOpen(event);
+          break;
+
+        case 'ArrowUp':
+          // Prevent cursor move
+          event.preventDefault();
+          changeHighlightedIndex(-1, 'previous');
+          handleOpen(event);
+          break;
+
+        case 'ArrowLeft':
+          handleFocusTag(event, 'previous');
+          break;
+
+        case 'ArrowRight':
+          handleFocusTag(event, 'next');
+          break;
+
+        case 'Enter':
+          // Wait until IME is settled.
+          if (event.which === 229) {
+            break;
+          }
+
+          if (highlightedIndexRef.current !== -1 && popupOpen) {
+            var option = filteredOptions[highlightedIndexRef.current];
+            var disabled = getOptionDisabled ? getOptionDisabled(option) : false;
+
+            if (disabled) {
+              return;
+            } // We don't want to validate the form.
+
+
+            event.preventDefault();
+            selectNewValue(event, option, 'select-option'); // Move the selection to the end.
+
+            if (autoComplete) {
+              inputRef.current.setSelectionRange(inputRef.current.value.length, inputRef.current.value.length);
+            }
+          } else if (freeSolo && inputValue !== '' && inputValueIsSelectedValue === false) {
+            if (multiple) {
+              // Allow people to add new values before they submit the form.
+              event.preventDefault();
+            }
+
+            selectNewValue(event, inputValue, 'create-option', 'freeSolo');
+          }
+
+          break;
+
+        case 'Escape':
+          if (popupOpen) {
+            // Avoid Opera to exit fullscreen mode.
+            event.preventDefault(); // Avoid the Modal to handle the event.
+
+            event.stopPropagation();
+            handleClose(event, 'escape');
+          } else if (clearOnEscape && (inputValue !== '' || multiple && value.length > 0)) {
+            // Avoid Opera to exit fullscreen mode.
+            event.preventDefault(); // Avoid the Modal to handle the event.
+
+            event.stopPropagation();
+            handleClear(event);
+          }
+
+          break;
+
+        case 'Backspace':
+          if (multiple && inputValue === '' && value.length > 0) {
+            var index = focusedTag === -1 ? value.length - 1 : focusedTag;
+
+            var newValue = Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(value);
+
+            newValue.splice(index, 1);
+            handleValue(event, newValue, 'remove-option', {
+              option: value[index]
+            });
+          }
+
+          break;
+
+        default:
+      }
+
+      if (other.onKeyDown) {
+        other.onKeyDown(event);
+      }
+    };
+  };
+
+  var handleFocus = function handleFocus(event) {
+    setFocused(true);
+
+    if (openOnFocus && !ignoreFocus.current) {
+      handleOpen(event);
+    }
+  };
+
+  var handleBlur = function handleBlur(event) {
+    // Ignore the event when using the scrollbar with IE 11
+    if (listboxRef.current !== null && document.activeElement === listboxRef.current.parentElement) {
+      inputRef.current.focus();
+      return;
+    }
+
+    setFocused(false);
+    firstFocus.current = true;
+    ignoreFocus.current = false;
+
+    if (debug && inputValue !== '') {
+      return;
+    }
+
+    if (autoSelect && highlightedIndexRef.current !== -1 && popupOpen) {
+      selectNewValue(event, filteredOptions[highlightedIndexRef.current], 'blur');
+    } else if (autoSelect && freeSolo && inputValue !== '') {
+      selectNewValue(event, inputValue, 'blur', 'freeSolo');
+    } else if (!freeSolo) {
+      resetInputValue(event, value);
+    }
+
+    handleClose(event, 'blur');
+  };
+
+  var handleInputChange = function handleInputChange(event) {
+    var newValue = event.target.value;
+
+    if (inputValue !== newValue) {
+      setInputValue(newValue);
+
+      if (onInputChange) {
+        onInputChange(event, newValue, 'input');
+      }
+    }
+
+    if (newValue === '') {
+      if (!disableClearable && !multiple) {
+        handleValue(event, null, 'clear');
+      }
+    } else {
+      handleOpen(event);
+    }
+  };
+
+  var handleOptionMouseOver = function handleOptionMouseOver(event) {
+    var index = Number(event.currentTarget.getAttribute('data-option-index'));
+    setHighlightedIndex(index, 'mouse');
+  };
+
+  var handleOptionTouchStart = function handleOptionTouchStart() {
+    isTouch.current = true;
+  };
+
+  var handleOptionClick = function handleOptionClick(event) {
+    var index = Number(event.currentTarget.getAttribute('data-option-index'));
+    selectNewValue(event, filteredOptions[index], 'select-option');
+    isTouch.current = false;
+  };
+
+  var handleTagDelete = function handleTagDelete(index) {
+    return function (event) {
+      var newValue = Object(_babel_runtime_helpers_esm_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__["default"])(value);
+
+      newValue.splice(index, 1);
+      handleValue(event, newValue, 'remove-option', {
+        option: value[index]
+      });
+    };
+  };
+
+  var handleListboxRef = Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_6__["useEventCallback"])(function (node) {
+    Object(_material_ui_core_utils__WEBPACK_IMPORTED_MODULE_6__["setRef"])(listboxRef, node);
+
+    if (!node) {
+      return;
+    } // Automatically select the first option as the listbox become visible.
+
+
+    if (highlightedIndexRef.current === -1 && autoHighlight) {
+      changeHighlightedIndex('reset', 'next');
+    } else {
+      // Restore the focus to the correct option.
+      setHighlightedIndex(highlightedIndexRef.current);
+    }
+  });
+
+  var handlePopupIndicator = function handlePopupIndicator(event) {
+    if (open) {
+      handleClose(event, 'toggleInput');
+    } else {
+      handleOpen(event);
+    }
+  }; // Prevent input blur when interacting with the combobox
+
+
+  var handleMouseDown = function handleMouseDown(event) {
+    if (event.target.getAttribute('id') !== id) {
+      event.preventDefault();
+    }
+  }; // Focus the input when interacting with the combobox
+
+
+  var handleClick = function handleClick() {
+    inputRef.current.focus();
+
+    if (selectOnFocus && firstFocus.current && inputRef.current.selectionEnd - inputRef.current.selectionStart === 0) {
+      inputRef.current.select();
+    }
+
+    firstFocus.current = false;
+  };
+
+  var handleInputMouseDown = function handleInputMouseDown(event) {
+    if (inputValue === '') {
+      handlePopupIndicator(event);
+    }
+  };
+
+  var dirty = freeSolo && inputValue.length > 0;
+  dirty = dirty || (multiple ? value.length > 0 : value !== null);
+  var groupedOptions = filteredOptions;
+
+  if (groupBy) {
+    // used to keep track of key and indexes in the result array
+    var indexBy = new Map();
+    var warn = false;
+    groupedOptions = filteredOptions.reduce(function (acc, option, index) {
+      var group = groupBy(option);
+
+      if (acc.length > 0 && acc[acc.length - 1].group === group) {
+        acc[acc.length - 1].options.push(option);
+      } else {
+        if (true) {
+          if (indexBy.get(group) && !warn) {
+            console.warn("Material-UI: the options provided combined with the `groupBy` method of ".concat(componentName, " returns duplicated headers."), 'You can solve the issue by sorting the options with the output of `groupBy`.');
+            warn = true;
+          }
+
+          indexBy.set(group, true);
+        }
+
+        acc.push({
+          key: index,
+          index: index,
+          group: group,
+          options: [option]
+        });
+      }
+
+      return acc;
+    }, []);
+  }
+
+  return {
+    getRootProps: function getRootProps() {
+      var other = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        'aria-owns': popupOpen ? "".concat(id, "-popup") : null,
+        role: 'combobox',
+        'aria-expanded': popupOpen
+      }, other, {
+        onKeyDown: handleKeyDown(other),
+        onMouseDown: handleMouseDown,
+        onClick: handleClick
+      });
+    },
+    getInputLabelProps: function getInputLabelProps() {
+      return {
+        id: "".concat(id, "-label"),
+        htmlFor: id
+      };
+    },
+    getInputProps: function getInputProps() {
+      return {
+        id: id,
+        value: inputValue,
+        onBlur: handleBlur,
+        onFocus: handleFocus,
+        onChange: handleInputChange,
+        onMouseDown: handleInputMouseDown,
+        // if open then this is handled imperativeley so don't let react override
+        // only have an opinion about this when closed
+        'aria-activedescendant': popupOpen ? '' : null,
+        'aria-autocomplete': autoComplete ? 'both' : 'list',
+        'aria-controls': popupOpen ? "".concat(id, "-popup") : null,
+        // Disable browser's suggestion that might overlap with the popup.
+        // Handle autocomplete but not autofill.
+        autoComplete: 'off',
+        ref: inputRef,
+        autoCapitalize: 'none',
+        spellCheck: 'false'
+      };
+    },
+    getClearProps: function getClearProps() {
+      return {
+        tabIndex: -1,
+        onClick: handleClear
+      };
+    },
+    getPopupIndicatorProps: function getPopupIndicatorProps() {
+      return {
+        tabIndex: -1,
+        onClick: handlePopupIndicator
+      };
+    },
+    getTagProps: function getTagProps(_ref2) {
+      var index = _ref2.index;
+      return {
+        key: index,
+        'data-tag-index': index,
+        tabIndex: -1,
+        onDelete: handleTagDelete(index)
+      };
+    },
+    getListboxProps: function getListboxProps() {
+      return {
+        role: 'listbox',
+        id: "".concat(id, "-popup"),
+        'aria-labelledby': "".concat(id, "-label"),
+        ref: handleListboxRef,
+        onMouseDown: function onMouseDown(event) {
+          // Prevent blur
+          event.preventDefault();
+        }
+      };
+    },
+    getOptionProps: function getOptionProps(_ref3) {
+      var index = _ref3.index,
+          option = _ref3.option;
+      var selected = (multiple ? value : [value]).some(function (value2) {
+        return value2 != null && getOptionSelected(option, value2);
+      });
+      var disabled = getOptionDisabled ? getOptionDisabled(option) : false;
+      return {
+        key: index,
+        tabIndex: -1,
+        role: 'option',
+        id: "".concat(id, "-option-").concat(index),
+        onMouseOver: handleOptionMouseOver,
+        onClick: handleOptionClick,
+        onTouchStart: handleOptionTouchStart,
+        'data-option-index': index,
+        'aria-disabled': disabled,
+        'aria-selected': selected
+      };
+    },
+    id: id,
+    inputValue: inputValue,
+    value: value,
+    dirty: dirty,
+    popupOpen: popupOpen,
+    focused: focused || focusedTag !== -1,
+    anchorEl: anchorEl,
+    setAnchorEl: setAnchorEl,
+    focusedTag: focusedTag,
+    groupedOptions: groupedOptions
+  };
+}
+useAutocomplete.propTypes = {
+  /**
+   * If `true`, the portion of the selected suggestion that has not been typed by the user,
+   * known as the completion string, appears inline after the input cursor in the textbox.
+   * The inline completion string is visually highlighted and has a selected state.
+   */
+  autoComplete: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * If `true`, the first option is automatically highlighted.
+   */
+  autoHighlight: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * If `true`, the selected option becomes the value of the input
+   * when the Autocomplete loses focus unless the user chooses
+   * a different option or changes the character string in the input.
+   */
+  autoSelect: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * Override or extend the styles applied to the component.
+   * See [CSS API](#css) below for more details.
+   */
+  classes: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.object,
+
+  /**
+   * @ignore
+   */
+  className: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.string,
+
+  /**
+   * If `true`, clear all values when the user presses escape and the popup is closed.
+   */
+  clearOnEscape: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * The component name that is using this hook. Used for warnings.
+   */
+  componentName: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.string,
+
+  /**
+   * If `true`, the popup will ignore the blur event if the input is filled.
+   * You can inspect the popup markup with your browser tools.
+   * Consider this option when you need to customize the component.
+   */
+  debug: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * The default input value. Use when the component is not controlled.
+   */
+  defaultValue: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.any,
+
+  /**
+   * If `true`, the input can't be cleared.
+   */
+  disableClearable: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * If `true`, the popup won't close when a value is selected.
+   */
+  disableCloseOnSelect: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * If `true`, will allow focus on disabled items.
+   */
+  disabledItemsFocusable: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * If `true`, the list box in the popup will not wrap focus.
+   */
+  disableListWrap: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * A filter function that determins the options that are eligible.
+   *
+   * @param {any} options The options to render.
+   * @param {object} state The state of the component.
+   * @returns {boolean}
+   */
+  filterOptions: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.func,
+
+  /**
+   * If `true`, hide the selected options from the list box.
+   */
+  filterSelectedOptions: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * If `true`, the Autocomplete is free solo, meaning that the user input is not bound to provided options.
+   */
+  freeSolo: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * Used to determine the disabled state for a given option.
+   */
+  getOptionDisabled: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.func,
+
+  /**
+   * Used to determine the string value for a given option.
+   * It's used to fill the input (and the list box options if `renderOption` is not provided).
+   */
+  getOptionLabel: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.func,
+
+  /**
+   * If provided, the options will be grouped under the returned string.
+   * The groupBy value is also used as the text for group headings when `renderGroup` is not provided.
+   *
+   * @param {any} options The option to group.
+   * @returns {string}
+   */
+  groupBy: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.func,
+
+  /**
+   * This prop is used to help implement the accessibility logic.
+   * If you don't provide this prop. It falls back to a randomly generated id.
+   */
+  id: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.string,
+
+  /**
+   * If `true`, the highlight can move to the input.
+   */
+  includeInputInList: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * If `true`, `value` must be an array and the menu will support multiple selections.
+   */
+  multiple: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * Callback fired when the value changes.
+   *
+   * @param {object} event The event source of the callback
+   * @param {any} value
+   * @param {string} reason One of "create-option", "select-option", "remove-option", "blur" or "clear".
+   */
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.func,
+
+  /**
+   * Callback fired when the popup requests to be closed.
+   * Use in controlled mode (see open).
+   *
+   * @param {object} event The event source of the callback.
+   */
+  onClose: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.func,
+
+  /**
+   * Callback fired when the text input value changes.
+   *
+   * @param {object} event The event source of the callback.
+   * @param {string} value The new value of the text input.
+   * @param {string} reason One of "input" (user input) or "reset" (programmatic change).
+   */
+  onInputChange: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.func,
+
+  /**
+   * Callback fired when the popup requests to be opened.
+   * Use in controlled mode (see open).
+   *
+   * @param {object} event The event source of the callback.
+   */
+  onOpen: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.func,
+
+  /**
+   * Control the popup` open state.
+   */
+  open: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * If `true`, the popup will open on input focus.
+   */
+  openOnFocus: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.bool,
+
+  /**
+   * Array of options.
+   */
+  options: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.array,
+
+  /**
+   * The input value.
+   */
+  value: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.any
+};
 
 /***/ }),
 
@@ -75355,6 +82864,1656 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react-redux/es/components/Context.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/components/Context.js ***!
+  \***********************************************************/
+/*! exports provided: ReactReduxContext, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReactReduxContext", function() { return ReactReduxContext; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var ReactReduxContext =
+/*#__PURE__*/
+react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext(null);
+
+if (true) {
+  ReactReduxContext.displayName = 'ReactRedux';
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (ReactReduxContext);
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/components/Provider.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-redux/es/components/Provider.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Context */ "./node_modules/react-redux/es/components/Context.js");
+/* harmony import */ var _utils_Subscription__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/Subscription */ "./node_modules/react-redux/es/utils/Subscription.js");
+
+
+
+
+
+function Provider(_ref) {
+  var store = _ref.store,
+      context = _ref.context,
+      children = _ref.children;
+  var contextValue = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
+    var subscription = new _utils_Subscription__WEBPACK_IMPORTED_MODULE_3__["default"](store);
+    subscription.onStateChange = subscription.notifyNestedSubs;
+    return {
+      store: store,
+      subscription: subscription
+    };
+  }, [store]);
+  var previousState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
+    return store.getState();
+  }, [store]);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    var subscription = contextValue.subscription;
+    subscription.trySubscribe();
+
+    if (previousState !== store.getState()) {
+      subscription.notifyNestedSubs();
+    }
+
+    return function () {
+      subscription.tryUnsubscribe();
+      subscription.onStateChange = null;
+    };
+  }, [contextValue, previousState]);
+  var Context = context || _Context__WEBPACK_IMPORTED_MODULE_2__["ReactReduxContext"];
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Context.Provider, {
+    value: contextValue
+  }, children);
+}
+
+if (true) {
+  Provider.propTypes = {
+    store: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.shape({
+      subscribe: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
+      dispatch: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired,
+      getState: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
+    }),
+    context: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object,
+    children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.any
+  };
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Provider);
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/components/connectAdvanced.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-redux/es/components/connectAdvanced.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return connectAdvanced; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! hoist-non-react-statics */ "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js");
+/* harmony import */ var hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-is */ "./node_modules/react-is/index.js");
+/* harmony import */ var react_is__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_is__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _utils_Subscription__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/Subscription */ "./node_modules/react-redux/es/utils/Subscription.js");
+/* harmony import */ var _utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/useIsomorphicLayoutEffect */ "./node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js");
+/* harmony import */ var _Context__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Context */ "./node_modules/react-redux/es/components/Context.js");
+
+
+
+
+
+
+
+ // Define some constant arrays just to avoid re-creating these
+
+var EMPTY_ARRAY = [];
+var NO_SUBSCRIPTION_ARRAY = [null, null];
+
+var stringifyComponent = function stringifyComponent(Comp) {
+  try {
+    return JSON.stringify(Comp);
+  } catch (err) {
+    return String(Comp);
+  }
+};
+
+function storeStateUpdatesReducer(state, action) {
+  var updateCount = state[1];
+  return [action.payload, updateCount + 1];
+}
+
+function useIsomorphicLayoutEffectWithArgs(effectFunc, effectArgs, dependencies) {
+  Object(_utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_6__["useIsomorphicLayoutEffect"])(function () {
+    return effectFunc.apply(void 0, effectArgs);
+  }, dependencies);
+}
+
+function captureWrapperProps(lastWrapperProps, lastChildProps, renderIsScheduled, wrapperProps, actualChildProps, childPropsFromStoreUpdate, notifyNestedSubs) {
+  // We want to capture the wrapper props and child props we used for later comparisons
+  lastWrapperProps.current = wrapperProps;
+  lastChildProps.current = actualChildProps;
+  renderIsScheduled.current = false; // If the render was from a store update, clear out that reference and cascade the subscriber update
+
+  if (childPropsFromStoreUpdate.current) {
+    childPropsFromStoreUpdate.current = null;
+    notifyNestedSubs();
+  }
+}
+
+function subscribeUpdates(shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, childPropsFromStoreUpdate, notifyNestedSubs, forceComponentUpdateDispatch) {
+  // If we're not subscribed to the store, nothing to do here
+  if (!shouldHandleStateChanges) return; // Capture values for checking if and when this component unmounts
+
+  var didUnsubscribe = false;
+  var lastThrownError = null; // We'll run this callback every time a store subscription update propagates to this component
+
+  var checkForUpdates = function checkForUpdates() {
+    if (didUnsubscribe) {
+      // Don't run stale listeners.
+      // Redux doesn't guarantee unsubscriptions happen until next dispatch.
+      return;
+    }
+
+    var latestStoreState = store.getState();
+    var newChildProps, error;
+
+    try {
+      // Actually run the selector with the most recent store state and wrapper props
+      // to determine what the child props should be
+      newChildProps = childPropsSelector(latestStoreState, lastWrapperProps.current);
+    } catch (e) {
+      error = e;
+      lastThrownError = e;
+    }
+
+    if (!error) {
+      lastThrownError = null;
+    } // If the child props haven't changed, nothing to do here - cascade the subscription update
+
+
+    if (newChildProps === lastChildProps.current) {
+      if (!renderIsScheduled.current) {
+        notifyNestedSubs();
+      }
+    } else {
+      // Save references to the new child props.  Note that we track the "child props from store update"
+      // as a ref instead of a useState/useReducer because we need a way to determine if that value has
+      // been processed.  If this went into useState/useReducer, we couldn't clear out the value without
+      // forcing another re-render, which we don't want.
+      lastChildProps.current = newChildProps;
+      childPropsFromStoreUpdate.current = newChildProps;
+      renderIsScheduled.current = true; // If the child props _did_ change (or we caught an error), this wrapper component needs to re-render
+
+      forceComponentUpdateDispatch({
+        type: 'STORE_UPDATED',
+        payload: {
+          error: error
+        }
+      });
+    }
+  }; // Actually subscribe to the nearest connected ancestor (or store)
+
+
+  subscription.onStateChange = checkForUpdates;
+  subscription.trySubscribe(); // Pull data from the store after first render in case the store has
+  // changed since we began.
+
+  checkForUpdates();
+
+  var unsubscribeWrapper = function unsubscribeWrapper() {
+    didUnsubscribe = true;
+    subscription.tryUnsubscribe();
+    subscription.onStateChange = null;
+
+    if (lastThrownError) {
+      // It's possible that we caught an error due to a bad mapState function, but the
+      // parent re-rendered without this component and we're about to unmount.
+      // This shouldn't happen as long as we do top-down subscriptions correctly, but
+      // if we ever do those wrong, this throw will surface the error in our tests.
+      // In that case, throw the error from here so it doesn't get lost.
+      throw lastThrownError;
+    }
+  };
+
+  return unsubscribeWrapper;
+}
+
+var initStateUpdates = function initStateUpdates() {
+  return [null, 0];
+};
+
+function connectAdvanced(
+/*
+  selectorFactory is a func that is responsible for returning the selector function used to
+  compute new props from state, props, and dispatch. For example:
+      export default connectAdvanced((dispatch, options) => (state, props) => ({
+      thing: state.things[props.thingId],
+      saveThing: fields => dispatch(actionCreators.saveThing(props.thingId, fields)),
+    }))(YourComponent)
+    Access to dispatch is provided to the factory so selectorFactories can bind actionCreators
+  outside of their selector as an optimization. Options passed to connectAdvanced are passed to
+  the selectorFactory, along with displayName and WrappedComponent, as the second argument.
+    Note that selectorFactory is responsible for all caching/memoization of inbound and outbound
+  props. Do not use connectAdvanced directly without memoizing results between calls to your
+  selector, otherwise the Connect component will re-render on every state or props change.
+*/
+selectorFactory, // options object:
+_ref) {
+  if (_ref === void 0) {
+    _ref = {};
+  }
+
+  var _ref2 = _ref,
+      _ref2$getDisplayName = _ref2.getDisplayName,
+      getDisplayName = _ref2$getDisplayName === void 0 ? function (name) {
+    return "ConnectAdvanced(" + name + ")";
+  } : _ref2$getDisplayName,
+      _ref2$methodName = _ref2.methodName,
+      methodName = _ref2$methodName === void 0 ? 'connectAdvanced' : _ref2$methodName,
+      _ref2$renderCountProp = _ref2.renderCountProp,
+      renderCountProp = _ref2$renderCountProp === void 0 ? undefined : _ref2$renderCountProp,
+      _ref2$shouldHandleSta = _ref2.shouldHandleStateChanges,
+      shouldHandleStateChanges = _ref2$shouldHandleSta === void 0 ? true : _ref2$shouldHandleSta,
+      _ref2$storeKey = _ref2.storeKey,
+      storeKey = _ref2$storeKey === void 0 ? 'store' : _ref2$storeKey,
+      _ref2$withRef = _ref2.withRef,
+      withRef = _ref2$withRef === void 0 ? false : _ref2$withRef,
+      _ref2$forwardRef = _ref2.forwardRef,
+      forwardRef = _ref2$forwardRef === void 0 ? false : _ref2$forwardRef,
+      _ref2$context = _ref2.context,
+      context = _ref2$context === void 0 ? _Context__WEBPACK_IMPORTED_MODULE_7__["ReactReduxContext"] : _ref2$context,
+      connectOptions = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref2, ["getDisplayName", "methodName", "renderCountProp", "shouldHandleStateChanges", "storeKey", "withRef", "forwardRef", "context"]);
+
+  if (true) {
+    if (renderCountProp !== undefined) {
+      throw new Error("renderCountProp is removed. render counting is built into the latest React Dev Tools profiling extension");
+    }
+
+    if (withRef) {
+      throw new Error('withRef is removed. To access the wrapped instance, use a ref on the connected component');
+    }
+
+    var customStoreWarningMessage = 'To use a custom Redux store for specific components, create a custom React context with ' + "React.createContext(), and pass the context object to React Redux's Provider and specific components" + ' like: <Provider context={MyContext}><ConnectedComponent context={MyContext} /></Provider>. ' + 'You may also pass a {context : MyContext} option to connect';
+
+    if (storeKey !== 'store') {
+      throw new Error('storeKey has been removed and does not do anything. ' + customStoreWarningMessage);
+    }
+  }
+
+  var Context = context;
+  return function wrapWithConnect(WrappedComponent) {
+    if ( true && !Object(react_is__WEBPACK_IMPORTED_MODULE_4__["isValidElementType"])(WrappedComponent)) {
+      throw new Error("You must pass a component to the function returned by " + (methodName + ". Instead received " + stringifyComponent(WrappedComponent)));
+    }
+
+    var wrappedComponentName = WrappedComponent.displayName || WrappedComponent.name || 'Component';
+    var displayName = getDisplayName(wrappedComponentName);
+
+    var selectorFactoryOptions = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, connectOptions, {
+      getDisplayName: getDisplayName,
+      methodName: methodName,
+      renderCountProp: renderCountProp,
+      shouldHandleStateChanges: shouldHandleStateChanges,
+      storeKey: storeKey,
+      displayName: displayName,
+      wrappedComponentName: wrappedComponentName,
+      WrappedComponent: WrappedComponent
+    });
+
+    var pure = connectOptions.pure;
+
+    function createChildSelector(store) {
+      return selectorFactory(store.dispatch, selectorFactoryOptions);
+    } // If we aren't running in "pure" mode, we don't want to memoize values.
+    // To avoid conditionally calling hooks, we fall back to a tiny wrapper
+    // that just executes the given callback immediately.
+
+
+    var usePureOnlyMemo = pure ? react__WEBPACK_IMPORTED_MODULE_3__["useMemo"] : function (callback) {
+      return callback();
+    };
+
+    function ConnectFunction(props) {
+      var _useMemo = Object(react__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
+        // Distinguish between actual "data" props that were passed to the wrapper component,
+        // and values needed to control behavior (forwarded refs, alternate context instances).
+        // To maintain the wrapperProps object reference, memoize this destructuring.
+        var forwardedRef = props.forwardedRef,
+            wrapperProps = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["forwardedRef"]);
+
+        return [props.context, forwardedRef, wrapperProps];
+      }, [props]),
+          propsContext = _useMemo[0],
+          forwardedRef = _useMemo[1],
+          wrapperProps = _useMemo[2];
+
+      var ContextToUse = Object(react__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
+        // Users may optionally pass in a custom context instance to use instead of our ReactReduxContext.
+        // Memoize the check that determines which context instance we should use.
+        return propsContext && propsContext.Consumer && Object(react_is__WEBPACK_IMPORTED_MODULE_4__["isContextConsumer"])(react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(propsContext.Consumer, null)) ? propsContext : Context;
+      }, [propsContext, Context]); // Retrieve the store and ancestor subscription via context, if available
+
+      var contextValue = Object(react__WEBPACK_IMPORTED_MODULE_3__["useContext"])(ContextToUse); // The store _must_ exist as either a prop or in context.
+      // We'll check to see if it _looks_ like a Redux store first.
+      // This allows us to pass through a `store` prop that is just a plain value.
+
+      var didStoreComeFromProps = Boolean(props.store) && Boolean(props.store.getState) && Boolean(props.store.dispatch);
+      var didStoreComeFromContext = Boolean(contextValue) && Boolean(contextValue.store);
+
+      if ( true && !didStoreComeFromProps && !didStoreComeFromContext) {
+        throw new Error("Could not find \"store\" in the context of " + ("\"" + displayName + "\". Either wrap the root component in a <Provider>, ") + "or pass a custom React context provider to <Provider> and the corresponding " + ("React context consumer to " + displayName + " in connect options."));
+      } // Based on the previous check, one of these must be true
+
+
+      var store = didStoreComeFromProps ? props.store : contextValue.store;
+      var childPropsSelector = Object(react__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
+        // The child props selector needs the store reference as an input.
+        // Re-create this selector whenever the store changes.
+        return createChildSelector(store);
+      }, [store]);
+
+      var _useMemo2 = Object(react__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
+        if (!shouldHandleStateChanges) return NO_SUBSCRIPTION_ARRAY; // This Subscription's source should match where store came from: props vs. context. A component
+        // connected to the store via props shouldn't use subscription from context, or vice versa.
+
+        var subscription = new _utils_Subscription__WEBPACK_IMPORTED_MODULE_5__["default"](store, didStoreComeFromProps ? null : contextValue.subscription); // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
+        // the middle of the notification loop, where `subscription` will then be null. This can
+        // probably be avoided if Subscription's listeners logic is changed to not call listeners
+        // that have been unsubscribed in the  middle of the notification loop.
+
+        var notifyNestedSubs = subscription.notifyNestedSubs.bind(subscription);
+        return [subscription, notifyNestedSubs];
+      }, [store, didStoreComeFromProps, contextValue]),
+          subscription = _useMemo2[0],
+          notifyNestedSubs = _useMemo2[1]; // Determine what {store, subscription} value should be put into nested context, if necessary,
+      // and memoize that value to avoid unnecessary context updates.
+
+
+      var overriddenContextValue = Object(react__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
+        if (didStoreComeFromProps) {
+          // This component is directly subscribed to a store from props.
+          // We don't want descendants reading from this store - pass down whatever
+          // the existing context value is from the nearest connected ancestor.
+          return contextValue;
+        } // Otherwise, put this component's subscription instance into context, so that
+        // connected descendants won't update until after this component is done
+
+
+        return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, contextValue, {
+          subscription: subscription
+        });
+      }, [didStoreComeFromProps, contextValue, subscription]); // We need to force this wrapper component to re-render whenever a Redux store update
+      // causes a change to the calculated child component props (or we caught an error in mapState)
+
+      var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_3__["useReducer"])(storeStateUpdatesReducer, EMPTY_ARRAY, initStateUpdates),
+          _useReducer$ = _useReducer[0],
+          previousStateUpdateResult = _useReducer$[0],
+          forceComponentUpdateDispatch = _useReducer[1]; // Propagate any mapState/mapDispatch errors upwards
+
+
+      if (previousStateUpdateResult && previousStateUpdateResult.error) {
+        throw previousStateUpdateResult.error;
+      } // Set up refs to coordinate values between the subscription effect and the render logic
+
+
+      var lastChildProps = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])();
+      var lastWrapperProps = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])(wrapperProps);
+      var childPropsFromStoreUpdate = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])();
+      var renderIsScheduled = Object(react__WEBPACK_IMPORTED_MODULE_3__["useRef"])(false);
+      var actualChildProps = usePureOnlyMemo(function () {
+        // Tricky logic here:
+        // - This render may have been triggered by a Redux store update that produced new child props
+        // - However, we may have gotten new wrapper props after that
+        // If we have new child props, and the same wrapper props, we know we should use the new child props as-is.
+        // But, if we have new wrapper props, those might change the child props, so we have to recalculate things.
+        // So, we'll use the child props from store update only if the wrapper props are the same as last time.
+        if (childPropsFromStoreUpdate.current && wrapperProps === lastWrapperProps.current) {
+          return childPropsFromStoreUpdate.current;
+        } // TODO We're reading the store directly in render() here. Bad idea?
+        // This will likely cause Bad Things (TM) to happen in Concurrent Mode.
+        // Note that we do this because on renders _not_ caused by store updates, we need the latest store state
+        // to determine what the child props should be.
+
+
+        return childPropsSelector(store.getState(), wrapperProps);
+      }, [store, previousStateUpdateResult, wrapperProps]); // We need this to execute synchronously every time we re-render. However, React warns
+      // about useLayoutEffect in SSR, so we try to detect environment and fall back to
+      // just useEffect instead to avoid the warning, since neither will run anyway.
+
+      useIsomorphicLayoutEffectWithArgs(captureWrapperProps, [lastWrapperProps, lastChildProps, renderIsScheduled, wrapperProps, actualChildProps, childPropsFromStoreUpdate, notifyNestedSubs]); // Our re-subscribe logic only runs when the store/subscription setup changes
+
+      useIsomorphicLayoutEffectWithArgs(subscribeUpdates, [shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, childPropsFromStoreUpdate, notifyNestedSubs, forceComponentUpdateDispatch], [store, subscription, childPropsSelector]); // Now that all that's done, we can finally try to actually render the child component.
+      // We memoize the elements for the rendered child component as an optimization.
+
+      var renderedWrappedComponent = Object(react__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
+        return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(WrappedComponent, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, actualChildProps, {
+          ref: forwardedRef
+        }));
+      }, [forwardedRef, WrappedComponent, actualChildProps]); // If React sees the exact same element reference as last time, it bails out of re-rendering
+      // that child, same as if it was wrapped in React.memo() or returned false from shouldComponentUpdate.
+
+      var renderedChild = Object(react__WEBPACK_IMPORTED_MODULE_3__["useMemo"])(function () {
+        if (shouldHandleStateChanges) {
+          // If this component is subscribed to store updates, we need to pass its own
+          // subscription instance down to our descendants. That means rendering the same
+          // Context instance, and putting a different value into the context.
+          return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(ContextToUse.Provider, {
+            value: overriddenContextValue
+          }, renderedWrappedComponent);
+        }
+
+        return renderedWrappedComponent;
+      }, [ContextToUse, renderedWrappedComponent, overriddenContextValue]);
+      return renderedChild;
+    } // If we're in "pure" mode, ensure our wrapper component only re-renders when incoming props have changed.
+
+
+    var Connect = pure ? react__WEBPACK_IMPORTED_MODULE_3___default.a.memo(ConnectFunction) : ConnectFunction;
+    Connect.WrappedComponent = WrappedComponent;
+    Connect.displayName = displayName;
+
+    if (forwardRef) {
+      var forwarded = react__WEBPACK_IMPORTED_MODULE_3___default.a.forwardRef(function forwardConnectRef(props, ref) {
+        return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(Connect, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+          forwardedRef: ref
+        }));
+      });
+      forwarded.displayName = displayName;
+      forwarded.WrappedComponent = WrappedComponent;
+      return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2___default()(forwarded, WrappedComponent);
+    }
+
+    return hoist_non_react_statics__WEBPACK_IMPORTED_MODULE_2___default()(Connect, WrappedComponent);
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/connect/connect.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/connect.js ***!
+  \********************************************************/
+/*! exports provided: createConnect, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createConnect", function() { return createConnect; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var _components_connectAdvanced__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/connectAdvanced */ "./node_modules/react-redux/es/components/connectAdvanced.js");
+/* harmony import */ var _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/shallowEqual */ "./node_modules/react-redux/es/utils/shallowEqual.js");
+/* harmony import */ var _mapDispatchToProps__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./mapDispatchToProps */ "./node_modules/react-redux/es/connect/mapDispatchToProps.js");
+/* harmony import */ var _mapStateToProps__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./mapStateToProps */ "./node_modules/react-redux/es/connect/mapStateToProps.js");
+/* harmony import */ var _mergeProps__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./mergeProps */ "./node_modules/react-redux/es/connect/mergeProps.js");
+/* harmony import */ var _selectorFactory__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./selectorFactory */ "./node_modules/react-redux/es/connect/selectorFactory.js");
+
+
+
+
+
+
+
+
+/*
+  connect is a facade over connectAdvanced. It turns its args into a compatible
+  selectorFactory, which has the signature:
+
+    (dispatch, options) => (nextState, nextOwnProps) => nextFinalProps
+  
+  connect passes its args to connectAdvanced as options, which will in turn pass them to
+  selectorFactory each time a Connect component instance is instantiated or hot reloaded.
+
+  selectorFactory returns a final props selector from its mapStateToProps,
+  mapStateToPropsFactories, mapDispatchToProps, mapDispatchToPropsFactories, mergeProps,
+  mergePropsFactories, and pure args.
+
+  The resulting final props selector is called by the Connect component instance whenever
+  it receives new props or store state.
+ */
+
+function match(arg, factories, name) {
+  for (var i = factories.length - 1; i >= 0; i--) {
+    var result = factories[i](arg);
+    if (result) return result;
+  }
+
+  return function (dispatch, options) {
+    throw new Error("Invalid value of type " + typeof arg + " for " + name + " argument when connecting component " + options.wrappedComponentName + ".");
+  };
+}
+
+function strictEqual(a, b) {
+  return a === b;
+} // createConnect with default args builds the 'official' connect behavior. Calling it with
+// different options opens up some testing and extensibility scenarios
+
+
+function createConnect(_temp) {
+  var _ref = _temp === void 0 ? {} : _temp,
+      _ref$connectHOC = _ref.connectHOC,
+      connectHOC = _ref$connectHOC === void 0 ? _components_connectAdvanced__WEBPACK_IMPORTED_MODULE_2__["default"] : _ref$connectHOC,
+      _ref$mapStateToPropsF = _ref.mapStateToPropsFactories,
+      mapStateToPropsFactories = _ref$mapStateToPropsF === void 0 ? _mapStateToProps__WEBPACK_IMPORTED_MODULE_5__["default"] : _ref$mapStateToPropsF,
+      _ref$mapDispatchToPro = _ref.mapDispatchToPropsFactories,
+      mapDispatchToPropsFactories = _ref$mapDispatchToPro === void 0 ? _mapDispatchToProps__WEBPACK_IMPORTED_MODULE_4__["default"] : _ref$mapDispatchToPro,
+      _ref$mergePropsFactor = _ref.mergePropsFactories,
+      mergePropsFactories = _ref$mergePropsFactor === void 0 ? _mergeProps__WEBPACK_IMPORTED_MODULE_6__["default"] : _ref$mergePropsFactor,
+      _ref$selectorFactory = _ref.selectorFactory,
+      selectorFactory = _ref$selectorFactory === void 0 ? _selectorFactory__WEBPACK_IMPORTED_MODULE_7__["default"] : _ref$selectorFactory;
+
+  return function connect(mapStateToProps, mapDispatchToProps, mergeProps, _ref2) {
+    if (_ref2 === void 0) {
+      _ref2 = {};
+    }
+
+    var _ref3 = _ref2,
+        _ref3$pure = _ref3.pure,
+        pure = _ref3$pure === void 0 ? true : _ref3$pure,
+        _ref3$areStatesEqual = _ref3.areStatesEqual,
+        areStatesEqual = _ref3$areStatesEqual === void 0 ? strictEqual : _ref3$areStatesEqual,
+        _ref3$areOwnPropsEqua = _ref3.areOwnPropsEqual,
+        areOwnPropsEqual = _ref3$areOwnPropsEqua === void 0 ? _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__["default"] : _ref3$areOwnPropsEqua,
+        _ref3$areStatePropsEq = _ref3.areStatePropsEqual,
+        areStatePropsEqual = _ref3$areStatePropsEq === void 0 ? _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__["default"] : _ref3$areStatePropsEq,
+        _ref3$areMergedPropsE = _ref3.areMergedPropsEqual,
+        areMergedPropsEqual = _ref3$areMergedPropsE === void 0 ? _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_3__["default"] : _ref3$areMergedPropsE,
+        extraOptions = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__["default"])(_ref3, ["pure", "areStatesEqual", "areOwnPropsEqual", "areStatePropsEqual", "areMergedPropsEqual"]);
+
+    var initMapStateToProps = match(mapStateToProps, mapStateToPropsFactories, 'mapStateToProps');
+    var initMapDispatchToProps = match(mapDispatchToProps, mapDispatchToPropsFactories, 'mapDispatchToProps');
+    var initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps');
+    return connectHOC(selectorFactory, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+      // used in error messages
+      methodName: 'connect',
+      // used to compute Connect's displayName from the wrapped component's displayName.
+      getDisplayName: function getDisplayName(name) {
+        return "Connect(" + name + ")";
+      },
+      // if mapStateToProps is falsy, the Connect component doesn't subscribe to store state changes
+      shouldHandleStateChanges: Boolean(mapStateToProps),
+      // passed through to selectorFactory
+      initMapStateToProps: initMapStateToProps,
+      initMapDispatchToProps: initMapDispatchToProps,
+      initMergeProps: initMergeProps,
+      pure: pure,
+      areStatesEqual: areStatesEqual,
+      areOwnPropsEqual: areOwnPropsEqual,
+      areStatePropsEqual: areStatePropsEqual,
+      areMergedPropsEqual: areMergedPropsEqual
+    }, extraOptions));
+  };
+}
+/* harmony default export */ __webpack_exports__["default"] = (/*#__PURE__*/createConnect());
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/connect/mapDispatchToProps.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/mapDispatchToProps.js ***!
+  \*******************************************************************/
+/*! exports provided: whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whenMapDispatchToPropsIsFunction", function() { return whenMapDispatchToPropsIsFunction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whenMapDispatchToPropsIsMissing", function() { return whenMapDispatchToPropsIsMissing; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whenMapDispatchToPropsIsObject", function() { return whenMapDispatchToPropsIsObject; });
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _wrapMapToProps__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./wrapMapToProps */ "./node_modules/react-redux/es/connect/wrapMapToProps.js");
+
+
+function whenMapDispatchToPropsIsFunction(mapDispatchToProps) {
+  return typeof mapDispatchToProps === 'function' ? Object(_wrapMapToProps__WEBPACK_IMPORTED_MODULE_1__["wrapMapToPropsFunc"])(mapDispatchToProps, 'mapDispatchToProps') : undefined;
+}
+function whenMapDispatchToPropsIsMissing(mapDispatchToProps) {
+  return !mapDispatchToProps ? Object(_wrapMapToProps__WEBPACK_IMPORTED_MODULE_1__["wrapMapToPropsConstant"])(function (dispatch) {
+    return {
+      dispatch: dispatch
+    };
+  }) : undefined;
+}
+function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
+  return mapDispatchToProps && typeof mapDispatchToProps === 'object' ? Object(_wrapMapToProps__WEBPACK_IMPORTED_MODULE_1__["wrapMapToPropsConstant"])(function (dispatch) {
+    return Object(redux__WEBPACK_IMPORTED_MODULE_0__["bindActionCreators"])(mapDispatchToProps, dispatch);
+  }) : undefined;
+}
+/* harmony default export */ __webpack_exports__["default"] = ([whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject]);
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/connect/mapStateToProps.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/mapStateToProps.js ***!
+  \****************************************************************/
+/*! exports provided: whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whenMapStateToPropsIsFunction", function() { return whenMapStateToPropsIsFunction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whenMapStateToPropsIsMissing", function() { return whenMapStateToPropsIsMissing; });
+/* harmony import */ var _wrapMapToProps__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./wrapMapToProps */ "./node_modules/react-redux/es/connect/wrapMapToProps.js");
+
+function whenMapStateToPropsIsFunction(mapStateToProps) {
+  return typeof mapStateToProps === 'function' ? Object(_wrapMapToProps__WEBPACK_IMPORTED_MODULE_0__["wrapMapToPropsFunc"])(mapStateToProps, 'mapStateToProps') : undefined;
+}
+function whenMapStateToPropsIsMissing(mapStateToProps) {
+  return !mapStateToProps ? Object(_wrapMapToProps__WEBPACK_IMPORTED_MODULE_0__["wrapMapToPropsConstant"])(function () {
+    return {};
+  }) : undefined;
+}
+/* harmony default export */ __webpack_exports__["default"] = ([whenMapStateToPropsIsFunction, whenMapStateToPropsIsMissing]);
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/connect/mergeProps.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/mergeProps.js ***!
+  \***********************************************************/
+/*! exports provided: defaultMergeProps, wrapMergePropsFunc, whenMergePropsIsFunction, whenMergePropsIsOmitted, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultMergeProps", function() { return defaultMergeProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapMergePropsFunc", function() { return wrapMergePropsFunc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whenMergePropsIsFunction", function() { return whenMergePropsIsFunction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "whenMergePropsIsOmitted", function() { return whenMergePropsIsOmitted; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _utils_verifyPlainObject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utils/verifyPlainObject */ "./node_modules/react-redux/es/utils/verifyPlainObject.js");
+
+
+function defaultMergeProps(stateProps, dispatchProps, ownProps) {
+  return Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, ownProps, {}, stateProps, {}, dispatchProps);
+}
+function wrapMergePropsFunc(mergeProps) {
+  return function initMergePropsProxy(dispatch, _ref) {
+    var displayName = _ref.displayName,
+        pure = _ref.pure,
+        areMergedPropsEqual = _ref.areMergedPropsEqual;
+    var hasRunOnce = false;
+    var mergedProps;
+    return function mergePropsProxy(stateProps, dispatchProps, ownProps) {
+      var nextMergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+
+      if (hasRunOnce) {
+        if (!pure || !areMergedPropsEqual(nextMergedProps, mergedProps)) mergedProps = nextMergedProps;
+      } else {
+        hasRunOnce = true;
+        mergedProps = nextMergedProps;
+        if (true) Object(_utils_verifyPlainObject__WEBPACK_IMPORTED_MODULE_1__["default"])(mergedProps, displayName, 'mergeProps');
+      }
+
+      return mergedProps;
+    };
+  };
+}
+function whenMergePropsIsFunction(mergeProps) {
+  return typeof mergeProps === 'function' ? wrapMergePropsFunc(mergeProps) : undefined;
+}
+function whenMergePropsIsOmitted(mergeProps) {
+  return !mergeProps ? function () {
+    return defaultMergeProps;
+  } : undefined;
+}
+/* harmony default export */ __webpack_exports__["default"] = ([whenMergePropsIsFunction, whenMergePropsIsOmitted]);
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/connect/selectorFactory.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/selectorFactory.js ***!
+  \****************************************************************/
+/*! exports provided: impureFinalPropsSelectorFactory, pureFinalPropsSelectorFactory, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "impureFinalPropsSelectorFactory", function() { return impureFinalPropsSelectorFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "pureFinalPropsSelectorFactory", function() { return pureFinalPropsSelectorFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return finalPropsSelectorFactory; });
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js");
+/* harmony import */ var _verifySubselectors__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./verifySubselectors */ "./node_modules/react-redux/es/connect/verifySubselectors.js");
+
+
+function impureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch) {
+  return function impureFinalPropsSelector(state, ownProps) {
+    return mergeProps(mapStateToProps(state, ownProps), mapDispatchToProps(dispatch, ownProps), ownProps);
+  };
+}
+function pureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, _ref) {
+  var areStatesEqual = _ref.areStatesEqual,
+      areOwnPropsEqual = _ref.areOwnPropsEqual,
+      areStatePropsEqual = _ref.areStatePropsEqual;
+  var hasRunAtLeastOnce = false;
+  var state;
+  var ownProps;
+  var stateProps;
+  var dispatchProps;
+  var mergedProps;
+
+  function handleFirstCall(firstState, firstOwnProps) {
+    state = firstState;
+    ownProps = firstOwnProps;
+    stateProps = mapStateToProps(state, ownProps);
+    dispatchProps = mapDispatchToProps(dispatch, ownProps);
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    hasRunAtLeastOnce = true;
+    return mergedProps;
+  }
+
+  function handleNewPropsAndNewState() {
+    stateProps = mapStateToProps(state, ownProps);
+    if (mapDispatchToProps.dependsOnOwnProps) dispatchProps = mapDispatchToProps(dispatch, ownProps);
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    return mergedProps;
+  }
+
+  function handleNewProps() {
+    if (mapStateToProps.dependsOnOwnProps) stateProps = mapStateToProps(state, ownProps);
+    if (mapDispatchToProps.dependsOnOwnProps) dispatchProps = mapDispatchToProps(dispatch, ownProps);
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    return mergedProps;
+  }
+
+  function handleNewState() {
+    var nextStateProps = mapStateToProps(state, ownProps);
+    var statePropsChanged = !areStatePropsEqual(nextStateProps, stateProps);
+    stateProps = nextStateProps;
+    if (statePropsChanged) mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+    return mergedProps;
+  }
+
+  function handleSubsequentCalls(nextState, nextOwnProps) {
+    var propsChanged = !areOwnPropsEqual(nextOwnProps, ownProps);
+    var stateChanged = !areStatesEqual(nextState, state);
+    state = nextState;
+    ownProps = nextOwnProps;
+    if (propsChanged && stateChanged) return handleNewPropsAndNewState();
+    if (propsChanged) return handleNewProps();
+    if (stateChanged) return handleNewState();
+    return mergedProps;
+  }
+
+  return function pureFinalPropsSelector(nextState, nextOwnProps) {
+    return hasRunAtLeastOnce ? handleSubsequentCalls(nextState, nextOwnProps) : handleFirstCall(nextState, nextOwnProps);
+  };
+} // TODO: Add more comments
+// If pure is true, the selector returned by selectorFactory will memoize its results,
+// allowing connectAdvanced's shouldComponentUpdate to return false if final
+// props have not changed. If false, the selector will always return a new
+// object and shouldComponentUpdate will always return true.
+
+function finalPropsSelectorFactory(dispatch, _ref2) {
+  var initMapStateToProps = _ref2.initMapStateToProps,
+      initMapDispatchToProps = _ref2.initMapDispatchToProps,
+      initMergeProps = _ref2.initMergeProps,
+      options = Object(_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_0__["default"])(_ref2, ["initMapStateToProps", "initMapDispatchToProps", "initMergeProps"]);
+
+  var mapStateToProps = initMapStateToProps(dispatch, options);
+  var mapDispatchToProps = initMapDispatchToProps(dispatch, options);
+  var mergeProps = initMergeProps(dispatch, options);
+
+  if (true) {
+    Object(_verifySubselectors__WEBPACK_IMPORTED_MODULE_1__["default"])(mapStateToProps, mapDispatchToProps, mergeProps, options.displayName);
+  }
+
+  var selectorFactory = options.pure ? pureFinalPropsSelectorFactory : impureFinalPropsSelectorFactory;
+  return selectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/connect/verifySubselectors.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/verifySubselectors.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return verifySubselectors; });
+/* harmony import */ var _utils_warning__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/warning */ "./node_modules/react-redux/es/utils/warning.js");
+
+
+function verify(selector, methodName, displayName) {
+  if (!selector) {
+    throw new Error("Unexpected value for " + methodName + " in " + displayName + ".");
+  } else if (methodName === 'mapStateToProps' || methodName === 'mapDispatchToProps') {
+    if (!Object.prototype.hasOwnProperty.call(selector, 'dependsOnOwnProps')) {
+      Object(_utils_warning__WEBPACK_IMPORTED_MODULE_0__["default"])("The selector for " + methodName + " of " + displayName + " did not specify a value for dependsOnOwnProps.");
+    }
+  }
+}
+
+function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, displayName) {
+  verify(mapStateToProps, 'mapStateToProps', displayName);
+  verify(mapDispatchToProps, 'mapDispatchToProps', displayName);
+  verify(mergeProps, 'mergeProps', displayName);
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/connect/wrapMapToProps.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-redux/es/connect/wrapMapToProps.js ***!
+  \***************************************************************/
+/*! exports provided: wrapMapToPropsConstant, getDependsOnOwnProps, wrapMapToPropsFunc */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapMapToPropsConstant", function() { return wrapMapToPropsConstant; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getDependsOnOwnProps", function() { return getDependsOnOwnProps; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "wrapMapToPropsFunc", function() { return wrapMapToPropsFunc; });
+/* harmony import */ var _utils_verifyPlainObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/verifyPlainObject */ "./node_modules/react-redux/es/utils/verifyPlainObject.js");
+
+function wrapMapToPropsConstant(getConstant) {
+  return function initConstantSelector(dispatch, options) {
+    var constant = getConstant(dispatch, options);
+
+    function constantSelector() {
+      return constant;
+    }
+
+    constantSelector.dependsOnOwnProps = false;
+    return constantSelector;
+  };
+} // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
+// to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
+// whether mapToProps needs to be invoked when props have changed.
+//
+// A length of one signals that mapToProps does not depend on props from the parent component.
+// A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
+// therefore not reporting its length accurately..
+
+function getDependsOnOwnProps(mapToProps) {
+  return mapToProps.dependsOnOwnProps !== null && mapToProps.dependsOnOwnProps !== undefined ? Boolean(mapToProps.dependsOnOwnProps) : mapToProps.length !== 1;
+} // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
+// this function wraps mapToProps in a proxy function which does several things:
+//
+//  * Detects whether the mapToProps function being called depends on props, which
+//    is used by selectorFactory to decide if it should reinvoke on props changes.
+//
+//  * On first call, handles mapToProps if returns another function, and treats that
+//    new function as the true mapToProps for subsequent calls.
+//
+//  * On first call, verifies the first result is a plain object, in order to warn
+//    the developer that their mapToProps function is not returning a valid result.
+//
+
+function wrapMapToPropsFunc(mapToProps, methodName) {
+  return function initProxySelector(dispatch, _ref) {
+    var displayName = _ref.displayName;
+
+    var proxy = function mapToPropsProxy(stateOrDispatch, ownProps) {
+      return proxy.dependsOnOwnProps ? proxy.mapToProps(stateOrDispatch, ownProps) : proxy.mapToProps(stateOrDispatch);
+    }; // allow detectFactoryAndVerify to get ownProps
+
+
+    proxy.dependsOnOwnProps = true;
+
+    proxy.mapToProps = function detectFactoryAndVerify(stateOrDispatch, ownProps) {
+      proxy.mapToProps = mapToProps;
+      proxy.dependsOnOwnProps = getDependsOnOwnProps(mapToProps);
+      var props = proxy(stateOrDispatch, ownProps);
+
+      if (typeof props === 'function') {
+        proxy.mapToProps = props;
+        proxy.dependsOnOwnProps = getDependsOnOwnProps(props);
+        props = proxy(stateOrDispatch, ownProps);
+      }
+
+      if (true) Object(_utils_verifyPlainObject__WEBPACK_IMPORTED_MODULE_0__["default"])(props, displayName, methodName);
+      return props;
+    };
+
+    return proxy;
+  };
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/hooks/useDispatch.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useDispatch.js ***!
+  \**********************************************************/
+/*! exports provided: createDispatchHook, useDispatch */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createDispatchHook", function() { return createDispatchHook; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useDispatch", function() { return useDispatch; });
+/* harmony import */ var _components_Context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Context */ "./node_modules/react-redux/es/components/Context.js");
+/* harmony import */ var _useStore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useStore */ "./node_modules/react-redux/es/hooks/useStore.js");
+
+
+/**
+ * Hook factory, which creates a `useDispatch` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useDispatch` hook bound to the specified context.
+ */
+
+function createDispatchHook(context) {
+  if (context === void 0) {
+    context = _components_Context__WEBPACK_IMPORTED_MODULE_0__["ReactReduxContext"];
+  }
+
+  var useStore = context === _components_Context__WEBPACK_IMPORTED_MODULE_0__["ReactReduxContext"] ? _useStore__WEBPACK_IMPORTED_MODULE_1__["useStore"] : Object(_useStore__WEBPACK_IMPORTED_MODULE_1__["createStoreHook"])(context);
+  return function useDispatch() {
+    var store = useStore();
+    return store.dispatch;
+  };
+}
+/**
+ * A hook to access the redux `dispatch` function.
+ *
+ * @returns {any|function} redux store's `dispatch` function
+ *
+ * @example
+ *
+ * import React, { useCallback } from 'react'
+ * import { useDispatch } from 'react-redux'
+ *
+ * export const CounterComponent = ({ value }) => {
+ *   const dispatch = useDispatch()
+ *   const increaseCounter = useCallback(() => dispatch({ type: 'increase-counter' }), [])
+ *   return (
+ *     <div>
+ *       <span>{value}</span>
+ *       <button onClick={increaseCounter}>Increase counter</button>
+ *     </div>
+ *   )
+ * }
+ */
+
+var useDispatch =
+/*#__PURE__*/
+createDispatchHook();
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/hooks/useReduxContext.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useReduxContext.js ***!
+  \**************************************************************/
+/*! exports provided: useReduxContext */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useReduxContext", function() { return useReduxContext; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Context */ "./node_modules/react-redux/es/components/Context.js");
+
+
+/**
+ * A hook to access the value of the `ReactReduxContext`. This is a low-level
+ * hook that you should usually not need to call directly.
+ *
+ * @returns {any} the value of the `ReactReduxContext`
+ *
+ * @example
+ *
+ * import React from 'react'
+ * import { useReduxContext } from 'react-redux'
+ *
+ * export const CounterComponent = ({ value }) => {
+ *   const { store } = useReduxContext()
+ *   return <div>{store.getState()}</div>
+ * }
+ */
+
+function useReduxContext() {
+  var contextValue = Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(_components_Context__WEBPACK_IMPORTED_MODULE_1__["ReactReduxContext"]);
+
+  if ( true && !contextValue) {
+    throw new Error('could not find react-redux context value; please ensure the component is wrapped in a <Provider>');
+  }
+
+  return contextValue;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/hooks/useSelector.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useSelector.js ***!
+  \**********************************************************/
+/*! exports provided: createSelectorHook, useSelector */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createSelectorHook", function() { return createSelectorHook; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useSelector", function() { return useSelector; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _useReduxContext__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useReduxContext */ "./node_modules/react-redux/es/hooks/useReduxContext.js");
+/* harmony import */ var _utils_Subscription__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/Subscription */ "./node_modules/react-redux/es/utils/Subscription.js");
+/* harmony import */ var _utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/useIsomorphicLayoutEffect */ "./node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js");
+/* harmony import */ var _components_Context__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Context */ "./node_modules/react-redux/es/components/Context.js");
+
+
+
+
+
+
+var refEquality = function refEquality(a, b) {
+  return a === b;
+};
+
+function useSelectorWithStoreAndSubscription(selector, equalityFn, store, contextSub) {
+  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(function (s) {
+    return s + 1;
+  }, 0),
+      forceRender = _useReducer[1];
+
+  var subscription = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
+    return new _utils_Subscription__WEBPACK_IMPORTED_MODULE_2__["default"](store, contextSub);
+  }, [store, contextSub]);
+  var latestSubscriptionCallbackError = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+  var latestSelector = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+  var latestSelectedState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])();
+  var selectedState;
+
+  try {
+    if (selector !== latestSelector.current || latestSubscriptionCallbackError.current) {
+      selectedState = selector(store.getState());
+    } else {
+      selectedState = latestSelectedState.current;
+    }
+  } catch (err) {
+    if (latestSubscriptionCallbackError.current) {
+      err.message += "\nThe error may be correlated with this previous error:\n" + latestSubscriptionCallbackError.current.stack + "\n\n";
+    }
+
+    throw err;
+  }
+
+  Object(_utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_3__["useIsomorphicLayoutEffect"])(function () {
+    latestSelector.current = selector;
+    latestSelectedState.current = selectedState;
+    latestSubscriptionCallbackError.current = undefined;
+  });
+  Object(_utils_useIsomorphicLayoutEffect__WEBPACK_IMPORTED_MODULE_3__["useIsomorphicLayoutEffect"])(function () {
+    function checkForUpdates() {
+      try {
+        var newSelectedState = latestSelector.current(store.getState());
+
+        if (equalityFn(newSelectedState, latestSelectedState.current)) {
+          return;
+        }
+
+        latestSelectedState.current = newSelectedState;
+      } catch (err) {
+        // we ignore all errors here, since when the component
+        // is re-rendered, the selectors are called again, and
+        // will throw again, if neither props nor store state
+        // changed
+        latestSubscriptionCallbackError.current = err;
+      }
+
+      forceRender({});
+    }
+
+    subscription.onStateChange = checkForUpdates;
+    subscription.trySubscribe();
+    checkForUpdates();
+    return function () {
+      return subscription.tryUnsubscribe();
+    };
+  }, [store, subscription]);
+  return selectedState;
+}
+/**
+ * Hook factory, which creates a `useSelector` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useSelector` hook bound to the specified context.
+ */
+
+
+function createSelectorHook(context) {
+  if (context === void 0) {
+    context = _components_Context__WEBPACK_IMPORTED_MODULE_4__["ReactReduxContext"];
+  }
+
+  var useReduxContext = context === _components_Context__WEBPACK_IMPORTED_MODULE_4__["ReactReduxContext"] ? _useReduxContext__WEBPACK_IMPORTED_MODULE_1__["useReduxContext"] : function () {
+    return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(context);
+  };
+  return function useSelector(selector, equalityFn) {
+    if (equalityFn === void 0) {
+      equalityFn = refEquality;
+    }
+
+    if ( true && !selector) {
+      throw new Error("You must pass a selector to useSelectors");
+    }
+
+    var _useReduxContext = useReduxContext(),
+        store = _useReduxContext.store,
+        contextSub = _useReduxContext.subscription;
+
+    return useSelectorWithStoreAndSubscription(selector, equalityFn, store, contextSub);
+  };
+}
+/**
+ * A hook to access the redux store's state. This hook takes a selector function
+ * as an argument. The selector is called with the store state.
+ *
+ * This hook takes an optional equality comparison function as the second parameter
+ * that allows you to customize the way the selected state is compared to determine
+ * whether the component needs to be re-rendered.
+ *
+ * @param {Function} selector the selector function
+ * @param {Function=} equalityFn the function that will be used to determine equality
+ *
+ * @returns {any} the selected state
+ *
+ * @example
+ *
+ * import React from 'react'
+ * import { useSelector } from 'react-redux'
+ *
+ * export const CounterComponent = () => {
+ *   const counter = useSelector(state => state.counter)
+ *   return <div>{counter}</div>
+ * }
+ */
+
+var useSelector =
+/*#__PURE__*/
+createSelectorHook();
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/hooks/useStore.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-redux/es/hooks/useStore.js ***!
+  \*******************************************************/
+/*! exports provided: createStoreHook, useStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStoreHook", function() { return createStoreHook; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useStore", function() { return useStore; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_Context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Context */ "./node_modules/react-redux/es/components/Context.js");
+/* harmony import */ var _useReduxContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./useReduxContext */ "./node_modules/react-redux/es/hooks/useReduxContext.js");
+
+
+
+/**
+ * Hook factory, which creates a `useStore` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useStore` hook bound to the specified context.
+ */
+
+function createStoreHook(context) {
+  if (context === void 0) {
+    context = _components_Context__WEBPACK_IMPORTED_MODULE_1__["ReactReduxContext"];
+  }
+
+  var useReduxContext = context === _components_Context__WEBPACK_IMPORTED_MODULE_1__["ReactReduxContext"] ? _useReduxContext__WEBPACK_IMPORTED_MODULE_2__["useReduxContext"] : function () {
+    return Object(react__WEBPACK_IMPORTED_MODULE_0__["useContext"])(context);
+  };
+  return function useStore() {
+    var _useReduxContext = useReduxContext(),
+        store = _useReduxContext.store;
+
+    return store;
+  };
+}
+/**
+ * A hook to access the redux store.
+ *
+ * @returns {any} the redux store
+ *
+ * @example
+ *
+ * import React from 'react'
+ * import { useStore } from 'react-redux'
+ *
+ * export const ExampleComponent = () => {
+ *   const store = useStore()
+ *   return <div>{store.getState()}</div>
+ * }
+ */
+
+var useStore =
+/*#__PURE__*/
+createStoreHook();
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/react-redux/es/index.js ***!
+  \**********************************************/
+/*! exports provided: Provider, connectAdvanced, ReactReduxContext, connect, batch, useDispatch, createDispatchHook, useSelector, createSelectorHook, useStore, createStoreHook, shallowEqual */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_Provider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Provider */ "./node_modules/react-redux/es/components/Provider.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return _components_Provider__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+/* harmony import */ var _components_connectAdvanced__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/connectAdvanced */ "./node_modules/react-redux/es/components/connectAdvanced.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return _components_connectAdvanced__WEBPACK_IMPORTED_MODULE_1__["default"]; });
+
+/* harmony import */ var _components_Context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Context */ "./node_modules/react-redux/es/components/Context.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ReactReduxContext", function() { return _components_Context__WEBPACK_IMPORTED_MODULE_2__["ReactReduxContext"]; });
+
+/* harmony import */ var _connect_connect__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./connect/connect */ "./node_modules/react-redux/es/connect/connect.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return _connect_connect__WEBPACK_IMPORTED_MODULE_3__["default"]; });
+
+/* harmony import */ var _hooks_useDispatch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./hooks/useDispatch */ "./node_modules/react-redux/es/hooks/useDispatch.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useDispatch", function() { return _hooks_useDispatch__WEBPACK_IMPORTED_MODULE_4__["useDispatch"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createDispatchHook", function() { return _hooks_useDispatch__WEBPACK_IMPORTED_MODULE_4__["createDispatchHook"]; });
+
+/* harmony import */ var _hooks_useSelector__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./hooks/useSelector */ "./node_modules/react-redux/es/hooks/useSelector.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useSelector", function() { return _hooks_useSelector__WEBPACK_IMPORTED_MODULE_5__["useSelector"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createSelectorHook", function() { return _hooks_useSelector__WEBPACK_IMPORTED_MODULE_5__["createSelectorHook"]; });
+
+/* harmony import */ var _hooks_useStore__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./hooks/useStore */ "./node_modules/react-redux/es/hooks/useStore.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "useStore", function() { return _hooks_useStore__WEBPACK_IMPORTED_MODULE_6__["useStore"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createStoreHook", function() { return _hooks_useStore__WEBPACK_IMPORTED_MODULE_6__["createStoreHook"]; });
+
+/* harmony import */ var _utils_batch__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/batch */ "./node_modules/react-redux/es/utils/batch.js");
+/* harmony import */ var _utils_reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/reactBatchedUpdates */ "./node_modules/react-redux/es/utils/reactBatchedUpdates.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "batch", function() { return _utils_reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_8__["unstable_batchedUpdates"]; });
+
+/* harmony import */ var _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/shallowEqual */ "./node_modules/react-redux/es/utils/shallowEqual.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "shallowEqual", function() { return _utils_shallowEqual__WEBPACK_IMPORTED_MODULE_9__["default"]; });
+
+
+
+
+
+
+
+
+
+
+
+Object(_utils_batch__WEBPACK_IMPORTED_MODULE_7__["setBatch"])(_utils_reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_8__["unstable_batchedUpdates"]);
+
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/utils/Subscription.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/Subscription.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Subscription; });
+/* harmony import */ var _batch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./batch */ "./node_modules/react-redux/es/utils/batch.js");
+ // encapsulates the subscription logic for connecting a component to the redux store, as
+// well as nesting subscriptions of descendant components, so that we can ensure the
+// ancestor components re-render before descendants
+
+var nullListeners = {
+  notify: function notify() {}
+};
+
+function createListenerCollection() {
+  var batch = Object(_batch__WEBPACK_IMPORTED_MODULE_0__["getBatch"])();
+  var first = null;
+  var last = null;
+  return {
+    clear: function clear() {
+      first = null;
+      last = null;
+    },
+    notify: function notify() {
+      batch(function () {
+        var listener = first;
+
+        while (listener) {
+          listener.callback();
+          listener = listener.next;
+        }
+      });
+    },
+    get: function get() {
+      var listeners = [];
+      var listener = first;
+
+      while (listener) {
+        listeners.push(listener);
+        listener = listener.next;
+      }
+
+      return listeners;
+    },
+    subscribe: function subscribe(callback) {
+      var isSubscribed = true;
+      var listener = last = {
+        callback: callback,
+        next: null,
+        prev: last
+      };
+
+      if (listener.prev) {
+        listener.prev.next = listener;
+      } else {
+        first = listener;
+      }
+
+      return function unsubscribe() {
+        if (!isSubscribed || first === null) return;
+        isSubscribed = false;
+
+        if (listener.next) {
+          listener.next.prev = listener.prev;
+        } else {
+          last = listener.prev;
+        }
+
+        if (listener.prev) {
+          listener.prev.next = listener.next;
+        } else {
+          first = listener.next;
+        }
+      };
+    }
+  };
+}
+
+var Subscription =
+/*#__PURE__*/
+function () {
+  function Subscription(store, parentSub) {
+    this.store = store;
+    this.parentSub = parentSub;
+    this.unsubscribe = null;
+    this.listeners = nullListeners;
+    this.handleChangeWrapper = this.handleChangeWrapper.bind(this);
+  }
+
+  var _proto = Subscription.prototype;
+
+  _proto.addNestedSub = function addNestedSub(listener) {
+    this.trySubscribe();
+    return this.listeners.subscribe(listener);
+  };
+
+  _proto.notifyNestedSubs = function notifyNestedSubs() {
+    this.listeners.notify();
+  };
+
+  _proto.handleChangeWrapper = function handleChangeWrapper() {
+    if (this.onStateChange) {
+      this.onStateChange();
+    }
+  };
+
+  _proto.isSubscribed = function isSubscribed() {
+    return Boolean(this.unsubscribe);
+  };
+
+  _proto.trySubscribe = function trySubscribe() {
+    if (!this.unsubscribe) {
+      this.unsubscribe = this.parentSub ? this.parentSub.addNestedSub(this.handleChangeWrapper) : this.store.subscribe(this.handleChangeWrapper);
+      this.listeners = createListenerCollection();
+    }
+  };
+
+  _proto.tryUnsubscribe = function tryUnsubscribe() {
+    if (this.unsubscribe) {
+      this.unsubscribe();
+      this.unsubscribe = null;
+      this.listeners.clear();
+      this.listeners = nullListeners;
+    }
+  };
+
+  return Subscription;
+}();
+
+
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/utils/batch.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/batch.js ***!
+  \****************************************************/
+/*! exports provided: setBatch, getBatch */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setBatch", function() { return setBatch; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBatch", function() { return getBatch; });
+// Default to a dummy "batch" implementation that just runs the callback
+function defaultNoopBatch(callback) {
+  callback();
+}
+
+var batch = defaultNoopBatch; // Allow injecting another batching function later
+
+var setBatch = function setBatch(newBatch) {
+  return batch = newBatch;
+}; // Supply a getter just to skip dealing with ESM bindings
+
+var getBatch = function getBatch() {
+  return batch;
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/utils/isPlainObject.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/isPlainObject.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return isPlainObject; });
+/**
+ * @param {any} obj The object to inspect.
+ * @returns {boolean} True if the argument appears to be a plain object.
+ */
+function isPlainObject(obj) {
+  if (typeof obj !== 'object' || obj === null) return false;
+  var proto = Object.getPrototypeOf(obj);
+  if (proto === null) return true;
+  var baseProto = proto;
+
+  while (Object.getPrototypeOf(baseProto) !== null) {
+    baseProto = Object.getPrototypeOf(baseProto);
+  }
+
+  return proto === baseProto;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/utils/reactBatchedUpdates.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/reactBatchedUpdates.js ***!
+  \******************************************************************/
+/*! exports provided: unstable_batchedUpdates */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "unstable_batchedUpdates", function() { return react_dom__WEBPACK_IMPORTED_MODULE_0__["unstable_batchedUpdates"]; });
+
+/* eslint-disable import/no-unresolved */
+
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/utils/shallowEqual.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/shallowEqual.js ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return shallowEqual; });
+function is(x, y) {
+  if (x === y) {
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  } else {
+    return x !== x && y !== y;
+  }
+}
+
+function shallowEqual(objA, objB) {
+  if (is(objA, objB)) return true;
+
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+    return false;
+  }
+
+  var keysA = Object.keys(objA);
+  var keysB = Object.keys(objB);
+  if (keysA.length !== keysB.length) return false;
+
+  for (var i = 0; i < keysA.length; i++) {
+    if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js ***!
+  \************************************************************************/
+/*! exports provided: useIsomorphicLayoutEffect */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useIsomorphicLayoutEffect", function() { return useIsomorphicLayoutEffect; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+ // React currently throws a warning when using useLayoutEffect on the server.
+// To get around it, we can conditionally useEffect on the server (no-op) and
+// useLayoutEffect in the browser. We need useLayoutEffect to ensure the store
+// subscription callback always has the selector from the latest render commit
+// available, otherwise a store update may happen between render and the effect,
+// which may cause missed updates; we also must ensure the store subscription
+// is created synchronously, otherwise a store update may occur before the
+// subscription is created and an inconsistent state may be observed
+
+var useIsomorphicLayoutEffect = typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined' ? react__WEBPACK_IMPORTED_MODULE_0__["useLayoutEffect"] : react__WEBPACK_IMPORTED_MODULE_0__["useEffect"];
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/utils/verifyPlainObject.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/verifyPlainObject.js ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return verifyPlainObject; });
+/* harmony import */ var _isPlainObject__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./isPlainObject */ "./node_modules/react-redux/es/utils/isPlainObject.js");
+/* harmony import */ var _warning__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./warning */ "./node_modules/react-redux/es/utils/warning.js");
+
+
+function verifyPlainObject(value, displayName, methodName) {
+  if (!Object(_isPlainObject__WEBPACK_IMPORTED_MODULE_0__["default"])(value)) {
+    Object(_warning__WEBPACK_IMPORTED_MODULE_1__["default"])(methodName + "() in " + displayName + " must return a plain object. Instead received " + value + ".");
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-redux/es/utils/warning.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-redux/es/utils/warning.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return warning; });
+/**
+ * Prints a warning in the console if it exists.
+ *
+ * @param {String} message The warning message.
+ * @returns {void}
+ */
+function warning(message) {
+  /* eslint-disable no-console */
+  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+    console.error(message);
+  }
+  /* eslint-enable no-console */
+
+
+  try {
+    // This error was thrown as a convenience so that if you enable
+    // "break on all exceptions" in your console,
+    // it would pause the execution at this line.
+    throw new Error(message);
+    /* eslint-disable no-empty */
+  } catch (e) {}
+  /* eslint-enable no-empty */
+
+}
+
+/***/ }),
+
 /***/ "./node_modules/react-router-dom/esm/react-router-dom.js":
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
@@ -80788,6 +89947,689 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/redux/es/redux.js":
+/*!****************************************!*\
+  !*** ./node_modules/redux/es/redux.js ***!
+  \****************************************/
+/*! exports provided: __DO_NOT_USE__ActionTypes, applyMiddleware, bindActionCreators, combineReducers, compose, createStore */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__DO_NOT_USE__ActionTypes", function() { return ActionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "applyMiddleware", function() { return applyMiddleware; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "bindActionCreators", function() { return bindActionCreators; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "combineReducers", function() { return combineReducers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "compose", function() { return compose; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createStore", function() { return createStore; });
+/* harmony import */ var symbol_observable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! symbol-observable */ "./node_modules/symbol-observable/es/index.js");
+
+
+/**
+ * These are private action types reserved by Redux.
+ * For any unknown actions, you must return the current state.
+ * If the current state is undefined, you must return the initial state.
+ * Do not reference these action types directly in your code.
+ */
+var randomString = function randomString() {
+  return Math.random().toString(36).substring(7).split('').join('.');
+};
+
+var ActionTypes = {
+  INIT: "@@redux/INIT" + randomString(),
+  REPLACE: "@@redux/REPLACE" + randomString(),
+  PROBE_UNKNOWN_ACTION: function PROBE_UNKNOWN_ACTION() {
+    return "@@redux/PROBE_UNKNOWN_ACTION" + randomString();
+  }
+};
+
+/**
+ * @param {any} obj The object to inspect.
+ * @returns {boolean} True if the argument appears to be a plain object.
+ */
+function isPlainObject(obj) {
+  if (typeof obj !== 'object' || obj === null) return false;
+  var proto = obj;
+
+  while (Object.getPrototypeOf(proto) !== null) {
+    proto = Object.getPrototypeOf(proto);
+  }
+
+  return Object.getPrototypeOf(obj) === proto;
+}
+
+/**
+ * Creates a Redux store that holds the state tree.
+ * The only way to change the data in the store is to call `dispatch()` on it.
+ *
+ * There should only be a single store in your app. To specify how different
+ * parts of the state tree respond to actions, you may combine several reducers
+ * into a single reducer function by using `combineReducers`.
+ *
+ * @param {Function} reducer A function that returns the next state tree, given
+ * the current state tree and the action to handle.
+ *
+ * @param {any} [preloadedState] The initial state. You may optionally specify it
+ * to hydrate the state from the server in universal apps, or to restore a
+ * previously serialized user session.
+ * If you use `combineReducers` to produce the root reducer function, this must be
+ * an object with the same shape as `combineReducers` keys.
+ *
+ * @param {Function} [enhancer] The store enhancer. You may optionally specify it
+ * to enhance the store with third-party capabilities such as middleware,
+ * time travel, persistence, etc. The only store enhancer that ships with Redux
+ * is `applyMiddleware()`.
+ *
+ * @returns {Store} A Redux store that lets you read the state, dispatch actions
+ * and subscribe to changes.
+ */
+
+function createStore(reducer, preloadedState, enhancer) {
+  var _ref2;
+
+  if (typeof preloadedState === 'function' && typeof enhancer === 'function' || typeof enhancer === 'function' && typeof arguments[3] === 'function') {
+    throw new Error('It looks like you are passing several store enhancers to ' + 'createStore(). This is not supported. Instead, compose them ' + 'together to a single function.');
+  }
+
+  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
+    enhancer = preloadedState;
+    preloadedState = undefined;
+  }
+
+  if (typeof enhancer !== 'undefined') {
+    if (typeof enhancer !== 'function') {
+      throw new Error('Expected the enhancer to be a function.');
+    }
+
+    return enhancer(createStore)(reducer, preloadedState);
+  }
+
+  if (typeof reducer !== 'function') {
+    throw new Error('Expected the reducer to be a function.');
+  }
+
+  var currentReducer = reducer;
+  var currentState = preloadedState;
+  var currentListeners = [];
+  var nextListeners = currentListeners;
+  var isDispatching = false;
+  /**
+   * This makes a shallow copy of currentListeners so we can use
+   * nextListeners as a temporary list while dispatching.
+   *
+   * This prevents any bugs around consumers calling
+   * subscribe/unsubscribe in the middle of a dispatch.
+   */
+
+  function ensureCanMutateNextListeners() {
+    if (nextListeners === currentListeners) {
+      nextListeners = currentListeners.slice();
+    }
+  }
+  /**
+   * Reads the state tree managed by the store.
+   *
+   * @returns {any} The current state tree of your application.
+   */
+
+
+  function getState() {
+    if (isDispatching) {
+      throw new Error('You may not call store.getState() while the reducer is executing. ' + 'The reducer has already received the state as an argument. ' + 'Pass it down from the top reducer instead of reading it from the store.');
+    }
+
+    return currentState;
+  }
+  /**
+   * Adds a change listener. It will be called any time an action is dispatched,
+   * and some part of the state tree may potentially have changed. You may then
+   * call `getState()` to read the current state tree inside the callback.
+   *
+   * You may call `dispatch()` from a change listener, with the following
+   * caveats:
+   *
+   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
+   * If you subscribe or unsubscribe while the listeners are being invoked, this
+   * will not have any effect on the `dispatch()` that is currently in progress.
+   * However, the next `dispatch()` call, whether nested or not, will use a more
+   * recent snapshot of the subscription list.
+   *
+   * 2. The listener should not expect to see all state changes, as the state
+   * might have been updated multiple times during a nested `dispatch()` before
+   * the listener is called. It is, however, guaranteed that all subscribers
+   * registered before the `dispatch()` started will be called with the latest
+   * state by the time it exits.
+   *
+   * @param {Function} listener A callback to be invoked on every dispatch.
+   * @returns {Function} A function to remove this change listener.
+   */
+
+
+  function subscribe(listener) {
+    if (typeof listener !== 'function') {
+      throw new Error('Expected the listener to be a function.');
+    }
+
+    if (isDispatching) {
+      throw new Error('You may not call store.subscribe() while the reducer is executing. ' + 'If you would like to be notified after the store has been updated, subscribe from a ' + 'component and invoke store.getState() in the callback to access the latest state. ' + 'See https://redux.js.org/api-reference/store#subscribelistener for more details.');
+    }
+
+    var isSubscribed = true;
+    ensureCanMutateNextListeners();
+    nextListeners.push(listener);
+    return function unsubscribe() {
+      if (!isSubscribed) {
+        return;
+      }
+
+      if (isDispatching) {
+        throw new Error('You may not unsubscribe from a store listener while the reducer is executing. ' + 'See https://redux.js.org/api-reference/store#subscribelistener for more details.');
+      }
+
+      isSubscribed = false;
+      ensureCanMutateNextListeners();
+      var index = nextListeners.indexOf(listener);
+      nextListeners.splice(index, 1);
+      currentListeners = null;
+    };
+  }
+  /**
+   * Dispatches an action. It is the only way to trigger a state change.
+   *
+   * The `reducer` function, used to create the store, will be called with the
+   * current state tree and the given `action`. Its return value will
+   * be considered the **next** state of the tree, and the change listeners
+   * will be notified.
+   *
+   * The base implementation only supports plain object actions. If you want to
+   * dispatch a Promise, an Observable, a thunk, or something else, you need to
+   * wrap your store creating function into the corresponding middleware. For
+   * example, see the documentation for the `redux-thunk` package. Even the
+   * middleware will eventually dispatch plain object actions using this method.
+   *
+   * @param {Object} action A plain object representing “what changed”. It is
+   * a good idea to keep actions serializable so you can record and replay user
+   * sessions, or use the time travelling `redux-devtools`. An action must have
+   * a `type` property which may not be `undefined`. It is a good idea to use
+   * string constants for action types.
+   *
+   * @returns {Object} For convenience, the same action object you dispatched.
+   *
+   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
+   * return something else (for example, a Promise you can await).
+   */
+
+
+  function dispatch(action) {
+    if (!isPlainObject(action)) {
+      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
+    }
+
+    if (typeof action.type === 'undefined') {
+      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
+    }
+
+    if (isDispatching) {
+      throw new Error('Reducers may not dispatch actions.');
+    }
+
+    try {
+      isDispatching = true;
+      currentState = currentReducer(currentState, action);
+    } finally {
+      isDispatching = false;
+    }
+
+    var listeners = currentListeners = nextListeners;
+
+    for (var i = 0; i < listeners.length; i++) {
+      var listener = listeners[i];
+      listener();
+    }
+
+    return action;
+  }
+  /**
+   * Replaces the reducer currently used by the store to calculate the state.
+   *
+   * You might need this if your app implements code splitting and you want to
+   * load some of the reducers dynamically. You might also need this if you
+   * implement a hot reloading mechanism for Redux.
+   *
+   * @param {Function} nextReducer The reducer for the store to use instead.
+   * @returns {void}
+   */
+
+
+  function replaceReducer(nextReducer) {
+    if (typeof nextReducer !== 'function') {
+      throw new Error('Expected the nextReducer to be a function.');
+    }
+
+    currentReducer = nextReducer; // This action has a similiar effect to ActionTypes.INIT.
+    // Any reducers that existed in both the new and old rootReducer
+    // will receive the previous state. This effectively populates
+    // the new state tree with any relevant data from the old one.
+
+    dispatch({
+      type: ActionTypes.REPLACE
+    });
+  }
+  /**
+   * Interoperability point for observable/reactive libraries.
+   * @returns {observable} A minimal observable of state changes.
+   * For more information, see the observable proposal:
+   * https://github.com/tc39/proposal-observable
+   */
+
+
+  function observable() {
+    var _ref;
+
+    var outerSubscribe = subscribe;
+    return _ref = {
+      /**
+       * The minimal observable subscription method.
+       * @param {Object} observer Any object that can be used as an observer.
+       * The observer object should have a `next` method.
+       * @returns {subscription} An object with an `unsubscribe` method that can
+       * be used to unsubscribe the observable from the store, and prevent further
+       * emission of values from the observable.
+       */
+      subscribe: function subscribe(observer) {
+        if (typeof observer !== 'object' || observer === null) {
+          throw new TypeError('Expected the observer to be an object.');
+        }
+
+        function observeState() {
+          if (observer.next) {
+            observer.next(getState());
+          }
+        }
+
+        observeState();
+        var unsubscribe = outerSubscribe(observeState);
+        return {
+          unsubscribe: unsubscribe
+        };
+      }
+    }, _ref[symbol_observable__WEBPACK_IMPORTED_MODULE_0__["default"]] = function () {
+      return this;
+    }, _ref;
+  } // When a store is created, an "INIT" action is dispatched so that every
+  // reducer returns their initial state. This effectively populates
+  // the initial state tree.
+
+
+  dispatch({
+    type: ActionTypes.INIT
+  });
+  return _ref2 = {
+    dispatch: dispatch,
+    subscribe: subscribe,
+    getState: getState,
+    replaceReducer: replaceReducer
+  }, _ref2[symbol_observable__WEBPACK_IMPORTED_MODULE_0__["default"]] = observable, _ref2;
+}
+
+/**
+ * Prints a warning in the console if it exists.
+ *
+ * @param {String} message The warning message.
+ * @returns {void}
+ */
+function warning(message) {
+  /* eslint-disable no-console */
+  if (typeof console !== 'undefined' && typeof console.error === 'function') {
+    console.error(message);
+  }
+  /* eslint-enable no-console */
+
+
+  try {
+    // This error was thrown as a convenience so that if you enable
+    // "break on all exceptions" in your console,
+    // it would pause the execution at this line.
+    throw new Error(message);
+  } catch (e) {} // eslint-disable-line no-empty
+
+}
+
+function getUndefinedStateErrorMessage(key, action) {
+  var actionType = action && action.type;
+  var actionDescription = actionType && "action \"" + String(actionType) + "\"" || 'an action';
+  return "Given " + actionDescription + ", reducer \"" + key + "\" returned undefined. " + "To ignore an action, you must explicitly return the previous state. " + "If you want this reducer to hold no value, you can return null instead of undefined.";
+}
+
+function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
+  var reducerKeys = Object.keys(reducers);
+  var argumentName = action && action.type === ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
+
+  if (reducerKeys.length === 0) {
+    return 'Store does not have a valid reducer. Make sure the argument passed ' + 'to combineReducers is an object whose values are reducers.';
+  }
+
+  if (!isPlainObject(inputState)) {
+    return "The " + argumentName + " has unexpected type of \"" + {}.toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] + "\". Expected argument to be an object with the following " + ("keys: \"" + reducerKeys.join('", "') + "\"");
+  }
+
+  var unexpectedKeys = Object.keys(inputState).filter(function (key) {
+    return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key];
+  });
+  unexpectedKeys.forEach(function (key) {
+    unexpectedKeyCache[key] = true;
+  });
+  if (action && action.type === ActionTypes.REPLACE) return;
+
+  if (unexpectedKeys.length > 0) {
+    return "Unexpected " + (unexpectedKeys.length > 1 ? 'keys' : 'key') + " " + ("\"" + unexpectedKeys.join('", "') + "\" found in " + argumentName + ". ") + "Expected to find one of the known reducer keys instead: " + ("\"" + reducerKeys.join('", "') + "\". Unexpected keys will be ignored.");
+  }
+}
+
+function assertReducerShape(reducers) {
+  Object.keys(reducers).forEach(function (key) {
+    var reducer = reducers[key];
+    var initialState = reducer(undefined, {
+      type: ActionTypes.INIT
+    });
+
+    if (typeof initialState === 'undefined') {
+      throw new Error("Reducer \"" + key + "\" returned undefined during initialization. " + "If the state passed to the reducer is undefined, you must " + "explicitly return the initial state. The initial state may " + "not be undefined. If you don't want to set a value for this reducer, " + "you can use null instead of undefined.");
+    }
+
+    if (typeof reducer(undefined, {
+      type: ActionTypes.PROBE_UNKNOWN_ACTION()
+    }) === 'undefined') {
+      throw new Error("Reducer \"" + key + "\" returned undefined when probed with a random type. " + ("Don't try to handle " + ActionTypes.INIT + " or other actions in \"redux/*\" ") + "namespace. They are considered private. Instead, you must return the " + "current state for any unknown actions, unless it is undefined, " + "in which case you must return the initial state, regardless of the " + "action type. The initial state may not be undefined, but can be null.");
+    }
+  });
+}
+/**
+ * Turns an object whose values are different reducer functions, into a single
+ * reducer function. It will call every child reducer, and gather their results
+ * into a single state object, whose keys correspond to the keys of the passed
+ * reducer functions.
+ *
+ * @param {Object} reducers An object whose values correspond to different
+ * reducer functions that need to be combined into one. One handy way to obtain
+ * it is to use ES6 `import * as reducers` syntax. The reducers may never return
+ * undefined for any action. Instead, they should return their initial state
+ * if the state passed to them was undefined, and the current state for any
+ * unrecognized action.
+ *
+ * @returns {Function} A reducer function that invokes every reducer inside the
+ * passed object, and builds a state object with the same shape.
+ */
+
+
+function combineReducers(reducers) {
+  var reducerKeys = Object.keys(reducers);
+  var finalReducers = {};
+
+  for (var i = 0; i < reducerKeys.length; i++) {
+    var key = reducerKeys[i];
+
+    if (true) {
+      if (typeof reducers[key] === 'undefined') {
+        warning("No reducer provided for key \"" + key + "\"");
+      }
+    }
+
+    if (typeof reducers[key] === 'function') {
+      finalReducers[key] = reducers[key];
+    }
+  }
+
+  var finalReducerKeys = Object.keys(finalReducers); // This is used to make sure we don't warn about the same
+  // keys multiple times.
+
+  var unexpectedKeyCache;
+
+  if (true) {
+    unexpectedKeyCache = {};
+  }
+
+  var shapeAssertionError;
+
+  try {
+    assertReducerShape(finalReducers);
+  } catch (e) {
+    shapeAssertionError = e;
+  }
+
+  return function combination(state, action) {
+    if (state === void 0) {
+      state = {};
+    }
+
+    if (shapeAssertionError) {
+      throw shapeAssertionError;
+    }
+
+    if (true) {
+      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
+
+      if (warningMessage) {
+        warning(warningMessage);
+      }
+    }
+
+    var hasChanged = false;
+    var nextState = {};
+
+    for (var _i = 0; _i < finalReducerKeys.length; _i++) {
+      var _key = finalReducerKeys[_i];
+      var reducer = finalReducers[_key];
+      var previousStateForKey = state[_key];
+      var nextStateForKey = reducer(previousStateForKey, action);
+
+      if (typeof nextStateForKey === 'undefined') {
+        var errorMessage = getUndefinedStateErrorMessage(_key, action);
+        throw new Error(errorMessage);
+      }
+
+      nextState[_key] = nextStateForKey;
+      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+    }
+
+    hasChanged = hasChanged || finalReducerKeys.length !== Object.keys(state).length;
+    return hasChanged ? nextState : state;
+  };
+}
+
+function bindActionCreator(actionCreator, dispatch) {
+  return function () {
+    return dispatch(actionCreator.apply(this, arguments));
+  };
+}
+/**
+ * Turns an object whose values are action creators, into an object with the
+ * same keys, but with every function wrapped into a `dispatch` call so they
+ * may be invoked directly. This is just a convenience method, as you can call
+ * `store.dispatch(MyActionCreators.doSomething())` yourself just fine.
+ *
+ * For convenience, you can also pass an action creator as the first argument,
+ * and get a dispatch wrapped function in return.
+ *
+ * @param {Function|Object} actionCreators An object whose values are action
+ * creator functions. One handy way to obtain it is to use ES6 `import * as`
+ * syntax. You may also pass a single function.
+ *
+ * @param {Function} dispatch The `dispatch` function available on your Redux
+ * store.
+ *
+ * @returns {Function|Object} The object mimicking the original object, but with
+ * every action creator wrapped into the `dispatch` call. If you passed a
+ * function as `actionCreators`, the return value will also be a single
+ * function.
+ */
+
+
+function bindActionCreators(actionCreators, dispatch) {
+  if (typeof actionCreators === 'function') {
+    return bindActionCreator(actionCreators, dispatch);
+  }
+
+  if (typeof actionCreators !== 'object' || actionCreators === null) {
+    throw new Error("bindActionCreators expected an object or a function, instead received " + (actionCreators === null ? 'null' : typeof actionCreators) + ". " + "Did you write \"import ActionCreators from\" instead of \"import * as ActionCreators from\"?");
+  }
+
+  var boundActionCreators = {};
+
+  for (var key in actionCreators) {
+    var actionCreator = actionCreators[key];
+
+    if (typeof actionCreator === 'function') {
+      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch);
+    }
+  }
+
+  return boundActionCreators;
+}
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+
+  if (Object.getOwnPropertySymbols) {
+    keys.push.apply(keys, Object.getOwnPropertySymbols(object));
+  }
+
+  if (enumerableOnly) keys = keys.filter(function (sym) {
+    return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+  });
+  return keys;
+}
+
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    if (i % 2) {
+      ownKeys(source, true).forEach(function (key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(source).forEach(function (key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+
+  return target;
+}
+
+/**
+ * Composes single-argument functions from right to left. The rightmost
+ * function can take multiple arguments as it provides the signature for
+ * the resulting composite function.
+ *
+ * @param {...Function} funcs The functions to compose.
+ * @returns {Function} A function obtained by composing the argument functions
+ * from right to left. For example, compose(f, g, h) is identical to doing
+ * (...args) => f(g(h(...args))).
+ */
+function compose() {
+  for (var _len = arguments.length, funcs = new Array(_len), _key = 0; _key < _len; _key++) {
+    funcs[_key] = arguments[_key];
+  }
+
+  if (funcs.length === 0) {
+    return function (arg) {
+      return arg;
+    };
+  }
+
+  if (funcs.length === 1) {
+    return funcs[0];
+  }
+
+  return funcs.reduce(function (a, b) {
+    return function () {
+      return a(b.apply(void 0, arguments));
+    };
+  });
+}
+
+/**
+ * Creates a store enhancer that applies middleware to the dispatch method
+ * of the Redux store. This is handy for a variety of tasks, such as expressing
+ * asynchronous actions in a concise manner, or logging every action payload.
+ *
+ * See `redux-thunk` package as an example of the Redux middleware.
+ *
+ * Because middleware is potentially asynchronous, this should be the first
+ * store enhancer in the composition chain.
+ *
+ * Note that each middleware will be given the `dispatch` and `getState` functions
+ * as named arguments.
+ *
+ * @param {...Function} middlewares The middleware chain to be applied.
+ * @returns {Function} A store enhancer applying the middleware.
+ */
+
+function applyMiddleware() {
+  for (var _len = arguments.length, middlewares = new Array(_len), _key = 0; _key < _len; _key++) {
+    middlewares[_key] = arguments[_key];
+  }
+
+  return function (createStore) {
+    return function () {
+      var store = createStore.apply(void 0, arguments);
+
+      var _dispatch = function dispatch() {
+        throw new Error('Dispatching while constructing your middleware is not allowed. ' + 'Other middleware would not be applied to this dispatch.');
+      };
+
+      var middlewareAPI = {
+        getState: store.getState,
+        dispatch: function dispatch() {
+          return _dispatch.apply(void 0, arguments);
+        }
+      };
+      var chain = middlewares.map(function (middleware) {
+        return middleware(middlewareAPI);
+      });
+      _dispatch = compose.apply(void 0, chain)(store.dispatch);
+      return _objectSpread2({}, store, {
+        dispatch: _dispatch
+      });
+    };
+  };
+}
+
+/*
+ * This is a dummy function to check if the function name has been altered by minification.
+ * If the function has been minified and NODE_ENV !== 'production', warn the user.
+ */
+
+function isCrushed() {}
+
+if ( true && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
+  warning('You are currently using minified code outside of NODE_ENV === "production". ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or setting mode to production in webpack (https://webpack.js.org/concepts/mode/) ' + 'to ensure you have the correct code for your production build.');
+}
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/resolve-pathname/esm/resolve-pathname.js":
 /*!***************************************************************!*\
   !*** ./node_modules/resolve-pathname/esm/resolve-pathname.js ***!
@@ -82141,6 +91983,69 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/symbol-observable/es/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/symbol-observable/es/index.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(global, module) {/* harmony import */ var _ponyfill_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ponyfill.js */ "./node_modules/symbol-observable/es/ponyfill.js");
+/* global window */
+
+
+var root;
+
+if (typeof self !== 'undefined') {
+  root = self;
+} else if (typeof window !== 'undefined') {
+  root = window;
+} else if (typeof global !== 'undefined') {
+  root = global;
+} else if (true) {
+  root = module;
+} else {}
+
+var result = Object(_ponyfill_js__WEBPACK_IMPORTED_MODULE_0__["default"])(root);
+/* harmony default export */ __webpack_exports__["default"] = (result);
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js"), __webpack_require__(/*! ./../../webpack/buildin/harmony-module.js */ "./node_modules/webpack/buildin/harmony-module.js")(module)))
+
+/***/ }),
+
+/***/ "./node_modules/symbol-observable/es/ponyfill.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/symbol-observable/es/ponyfill.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return symbolObservablePonyfill; });
+function symbolObservablePonyfill(root) {
+	var result;
+	var Symbol = root.Symbol;
+
+	if (typeof Symbol === 'function') {
+		if (Symbol.observable) {
+			result = Symbol.observable;
+		} else {
+			result = Symbol('observable');
+			Symbol.observable = result;
+		}
+	} else {
+		result = '@@observable';
+	}
+
+	return result;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/tiny-invariant/dist/tiny-invariant.esm.js":
 /*!****************************************************************!*\
   !*** ./node_modules/tiny-invariant/dist/tiny-invariant.esm.js ***!
@@ -82280,6 +92185,41 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./node_modules/webpack/buildin/harmony-module.js":
+/*!*******************************************!*\
+  !*** (webpack)/buildin/harmony-module.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function(originalModule) {
+	if (!originalModule.webpackPolyfill) {
+		var module = Object.create(originalModule);
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		Object.defineProperty(module, "exports", {
+			enumerable: true
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -82346,25 +92286,1253 @@ window.axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
-/* harmony import */ var _components_Header_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Header.js */ "./resources/js/react/components/Header.js");
-/* harmony import */ var _pages_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/index.js */ "./resources/js/react/pages/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var _components_Header_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Header.js */ "./resources/js/react/components/Header.js");
+/* harmony import */ var _pages_Index_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Index.js */ "./resources/js/react/pages/Index.js");
+/* harmony import */ var _redux_actions_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./redux/actions.js */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var _config_API_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./config/API.js */ "./resources/js/react/config/API.js");
 
 
 
 
 
 
-var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+
+
+var theme = Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["createMuiTheme"])({
+  palette: {
+    background: {
+      "default": "#ffffff"
+    }
+  }
+});
+
+var App = function App(_ref) {
+  var login = _ref.login;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    Object(_config_API_js__WEBPACK_IMPORTED_MODULE_7__["getProfile"])().then(function (res) {
+      return login(res.data.data);
+    });
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["ThemeProvider"], {
+    theme: theme
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "app"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["CssBaseline"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header_js__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["BrowserRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["CssBaseline"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Header_js__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_index_js__WEBPACK_IMPORTED_MODULE_4__["default"], null)))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_pages_Index_js__WEBPACK_IMPORTED_MODULE_5__["default"], null))))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, {
+  login: _redux_actions_js__WEBPACK_IMPORTED_MODULE_6__["login"]
+})(App));
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/Dialog.js":
+/*!********************************************************!*\
+  !*** ./resources/js/react/components/Dialog/Dialog.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ "./node_modules/clsx/dist/clsx.m.js");
+/* harmony import */ var _components_String_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/String.js */ "./resources/js/react/components/Dialog/components/String.js");
+/* harmony import */ var _components_List_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/List.js */ "./resources/js/react/components/Dialog/components/List.js");
+/* harmony import */ var _components_ListItem_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/ListItem.js */ "./resources/js/react/components/Dialog/components/ListItem.js");
+/* harmony import */ var _components_Textbox_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Textbox.js */ "./resources/js/react/components/Dialog/components/Textbox.js");
+/* harmony import */ var _components_Title_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Title.js */ "./resources/js/react/components/Dialog/components/Title.js");
+/* harmony import */ var _components_Subtitle_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Subtitle.js */ "./resources/js/react/components/Dialog/components/Subtitle.js");
+/* harmony import */ var _components_Button_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Button.js */ "./resources/js/react/components/Dialog/components/Button.js");
+/* harmony import */ var _components_Functions_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Functions.js */ "./resources/js/react/components/Dialog/components/Functions.js");
+/* harmony import */ var _components_Select_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Select.js */ "./resources/js/react/components/Dialog/components/Select.js");
+/* harmony import */ var _components_Warning_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/Warning.js */ "./resources/js/react/components/Dialog/components/Warning.js");
+/* harmony import */ var _components_Caption_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/Caption.js */ "./resources/js/react/components/Dialog/components/Caption.js");
+/* harmony import */ var _components_Error_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/Error.js */ "./resources/js/react/components/Dialog/components/Error.js");
+/* harmony import */ var _components_File_js__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/File.js */ "./resources/js/react/components/Dialog/components/File.js");
+/* harmony import */ var _templates_Verification_js__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./templates/Verification.js */ "./resources/js/react/components/Dialog/templates/Verification.js");
+/* harmony import */ var _templates_Warning_js__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./templates/Warning.js */ "./resources/js/react/components/Dialog/templates/Warning.js");
+/* harmony import */ var _templates_Error_js__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./templates/Error.js */ "./resources/js/react/components/Dialog/templates/Error.js");
+/* harmony import */ var _templates_Login_js__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./templates/Login.js */ "./resources/js/react/components/Dialog/templates/Login.js");
+/* harmony import */ var _templates_Register_js__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./templates/Register.js */ "./resources/js/react/components/Dialog/templates/Register.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+function _createForOfIteratorHelper(o) { if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (o = _unsupportedIterableToArray(o))) { var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var it, normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var styles = function styles(theme) {
+  return {
+    outerDialog: {
+      zIndex: theme.zIndex.drawer
+    },
+    innerDialog: {
+      paddingBottom: 6
+    },
+    field: {
+      margin: 10
+    },
+    inlineField: {
+      display: "inline-block",
+      margin: 10
+    }
+  };
+};
+
+var Dialog = /*#__PURE__*/function (_Component) {
+  _inherits(Dialog, _Component);
+
+  var _super = _createSuper(Dialog);
+
+  function Dialog(props) {
+    var _this;
+
+    _classCallCheck(this, Dialog);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      fieldState: {}
+    };
+
+    var _iterator = _createForOfIteratorHelper(_this.props.fields.filter(function (e) {
+      return e;
+    })),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var field = _step.value;
+
+        if (field.name) {
+          _this.state.fieldState[field.name] = field.defaultValue === undefined ? null : field.defaultValue;
+        }
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    return _this;
+  }
+
+  _createClass(Dialog, [{
+    key: "getField",
+    value: function getField(field, index, style) {
+      var _this2 = this;
+
+      field.key = field.key || index;
+      var element;
+
+      switch (field.type) {
+        case "string":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_String_js__WEBPACK_IMPORTED_MODULE_4__["default"], _extends({}, field, {
+            value: this.state.fieldState[field.name],
+            onChange: function onChange(value) {
+              return _this2.handleChange(field.name, value);
+            }
+          }));
+          break;
+
+        case "list":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_List_js__WEBPACK_IMPORTED_MODULE_5__["default"], field, field.items.map(function (f, i) {
+            return _this2.getField(f, index + i, {
+              margin: 0
+            });
+          }));
+          break;
+
+        case "listItem":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ListItem_js__WEBPACK_IMPORTED_MODULE_6__["default"], field);
+          break;
+
+        case "textbox":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Textbox_js__WEBPACK_IMPORTED_MODULE_7__["default"], field);
+          break;
+
+        case "title":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Title_js__WEBPACK_IMPORTED_MODULE_8__["default"], field);
+          break;
+
+        case "subtitle":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Subtitle_js__WEBPACK_IMPORTED_MODULE_9__["default"], field);
+          break;
+
+        case "button":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button_js__WEBPACK_IMPORTED_MODULE_10__["default"], field);
+          break;
+
+        case "submit":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Button_js__WEBPACK_IMPORTED_MODULE_10__["default"], _extends({}, field, {
+            onClick: this.handleSubmit.bind(this)
+          }));
+          break;
+
+        case "functions":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Functions_js__WEBPACK_IMPORTED_MODULE_11__["default"], field);
+          break;
+
+        case "select":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Select_js__WEBPACK_IMPORTED_MODULE_12__["default"], _extends({}, field, {
+            value: this.state.fieldState[field.name],
+            onChange: function onChange(value) {
+              return _this2.handleChange(field.name, value);
+            }
+          }));
+          break;
+
+        case "warning":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Warning_js__WEBPACK_IMPORTED_MODULE_13__["default"], field);
+          break;
+
+        case "caption":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Caption_js__WEBPACK_IMPORTED_MODULE_14__["default"], field);
+          break;
+
+        case "element":
+          element = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(field.value);
+          break;
+
+        case "error":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Error_js__WEBPACK_IMPORTED_MODULE_15__["default"], field);
+          break;
+
+        case "file":
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_File_js__WEBPACK_IMPORTED_MODULE_16__["default"], _extends({}, field, {
+            onChange: function onChange(value) {
+              return _this2.handleChange(field.name, value);
+            }
+          }));
+          break;
+
+        default:
+          element = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Element type ", field.type, " not found");
+          break;
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        key: field.key,
+        style: style,
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(this.props.classes.field, _defineProperty({}, this.props.classes.inlineField, field.inline))
+      }, element);
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(name, value) {
+      this.setState({
+        fieldState: _objectSpread({}, this.state.fieldState, _defineProperty({}, name, value))
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit() {
+      if (this.props.onSubmit) {
+        this.props.onSubmit(this.state.fieldState);
+      }
+    }
+  }, {
+    key: "handleKeyPress",
+    value: function handleKeyPress(event) {
+      // User pressed enter => Submit
+      if (event.keyCode === 13 && this.props.onSubmit) {
+        this.props.onSubmit(this.state.fieldState);
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var classes = this.props.classes;
+      return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.createPortal( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Dialog"], {
+        className: Object(clsx__WEBPACK_IMPORTED_MODULE_3__["default"])(classes.outerDialog),
+        open: true,
+        onKeyDown: this.handleKeyPress.bind(this),
+        maxWidth: "md",
+        fullWidth: true
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["Container"], {
+        className: classes.innerDialog
+      }, this.props.fields.filter(function (e) {
+        return e;
+      }).map(function (f, i) {
+        return _this3.getField(f, i);
+      }))), document.getElementById("root"));
+    }
+  }]);
+
+  return Dialog;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+Dialog.verify = _templates_Verification_js__WEBPACK_IMPORTED_MODULE_17__["default"];
+Dialog.warn = _templates_Warning_js__WEBPACK_IMPORTED_MODULE_18__["default"];
+Dialog.error = _templates_Error_js__WEBPACK_IMPORTED_MODULE_19__["default"];
+Dialog.login = _templates_Login_js__WEBPACK_IMPORTED_MODULE_20__["default"];
+Dialog.register = _templates_Register_js__WEBPACK_IMPORTED_MODULE_21__["default"];
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_2__["withStyles"])(styles)(Dialog));
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/Button.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/Button.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+
+
+var styles = {
+  button: {
+    paddingLeft: 0
+  }
+};
+
+function Button(_ref) {
+  var onClick = _ref.onClick,
+      value = _ref.value,
+      classes = _ref.classes,
+      color = _ref.color;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+    onClick: onClick,
+    color: color || "primary",
+    className: classes.button
+  }, value);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(styles)(Button));
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/Caption.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/Caption.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+
+
+
+var Caption = function Caption(_ref) {
+  var value = _ref.value;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Typography"], {
+    variant: "caption"
+  }, value);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Caption);
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/Error.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/Error.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_lab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/lab */ "./node_modules/@material-ui/lab/esm/index.js");
+
+
+
+var Error = function Error(_ref) {
+  var value = _ref.value;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab__WEBPACK_IMPORTED_MODULE_1__["Alert"], {
+    severity: "error"
+  }, value);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Error);
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/File.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/File.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+var idCounter = 0;
+
+var File = function File(_ref) {
+  var accept = _ref.accept,
+      label = _ref.label,
+      onChange = _ref.onChange;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(idCounter++),
+      _useState2 = _slicedToArray(_useState, 1),
+      id = _useState2[0];
+
+  var htmlId = "file_upload_" + id;
+
+  var handleChange = function handleChange(event) {
+    onChange(event.target.files[0]);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "file",
+    accept: accept,
+    id: htmlId,
+    style: {
+      display: "none"
+    },
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+    htmlFor: htmlId
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+    variant: "outlined",
+    color: "primary",
+    component: "span"
+  }, "Upload ", label)));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (File);
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/Functions.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/Functions.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+
+
+var availableFunctions = ["pi", "e", "phi", "abs(x)", "ceil(x)", "floor(x)", "round(x [, n])", "exp(x)", "log(x [, base])", "log10(x)", "pow(x, y)", "sign(x)", "sqrt(x)", "random(min, max)", "sin(x)", "cos(x)", "tan(x)"];
+var styles = {
+  chipContainer: {
+    padding: 2
+  },
+  chip: {
+    margin: 2
+  }
+};
+
+var Functions = function Functions(_ref) {
+  var label = _ref.label,
+      _onClick = _ref.onClick,
+      classes = _ref.classes;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["FormGroup"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["InputLabel"], null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Paper"], {
+    variant: "outlined",
+    className: classes.chipContainer
+  }, availableFunctions.map(function (name, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Chip"], {
+      key: i,
+      onClick: function onClick() {
+        return _onClick(name);
+      },
+      label: name,
+      variant: "outlined",
+      className: classes.chip
+    });
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(styles)(Functions));
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/List.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/List.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+
+
+var styles = {
+  label: {
+    marginBottom: 6
+  }
+};
+
+function List(_ref) {
+  var label = _ref.label,
+      children = _ref.children,
+      classes = _ref.classes;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["FormGroup"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["InputLabel"], {
+    className: classes.label
+  }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Paper"], {
+    variant: "outlined"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["List"], null, children)));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(styles)(List));
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/ListItem.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/ListItem.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var _material_ui_icons_DeleteForever__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/icons/DeleteForever */ "./node_modules/@material-ui/icons/DeleteForever.js");
+/* harmony import */ var _material_ui_icons_DeleteForever__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_material_ui_icons_DeleteForever__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var styles = {
+  listItem: {
+    padding: "0 0 0 16px"
+  }
+};
+
+var ListItem = function ListItem(_ref) {
+  var value = _ref.value,
+      onClick = _ref.onClick,
+      onRemove = _ref.onRemove,
+      classes = _ref.classes;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["ListItem"], {
+    button: !!onClick,
+    onClick: onClick,
+    className: classes.listItem
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["ListItemText"], null, value), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["ListItemSecondaryAction"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
+    container: true
+  }, onRemove && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Grid"], {
+    item: true
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Tooltip"], {
+    title: "Remove",
+    placement: "left"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["IconButton"], {
+    onClick: onRemove,
+    edge: "end"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_icons_DeleteForever__WEBPACK_IMPORTED_MODULE_2___default.a, null)))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(styles)(ListItem));
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/Select.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/Select.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+var idCounter = 0;
+
+var useId = function useId() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(idCounter++),
+      _useState2 = _slicedToArray(_useState, 1),
+      id = _useState2[0];
+
+  return id;
+};
+
+function Select(_ref) {
+  var label = _ref.label,
+      options = _ref.options,
+      onChange = _ref.onChange,
+      value = _ref.value;
+  var labelId = useId();
+
+  var handleChange = function handleChange(event) {
+    onChange(event.target.value);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["FormControl"], {
+    fullWidth: true
+  }, label && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["InputLabel"], {
+    id: labelId
+  }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Select"], {
+    value: value,
+    onChange: handleChange,
+    labelId: labelId
+  }, options.map(function (_ref2, i) {
+    var value = _ref2.value,
+        label = _ref2.label,
+        style = _ref2.style;
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["MenuItem"], {
+      value: value,
+      key: i,
+      style: style
+    }, label);
+  })));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Select);
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/String.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/String.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { return function () { var Super = _getPrototypeOf(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var String = /*#__PURE__*/function (_Component) {
+  _inherits(String, _Component);
+
+  var _super = _createSuper(String);
+
+  function String(props) {
+    var _this;
+
+    _classCallCheck(this, String);
+
+    _this = _super.call(this, props);
+    _this.insert = _this.insert.bind(_assertThisInitialized(_this));
+    _this.set = _this.set.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(String, [{
+    key: "insert",
+    value: function insert(insertion) {
+      var inputField = this.textField.querySelector("input");
+      var value = this.props.value;
+      var newValue;
+
+      if (!isNaN(inputField.selectionStart)) {
+        newValue = value.substr(0, inputField.selectionStart) + insertion + value.substr(inputField.selectionEnd, value.length);
+      } else {
+        newValue = value + insertion;
+      }
+
+      this.handleChange({
+        target: {
+          value: newValue
+        }
+      });
+    }
+  }, {
+    key: "set",
+    value: function set(value) {
+      this.handleChange({
+        target: {
+          value: value
+        }
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange(event) {
+      this.props.onChange(event.target.value);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["TextField"], {
+        ref: function ref(_ref) {
+          return _this2.textField = _ref;
+        },
+        value: this.props.value,
+        onChange: this.handleChange.bind(this),
+        label: this.props.label,
+        type: this.props.inputType,
+        fullWidth: true
+      });
+    }
+  }]);
+
+  return String;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+
+/* harmony default export */ __webpack_exports__["default"] = (String);
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/Subtitle.js":
+/*!*********************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/Subtitle.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+
+
+var styles = {
+  subtitle: {
+    opacity: .9,
+    margin: "15px 0 15px 15px"
+  }
+};
+
+function Subtitle(_ref) {
+  var value = _ref.value,
+      classes = _ref.classes;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Typography"], {
+    variant: "h6",
+    className: classes.subtitle
+  }, value);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(styles)(Subtitle));
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/Textbox.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/Textbox.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+
+
+
+function Textbox(_ref) {
+  var value = _ref.value;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Typography"], null, value);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Textbox);
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/Title.js":
+/*!******************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/Title.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+
+
+var styles = {
+  title: {
+    textAlign: "center",
+    padding: "12px"
+  },
+  divider: {
+    margin: "0 -34px"
+  }
+};
+
+function Title(_ref) {
+  var value = _ref.value,
+      classes = _ref.classes;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["DialogTitle"], {
+    className: classes.title
+  }, value), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["Divider"], {
+    className: classes.divider
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(_material_ui_core__WEBPACK_IMPORTED_MODULE_1__["withStyles"])(styles)(Title));
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/components/Warning.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/components/Warning.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _material_ui_lab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @material-ui/lab */ "./node_modules/@material-ui/lab/esm/index.js");
+
+
+
+var Warning = function Warning(_ref) {
+  var value = _ref.value;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_lab__WEBPACK_IMPORTED_MODULE_1__["Alert"], {
+    severity: "warning"
+  }, value);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Warning);
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/templates/Error.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/templates/Error.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Dialog_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Dialog.js */ "./resources/js/react/components/Dialog/Dialog.js");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (content) {
+  var container = document.createElement("div");
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Dialog_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fields: [{
+      type: "title",
+      value: "Error"
+    }, {
+      type: "error",
+      value: content
+    }, {
+      type: "submit",
+      value: "Close"
+    }],
+    onSubmit: function onSubmit() {
+      return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(container);
+    }
+  }), container);
+});
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/templates/Login.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/templates/Login.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Dialog_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Dialog.js */ "./resources/js/react/components/Dialog/Dialog.js");
+/* harmony import */ var _redux_actions_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/actions.js */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var _redux_store_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/store.js */ "./resources/js/react/redux/store.js");
+/* harmony import */ var _config_API_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../config/API.js */ "./resources/js/react/config/API.js");
+
+
+
+
+
+
+
+var Login = function Login(_ref) {
+  var onClose = _ref.onClose;
+
+  var handleSubmit = function handleSubmit(fields) {
+    Object(_config_API_js__WEBPACK_IMPORTED_MODULE_5__["login"])(fields).then(function (profile) {
+      _redux_store_js__WEBPACK_IMPORTED_MODULE_4__["default"].dispatch(Object(_redux_actions_js__WEBPACK_IMPORTED_MODULE_3__["login"])(profile));
+      onClose();
+    })["catch"](function () {
+      _Dialog_js__WEBPACK_IMPORTED_MODULE_2__["default"].error("Login failed");
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Dialog_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fields: [{
+      type: "title",
+      value: "Login"
+    }, {
+      type: "string",
+      label: "E-Mail",
+      name: "email"
+    }, {
+      type: "string",
+      inputType: "password",
+      label: "Password",
+      name: "password"
+    }, {
+      type: "submit",
+      value: "Submit",
+      inline: true
+    }, {
+      type: "button",
+      value: "Close",
+      onClick: onClose,
+      inline: true
+    }],
+    onSubmit: handleSubmit
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var container = document.createElement("div");
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Login, {
+    onClose: function onClose() {
+      return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(container);
+    }
+  }), container);
+});
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/templates/Register.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/templates/Register.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Dialog_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Dialog.js */ "./resources/js/react/components/Dialog/Dialog.js");
+/* harmony import */ var _redux_store_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../redux/store.js */ "./resources/js/react/redux/store.js");
+/* harmony import */ var _redux_actions_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../redux/actions.js */ "./resources/js/react/redux/actions.js");
+/* harmony import */ var _config_API_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../config/API.js */ "./resources/js/react/config/API.js");
+
+
+
+
+
+
+
+var Register = function Register(_ref) {
+  var onClose = _ref.onClose;
+
+  var handleSubmit = function handleSubmit(fields) {
+    var formData = new FormData();
+
+    for (var key in fields) {
+      formData.append(key, fields[key]);
+    }
+
+    Object(_config_API_js__WEBPACK_IMPORTED_MODULE_5__["register"])(formData).then(function (res) {
+      _redux_store_js__WEBPACK_IMPORTED_MODULE_3__["default"].dispatch(Object(_redux_actions_js__WEBPACK_IMPORTED_MODULE_4__["login"])(res.data.data));
+      onClose();
+    })["catch"](function () {
+      _Dialog_js__WEBPACK_IMPORTED_MODULE_2__["default"].error("Registration failed");
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Dialog_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fields: [{
+      type: "title",
+      value: "Register"
+    }, {
+      type: "string",
+      label: "First Name",
+      name: "first_name"
+    }, {
+      type: "string",
+      label: "Last Name",
+      name: "last_name"
+    }, {
+      type: "string",
+      label: "Username",
+      name: "username"
+    }, {
+      type: "string",
+      label: "E-Mail",
+      name: "email"
+    }, {
+      type: "string",
+      inputType: "password",
+      label: "Password",
+      name: "password"
+    }, {
+      type: "file",
+      label: "Avatar",
+      name: "avatar",
+      accept: "image/*"
+    }, {
+      type: "submit",
+      value: "Submit",
+      inline: true
+    }, {
+      type: "button",
+      value: "Close",
+      onClick: onClose,
+      inline: true
+    }],
+    onSubmit: handleSubmit
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var container = document.createElement("div");
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Register, {
+    onClose: function onClose() {
+      return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(container);
+    }
+  }), container);
+});
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/templates/Verification.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/templates/Verification.js ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Dialog_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Dialog.js */ "./resources/js/react/components/Dialog/Dialog.js");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
+  var content = _ref.content,
+      subContent = _ref.subContent;
+  return new Promise(function (resolve) {
+    var eventEmitter = new EventTarget();
+    var container = document.createElement("div");
+    eventEmitter.addEventListener("answer", function (_ref2) {
+      var value = _ref2.detail.value;
+      react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(container);
+      resolve(value);
+    });
+    react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Dialog_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      fields: [{
+        type: "title",
+        value: "Warning"
+      }, {
+        type: "textbox",
+        value: content
+      }, subContent && {
+        type: "caption",
+        value: subContent
+      }, {
+        type: "button",
+        inline: true,
+        value: "Accept",
+        onClick: function onClick() {
+          return eventEmitter.dispatchEvent(new CustomEvent("answer", {
+            detail: {
+              value: true
+            }
+          }));
+        }
+      }, {
+        type: "button",
+        inline: true,
+        value: "Decline",
+        onClick: function onClick() {
+          return eventEmitter.dispatchEvent(new CustomEvent("answer", {
+            detail: {
+              value: false
+            }
+          }));
+        }
+      }]
+    }), container);
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/react/components/Dialog/templates/Warning.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/react/components/Dialog/templates/Warning.js ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Dialog_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Dialog.js */ "./resources/js/react/components/Dialog/Dialog.js");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (content) {
+  var container = document.createElement("div");
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Dialog_js__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    fields: [{
+      type: "title",
+      value: "Warning"
+    }, {
+      type: "warning",
+      value: content
+    }, {
+      type: "submit",
+      value: "Close"
+    }],
+    onSubmit: function onSubmit() {
+      return react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.unmountComponentAtNode(container);
+    }
+  }), container);
+});
 
 /***/ }),
 
@@ -82379,13 +93547,217 @@ var App = function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/index.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _Dialog_Dialog_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Dialog/Dialog.js */ "./resources/js/react/components/Dialog/Dialog.js");
 
 
-var Header = function Header() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, "Header");
+
+
+
+
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["makeStyles"])(function (theme) {
+  return {
+    container: {
+      borderBottom: "1px solid rgba(0, 0, 0, 0.12)"
+    },
+    toolbar: {
+      display: "flex",
+      justifyContent: "space-between",
+      "& a": {
+        color: theme.palette.common.black,
+        textDecoration: "none"
+      }
+    },
+    avatar: {
+      marginRight: -10
+    },
+    profile: {
+      display: "flex",
+      alignItems: "center"
+    }
+  };
+});
+
+var Header = function Header(_ref) {
+  var isLoggedIn = _ref.isLoggedIn,
+      user = _ref.user;
+  var classes = useStyles();
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.container
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Toolbar"], {
+    className: classes.toolbar
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], {
+    variant: "h6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+    to: "/"
+  }, "Yet Another Blog")), isLoggedIn ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: classes.profile
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Typography"], null, user.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["IconButton"], {
+    disableRipple: true,
+    disableFocusRipple: true,
+    className: classes.avatar
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Avatar"], {
+    alt: user.username,
+    src: user.avatar_url
+  }))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+    onClick: _Dialog_Dialog_js__WEBPACK_IMPORTED_MODULE_5__["default"].login
+  }, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core__WEBPACK_IMPORTED_MODULE_3__["Button"], {
+    onClick: _Dialog_Dialog_js__WEBPACK_IMPORTED_MODULE_5__["default"].register
+  }, "Register"))));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Header);
+var mapStateToProps = function mapStateToProps(reducers) {
+  return {
+    isLoggedIn: reducers.auth.isLoggedIn,
+    user: reducers.auth.user
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(Header));
+
+/***/ }),
+
+/***/ "./resources/js/react/config/API.js":
+/*!******************************************!*\
+  !*** ./resources/js/react/config/API.js ***!
+  \******************************************/
+/*! exports provided: register, login, logout, getBlogposts, getBlogpost, addBlogpost, editBlogpost, deleteBlogpost, likeBlogpost, addRecommendation, removeRecommendation, getTopics, getTags, addComment, editComment, deleteComment, getUser, followUser, unfollowUser, followsUser, getProfile, editProfile, getProfileBlogposts */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "register", function() { return register; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBlogposts", function() { return getBlogposts; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBlogpost", function() { return getBlogpost; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addBlogpost", function() { return addBlogpost; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editBlogpost", function() { return editBlogpost; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteBlogpost", function() { return deleteBlogpost; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "likeBlogpost", function() { return likeBlogpost; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addRecommendation", function() { return addRecommendation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeRecommendation", function() { return removeRecommendation; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTopics", function() { return getTopics; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTags", function() { return getTags; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addComment", function() { return addComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editComment", function() { return editComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUser", function() { return getUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "followUser", function() { return followUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unfollowUser", function() { return unfollowUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "followsUser", function() { return followsUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProfile", function() { return getProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editProfile", function() { return editProfile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProfileBlogposts", function() { return getProfileBlogposts; });
+var url = function url(path) {
+  return "".concat(window.location.origin, "/api/").concat(path);
+}; // Auth
+
+
+var register = function register(formData) {
+  return axios.post(url("auth/register"), formData, {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  });
+};
+var login = function login(args) {
+  return new Promise(function (resolve, reject) {
+    axios.post(url("auth/login"), args).then(function (res) {
+      localStorage.setItem("JWTToken", res.data.access_token);
+      resolve(res.data.profile);
+    })["catch"](function () {
+      reject();
+    });
+  });
+};
+var logout = function logout() {
+  axios.post(url("auth/logout"));
+  localStorage.removeItem("JWTToken");
+}; // Blogposts
+
+var getBlogposts = function getBlogposts(page) {
+  return axios.get(url("blogposts"), {
+    params: {
+      page: page
+    }
+  });
+};
+var getBlogpost = function getBlogpost(id) {
+  return axios.get(url("blogpost/" + id));
+};
+var addBlogpost = function addBlogpost(args) {
+  return axios.post(url("blogpost"), args);
+};
+var editBlogpost = function editBlogpost(args) {
+  return axios.put(url("blogpost"), args);
+};
+var deleteBlogpost = function deleteBlogpost(id) {
+  return axios["delete"](url("blogpost/" + id));
+};
+var likeBlogpost = function likeBlogpost(id) {
+  return axios.post(url("blogpost/like"), {
+    id: id
+  });
+};
+var addRecommendation = function addRecommendation(id) {
+  return axios.put(url("blogpost/recommend/" + id));
+};
+var removeRecommendation = function removeRecommendation(id) {
+  return axios["delete"](url("blogpost/recommend/" + id));
+}; // Topics
+
+var getTopics = function getTopics() {
+  return axios.get(url("topics"));
+}; //Tags
+
+var getTags = function getTags() {
+  return axios.get(url("tags"));
+}; //Comments
+
+var addComment = function addComment(args) {
+  return axios.post(url("comment"), args);
+};
+var editComment = function editComment(args) {
+  return axios.put(url("comment"), args);
+};
+var deleteComment = function deleteComment(id) {
+  return axios["delete"](url("comment/" + id));
+}; // Users
+
+var getUser = function getUser(id) {
+  return axios.get(url("user/" + id));
+};
+var followUser = function followUser(id) {
+  return axios.post(url("user/follow"), {
+    id: id
+  });
+};
+var unfollowUser = function unfollowUser(id) {
+  return axios.post(url("user/unfollow"), {
+    id: id
+  });
+};
+var followsUser = function followsUser(id) {
+  return axios.get(url("user/follows/" + id));
+}; // Profile
+
+var getProfile = function getProfile() {
+  return axios.get(url("profile"));
+};
+var editProfile = function editProfile(formData) {
+  return axios.post(url("profile"), formData, {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  });
+};
+var getProfileBlogposts = function getProfileBlogposts() {
+  return axios.get(url("profile/blogposts"));
+};
 
 /***/ }),
 
@@ -82402,17 +93774,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _App_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App.js */ "./resources/js/react/App.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _App_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App.js */ "./resources/js/react/App.js");
+/* harmony import */ var _redux_store_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./redux/store.js */ "./resources/js/react/redux/store.js");
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App_js__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById("root"));
+
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
+  store: _redux_store_js__WEBPACK_IMPORTED_MODULE_4__["default"]
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App_js__WEBPACK_IMPORTED_MODULE_3__["default"], null)), document.getElementById("root"));
 
 /***/ }),
 
-/***/ "./resources/js/react/pages/index.js":
+/***/ "./resources/js/react/pages/Index.js":
 /*!*******************************************!*\
-  !*** ./resources/js/react/pages/index.js ***!
+  !*** ./resources/js/react/pages/Index.js ***!
   \*******************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -82428,6 +93806,135 @@ var Index = function Index() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Index);
+
+/***/ }),
+
+/***/ "./resources/js/react/redux/actionTypes.js":
+/*!*************************************************!*\
+  !*** ./resources/js/react/redux/actionTypes.js ***!
+  \*************************************************/
+/*! exports provided: LOGIN, LOGOUT */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN", function() { return LOGIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT", function() { return LOGOUT; });
+var LOGIN = "LOGIN";
+var LOGOUT = "LOGOUT";
+
+/***/ }),
+
+/***/ "./resources/js/react/redux/actions.js":
+/*!*********************************************!*\
+  !*** ./resources/js/react/redux/actions.js ***!
+  \*********************************************/
+/*! exports provided: login, logout */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony import */ var _actionTypes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./actionTypes.js */ "./resources/js/react/redux/actionTypes.js");
+
+function login(user) {
+  return {
+    type: _actionTypes_js__WEBPACK_IMPORTED_MODULE_0__["LOGIN"],
+    user: user
+  };
+}
+function logout() {
+  return {
+    type: _actionTypes_js__WEBPACK_IMPORTED_MODULE_0__["LOGOUT"]
+  };
+}
+
+/***/ }),
+
+/***/ "./resources/js/react/redux/reducers/auth.js":
+/*!***************************************************!*\
+  !*** ./resources/js/react/redux/reducers/auth.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actionTypes_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actionTypes.js */ "./resources/js/react/redux/actionTypes.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var defaultState = {
+  user: {},
+  isLoggedIn: false
+};
+
+function auth() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _actionTypes_js__WEBPACK_IMPORTED_MODULE_0__["LOGIN"]:
+      return _objectSpread({}, state, {
+        user: action.user,
+        isLoggedIn: true
+      });
+
+    case _actionTypes_js__WEBPACK_IMPORTED_MODULE_0__["LOGOUT"]:
+      return _objectSpread({}, state, {
+        user: {},
+        isLoggedIn: false
+      });
+
+    default:
+      return state;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (auth);
+
+/***/ }),
+
+/***/ "./resources/js/react/redux/reducers/root.js":
+/*!***************************************************!*\
+  !*** ./resources/js/react/redux/reducers/root.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _auth_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./auth.js */ "./resources/js/react/redux/reducers/auth.js");
+
+
+var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
+  auth: _auth_js__WEBPACK_IMPORTED_MODULE_1__["default"]
+});
+/* harmony default export */ __webpack_exports__["default"] = (rootReducer);
+
+/***/ }),
+
+/***/ "./resources/js/react/redux/store.js":
+/*!*******************************************!*\
+  !*** ./resources/js/react/redux/store.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var _reducers_root_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducers/root.js */ "./resources/js/react/redux/reducers/root.js");
+
+
+var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_js__WEBPACK_IMPORTED_MODULE_1__["default"], window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+/* harmony default export */ __webpack_exports__["default"] = (store);
 
 /***/ }),
 

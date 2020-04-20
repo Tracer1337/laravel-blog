@@ -71,7 +71,13 @@ class AuthController extends Controller
             return response(null, 401);
         }
 
-        return $this->respond_with_token($token);
+        $profile = $this->profile($request);
+
+        return response()->json([
+            "access_token" => $token,
+            "token_type" => "bearer",
+            "profile" => $profile
+        ]);
     }
 
     public function logout(Request $request){
@@ -82,13 +88,6 @@ class AuthController extends Controller
         $user = $request->user();
 
         return new UserResource($user);
-    }
-
-    public function respond_with_token($token){
-        return response()->json([
-            "access_token" => $token,
-            "token_type" => "bearer"
-        ]);
     }
 
     public function blogposts(Request $request) {

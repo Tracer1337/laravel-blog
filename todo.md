@@ -1,5 +1,4 @@
-[ ] Add markdown support to blogposts
-[ ] Only verified users can post blogposts
+[ ] Add Roles
 [ ] Include image-upload support for blogposts
 [ ] Blogpost Cover
 [ ] Screen: topics -> Links to specific topics pages
