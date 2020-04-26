@@ -3,8 +3,6 @@ import { connect } from "react-redux"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { CssBaseline, createMuiTheme, ThemeProvider } from "@material-ui/core"
 
-import Header from "./components/Header.js"
-
 import Index from "./pages/Index.js"
 
 import { login } from "./redux/actions.js"
@@ -27,10 +25,6 @@ const App = ({ login }) => {
         <Router>
             <ThemeProvider theme={theme}>
                 <div className="app">
-                    <CssBaseline />
-
-                    <Header/>
-
                     <Switch>
                         <Route path="/">
                             <Index/>

@@ -19,12 +19,16 @@ class CommentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        if(!$request->user()->can("create comments")) {
+            return response(null, 403);
+        }
+
         $isUpdate = $request->isMethod("put");
         $comment = $isUpdate ? Comment::findOrFail($request->id) : new Comment;
         $user = $request->user();
 
         if($isUpdate && $comment->user->id != $user->id) {
-            return response(null, 401);
+            return response(null, 403);
         }
 
         $comment->id = $request->input("id");
@@ -41,8 +45,8 @@ class CommentsController extends Controller
         $comment = Comment::findOrFail($id);
         $user = $request->user();
 
-        if($comment->user->id != $user->id) {
-            return response(null, 401);
+        if($comment->user->id != $user->id && !$user->can("delete any comment")) {
+            return response(null, 403);
         }
 
         if($comment->delete()) {

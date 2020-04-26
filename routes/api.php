@@ -3,17 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
-*/
-
 // Blogposts
 
 Route::get("/blogposts", "BlogpostController@index");
@@ -36,9 +25,21 @@ Route::delete("/blogpost/recommend/{id}", "BlogpostController@recommend");
 
 Route::get("/topics", "TopicsController@index");
 
+Route::post("/topics", "TopicsController@store");
+
+Route::put("/topics", "TopicsController@store");
+
+Route::delete("/topics/{id}", "TopicsController@destroy");
+
 // Tags
 
 Route::get("/tags", "TagsController@index");
+
+Route::post("/tags", "TagsController@store");
+
+Route::put("/tags", "TagsController@store");
+
+Route::delete("/tags/{id}", "TagsController@destroy");
 
 // Comments
 
@@ -58,6 +59,16 @@ Route::post("/user/unfollow", "UserController@unfollow");
 
 Route::get("/user/follows/{id}", "UserController@follows");
 
+Route::put("/user", "UserController@update");
+
+Route::delete("/user/{id}", "UserController@destroy");
+
+// Roles
+
+Route::post("/user/role", "UserController@role");
+
+Route::get("/roles", "UserController@roles");
+
 // Authentication
 
 Route::group(["prefix" => "auth", "middleware" => ["api"]], function () {
@@ -69,6 +80,7 @@ Route::group(["prefix" => "auth", "middleware" => ["api"]], function () {
 });
 
 // Profile
+
 Route::get("profile", "AuthController@profile");
 
 Route::post("profile", "AuthController@update");

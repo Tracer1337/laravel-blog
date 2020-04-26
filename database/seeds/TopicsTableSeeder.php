@@ -11,6 +11,9 @@ class TopicsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Topic::class, 3)->create();
+        factory(App\Topic::class)->create(["name" => "Fitness"]);
+        factory(App\Topic::class)->create(["name" => "Cooking"]);
+        factory(App\Topic::class)->create(["name" => "Computer Science"]);
+        factory(App\Topic::class)->create(["name" => "Computer Hardware"]);
     }
 }

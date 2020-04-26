@@ -8,6 +8,10 @@ use App\Http\Resources\Topic as TopicResource;
 
 class TopicsController extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth:api", ["except" => ["index"]]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,6 +32,32 @@ class TopicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $isUpdate = $request->isMethod("put");
+
+        if(!$isUpdate && !$request->user()->can("create topics")) {
+            return response(null, 403);
+        } else if ($isUpdate && !$request->user()->can("update topics")) {
+            return reponse(null, 403);
+        }
+
+        $topic = $isUpdate ? Topic::findOrFail($request->id) : new Topic;
+        $topic->id = $request->id;
+        $topic->name = $request->name;
+
+        $topic->save();
+
+        return new TopicResource($topic);
+    }
+
+    public function destroy($id, Request $request) {
+        if(!$request->user()->can("delete topics")) {
+            return response(null, 403);
+        }
+
+        $topic = Topic::findOrFail($id);
+
+        if($topic->delete()) {
+            return new TopicResource($topic);
+        }
     }
 }

@@ -44,8 +44,12 @@ class BlogpostController extends Controller
         $blogpost = $isUpdate ? Blogpost::findOrFail($request->id) : new Blogpost;
         $user = $request->user();
 
+        if(!$user->can("create blogposts")) {
+            return response(null, 403);
+        }
+
         if($isUpdate && $blogpost->user()->get()[0]->id != $user->id) {
-            return response(null, 401);
+            return response(null, 403);
         }
 
         $blogpost->id = $request->input("id");
@@ -102,8 +106,8 @@ class BlogpostController extends Controller
         $blogpost = BlogPost::findOrFail($id);
         $user = $request->user();
 
-        if($blogpost->user_id != $user->id) {
-            return response(null, 401);
+        if($blogpost->user_id != $user->id && !$user->can("delete any blogpost")) {
+            return response(null, 403);
         }
 
         if($blogpost->delete()) {
@@ -115,7 +119,7 @@ class BlogpostController extends Controller
         $blogpost = BlogPost::findOrFail($request->id);
         $user = $request->user();
 
-        if($blogpost->user->id == $user->id) {
+        if($blogpost->user->id == $user->id || !$user->can("like blogposts")) {
             return response(null, 403);
         }
 

@@ -26,7 +26,7 @@ export const logout = () => {
 }
 
 // Blogposts
-export const getBlogposts = page => axios.get(url("blogposts"), { params: { page } })
+export const getNewestPosts = page => axios.get(url("blogposts"), { params: { page } })
 
 export const getBlogpost = id => axios.get(url("blogpost/"+id))
 
@@ -43,7 +43,7 @@ export const addRecommendation = id => axios.put(url("blogpost/recommend/"+id))
 export const removeRecommendation = id => axios.delete(url("blogpost/recommend/"+id))
 
 // Topics
-export const getTopics = () => axios.get(url("topics"))
+export const getAllTopics = () => axios.get(url("topics"))
 
 //Tags
 export const getTags = () => axios.get(url("tags"))

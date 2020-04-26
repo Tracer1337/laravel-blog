@@ -1,0 +1,208 @@
+@import "./variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body {
+    color: $color-normal;
+    font-family: 'Roboto', sans-serif;
+    font-weight: $font-weight-light;
+    font-size: $font-size-small;
+    margin: 0;
+    overflow-x: hidden;
+
+    a {
+        color: $color-normal;
+    }
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.spacer {
+    height: $spacing-normal;
+}
+
+section {
+    padding: 0 $spacing-normal;
+
+    .title {
+        font-weight: $font-weight-light;
+        font-size: $font-size-normal;
+    }
+}
+
+.header {
+    padding: $spacing-normal $spacing-normal 0 $spacing-normal;
+    display: flex;
+    justify-content: space-between;
+
+    .links {
+        font-size: $font-size-small;
+
+        a {
+            margin-left: 32px;
+        }
+    }
+}
+
+.logo {
+    font-size: $font-size-large;
+    text-decoration: none;
+}
+
+.horizontal-scrollable-posts {
+    position: relative;
+
+    .posts {
+        display: flex;
+        transition: transform 300ms ease-out;
+    }
+
+    .scroll-arrow {
+        $offset: #{-$spacing-normal + 12};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0; right: $offset; bottom: 0;
+        cursor: pointer;
+        z-index: 1;
+
+        &.left {
+            right: unset;
+            left: $offset;
+        }
+    }
+}
+
+.blogpost-card-wrapper {
+    text-decoration: none;
+
+    .blogpost-card {
+        $image-width: 350;
+        $image-ratio: 4 / 3;
+        $image-height: $image-width * (1 / $image-ratio);
+
+        width: 350px;
+        height: 500px;
+        margin-right: 20px;
+        border: 1px solid $color-normal;
+
+        .image {
+            width: #{$image-width}px;
+            height: #{$image-height}px;
+            background-color: rgba(0, 0, 0, 0.12);
+            border-bottom: 1px solid $color-normal;
+        }
+
+        .body {
+            height: calc(100% - #{$image-height}px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            
+            .top, .bottom {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .left, .right {
+                    width: 50%;
+                }
+
+                .left {
+                    padding-left: $spacing-small;
+                }
+
+                .right {
+                    text-align: right;
+                    padding-right: $spacing-small;
+                }
+            }
+
+            .top {
+                padding-top: $spacing-small;
+            }
+
+            .bottom {
+                align-items: flex-end;
+                padding-bottom: $spacing-small;
+            }
+
+            .title {
+                position: absolute;
+                top: 0; right: 0; bottom: 0; left: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: $font-weight-normal;
+                font-size: $font-size-extra-small;
+            }
+
+            .author {
+                font-weight: $font-weight-normal;
+            }
+
+            .teaser {
+                font-size: $font-size-extra-small;
+            }
+        }
+    }
+}
+
+.topics .chip {
+    margin-right: $spacing-normal;
+}
+
+.chip {
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 25px;
+    border: 1px solid $color-normal;
+    display: inline-block;
+}
+
+.footer {
+    $background-opacity: 0.3;
+    padding: 0 $spacing-normal;
+    background-color: $color-normal;
+    height: 128px;
+    position: relative;
+    margin-top: auto;
+
+    .links {
+        position: absolute;
+        bottom: 0; left: 0;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        padding-left: $spacing-normal;
+        
+        a {
+            color: white;
+            text-decoration: none;
+            margin-right: $spacing-normal;
+        }
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background-color: white;
+        opacity: $background-opacity;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: $spacing-normal;
+        background-color: white;
+        border-bottom-left-radius: $spacing-normal * 2;
+        border-bottom-right-radius: $spacing-normal * 2;
+    }
+}

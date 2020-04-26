@@ -51,11 +51,8 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->email = $request->email;
 
-        return $this->store($request, $user);
-    }
+        $user->assignRole("user");
 
-    public function update(Request $request) {
-        $user = $request->user();
         return $this->store($request, $user);
     }
 
@@ -96,5 +93,10 @@ class AuthController extends Controller
         $blogposts->makeHidden("content");
 
         return BlogpostResource::collection($blogposts);
+    }
+
+    public function update(Request $request) {
+        $user = $request->user();
+        return $this->store($request, $user);
     }
 }
