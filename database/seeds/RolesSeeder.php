@@ -40,7 +40,7 @@ class RolesSeeder extends Seeder
         // Create admin user
         $user = new User;
         $user->username = "admin";
-        $user->email = "admin@mail.com";
+        $user->email = "admin";
         $user->password = bcrypt("admin");
         $user->save();
         $user->assignRole($role_admin);

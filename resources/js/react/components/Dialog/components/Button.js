@@ -1,22 +1,11 @@
 import React from "react"
-import { Button as MuiButton, withStyles } from "@material-ui/core"
 
-const styles = {
-    button: {
-        paddingLeft: 0
-    }
-}
-
-function Button({ onClick, value, classes, color}) {
+function Button({ onClick, value }) {
     return (
-        <MuiButton 
-            onClick={onClick}
-            color={color || "primary"}
-            className={classes.button}
-        >
+        <button onClick={onClick}>
             {value}
-        </MuiButton>
+        </button>
     )
 }
 
-export default withStyles(styles)(Button)
+export default Button

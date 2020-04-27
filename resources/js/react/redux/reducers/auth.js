@@ -1,7 +1,7 @@
 import { LOGIN, LOGOUT } from "../actionTypes.js"
 
 const defaultState = {
-    user: {},
+    profile: {},
     isLoggedIn: false
 }
 
@@ -10,14 +10,14 @@ function auth(state = defaultState, action) {
         case LOGIN:
             return {
                 ...state,
-                user: action.user,
+                profile: action.profile,
                 isLoggedIn: true
             }
 
         case LOGOUT:
             return {
                 ...state,
-                user: {},
+                profile: {},
                 isLoggedIn: false
             }
 

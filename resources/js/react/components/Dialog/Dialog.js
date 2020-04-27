@@ -30,15 +30,6 @@ const styles = theme => ({
 
     innerDialog: {
         paddingBottom: 6
-    },
-
-    field: {
-        margin: 10
-    },
-
-    inlineField: {
-        display: "inline-block",
-        margin: 10
     }
 })
 
@@ -128,11 +119,7 @@ class Dialog extends Component {
         }
 
         return (
-            <div key={field.key} style={style} className={clsx(
-                this.props.classes.field, {
-                    [this.props.classes.inlineField]: field.inline
-                }
-            )}>
+            <div key={field.key} style={style} className={"dialog-field"}>
                 {element}
             </div>
         )
@@ -162,6 +149,12 @@ class Dialog extends Component {
 
     render() {
         const { classes } = this.props
+
+        const fields = this.props.fields.filter(e => e).map((f, i) => this.getField(f, i))
+
+        if(this.props.fieldsOnly) {
+            return <>{fields}</>
+        }
         
         return ReactDOM.createPortal(
             <MuiDialog 
@@ -172,7 +165,7 @@ class Dialog extends Component {
                 fullWidth
             >
                 <Container className={classes.innerDialog}>
-                    {this.props.fields.filter(e => e).map((f, i) => this.getField(f, i))}
+                    {fields}
                 </Container>
             </MuiDialog>
         , document.getElementById("root"))
@@ -182,7 +175,10 @@ class Dialog extends Component {
 Dialog.verify = Verification
 Dialog.warn = WarningTemplate
 Dialog.error = ErrorTemplate
-Dialog.login = Login
-Dialog.register = Register
+
+Dialog.forms = {
+    login: Login,
+    register: Register
+}
 
 export default withStyles(styles)(Dialog)

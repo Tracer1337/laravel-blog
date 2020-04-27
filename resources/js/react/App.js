@@ -1,9 +1,10 @@
 import React, { useEffect } from "react"
 import { connect } from "react-redux"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import { CssBaseline, createMuiTheme, ThemeProvider } from "@material-ui/core"
+import { createMuiTheme, ThemeProvider } from "@material-ui/core"
 
 import Index from "./pages/Index.js"
+import Login from "./pages/Login.js"
 
 import { login } from "./redux/actions.js"
 import { getProfile } from "./config/API.js"
@@ -26,6 +27,10 @@ const App = ({ login }) => {
             <ThemeProvider theme={theme}>
                 <div className="app">
                     <Switch>
+                        <Route path="/login">
+                            <Login/>
+                        </Route>
+
                         <Route path="/">
                             <Index/>
                         </Route>

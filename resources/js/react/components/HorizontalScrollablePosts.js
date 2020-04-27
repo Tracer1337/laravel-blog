@@ -24,7 +24,6 @@ const HorizontalScrollablePosts = ({ fetchMethod }) => {
             
             setData(res.data)
             setPosts(newPosts)
-            setHighestPageNr(pageNr)
         })
     }
 
@@ -41,8 +40,6 @@ const HorizontalScrollablePosts = ({ fetchMethod }) => {
     if (!data) {
         return <></>
     }
-
-    console.log(data, posts)
 
     return (
         <div className="horizontal-scrollable-posts">

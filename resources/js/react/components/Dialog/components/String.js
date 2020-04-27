@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { TextField } from "@material-ui/core"
 
 class String extends Component {
     constructor(props) {
@@ -33,13 +32,12 @@ class String extends Component {
 
     render() {
         return(
-            <TextField
+            <input
                 ref={ref => this.textField = ref}
                 value={this.props.value}
                 onChange={this.handleChange.bind(this)}
-                label={this.props.label}
-                type={this.props.inputType}
-                fullWidth
+                placeholder={this.props.label}
+                type={this.props.inputType || "text"}
             />
         )
     }
