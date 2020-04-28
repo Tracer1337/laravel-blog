@@ -5,6 +5,7 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core"
 
 import Index from "./pages/Index.js"
 import Login from "./pages/Login.js"
+import Register from "./pages/Register.js"
 
 import { login } from "./redux/actions.js"
 import { getProfile } from "./config/API.js"
@@ -27,6 +28,10 @@ const App = ({ login }) => {
             <ThemeProvider theme={theme}>
                 <div className="app">
                     <Switch>
+                        <Route path="/register">
+                            <Register/>
+                        </Route>
+
                         <Route path="/login">
                             <Login/>
                         </Route>

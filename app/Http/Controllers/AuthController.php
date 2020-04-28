@@ -12,6 +12,7 @@ use Illuminate\Validation\Rule;
 use JWTAuth;
 use App\Http\Resources\User as UserResource;
 use App\Http\Resources\Blogpost as BlogpostResource;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
@@ -51,9 +52,23 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->email = $request->email;
 
-        $user->assignRole("user");
+        $user_role = Role::findByName("user");
+        $user->assignRole($user_role);
 
-        return $this->store($request, $user);
+        if($this->store($request, $user)) {
+            $token = JWTAuth::attempt([
+                "email" => $request->email,
+                "password" => $request->password
+            ]);
+
+            if(!$token) {
+                return response(null, 500);
+            }
+
+            return $this->withToken($token, [
+                "profile" => new UserResource($user)
+            ]);
+        }
     }
 
     public function login(Request $request){
@@ -70,9 +85,7 @@ class AuthController extends Controller
 
         $profile = $this->profile($request);
 
-        return response()->json([
-            "access_token" => $token,
-            "token_type" => "bearer",
+        return $this->withToken($token, [
             "profile" => $profile
         ]);
     }
@@ -98,5 +111,14 @@ class AuthController extends Controller
     public function update(Request $request) {
         $user = $request->user();
         return $this->store($request, $user);
+    }
+
+    private function withToken($token, $data) {
+        $response = array_merge([
+            "access_token" => $token,
+            "token_type" => "bearer"
+        ], $data);
+
+        return response()->json($response);
     }
 }

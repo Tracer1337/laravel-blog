@@ -63,13 +63,31 @@ button {
 }
 
 input {
+    @mixin text {
+        font-size: $font-size-extra-small;
+        color: $color-normal;
+    }
+
+    @include text;
     padding: $spacing-extra-small * 2;
     border-radius: 4px;
     border: 1px solid $color-light;
-    
+
     &::placeholder {
+        @include text;
         font-size: $font-size-extra-small;
         color: $color-normal;
+    }
+}
+
+.file-input-wrapper {
+    label {
+        display: flex;
+        cursor: pointer;
+
+        .icon {
+            margin-right: 12px;
+        }
     }
 }
 
@@ -129,6 +147,8 @@ input {
     }
 
     .profile {
+        display: inline-block;
+
         a {
             text-decoration: none;
         }

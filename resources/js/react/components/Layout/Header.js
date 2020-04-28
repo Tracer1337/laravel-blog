@@ -4,7 +4,14 @@ import { Link } from "react-router-dom"
 
 import Logo from "../Logo.js"
 
-const Header = ({ isLoggedIn, profile }) => {
+import { logout } from "../../redux/actions.js"
+
+const Header = ({ isLoggedIn, profile, logout }) => {
+    const handleLogout = () => {
+        localStorage.removeItem("JWTToken")
+        logout()
+    }
+
     return (
         <header className="header">
             <Logo/>
@@ -16,11 +23,16 @@ const Header = ({ isLoggedIn, profile }) => {
                         <Link to="/register">Register</Link>
                     </div>
                 ) : (
-                    <div className="profile">
-                        <Link to="/profile">Logged in as: {profile.username}</Link>
+                    <div className="links">
+                        <a href="#" onClick={handleLogout}>Logout</a>
+
+                        <div className="profile">
+                            <Link to="/profile">Logged in as: {profile.username}</Link>
+                        </div>
                     </div>
                 )
             }
+
         </header>
     )
 }
@@ -30,4 +42,4 @@ const mapStateToProps = reducers => ({
     profile: reducers.auth.profile
 })
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps, { logout })(Header)

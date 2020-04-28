@@ -1,9 +1,8 @@
 import React, { useState } from "react"
-import { Button } from "@material-ui/core"
 
 let idCounter = 0
 
-const File = ({ accept, label, onChange }) => {
+const File = ({ accept, label, onChange, icon }) => {
     const [id] = useState(idCounter++)
     const htmlId = "file_upload_" + id
 
@@ -12,12 +11,15 @@ const File = ({ accept, label, onChange }) => {
     }
 
     return (
-        <div>
+        <div className="file-input-wrapper">
             <input type="file" accept={accept} id={htmlId} style={{display: "none"}} onChange={handleChange}/>
             <label htmlFor={htmlId}>
-                <Button variant="outlined" color="primary" component="span">
-                    Upload { label }
-                </Button>
+                {icon && React.createElement(icon, {
+                    className: "icon"
+                })}
+                <span>
+                    Upload {label}
+                </span>
             </label>
         </div>
     )

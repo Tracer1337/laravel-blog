@@ -1,11 +1,22 @@
 const url = path => `${window.location.origin}/api/${path}`
 
 // Auth
-export const register = formData => axios.post(url("auth/register"), formData, {
-    headers: {
-        "Content-Type": "multipart/form-data"
-    }
-})
+export const register = formData => {
+    return new Promise((resolve, reject) => {
+        axios.post(url("auth/register"), formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        })
+        .then(res => {
+            localStorage.setItem("JWTToken", res.data.access_token)
+            resolve(res.data.profile)
+        })
+        .catch(() => {
+            reject()
+        })
+    })
+}
 
 export const login = args => {
     return new Promise((resolve, reject) => {
