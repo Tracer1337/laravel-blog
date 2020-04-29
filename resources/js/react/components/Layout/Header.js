@@ -1,26 +1,12 @@
-import React, { useState, useMemo } from "react"
+import React, { useState } from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
 import Logo from "../Logo.js"
 import Avatar from "../Avatar.js"
+import Menu from "../Menu.js"
 
 import { logout } from "../../redux/actions.js"
-
-const Menu = ({ anchor }) => {
-    const width = 102
-
-    const position = useMemo(() => {
-        const rect = anchor.getBoundingClientRect()
-        return { x: rect.x + rect.width - width, y: rect.y + rect.height }
-    }, [anchor])
-
-    return (
-        <div className="menu" style={{ transform: `translate(${position.x}px, ${position.y}px)` }}>
-
-        </div>
-    )
-}
 
 const Header = ({ isLoggedIn, profile, logout }) => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -53,15 +39,14 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                         <a href="#" onClick={handleLogout}>Logout</a>
 
                         <div className="profile">
-                            <Link to="/profile">Logged in as: {profile.username}</Link>
+                            <Link to="/profile">Logged in as: <strong>{profile.username}</strong></Link>
                             <Avatar onClick={toggleMenu}/>
-                            
-                            {menuOpen && <Menu anchor={anchorElement}/>}
                         </div>
                     </div>
                 )
             }
 
+            {menuOpen && <Menu anchor={anchorElement} />}
         </header>
     )
 }

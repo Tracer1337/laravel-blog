@@ -56,7 +56,9 @@ const HorizontalScrollablePosts = ({ fetchMethod }) => {
         slider.current.slickNext()
     }
 
-    useEffect(fetchPosts, [])
+    useEffect(() => {
+        fetchPosts()
+    }, [])
 
     if (!data) {
         return <></>

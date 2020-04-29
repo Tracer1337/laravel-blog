@@ -106,7 +106,7 @@ class UserController extends Controller
         }
     }
 
-    public function role(Request $request) {
+    public function assign_role(Request $request) {
         if(!$request->user()->can("update any user")) {
             return response(null, 403);
         }

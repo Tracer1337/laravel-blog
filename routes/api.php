@@ -65,7 +65,7 @@ Route::delete("/user/{id}", "UserController@destroy");
 
 // Roles
 
-Route::post("/user/role", "UserController@role");
+Route::post("/user/role", "UserController@assign_role");
 
 Route::get("/roles", "UserController@roles");
 

@@ -64,6 +64,8 @@ class AuthController extends Controller
             if(!$token) {
                 return response(null, 500);
             }
+            
+            $user->role = $user->roles()->first()->name;
 
             return $this->withToken($token, [
                 "profile" => new UserResource($user)
@@ -84,6 +86,7 @@ class AuthController extends Controller
         }
 
         $profile = $this->profile($request);
+        $profile->role = $profile->roles()->first()->name;
 
         return $this->withToken($token, [
             "profile" => $profile
@@ -96,6 +99,7 @@ class AuthController extends Controller
 
     public function profile(Request $request){
         $user = $request->user();
+        $user->role = $user->roles()->first()->name;
 
         return new UserResource($user);
     }
