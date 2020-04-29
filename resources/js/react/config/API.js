@@ -37,7 +37,7 @@ export const logout = () => {
 }
 
 // Blogposts
-export const getNewestPosts = page => axios.get(url("blogposts"), { params: { page } })
+export const getNewestPosts = () => axios.get(url("blogposts"))
 
 export const getBlogpost = id => axios.get(url("blogpost/"+id))
 

@@ -20,7 +20,7 @@ class BlogpostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $blogposts = Blogpost::whereNotNull("published_at")->orderBy("id", "desc")->Paginate(5);
+        $blogposts = Blogpost::whereNotNull("published_at")->orderBy("id", "desc")->limit(20)->get();
         $blogposts->makeHidden(["content"]);
 
         $users = [];

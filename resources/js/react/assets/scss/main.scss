@@ -91,6 +91,23 @@ input {
     }
 }
 
+.avatar {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.menu {
+    width: 100px;
+    height: 100px;
+    border: 1px solid $color-normal;
+    border-radius: 4px;
+    background: white;
+    position: absolute;
+    top: 0; left: 0;
+}
+
 .app {
     min-height: 100vh;
     display: flex;
@@ -140,14 +157,18 @@ input {
 
     .links, .profile {
         font-size: $font-size-small;
+        display: flex;
+        align-items: center;
 
         a {
-            margin-left: 32px;
+            margin-left: $spacing-small;
         }
     }
 
     .profile {
-        display: inline-block;
+        .avatar {
+            margin-left: $spacing-small;
+        }
 
         a {
             text-decoration: none;
@@ -163,25 +184,33 @@ input {
 .horizontal-scrollable-posts {
     position: relative;
 
-    .posts {
-        display: flex;
-        transition: transform 300ms ease-out;
+    .blogpost-card {
+        margin: auto;
     }
 
     .scroll-arrow {
-        $offset: #{-$spacing-normal + 12};
+        $offset: 12px;
         display: flex;
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: 0; right: $offset; bottom: 0;
+        top: 0; bottom: 0;
         cursor: pointer;
         z-index: 1;
 
+        &.right {
+            right: $offset;
+        }
+
         &.left {
-            right: unset;
             left: $offset;
         }
+    }
+}
+
+.newest-posts {
+    .horizontal-scrollable-posts {
+        margin: 0 -#{$spacing-normal};
     }
 }
 
@@ -189,17 +218,16 @@ input {
     text-decoration: none;
 
     .blogpost-card {
-        $image-width: 350;
+        $width: 350;
         $image-ratio: 4 / 3;
-        $image-height: $image-width * (1 / $image-ratio);
+        $image-height: $width * (1 / $image-ratio);
 
-        width: 350px;
+        width: #{$width}px;
         height: 500px;
-        margin-right: 20px;
         border: 1px solid $color-normal;
 
         .image {
-            width: #{$image-width}px;
+            width: #{$width}px;
             height: #{$image-height}px;
             background-color: rgba(0, 0, 0, 0.12);
             border-bottom: 1px solid $color-normal;

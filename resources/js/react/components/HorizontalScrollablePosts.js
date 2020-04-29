@@ -1,41 +1,62 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import ChevronRight from "@material-ui/icons/ChevronRight"
 import ChevronLeft from "@material-ui/icons/ChevronLeft"
+import Slider from "react-slick"
 
 import BlogpostCard from "./BlogpostCard.js"
 
-const postWidth = 350
-const postMargin = 20
-const postOffsetWidth = postWidth + postMargin
+const cardWidth = 350
+
+// Generate responsive breakpoints for slider
+const responsive = []
+for(let i = cardWidth * 5; i > cardWidth; i -= cardWidth) {
+    const slides = Math.floor(i / cardWidth) - 1
+    responsive.push({
+        breakpoint: i,
+        settings: {
+            slidesToScroll: slides,
+            slidesToShow: slides
+        }
+    })
+}
+
+const sliderSettings = {
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    infinite: true,
+    dots: true,
+    draggable: true,
+    responsive
+}
 
 const HorizontalScrollablePosts = ({ fetchMethod }) => {
     const [posts, setPosts] = useState([])
     const [data, setData] = useState()
-    const [pageNr, setPageNr] = useState(1)
+    const slider = useRef()
 
-    const fetchPosts = () => {
-        fetchMethod(pageNr).then(res => {
-            const newPosts = posts
-            res.data.data.forEach(post => {
-                if(!newPosts.some(p => p.id === post.id)) {
-                    newPosts.push(post)
-                }
-            })
-            
-            setData(res.data)
-            setPosts(newPosts)
+    const fetchPosts = async () => {
+        const res = await fetchMethod()
+
+        const newPosts = posts
+        res.data.data.forEach(post => {
+            if(!newPosts.some(p => p.id === post.id)) {
+                newPosts.push(post)
+            }
         })
+        
+        setData(res.data)
+        setPosts(newPosts)
     }
 
     const prev = () => {
-        setPageNr(pageNr - 1)
+        slider.current.slickPrev()
     }
 
     const next = () => {
-        setPageNr(pageNr + 1)
+        slider.current.slickNext()
     }
 
-    useEffect(fetchPosts, [pageNr])
+    useEffect(fetchPosts, [])
 
     if (!data) {
         return <></>
@@ -43,21 +64,21 @@ const HorizontalScrollablePosts = ({ fetchMethod }) => {
 
     return (
         <div className="horizontal-scrollable-posts">
-            {data.links.prev && (
-                <div className="scroll-arrow left" onClick={prev}>
-                    <ChevronLeft fontSize="large"/>
-                </div>
-            )}
-
-            <div className="posts" style={{transform: `translateX(${postOffsetWidth * 5 * (pageNr - 1) * -1}px)`}}>
-                {posts.map(post => <BlogpostCard post={post} key={post.id}/>)}
+            <div className="scroll-arrow left" onClick={prev}>
+                <ChevronLeft fontSize="large"/>
             </div>
 
-            {data.links.next && (
-                <div className="scroll-arrow" onClick={next}>
-                    <ChevronRight fontSize="large"/>
-                </div>
-            )}
+            <Slider
+                ref={slider}
+                {...sliderSettings}
+            >
+                {posts.map(post => <BlogpostCard post={post} key={post.id}/>)}
+            </Slider>
+
+
+            <div className="scroll-arrow right" onClick={next}>
+                <ChevronRight fontSize="large"/>
+            </div>
         </div>
     )
 }
