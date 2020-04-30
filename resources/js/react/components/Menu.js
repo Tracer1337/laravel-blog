@@ -63,11 +63,13 @@ class Menu extends React.Component {
 
         return (
             <div className="menu" style={{ transform: `translate(${this.position.x}px, ${this.position.y}px)` }}>
-                <div className="menu-profile">
-                    <Avatar size={58}/>
-                    <span className="first">{profile.username}</span>
-                    <span className="last">{profile.role}</span>
-                </div>
+                <Link to="/profile">
+                    <div className="menu-profile">
+                        <Avatar size={58}/>
+                        <span className="first">{profile.username}</span>
+                        <span className="last">{profile.role}</span>
+                    </div>
+                </Link>
 
                 <hr />
 

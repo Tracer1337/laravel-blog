@@ -1,31 +1,28 @@
-import React, { useMemo } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
-import moment from "moment"
 
-const BlogpostCard = ({ post }) => {
-    const publishedDateString = useMemo(() => moment(post.published_at).format("DD.MM.YYYY"), [post])
+import Date from "./Date.js"
 
-    return (
-        <Link to={"/blogpost/"+post.id} className="blogpost-card-wrapper">
-            <div className="blogpost-card">
-                <div className="image"/>
+const BlogpostCard = ({ post }) => (
+    <Link to={"/blogpost/"+post.id} className="blogpost-card-wrapper">
+        <div className="blogpost-card">
+            <div className="image"/>
 
-                <div className="body">
-                    <div className="top">
-                        <div className="left author">{post.user.username}</div>
-                        <div className="right published-date">{publishedDateString}</div>
-                    </div>
-
-                    <div className="bottom">
-                        <div className="left teaser">{post.teaser}</div>
-                        <div className="right topic">{post.topic.name}</div>
-                    </div>
-
-                    <div className="title">{post.title}</div>
+            <div className="body">
+                <div className="top">
+                    <div className="left author">{post.user.username}</div>
+                    <Date timestamp={post.published_at} className="right published-date"/>
                 </div>
+
+                <div className="bottom">
+                    <div className="left teaser">{post.teaser}</div>
+                    <div className="right topic">{post.topic.name}</div>
+                </div>
+
+                <div className="title">{post.title}</div>
             </div>
-        </Link>
-    )
-}
+        </div>
+    </Link>
+)
 
 export default BlogpostCard

@@ -12,7 +12,7 @@ $factory->define(App\Blogpost::class, function (Faker $faker) {
         "topic_id"     => $faker->numberBetween(1, 3),
         "title"        => $faker->text(50),
         "teaser"       => $faker->text(80),
-        "content"      => $faker->text(300),
+        "content"      => $faker->text(5000),
         "cover_url"    => $faker->word,
         "published_at" => Carbon::now()
     ];

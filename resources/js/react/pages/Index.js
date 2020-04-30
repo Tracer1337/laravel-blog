@@ -1,15 +1,12 @@
 import React from "react"
-import { connect } from "react-redux"
 
 import Layout from "../components/Layout/Layout.js"
 import NewestPosts from "../components/NewestPosts.js"
 import AllTopics from "../components/AllTopics.js"
 
-const Index = ({ isLoggedIn, profile }) => {
+const Index = () => {
     return (
         <Layout>
-            <div className="spacer"/>
-
             <NewestPosts/>
 
             <div className="spacer"/>
@@ -21,9 +18,4 @@ const Index = ({ isLoggedIn, profile }) => {
     )
 }
 
-const mapStateToProps = store => ({
-    isLoggedIn: store.auth.isLoggedIn,
-    profile: store.auth.profile
-})
-
-export default connect(mapStateToProps)(Index)
+export default Index
