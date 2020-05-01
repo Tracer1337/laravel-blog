@@ -46,6 +46,7 @@ section {
 main {
     margin: 0 auto;
     max-width: 900px;
+    padding: 0 $spacing-extra-small;
 
     &.screen-center {
         position: absolute;

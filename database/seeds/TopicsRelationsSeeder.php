@@ -12,8 +12,13 @@ class TopicsRelationsSeeder extends Seeder
     public function run()
     {
         DB::table("topics_relations")->insert([
-            "topic_1_id" => 3,
-            "topic_2_id" => 2
+            "topic_from_id" => 3,
+            "topic_to_id" => 2
+        ]);
+
+        DB::table("topics_relations")->insert([
+            "topic_from_id" => 2,
+            "topic_to_id" => 3
         ]);
     }
 }

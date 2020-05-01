@@ -13,6 +13,6 @@ class Topic extends Model
     }
 
     public function relations() {
-        return $this->hasMany("App\Topic", "topics_relations");
+        return $this->belongsToMany("App\Topic", "topics_relations", "topic_from_id", "topic_to_id");
     }
 }

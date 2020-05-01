@@ -23,13 +23,6 @@ class BlogpostController extends Controller
         $blogposts = Blogpost::whereNotNull("published_at")->orderBy("id", "desc")->limit(20)->get();
         $blogposts->makeHidden(["content"]);
 
-        $users = [];
-        foreach($blogposts as $blogpost) {
-            $blogpost->user;
-            $blogpost->topic;
-            $blogpost->tags;
-        }
-
         return BlogpostResource::collection($blogposts);
     }
 
@@ -78,12 +71,22 @@ class BlogpostController extends Controller
      */
     public function show($id, Request $request) {
         $blogpost = Blogpost::findOrFail($id);
-        $blogpost->user;
-        $blogpost->topic;
-        $blogpost->tags;
-        $blogpost->comments;
-        $blogpost->likesCount = $blogpost->likes()->count();
-        $blogpost->recommendationsCount = $blogpost->recommendations->count();
+
+        $relations = [];
+        $related_topics = $blogpost->topic->relations()->get();
+        
+        foreach($related_topics as $topic) {
+            $blogposts = $topic->blogposts()->limit(5)->get();
+            $blogposts->makeHidden(["content"]);
+
+            foreach($blogposts as $related_post) {
+                $resource = new BlogpostResource($related_post);
+                array_push($relations, $resource);
+            }
+        }
+
+        $blogpost->relations = $relations;
+        $blogpost->recommendations;
 
         foreach($blogpost->comments as $comment) {
             $comment->user;
@@ -140,5 +143,9 @@ class BlogpostController extends Controller
         }
 
         return response(null, 200);
+    }
+
+    private function convertPostResource() {
+
     }
 }

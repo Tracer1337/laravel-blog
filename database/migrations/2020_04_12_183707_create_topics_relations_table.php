@@ -15,8 +15,8 @@ class CreateTopicsRelationsTable extends Migration
     {
         Schema::create('topics_relations', function (Blueprint $table) {
             $table->id();
-            $table->integer("topic_1_id");
-            $table->integer("topic_2_id");
+            $table->integer("topic_from_id");
+            $table->integer("topic_to_id");
         });
     }
 

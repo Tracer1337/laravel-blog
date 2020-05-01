@@ -4,6 +4,8 @@ import ThumbUpIcon from "@material-ui/icons/ThumbUp"
 import AddIcon from "@material-ui/icons/Add"
 import RemoveIcon from "@material-ui/icons/Remove"
 
+import Auth from "../Auth.js"
+
 import { likeBlogpost, addRecommendation, removeRecommendation } from "../../config/API.js"
 
 const Actions = ({ data, onAction, id, profile }) => {
@@ -32,17 +34,19 @@ const Actions = ({ data, onAction, id, profile }) => {
                 <span className="label">{data.likesCount}</span>
             </div>
 
-            {isRecommending ? (
-                <div className="action-container" onClick={handleRemoveRecommendation}>
-                    <RemoveIcon className="icon" />
-                    <span className="label">Remove from Recommendations</span>
-                </div>
-            ) : (
-                <div className="action-container" onClick={handleAddRecommendation}>
-                    <AddIcon className="icon"/>
-                    <span className="label">Add to Recommendations</span>
-                </div>
-            )}
+            <Auth role="author">
+                {isRecommending ? (
+                    <div className="action-container" onClick={handleRemoveRecommendation}>
+                        <RemoveIcon className="icon" />
+                        <span className="label">Remove from Recommendations</span>
+                    </div>
+                ) : (
+                    <div className="action-container" onClick={handleAddRecommendation}>
+                        <AddIcon className="icon"/>
+                        <span className="label">Add to Recommendations</span>
+                    </div>
+                )}
+            </Auth>
         </div>
     )
 }

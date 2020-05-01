@@ -7,6 +7,8 @@ import Actions from "./Actions.js"
 import Tags from "./Tags.js"
 import Comments from "./Comments.js"
 import CommentForm from "./CommentForm.js"
+import RelatedPosts from "./RelatedPosts.js"
+import Auth from "../Auth.js"
 
 import { getBlogpost } from "../../config/API.js"
 
@@ -50,7 +52,9 @@ const Blogpost = ({ id }) => {
                     <Markdown source={data.content}/>
                 </div>
 
-                <Actions data={data} onAction={fetchPost} id={id}/>
+                <Auth>
+                    <Actions data={data} onAction={fetchPost} id={id}/>
+                </Auth>
 
                 <hr/>
 
@@ -62,9 +66,15 @@ const Blogpost = ({ id }) => {
 
                 <div className="spacer"/>
 
-                <CommentForm blogpostId={id} onSubmit={fetchPost}/>
+                <Auth>
+                    <CommentForm blogpostId={id} onSubmit={fetchPost}/>
 
-                <div className="spacer"/>
+                    <div className="spacer"/>
+                </Auth>
+
+                <RelatedPosts relations={data.relations}/>
+
+                {/*<div className="spacer"/>*/}
             </main>
         </>
     )

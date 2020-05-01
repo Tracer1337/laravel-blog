@@ -6,7 +6,7 @@ const Tags = ({ data }) => (
         <span>Tags:</span>
 
         {data.tags.map(({ id, name }) => (
-            <span className="tag">
+            <span className="tag" key={id}>
                 <Link to={"/tags/" + id}>
                     {name}
                 </Link>

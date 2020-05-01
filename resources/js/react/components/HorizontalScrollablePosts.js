@@ -9,7 +9,7 @@ const cardWidth = 350
 
 // Generate responsive breakpoints for slider
 const responsive = []
-for(let i = cardWidth * 5; i > cardWidth; i -= cardWidth) {
+for (let i = cardWidth * 5; i > cardWidth; i -= cardWidth) {
     const slides = Math.floor(i / cardWidth) - 1
     responsive.push({
         breakpoint: i,
@@ -20,6 +20,7 @@ for(let i = cardWidth * 5; i > cardWidth; i -= cardWidth) {
     })
 }
 
+
 const sliderSettings = {
     slidesToShow: 5,
     slidesToScroll: 5,
@@ -29,23 +30,13 @@ const sliderSettings = {
     responsive
 }
 
-const HorizontalScrollablePosts = ({ fetchMethod }) => {
-    const [posts, setPosts] = useState([])
-    const [data, setData] = useState()
+const HorizontalScrollablePosts = (props) => {
+    const [posts, setPosts] = useState(props.posts)
     const slider = useRef()
 
     const fetchPosts = async () => {
-        const res = await fetchMethod()
-
-        const newPosts = posts
-        res.data.data.forEach(post => {
-            if(!newPosts.some(p => p.id === post.id)) {
-                newPosts.push(post)
-            }
-        })
-        
-        setData(res.data)
-        setPosts(newPosts)
+        const res = await props.fetchMethod()
+        setPosts(res.data.data)
     }
 
     const prev = () => {
@@ -57,10 +48,12 @@ const HorizontalScrollablePosts = ({ fetchMethod }) => {
     }
 
     useEffect(() => {
-        fetchPosts()
+        if(!posts) {
+            fetchPosts()
+        }
     }, [])
 
-    if (!data) {
+    if (!posts) {
         return <></>
     }
 

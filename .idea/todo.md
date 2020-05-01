@@ -5,3 +5,5 @@
 * Screen: topics -> Links to specific topics pages
 * Some method to create recommendation-relations
 * UUID instead of increments (more secure)
+* Statistics
+* Loading indicator during initial api-calls
