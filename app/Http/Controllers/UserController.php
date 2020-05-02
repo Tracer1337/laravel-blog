@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Resources\User as UserResource;
+use App\Http\Resources\Blogpost as BlogpostResource;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 
@@ -16,13 +17,28 @@ class UserController extends Controller
 
     public function index($id, Request $request) {
         if(!$request->user()->can("view users")) {
-            return reponse(null, 403);
+            return response(null, 403);
         }
 
         $user = User::findOrFail($id);
-        $user->recommendations->makeHidden(["content"]);
-        $user->followersCount = $user->followers()->count();
         $user->role = $user->roles()->first()->name;
+        
+        $recommendations = $user->recommendations()->get();
+        $recommendations->makeHidden(["content"]);
+        $user->recommendations = BlogpostResource::collection($recommendations);
+
+        $user->subscriberCount = $user->followers()->count();
+        $user->subscriptionCount = $user->follows()->count();
+        $user->blogpostCount = $user->blogposts()->count();
+        $user->commentCount = $user->comments()->count();
+        
+        $likes_recieved = 0;
+        $blogposts = $user->blogposts()->get();
+        foreach($blogposts as $blogpost) {
+            $likes_recieved += $blogpost->likes()->count();
+        }
+
+        $user->likesRecieved = $likes_recieved;
 
         return new UserResource($user);
     }

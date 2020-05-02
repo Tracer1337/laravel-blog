@@ -1,29 +1,15 @@
-import React, { useEffect, useRef } from "react"
+import React from "react"
 
 import HorizontalScrollablePosts from "../HorizontalScrollablePosts.js"
 
-const RelatedPosts = ({ relations }) => {
-    const container = useRef()
-
-    useEffect(() => {
-        const align = () => {
-            const leftOffset = container.current.getBoundingClientRect().left
-            container.current.querySelector(".horizontal-scrollable-posts").style.margin = `0 -${leftOffset}px`
-        }
-
-        align()
-
-        window.addEventListener("resize", align)
-        return () => window.removeEventListener("resize", align)
-    }, [])
-
-    return (
-        <div className="related-posts" ref={container}>
+const RelatedPosts = ({ relations }) => (
+    <div className="related-posts">
+        <main>
             <h3 className="title">Related Posts</h3>
+        </main>
 
-            <HorizontalScrollablePosts posts={relations}/>
-        </div>
-    )
-}
+        <HorizontalScrollablePosts posts={relations}/>
+    </div>
+)
 
 export default RelatedPosts

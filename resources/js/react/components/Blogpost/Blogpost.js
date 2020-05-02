@@ -28,6 +28,7 @@ const Blogpost = ({ id }) => {
     }
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         fetchPost()
     }, [id])
         
@@ -39,36 +40,38 @@ const Blogpost = ({ id }) => {
         <>
             <TopicCrumb name={data.topic.name}/>
 
-            <main className="blogpost">
-                <Head data={data}/>
+            <div className="blogpost">
+                <main>
+                    <Head data={data}/>
 
-                <hr/>
+                    <hr/>
 
-                <div className="blogpost-title">{data.title}</div>
-                
-                <div className="content">
-                    <Markdown source={data.content}/>
-                </div>
+                    <div className="blogpost-title">{data.title}</div>
+                    
+                    <div className="content">
+                        <Markdown source={data.content}/>
+                    </div>
 
-                <Auth>
-                    <Actions data={data} onAction={fetchPost} id={id}/>
-                </Auth>
+                    <Auth>
+                        <Actions data={data} onAction={fetchPost} id={id}/>
+                    </Auth>
 
-                <hr/>
+                    <hr/>
 
-                <Tags data={data}/>
-
-                <div className="spacer"/>
-
-                <Comments comments={data.comments}/>
-
-                <div className="spacer"/>
-
-                <Auth>
-                    <CommentForm blogpostId={id} onSubmit={fetchPost}/>
+                    <Tags data={data}/>
 
                     <div className="spacer"/>
-                </Auth>
+
+                    <Comments comments={data.comments}/>
+
+                    <div className="spacer"/>
+
+                    <Auth>
+                        <CommentForm blogpostId={id} onSubmit={fetchPost}/>
+
+                        <div className="spacer"/>
+                    </Auth>
+                </main>
 
                 {data.relations.length > 0 && (
                     <>
@@ -77,7 +80,7 @@ const Blogpost = ({ id }) => {
                     </>
                 )}
 
-            </main>
+            </div>
         </>
     )
 }

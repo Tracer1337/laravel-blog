@@ -46,7 +46,12 @@ section {
 main {
     margin: 0 auto;
     max-width: 900px;
-    padding: 0 $spacing-extra-small;
+
+    @media only screen and (max-width: 900px) {
+        & {
+            padding: 0 $spacing-extra-small * 2;
+        }
+    }
 
     &.screen-center {
         position: absolute;
@@ -108,6 +113,10 @@ strong {
 
 .spacer {
     height: $spacing-normal;
+}
+
+.spacer-small {
+    height: $spacing-small;
 }
 
 hr {

@@ -7,27 +7,11 @@ import BlogpostCard from "./BlogpostCard.js"
 
 const cardWidth = 350
 
-// Generate responsive breakpoints for slider
-const responsive = []
-for (let i = cardWidth * 5; i > cardWidth; i -= cardWidth) {
-    const slides = Math.floor(i / cardWidth) - 1
-    responsive.push({
-        breakpoint: i,
-        settings: {
-            slidesToScroll: slides,
-            slidesToShow: slides
-        }
-    })
-}
-
-
 const sliderSettings = {
     slidesToShow: 5,
-    slidesToScroll: 5,
     infinite: true,
     dots: true,
-    draggable: true,
-    responsive
+    draggable: true
 }
 
 const HorizontalScrollablePosts = (props) => {
@@ -50,11 +34,28 @@ const HorizontalScrollablePosts = (props) => {
     useEffect(() => {
         if(!posts) {
             fetchPosts()
+        } else if (props.posts) {
+            setPosts(props.posts)
         }
-    }, [])
+    }, [props.posts])
 
     if (!posts) {
         return <></>
+    }
+
+    const slidesToShow = posts.length < sliderSettings.slidesToShow ? posts.length : sliderSettings.slidesToShow
+
+    // Generate responsive breakpoints for slider
+    const responsive = []
+    for (let i = cardWidth * 5; i > cardWidth; i -= cardWidth) {
+        const slides = Math.min(Math.floor(i / cardWidth) - 1, slidesToShow)
+        responsive.push({
+            breakpoint: i,
+            settings: {
+                slidesToScroll: slides,
+                slidesToShow: slides
+            }
+        })
     }
 
     return (
@@ -66,6 +67,9 @@ const HorizontalScrollablePosts = (props) => {
             <Slider
                 ref={slider}
                 {...sliderSettings}
+                slidesToShow={slidesToShow}
+                slidesToScroll={slidesToShow}
+                responsive={responsive}
             >
                 {posts.map(post => <BlogpostCard post={post} key={post.id}/>)}
             </Slider>

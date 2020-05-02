@@ -18,8 +18,7 @@ const marginTop = 8
 const links = [
     {
         icon: PersonIcon,
-        label: "View Profile",
-        to: "/profile"
+        label: "View Profile"
     },
     {
         icon: TuneIcon,
@@ -48,7 +47,7 @@ const links = [
         label: "Admin Panel",
         to: "/admin",
         role: "admin"
-    },
+    }
 ]
 
 class Menu extends React.Component {
@@ -60,6 +59,11 @@ class Menu extends React.Component {
             x: rect.x + rect.width - width,
             y: rect.y + rect.height + marginTop
         }
+
+        this.links = links
+
+        this.userlink = "/user/" + this.props.profile.id
+        this.links[0].to = this.userlink
     }
 
     render() {
@@ -67,7 +71,7 @@ class Menu extends React.Component {
 
         return (
             <div className="menu" style={{ transform: `translate(${this.position.x}px, ${this.position.y}px)` }}>
-                <Link to="/profile">
+                <Link to={this.userlink}>
                     <div className="menu-profile">
                         <Avatar size={58}/>
                         <span className="first">{profile.username}</span>

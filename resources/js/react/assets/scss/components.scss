@@ -401,3 +401,40 @@
         margin-bottom: $spacing-extra-small * 2;
     }
 }
+
+.user {
+    main {
+        .head {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .username {
+                margin-top: $spacing-extra-small * 2;
+                font-size: $font-size-normal;
+            }
+
+            .role {
+                margin-top: $spacing-extra-small;
+            }
+        }
+
+        .information {
+            display: flex;
+
+            .statistics {
+                width: $spacing-large;
+
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: $spacing-extra-small * 2;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}

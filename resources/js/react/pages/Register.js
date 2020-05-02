@@ -25,21 +25,19 @@ const Register = ({ loginAction }) => {
     }
 
     return (
-        <Layout>
-            <main className="screen-center">
+        <main className="screen-center">
 
-                <div className="card">
-                    <h3>Register</h3>
+            <div className="card">
+                <h3>Register</h3>
 
-                    <form onSubmit={event => event.preventDefault()}>
-                        {React.createElement(Dialog.forms.register, {
-                            onSubmit: handleSubmit
-                        })}
-                    </form>
-                </div>
+                <form onSubmit={event => event.preventDefault()}>
+                    {React.createElement(Dialog.forms.register, {
+                        onSubmit: handleSubmit
+                    })}
+                </form>
+            </div>
 
-            </main>
-        </Layout>
+        </main>
     )
 }
 

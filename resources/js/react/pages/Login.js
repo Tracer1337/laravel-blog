@@ -22,21 +22,19 @@ const Login = ({ loginAction }) => {
     }
 
     return (
-        <Layout>
-            <main className="screen-center">
-                
-                <div className="card">
-                    <h3>Login</h3>
+        <main className="screen-center">
+            
+            <div className="card">
+                <h3>Login</h3>
 
-                    <form onSubmit={event => event.preventDefault()}>
-                        {React.createElement(Dialog.forms.login, {
-                            onSubmit: handleSubmit
-                        })}
-                    </form>
-                </div>
+                <form onSubmit={event => event.preventDefault()}>
+                    {React.createElement(Dialog.forms.login, {
+                        onSubmit: handleSubmit
+                    })}
+                </form>
+            </div>
 
-            </main>
-        </Layout>
+        </main>
     )
 }
 
