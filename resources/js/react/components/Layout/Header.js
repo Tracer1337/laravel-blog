@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 import Logo from "../Logo.js"
 import Avatar from "../Avatar.js"
-import Menu from "../Menu.js"
+import Menu from "./Menu.js"
 
 import { logout } from "../../redux/actions.js"
 

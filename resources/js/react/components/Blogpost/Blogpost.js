@@ -35,8 +35,6 @@ const Blogpost = ({ id }) => {
         return <></>
     }
 
-    console.log(data)
-
     return (
         <>
             <TopicCrumb name={data.topic.name}/>
@@ -72,9 +70,13 @@ const Blogpost = ({ id }) => {
                     <div className="spacer"/>
                 </Auth>
 
-                <RelatedPosts relations={data.relations}/>
+                {data.relations.length > 0 && (
+                    <>
+                        <RelatedPosts relations={data.relations}/>
+                        <div className="spacer"/>
+                    </>
+                )}
 
-                {/*<div className="spacer"/>*/}
             </main>
         </>
     )

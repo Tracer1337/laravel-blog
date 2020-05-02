@@ -32,9 +32,15 @@ class RolesSeeder extends Seeder
         $role_author->givePermissionTo("follow users");
 
         // Assign roles to users
-        $all_users = User::all();
-        foreach($all_users as $user) {
-            $user->assignRole($role_user);
+        $user_count = User::all()->count();
+        for($i = 1; $i < $user_count + 1; $i++) {
+            $user = User::find($i);
+
+            if($i % 2 == 0) {
+                $user->assignRole($role_user);
+            } else {
+                $user->assignRole($role_author);
+            }
         }
 
         // Create admin user

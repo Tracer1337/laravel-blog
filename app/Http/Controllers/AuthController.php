@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Blogpost;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
@@ -115,6 +116,34 @@ class AuthController extends Controller
     public function update(Request $request) {
         $user = $request->user();
         return $this->store($request, $user);
+    }
+
+    public function subscriptions(Request $request) {
+        $user = $request->user();
+
+        // Get ids of newest subscriptions blogposts
+        $blogpost_ids = DB::table("followers")
+                    ->where("user_from_id", "=", $user->id)
+                    ->join("blogposts", "followers.user_to_id", "=", "blogposts.user_id")
+                    ->orderBy("published_at", "desc")
+                    ->select(array("blogposts.published_at", "blogposts.id"))
+                    ->limit(20)
+                    ->get();
+
+        
+
+        // Convert ids to array
+        $ids = [];
+        foreach($blogpost_ids as $id) {
+            array_push($ids, $id->id);
+        }
+
+        // Get blogpost resources from ids
+        $blogposts = Blogpost::whereIn("id", $ids)->orderBy("published_at", "desc")->get();
+
+        $blogposts->makeHidden(["content"]);
+
+        return BlogpostResource::collection($blogposts);
     }
 
     private function withToken($token, $data) {

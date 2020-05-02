@@ -168,8 +168,10 @@
     }
 }
 
-.newest-posts .horizontal-scrollable-posts{
-    margin: 0 -#{$spacing-normal};
+.newest-posts, .subscriptions{
+    .horizontal-scrollable-posts {
+        margin: 0 -#{$spacing-normal};
+    }
 }
 
 .blogpost-card-wrapper {

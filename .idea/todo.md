@@ -7,3 +7,4 @@
 * UUID instead of increments (more secure)
 * Statistics
 * Loading indicator during initial api-calls
+* Overthink concept of selecting related posts by related topics => does not make sense

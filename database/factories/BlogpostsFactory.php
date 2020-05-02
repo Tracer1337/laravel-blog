@@ -14,6 +14,6 @@ $factory->define(App\Blogpost::class, function (Faker $faker) {
         "teaser"       => $faker->text(80),
         "content"      => $faker->text(5000),
         "cover_url"    => $faker->word,
-        "published_at" => Carbon::now()
+        "published_at" => $faker->dateTimeBetween($min = "-1 year", $max = "now")
     ];
 });

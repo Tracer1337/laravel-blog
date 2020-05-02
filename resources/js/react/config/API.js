@@ -85,3 +85,5 @@ export const editProfile = formData => axios.post(url("profile"), formData, {
 })
 
 export const getProfileBlogposts = () => axios.get(url("profile/blogposts"))
+
+export const getNewestSubscriptionPosts = () => axios.get(url("profile/subscriptions"))
