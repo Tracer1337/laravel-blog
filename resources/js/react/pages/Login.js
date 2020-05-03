@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom"
 import { login as loginAction } from "../redux/actions.js"
 import { login } from "../config/API.js"
 
-import Layout from "../components/Layout/Layout.js"
 import Dialog from "../components/Dialog/Dialog.js"
 
 const Login = ({ loginAction }) => {

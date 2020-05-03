@@ -6,7 +6,6 @@ import { login as loginAction } from "../redux/actions.js"
 import { register } from "../config/API.js"
 import objectToForm from "../utils/objectToForm.js"
 
-import Layout from "../components/Layout/Layout.js"
 import Dialog from "../components/Dialog/Dialog.js"
 
 const Register = ({ loginAction }) => {

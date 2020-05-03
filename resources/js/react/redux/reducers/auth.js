@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from "../actionTypes.js"
+import { LOGIN, LOGOUT, MODIFY_PROFILE } from "../actionTypes.js"
 
 const defaultState = {
     profile: {},
@@ -19,6 +19,20 @@ function auth(state = defaultState, action) {
                 ...state,
                 profile: {},
                 isLoggedIn: false
+            }
+
+        case MODIFY_PROFILE:
+            const newProfile = state.profile
+
+            for(let key in action.profile) {
+                if(newProfile[key]) {
+                    newProfile[key] = action.profile[key]
+                }
+            }
+
+            return {
+                ...state,
+                profile: newProfile
             }
 
         default:

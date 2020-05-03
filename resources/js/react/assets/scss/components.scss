@@ -90,7 +90,7 @@
     }
 
     form {
-        input, button {
+        .input {
             width: 320px;
         }
     }
@@ -409,6 +409,10 @@
             flex-direction: column;
             align-items: center;
 
+            .avatar {
+                cursor: initial;
+            }
+
             .username {
                 margin-top: $spacing-extra-small * 2;
                 font-size: $font-size-normal;
@@ -434,6 +438,65 @@
                         margin-bottom: 0;
                     }
                 }
+            }
+        }
+    }
+}
+
+.edit-profile {
+    .title {
+        text-align: center;
+    }
+
+    form {
+        $input-spacing: $spacing-small;
+
+        .input, label {
+            display: block;
+        }
+
+        label {
+            margin-bottom: $spacing-extra-small;
+        }
+
+        .input {
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .input {
+            margin-bottom: $spacing-small;
+        }
+
+        .markdown-editor {
+            margin-bottom: $input-spacing / 2;
+        }
+
+        .file-input-wrapper {
+            display: flex;
+            margin-bottom: $input-spacing;
+
+            label {
+                display: flex;
+            }
+        }
+
+        .links {
+            display: grid;
+            grid-template: 
+                "1fr 1fr"
+                "1fr 1fr";
+            grid-gap: $spacing-extra-small * 2;
+            margin-bottom: $input-spacing;
+        }
+
+        .submit {
+            display: flex;
+            align-items: center;
+            height: 40px;
+
+            .icon {
+                margin-right: 12px;
             }
         }
     }

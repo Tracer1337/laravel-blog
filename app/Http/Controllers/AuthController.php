@@ -129,9 +129,7 @@ class AuthController extends Controller
                     ->select(array("blogposts.published_at", "blogposts.id"))
                     ->limit(20)
                     ->get();
-
-        
-
+    
         // Convert ids to array
         $ids = [];
         foreach($blogpost_ids as $id) {

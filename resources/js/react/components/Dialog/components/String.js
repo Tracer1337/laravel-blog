@@ -38,6 +38,7 @@ class String extends Component {
                 onChange={this.handleChange.bind(this)}
                 placeholder={this.props.label}
                 type={this.props.inputType || "text"}
+                className="input"
             />
         )
     }

@@ -5,8 +5,8 @@ const Biography = ({ data }) => (
     <div className="biography">
         <h3 className="title">Biography</h3>
 
-        {data.content ? (
-            <Markdown source={data.content}/>
+        {data.biography ? (
+            <Markdown source={data.biography}/>
         ) : (
             <em>No content available</em>
         )}

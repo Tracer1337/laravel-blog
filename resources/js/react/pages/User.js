@@ -21,8 +21,6 @@ const User = () => {
         return <></>
     }
 
-    console.log(data)
-
     return (
         <div className="user">
             <main>

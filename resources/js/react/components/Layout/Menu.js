@@ -82,8 +82,8 @@ class Menu extends React.Component {
                 <hr />
 
                 <ul>
-                    {links.map(({ icon, label, to, role }) => (
-                        <Auth role={role}>
+                    {links.map(({ icon, label, to, role }, i) => (
+                        <Auth role={role} key={i}>
                             <Link to={to}>
                                 <li className="menu-item">
                                     {React.createElement(icon, { style: { fontSize: 24 }, className: "icon" })}

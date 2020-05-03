@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { connect, useSelector } from "react-redux"
+import { connect } from "react-redux"
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import { createMuiTheme, ThemeProvider, CircularProgress } from "@material-ui/core"
 
@@ -8,6 +8,7 @@ import Login from "./pages/Login.js"
 import Register from "./pages/Register.js"
 import Blogpost from "./pages/Blogpost.js"
 import User from "./pages/User.js"
+import EditProfile from "./pages/EditProfile.js"
 
 import Layout from "./components/Layout/Layout.js"
 
@@ -22,15 +23,15 @@ const theme = createMuiTheme({
     }
 })
 
-const ProtectedRoute = ({ role, path, children }) => {
-    const auth = useSelector(store => store.auth)
+const mapStateToProps = store => ({
+    auth: store.auth
+})
 
-    return (
-        <Route path={path}>
-            {!auth.isLoggedIn || (role && auth.profile.role !== role) ? <Redirect to="/login"/> : children}
-        </Route>
-    )
-}
+const ProtectedRoute = connect(mapStateToProps)(({ role, path, children, auth }) => (
+    <Route path={path}>
+        {!auth.isLoggedIn || (role && auth.profile.role !== role) ? <Redirect to="/login"/> : children}
+    </Route>
+))
 
 const App = ({ login }) => {
     const [isLoading, setIsLoading] = useState(true)
@@ -52,13 +53,17 @@ const App = ({ login }) => {
                             </main>
                         ) : (
                             <Switch>
-                                <Route path="/blogpost/:id">
-                                    <Blogpost />
-                                </Route>
+                                <ProtectedRoute path="/edit-profile">
+                                    <EditProfile/>
+                                </ProtectedRoute>
 
                                 <ProtectedRoute path="/user/:id">
                                     <User />
                                 </ProtectedRoute>
+
+                                <Route path="/blogpost/:id">
+                                    <Blogpost />
+                                </Route>
 
                                 <Route path="/register">
                                     <Register />

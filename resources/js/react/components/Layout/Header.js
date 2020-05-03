@@ -53,7 +53,7 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                         <a href="#" onClick={handleLogout}>Logout</a>
 
                         <div className="profile">
-                            <Link to="/profile">Logged in as: <strong>{profile.username}</strong></Link>
+                            <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.username}</strong></Link>
                             <Avatar onClick={toggleMenu}/>
                         </div>
                     </div>
