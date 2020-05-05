@@ -1,4 +1,5 @@
 const url = path => `${window.location.origin}/api/${path}`
+const paginated = (path, pageNr) => `${path}?page=${pageNr}`
 
 // Auth
 export const register = formData => {
@@ -85,5 +86,7 @@ export const editProfile = formData => axios.post(url("profile"), formData, {
 })
 
 export const getProfileBlogposts = () => axios.get(url("profile/blogposts"))
+
+export const getProfileComments = pageNr => axios.get(paginated(url("profile/comments"), pageNr))
 
 export const getNewestSubscriptionPosts = () => axios.get(url("profile/subscriptions"))

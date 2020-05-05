@@ -9,6 +9,7 @@ import Register from "./pages/Register.js"
 import Blogpost from "./pages/Blogpost.js"
 import User from "./pages/User.js"
 import EditProfile from "./pages/EditProfile.js"
+import ProfileComments from "./pages/ProfileComments.js"
 
 import Layout from "./components/Layout/Layout.js"
 
@@ -53,6 +54,10 @@ const App = ({ login }) => {
                             </main>
                         ) : (
                             <Switch>
+                                <ProtectedRoute path="/my-comments">
+                                    <ProfileComments/>
+                                </ProtectedRoute>
+                                
                                 <ProtectedRoute path="/edit-profile">
                                     <EditProfile/>
                                 </ProtectedRoute>

@@ -87,4 +87,6 @@ Route::post("profile", "AuthController@update");
 
 Route::get("profile/blogposts", "AuthController@blogposts");
 
+Route::get("profile/comments", "AuthController@comments");
+
 Route::get("profile/subscriptions", "AuthController@subscriptions");

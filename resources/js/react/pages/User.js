@@ -5,6 +5,7 @@ import Head from "../components/User/Head.js"
 import Information from "../components/User/Information.js"
 import Biography from "../components/User/Biography.js"
 import Recommendations from "../components/User/Recommendations.js"
+import SubscribeFab from "../components/User/SubscribeFab.js"
 
 import { getUser } from "../config/API.js"
 
@@ -44,6 +45,8 @@ const User = () => {
                     <div className="spacer"/>
                 </>
             )}
+
+            <SubscribeFab userId={id}/>
         </div>
     )
 }

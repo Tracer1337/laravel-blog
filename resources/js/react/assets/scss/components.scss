@@ -21,7 +21,12 @@
     margin: 0;
 }
 
+.wrapper-link {
+    text-decoration: none;
+}
+
 .menu {
+    @include shadow-depth-1;
     $padding: $spacing-extra-small * 2;
     width: 176px - $padding * 2;
     border-radius: 4px;
@@ -29,7 +34,6 @@
     z-index: 10;
     position: absolute;
     top: 0; left: 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     padding: $padding;
     font-size: 14px;
 
@@ -499,5 +503,46 @@
                 margin-right: 12px;
             }
         }
+    }
+}
+
+.fab {
+    @include shadow-depth-1;
+    $spacing: $spacing-small;
+    position: fixed;
+    bottom: $spacing; right: $spacing;
+    z-index: 10;
+    padding: $spacing-extra-small * 2;
+    border-radius: 26px;
+}
+
+.paginated {
+    .pagination-links {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.profile-comments {
+    .title {
+        text-align: center;
+        margin-bottom: $spacing-normal;
+    }
+
+    .comment {
+        margin-bottom: $spacing-small;
+        padding: $spacing-extra-small * 2;
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: $spacing-extra-small;
+            font-weight: $font-weight-normal;
+
+            .prefix {
+                font-weight: $font-weight-light;
+            }
+        }
+
     }
 }

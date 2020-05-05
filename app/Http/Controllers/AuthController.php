@@ -13,6 +13,7 @@ use Illuminate\Validation\Rule;
 use JWTAuth;
 use App\Http\Resources\User as UserResource;
 use App\Http\Resources\Blogpost as BlogpostResource;
+use App\Http\Resources\Comment as CommentResource;
 use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
@@ -107,10 +108,17 @@ class AuthController extends Controller
 
     public function blogposts(Request $request) {
         $user = $request->user();
-        $blogposts = $user->blogposts()->orderBy("id", "DESC")->Paginate(5);
+        $blogposts = $user->blogposts()->orderBy("created_at", "DESC")->Paginate(20);
         $blogposts->makeHidden("content");
 
         return BlogpostResource::collection($blogposts);
+    }
+
+    public function comments(Request $request) {
+        $user = $request->user();
+        $comments = $user->comments()->orderBy("created_at", "DESC")->Paginate(20);
+        
+        return CommentResource::collection($comments);
     }
 
     public function update(Request $request) {

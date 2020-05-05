@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Comment;
+use App\User;
 
 class CommentsTableSeeder extends Seeder
 {
@@ -11,6 +13,17 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Comment::class, 100)->create();
+        $faker = Faker\Factory::create();
+
+        factory(Comment::class, 100)->create();
+
+        $admin = User::where("username", "admin")->first();
+        for($i = 0; $i < 53; $i++) {
+            $comment = new Comment;
+            $comment->user_id = $admin->id;
+            $comment->blogpost_id = $i % 2 + 1;
+            $comment->content = $faker->text;
+            $comment->save();
+        }
     }
 }

@@ -43,12 +43,8 @@ class RolesSeeder extends Seeder
             }
         }
 
-        // Create admin user
-        $user = new User;
-        $user->username = "admin";
-        $user->email = "admin";
-        $user->password = bcrypt("admin");
-        $user->save();
-        $user->assignRole($role_admin);
+        $admin = User::where("username", "admin")->first();
+        $admin->removeRole($role_user);
+        $admin->assignRole($role_admin);
     }
 }
