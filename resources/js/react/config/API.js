@@ -85,7 +85,7 @@ export const editProfile = formData => axios.post(url("profile"), formData, {
     }
 })
 
-export const getProfileBlogposts = () => axios.get(url("profile/blogposts"))
+export const getProfileBlogposts = pageNr => axios.get(paginated(url("profile/blogposts"), pageNr))
 
 export const getProfileComments = pageNr => axios.get(paginated(url("profile/comments"), pageNr))
 

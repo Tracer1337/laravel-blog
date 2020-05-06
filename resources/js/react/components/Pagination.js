@@ -22,9 +22,11 @@ const Pagination = ({ fetchMethod, child }) => {
     
     return (
         <div className="paginated">
-            {React.createElement(child, {
-                data: data.data
-            })}
+            <div className="items">
+                {React.createElement(child, {
+                    data: data.data
+                })}
+            </div>
 
             <MuiPagination count={data.meta.last_page} page={data.meta.current_page} onChange={handlePageChange} className="pagination-links"/>
         </div>

@@ -614,3 +614,22 @@
         }
     }
 }
+
+.profile-blogposts {
+    padding: $spacing-extra-small;
+
+    .title {
+        text-align: center;
+    }
+
+    .paginated .items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+
+        .blogpost-card {
+            $spacing: $spacing-extra-small * 2;
+            margin: 0 $spacing $spacing $spacing;
+        }
+    }
+}
