@@ -55,7 +55,7 @@ const App = ({ login }) => {
                             </main>
                         ) : (
                             <Switch>
-                                <ProtectedRoute path="/create-blogpost" role="author">
+                                <ProtectedRoute path="/create-post" role="author">
                                     <CreateBlogpost/>
                                 </ProtectedRoute>
                                 

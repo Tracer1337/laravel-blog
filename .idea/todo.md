@@ -1,4 +1,4 @@
-* Input varification
+* Input verification
 * Include image-upload support for blogposts
 * Blogpost Cover
 * Screen: topics -> Links to specific topics pages
@@ -9,3 +9,5 @@
 * Refactor login / register forms to use react-hook-form library
 * Fix Dialog stylings
 * Search bar
+* Fix avatar upload
+* React-Select implementation (Create Post)

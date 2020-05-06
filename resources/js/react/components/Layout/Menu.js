@@ -39,7 +39,7 @@ const links = [
     {
         icon: AddCircleOutlineIcon,
         label: "Create Post",
-        to: "/create-blogpost",
+        to: "/create-post",
         role: "author"
     },
     {
