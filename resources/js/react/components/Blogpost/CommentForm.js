@@ -1,9 +1,15 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 
-import { addComment } from "../../config/API.js"
+import { addComment, editComment } from "../../config/API.js"
 
-const CommentForm = ({ onSubmit, blogpostId }) => {
+const CommentForm = ({ onSubmit, blogpostId, edit, seed, forwardRef }) => {
     const [content, setContent] = useState("")
+    const history = useHistory()
+
+    const init = () => {
+        setContent(seed?.content || "")
+    }
 
     const handleChange = event => {
         setContent(event.target.value)
@@ -15,17 +21,25 @@ const CommentForm = ({ onSubmit, blogpostId }) => {
             "blogpost_id": blogpostId
         }
         
-        await addComment(args)
-        setContent("")
+        if(edit) {
+            args.id = seed.id
+            await editComment(args)
+            history.push(`/blogpost/${blogpostId}?commentId=${seed.id}`)
+        } else {
+            await addComment(args)
+        }
+
         onSubmit()
     }
 
+    useEffect(init, [edit, seed])
+
     return (
-        <div className="comment-form">
+        <div className="comment-form" ref={forwardRef}>
             <textarea value={content} onChange={handleChange} placeholder="Leave a comment..."/>
-            <button onClick={submit} className="large">Post</button>
+            <button onClick={submit} className="large">{edit ? "Save" : "Post"}</button>
         </div>
     )
 }
 
-export default CommentForm
+export default React.forwardRef((props, ref) => <CommentForm forwardRef={ref} {...props}/>)

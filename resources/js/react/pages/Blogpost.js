@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { useParams } from "react-router-dom"
 import Markdown from "react-markdown"
 
-import Layout from "../components/Layout/Layout.js"
 import TopicCrumb from "../components/Blogpost/TopicCrumb.js"
 import Head from "../components/Blogpost/Head.js"
 import Actions from "../components/Blogpost/Actions.js"
@@ -13,9 +12,13 @@ import RelatedPosts from "../components/Blogpost/RelatedPosts.js"
 import Auth from "../components/Auth.js"
 
 import { getBlogpost } from "../config/API.js"
+import useQuery from "../utils/useQuery.js"
 
 const BlogpostPage = () => {
     const { id } = useParams()
+    const commentId = parseInt(useQuery("commentId"))
+    const editComment = useQuery("editComment") === "true"
+    const formRef = useRef()
 
     const [data, setData] = useState()
 
@@ -31,14 +34,28 @@ const BlogpostPage = () => {
         })
     }
 
+    const handleQuery = () => {
+        if (commentId && editComment) {
+            formRef.current?.scrollIntoView()
+        } else if (commentId) {
+            const domElement = document.querySelector(`.comment[data-id="${commentId}"]`)
+            domElement?.scrollIntoView()
+            domElement?.classList.add("highlighted")
+        }
+    }
+
     useEffect(() => {
         window.scrollTo(0, 0)
-        fetchPost()
+        fetchPost().then(handleQuery)
     }, [id])
+
+    useEffect(handleQuery, [commentId, editComment])
 
     if (!data) {
         return <></>
     }
+
+    const editCommentObject = data.comments.find(comment => comment.id == commentId)
 
     return (
         <>
@@ -66,12 +83,12 @@ const BlogpostPage = () => {
 
                     <div className="spacer" />
 
-                    <Comments comments={data.comments} />
+                    <Comments comments={data.comments} onAction={fetchPost} />
 
                     <div className="spacer" />
 
                     <Auth>
-                        <CommentForm blogpostId={id} onSubmit={fetchPost} />
+                        <CommentForm blogpostId={id} onSubmit={fetchPost} ref={formRef} edit={editComment} seed={editCommentObject}/>
 
                         <div className="spacer" />
                     </Auth>

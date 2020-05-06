@@ -388,6 +388,10 @@
             margin-bottom: 0;
         }
 
+        &.highlighted {
+            @include shadow-depth-2;
+        }
+
         .comment-head {
             display: flex;
             justify-content: space-between;
@@ -395,6 +399,18 @@
 
             .username {
                 font-weight: $font-weight-normal;
+            }
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: $spacing-extra-small;
+
+            .icon {
+                margin-left: $spacing-extra-small;
+                color: $color-normal;
+                cursor: pointer;
             }
         }
     }

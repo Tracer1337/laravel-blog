@@ -3,7 +3,10 @@ import ReactDOM from "react-dom"
 
 import Dialog from "../Dialog.js"
 
-export default ({content, subContent}) => {
+export default (args) => {
+    const content = args.content || args
+    const subContent = args.subContent || null
+    
     return new Promise(resolve => {
         const eventEmitter = new EventTarget()
         const container = document.createElement("div")

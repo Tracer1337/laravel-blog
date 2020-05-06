@@ -8,7 +8,7 @@ import { getProfileComments } from "../config/API.js"
 
 const Comment = ({ data }) => {
     return (
-        <Link to={`/blogpost/${data.blogpost_id}?comment=${data.id}`} className="wrapper-link">
+        <Link to={`/blogpost/${data.blogpost_id}?commentId=${data.id}`} className="wrapper-link">
             <div className="card comment">
                 <div className="head">
                     <div><span className="prefix">In:</span> {data.blogpost_title}</div>
