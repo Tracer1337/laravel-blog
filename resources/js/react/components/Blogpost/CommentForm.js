@@ -8,7 +8,9 @@ const CommentForm = ({ onSubmit, blogpostId, edit, seed, forwardRef }) => {
     const history = useHistory()
 
     const init = () => {
-        setContent(seed?.content || "")
+        if(edit) {
+            setContent(seed?.content || "")
+        }
     }
 
     const handleChange = event => {
@@ -27,6 +29,7 @@ const CommentForm = ({ onSubmit, blogpostId, edit, seed, forwardRef }) => {
             history.push(`/blogpost/${blogpostId}?commentId=${seed.id}`)
         } else {
             await addComment(args)
+            setContent("")
         }
 
         onSubmit()

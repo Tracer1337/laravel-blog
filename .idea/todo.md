@@ -7,3 +7,5 @@
 * Overthink concept of selecting related posts by related topics => does not make sense
 * Seed link-inputs serversided / validation because user-input
 * Refactor login / register forms to use react-hook-form library
+* Fix Dialog stylings
+* Search bar

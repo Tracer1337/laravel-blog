@@ -10,6 +10,7 @@ import Blogpost from "./pages/Blogpost.js"
 import User from "./pages/User.js"
 import EditProfile from "./pages/EditProfile.js"
 import ProfileComments from "./pages/ProfileComments.js"
+import CreateBlogpost from "./pages/CreateBlogpost.js"
 
 import Layout from "./components/Layout/Layout.js"
 
@@ -30,7 +31,7 @@ const mapStateToProps = store => ({
 
 const ProtectedRoute = connect(mapStateToProps)(({ role, path, children, auth }) => (
     <Route path={path}>
-        {!auth.isLoggedIn || (role && auth.profile.role !== role) ? <Redirect to="/login"/> : children}
+        {!auth.isLoggedIn || (role && auth.profile.role !== role && auth.profile.role !== "admin") ? <Redirect to="/login"/> : children}
     </Route>
 ))
 
@@ -54,6 +55,10 @@ const App = ({ login }) => {
                             </main>
                         ) : (
                             <Switch>
+                                <ProtectedRoute path="/create-blogpost" role="author">
+                                    <CreateBlogpost/>
+                                </ProtectedRoute>
+                                
                                 <ProtectedRoute path="/my-comments">
                                     <ProfileComments/>
                                 </ProtectedRoute>

@@ -33,36 +33,34 @@ const EditProfile = ({ profile, modifyProfile }) => {
     const handleAvatarChange = file => setAvatar(file)
 
     return (
-        <div className="edit-profile">
+        <div className="form-page">
             <main>
                 <h3 className="title">Edit Profile</h3>
 
-                <div className="card">
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div>
-                            <label htmlFor="username">Username</label>
-                            <input type="text" name="username" placeholder="Username" className="input" defaultValue={profile.username} ref={register()}/>
-                        </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <label htmlFor="username">Username</label>
+                        <input type="text" name="username" placeholder="Username" className="input" defaultValue={profile.username} ref={register()}/>
+                    </div>
 
-                        <div>
-                            <label htmlFor="biography">Biography</label>
-                            <Controller as={MarkdownEditor} name="biography" className="markdown-editor" control={control} defaultValue={profile.biography}/>
-                        </div>
+                    <div>
+                        <label htmlFor="biography">Biography</label>
+                        <Controller as={MarkdownEditor} name="biography" className="markdown-editor" control={control} defaultValue={profile.biography}/>
+                    </div>
 
-                        <FileInput label="Upload Avatar" icon={AddAPhotoIcon} onChange={handleAvatarChange} accept="image/*"/>
+                    <FileInput label="Upload Avatar" icon={AddAPhotoIcon} onChange={handleAvatarChange} accept="image/*"/>
 
-                        <div className="links">
-                            {links.map((name, i) => (
-                                <input type="text" name={name} defaultValue={profile.links?.[name]} placeholder={name} ref={register()} key={i}/>
-                            ))}
-                        </div>
+                    <div className="links">
+                        {links.map((name, i) => (
+                            <input type="text" name={name} defaultValue={profile.links?.[name]} placeholder={name} ref={register()} key={i}/>
+                        ))}
+                    </div>
 
-                        <button type="submit" className="submit">
-                            <SaveIcon className="icon"/>
-                            <span>Save</span>
-                        </button>
-                    </form>
-                </div>
+                    <button type="submit" className="submit">
+                        <SaveIcon className="icon"/>
+                        <span>Save</span>
+                    </button>
+                </form>
             </main>
         </div>
     )

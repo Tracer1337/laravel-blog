@@ -58,7 +58,7 @@ export const removeRecommendation = id => axios.delete(url("blogpost/recommend/"
 export const getAllTopics = () => axios.get(url("topics"))
 
 //Tags
-export const getTags = () => axios.get(url("tags"))
+export const getAllTags = () => axios.get(url("tags"))
 
 //Comments
 export const addComment = args => axios.post(url("comment"), args)
