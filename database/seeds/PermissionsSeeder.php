@@ -19,6 +19,7 @@ class PermissionsSeeder extends Seeder
         Permission::create(["name" => "delete any blogpost"]);
         Permission::create(["name" => "like blogposts"]);
         Permission::create(["name" => "recommend blogposts"]);
+        Permission::create(["name" => "get all blogposts"]);
 
         Permission::create(["name" => "create topics"]);
         Permission::create(["name" => "update topics"]);
@@ -32,6 +33,7 @@ class PermissionsSeeder extends Seeder
         Permission::create(["name" => "delete any user"]);
         Permission::create(["name" => "view users"]);
         Permission::create(["name" => "follow users"]);
+        Permission::create(["name" => "get all users"]);
 
         Permission::create(["name" => "create comments"]);
         Permission::create(["name" => "delete any comment"]);

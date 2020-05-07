@@ -146,6 +146,10 @@ hr {
         &.select__control--menu-is-open {
             border-radius: 4px 4px 0 0;
             border-bottom: none;
+
+            .select__dropdown-indicator {
+                transform: rotate(180deg);
+            }
         }
     }
 
@@ -154,9 +158,10 @@ hr {
     }
 
     .select__dropdown-indicator {
-        $color: $color-light;
+        $color: $color-normal;
         color: $color;
         padding: $spacing-extra-small * 2;
+        transition: transform 250ms;
 
         &:hover {
             color: $color;
@@ -173,26 +178,19 @@ hr {
         margin: 12px 0;
     }
 
-    .select__single-value {
+    .select__single-value, .select__value-container div {
         color: $color-normal;
     }
 
     .select__menu {
+        @include seperator-top;
+        
         position: relative;
-        margin-top: 0;
+        margin: 0;
         border-radius: 0 0 4px 4px;
         border: 1px solid $color-light;
         border-top: none;
         box-shadow: none;
-
-        &::before {
-            $spacing: $spacing-extra-small * 2;
-            content: "";
-            position: absolute;
-            left: $spacing; right: $spacing;
-            height: 1px;
-            background-color: $color-light;
-        }
     }
 
     .select__menu-list {
@@ -201,6 +199,7 @@ hr {
 
     .select__option {
         padding: $spacing-extra-small $spacing-extra-small * 2;
+        cursor: default;
 
         &.select__option--is-focused, &.select__option--is-selected {
             background-color: rgba(122, 122, 122, .1);

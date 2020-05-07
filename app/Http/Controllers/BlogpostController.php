@@ -26,6 +26,17 @@ class BlogpostController extends Controller
         return BlogpostResource::collection($blogposts);
     }
 
+    public function all(Request $request) {
+        if(!$request->user()->can("get all blogposts")) {
+            return response(null, 403);
+        }
+
+        $blogposts = Blogpost::all();
+        $blogposts->makeHidden("content");
+
+        return BlogpostResource::collection($blogposts);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -132,8 +143,13 @@ class BlogpostController extends Controller
     }
 
     public function recommend($id, Request $request) {
-        $blogpost = Blogpost::findOrFail($id);
         $user = $request->user();
+
+        if($user->can("recommend blogposts")) {
+            return reponse(null, 403);
+        }
+
+        $blogpost = Blogpost::findOrFail($id);
         $isDelete = $request->isMethod("delete");
 
         if($isDelete) {
@@ -143,9 +159,5 @@ class BlogpostController extends Controller
         }
 
         return response(null, 200);
-    }
-
-    private function convertPostResource() {
-
     }
 }

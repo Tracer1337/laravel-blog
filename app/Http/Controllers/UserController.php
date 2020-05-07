@@ -43,6 +43,16 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
+    public function all(Request $request) {
+        if(!$request->user()->can("get all users")) {
+            return response(null, 403);
+        }
+
+        $users = User::all();
+
+        return UserResource::collection($users);
+    }
+
     public function follow(Request $request) {
         $user = $request->user();
 
@@ -97,11 +107,12 @@ class UserController extends Controller
 
     public function update(Request $request) {
         $user_request = $request->user();
-        $user = User::findOrFail($request->id);
 
         if(!$user_request->can("update any user")) {
             return response(null, 403);
         }
+
+        $user = User::findOrFail($request->id);
 
         $user->username = $request->username;
         $user->email = $request->email;

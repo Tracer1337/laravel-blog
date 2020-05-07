@@ -11,3 +11,4 @@
 * Search bar
 * Fix avatar upload
 * React-Select implementation (Create Post)
+* Google Analytics => Admin Panel

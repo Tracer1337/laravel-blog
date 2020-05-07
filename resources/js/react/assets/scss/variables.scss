@@ -28,3 +28,27 @@ $spacing-extra-large: 512px;
 @mixin shadow-depth-2 {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
+
+@mixin seperator-top {
+    &::before {
+        $spacing: $spacing-extra-small * 2;
+        content: "";
+        position: absolute;
+        left: $spacing; right: $spacing;
+        height: 1px;
+        background-color: $color-light;
+        z-index: 10;
+    }
+}
+
+@mixin seperator-left {
+    &::before {
+        $spacing: 12px;
+        content: "";
+        position: absolute;
+        left: 0; top: $spacing; bottom: $spacing;
+        width: 1px;
+        background-color: $color-light;
+        z-index: 10;
+    }
+}

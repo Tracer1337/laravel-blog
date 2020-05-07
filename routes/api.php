@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/blogposts", "BlogpostController@index");
 
+Route::get("/blogposts/all", "BlogpostController@all");
+
 Route::get("/blogpost/{id}", "BlogpostController@show");
 
 Route::post("/blogpost", "BlogpostController@store");
@@ -52,6 +54,8 @@ Route::delete("/comment/{id}", "CommentsController@destroy");
 // User
 
 Route::get("/user/{id}", "UserController@index");
+
+Route::get("/users/all", "UserController@all");
 
 Route::post("/user/follow", "UserController@follow");
 

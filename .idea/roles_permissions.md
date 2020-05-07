@@ -7,6 +7,7 @@
     * delete-any
     * like
     * recommend
+    * get-all
 
 * topic
     * manage
@@ -19,6 +20,7 @@
     * delete-any
     * view
     * follow
+    * get-all
 
 * comment
     * create
@@ -40,6 +42,7 @@
 * Author
     * blogpost.create
     * blogpost.like
+    * blogpost.recommend
 
     * topic.create
 

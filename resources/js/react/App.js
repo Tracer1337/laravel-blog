@@ -12,6 +12,7 @@ import EditProfile from "./pages/EditProfile.js"
 import ProfileComments from "./pages/ProfileComments.js"
 import CreateBlogpost from "./pages/CreateBlogpost.js"
 import ProfileBlogposts from "./pages/ProfileBlogposts.js"
+import AdminPanel from "./pages/AdminPanel.js"
 
 import Layout from "./components/Layout/Layout.js"
 
@@ -56,6 +57,10 @@ const App = ({ login }) => {
                             </main>
                         ) : (
                             <Switch>
+                                <ProtectedRoute path="/admin" role="admin">
+                                    <AdminPanel/>
+                                </ProtectedRoute>
+                                
                                 <ProtectedRoute path="/my-blogposts" role="author">
                                     <ProfileBlogposts/>
                                 </ProtectedRoute>

@@ -38,7 +38,9 @@ export const logout = () => {
 }
 
 // Blogposts
-export const getNewestPosts = () => axios.get(url("blogposts"))
+export const getNewestBlogposts = () => axios.get(url("blogposts"))
+
+export const getAllBlogposts = () => axios.get(url("blogposts/all"))
 
 export const getBlogpost = id => axios.get(url("blogpost/"+id))
 
@@ -57,8 +59,16 @@ export const removeRecommendation = id => axios.delete(url("blogpost/recommend/"
 // Topics
 export const getAllTopics = () => axios.get(url("topics"))
 
+export const addTopic = args => axios.post(url("topics"), args)
+
+export const deleteTopic = id => axios.delete(url("topics/" + id))
+
 //Tags
 export const getAllTags = () => axios.get(url("tags"))
+
+export const addTag = args => axios.post(url("tags"), args)
+
+export const deleteTag = id => axios.delete(url("tags/" + id))
 
 //Comments
 export const addComment = args => axios.post(url("comment"), args)
@@ -70,11 +80,15 @@ export const deleteComment = id => axios.delete(url("comment/"+id))
 // Users
 export const getUser = id => axios.get(url("user/"+id))
 
+export const getAllUsers = () => axios.get(url("users/all"))
+
 export const followUser = id => axios.post(url("user/follow"), {id})
 
 export const unfollowUser = id => axios.post(url("user/unfollow"), {id})
 
 export const followsUser = id => axios.get(url("user/follows/"+id))
+
+export const deleteUser = id => axios.delete(url("user/"+id))
 
 // Profile
 export const getProfile = () => axios.get(url("profile"))

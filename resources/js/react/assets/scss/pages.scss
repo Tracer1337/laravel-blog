@@ -217,3 +217,39 @@
         }
     }
 }
+
+.admin-panel {
+    .title {
+        text-align: center;
+    }
+
+    .select__option {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .icon {
+        color: $color-normal;
+        cursor: pointer;
+    }
+
+    .add-topic {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .action {
+            @include seperator-left;
+
+            position: relative;
+            padding: 0 $spacing-extra-small * 2;
+            height: 56px;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .control {
+        margin-bottom: $spacing-small;
+    }
+}
