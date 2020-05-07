@@ -1,10 +1,17 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import Select from "react-select"
 
-const Dropdown = ({ placeholder, getMethod, Option, labelKey }) => {
+const Dropdown = ({ placeholder, getMethod, Option, labelKey, cacheOptions }) => {
     const [data, setData] = useState()
+    const [isLoading, setIsLoading] = useState(false)
 
     const fetchData = () => {
+        if(cacheOptions && data) {
+            return
+        }
+
+        setIsLoading(true)
+
         getMethod()
             .then(res => {
                 const newData = res.data.data.map(obj => ({
@@ -12,19 +19,17 @@ const Dropdown = ({ placeholder, getMethod, Option, labelKey }) => {
                     value: obj.id
                 }))
                 setData(newData)
+                setIsLoading(false)
             })
-    }
-
-    useEffect(fetchData, [])
-
-    if (!data) {
-        return <></>
     }
 
     return (
         <Select
-            placeholder={placeholder}
             options={data}
+            isLoading={isLoading}
+            onMenuOpen={fetchData}
+        
+            placeholder={placeholder}
             className="select-container bottom"
             classNamePrefix="select"
             value={null}
