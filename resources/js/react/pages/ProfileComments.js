@@ -22,7 +22,7 @@ const Comment = ({ data }) => {
 }
 
 const ProfileComments = () => (
-    <main className="profile-comments">
+    <main className="profile-comments-page">
         <h3 className="title">My Comments</h3>
 
         <Pagination

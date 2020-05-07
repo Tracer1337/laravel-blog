@@ -23,7 +23,7 @@ const User = () => {
     }
 
     return (
-        <div className="user">
+        <div className="user-page">
             <main>
                 <Head data={data}/>
 

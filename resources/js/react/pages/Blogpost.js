@@ -61,7 +61,7 @@ const BlogpostPage = () => {
         <>
             <TopicCrumb name={data.topic.name} />
 
-            <div className="blogpost">
+            <div className="blogpost-page">
                 <main>
                     <Head data={data} />
 

@@ -7,7 +7,7 @@ import { getProfileBlogposts } from "../config/API.js"
 
 const ProfileBlogposts = () => {
     return (
-        <div className="profile-blogposts">
+        <div className="profile-blogposts-page">
             <h3 className="title">My Posts</h3>
             
             <Pagination

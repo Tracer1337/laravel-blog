@@ -326,60 +326,6 @@
     }
 }
 
-.blogpost {
-    margin-top: -$spacing-normal;
-
-    @media only screen and (max-width: 1600px) {
-        margin-top: 0;
-    }
-
-    .head {
-        height: $spacing-normal;
-        display: flex;
-        justify-content: space-between;
-
-        &, .user {
-            display: flex;
-            align-items: center;
-        }
-
-        .user-wrapper {
-            text-decoration: none;
-
-            .user .avatar {
-                margin-right: $spacing-extra-small * 2;
-            }
-        }
-    }
-
-    .blogpost-title {
-        margin-bottom: $spacing-small;
-        font-size: $font-size-normal;
-        font-weight: $font-weight-normal;
-    }
-
-    .content {
-        margin-bottom: $spacing-small;
-    }
-
-    .actions {
-        .action-container {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            margin-bottom: $spacing-small;
-
-            .icon {
-                margin-right: $spacing-extra-small;
-            }
-
-            .label {
-                user-select: none;
-            }
-        }
-    }
-}
-
 .tags .tag {
     margin-left: $spacing-small;
 }
@@ -446,120 +392,6 @@
     }
 }
 
-.user {
-    main {
-        .head {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            .avatar {
-                cursor: initial;
-            }
-
-            .username {
-                margin-top: $spacing-extra-small * 2;
-                font-size: $font-size-normal;
-            }
-
-            .role {
-                margin-top: $spacing-extra-small;
-            }
-        }
-
-        .information {
-            display: flex;
-
-            .statistics {
-                width: $spacing-large;
-
-                li {
-                    display: flex;
-                    justify-content: space-between;
-                    margin-bottom: $spacing-extra-small * 2;
-
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
-                }
-            }
-        }
-    }
-}
-
-.form-page {
-    .title {
-        text-align: center;
-    }
-
-    form {
-        $input-spacing: $spacing-small;
-
-        .input, label {
-            display: block;
-        }
-
-        label {
-            margin-bottom: $spacing-extra-small;
-        }
-
-        .input {
-            box-sizing: border-box;
-            width: 100%;
-        }
-
-        .input {
-            margin-bottom: $spacing-small;
-        }
-
-        .markdown-editor {
-            margin-bottom: $input-spacing / 2;
-        }
-
-        .file-input-wrapper {
-            display: flex;
-            margin-bottom: $input-spacing;
-
-            label {
-                display: flex;
-            }
-        }
-
-        .links {
-            display: grid;
-            grid-template: 
-                "1fr 1fr"
-                "1fr 1fr";
-            grid-gap: $spacing-extra-small * 2;
-            margin-bottom: $input-spacing;
-        }
-
-        .submit {
-            display: flex;
-            align-items: center;
-            height: 40px;
-            margin-right: $spacing-small;
-
-            .icon {
-                margin-right: 12px;
-            }
-        }
-
-        .actions {
-            display: flex;
-        }
-
-        .chips {
-            margin-bottom: $spacing-small;
-
-            .chip {
-                margin: 0 $spacing-extra-small $spacing-extra-small 0;
-                cursor: pointer;
-            }
-        }
-    }
-}
-
 .fab {
     @include shadow-depth-1;
     $spacing: $spacing-small;
@@ -577,30 +409,6 @@
     }
 }
 
-.profile-comments {
-    .title {
-        text-align: center;
-        margin-bottom: $spacing-normal;
-    }
-
-    .comment {
-        margin-bottom: $spacing-small;
-        padding: $spacing-extra-small * 2;
-
-        .head {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: $spacing-extra-small;
-            font-weight: $font-weight-normal;
-
-            .prefix {
-                font-weight: $font-weight-light;
-            }
-        }
-
-    }
-}
-
 .input-search-results {
     border: 1px solid $color-light;
     border-radius: 4px;
@@ -611,25 +419,6 @@
 
         &:hover {
             background-color: rgba(122, 122, 122, .2);
-        }
-    }
-}
-
-.profile-blogposts {
-    padding: $spacing-extra-small;
-
-    .title {
-        text-align: center;
-    }
-
-    .paginated .items {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-
-        .blogpost-card {
-            $spacing: $spacing-extra-small * 2;
-            margin: 0 $spacing $spacing $spacing;
         }
     }
 }

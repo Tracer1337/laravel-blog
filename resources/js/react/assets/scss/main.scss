@@ -2,6 +2,7 @@
 
 @import "./variables.scss";
 @import "./components.scss";
+@import "./pages.scss";
 
 body {
     color: $color-normal;
@@ -74,6 +75,11 @@ button {
     &.large {
         padding: $spacing-extra-small $spacing-extra-small * 2;
     }
+
+    &:disabled {
+        opacity: .5;
+        cursor: default;
+    }
 }
 
 input, textarea {
@@ -101,27 +107,6 @@ textarea {
     font-family: $font-family;
 }
 
-.select-wrapper {
-    position: relative;
-
-    select {
-        appearance: none;
-        -webkit-appearance: none;
-        border: 1px solid $color-light;
-        border-radius: 4px;
-        padding: $spacing-extra-small * 2;
-        font-size: $font-size-extra-small;
-        color: $color-normal;
-    }
-
-    .arrow {
-        position: absolute;
-        right: $spacing-extra-small * 2;
-        top: 50%;
-        transform: translateY(-50%) rotate(90deg);
-    }
-}
-
 ul {
     list-style: none;
     margin: 0;
@@ -142,4 +127,84 @@ strong {
 
 hr {
     margin: $spacing-normal / 2 0;
+}
+
+
+.select-container {
+    margin-bottom: $spacing-small;
+
+    .select__control {
+        height: 56px;
+        padding-left: $spacing-extra-small;
+        border-color: $color-light;
+        box-shadow: none;
+
+        &:hover {
+            border-color: $color-light;
+        }
+
+        &.select__control--menu-is-open {
+            border-radius: 4px 4px 0 0;
+            border-bottom: none;
+        }
+    }
+
+    .select__placeholder {
+        font-size: $font-size-extra-small;
+    }
+
+    .select__dropdown-indicator {
+        $color: $color-light;
+        color: $color;
+        padding: $spacing-extra-small * 2;
+
+        &:hover {
+            color: $color;
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .select__indicator-separator {
+        background-color: $color-light;
+        margin: 12px 0;
+    }
+
+    .select__single-value {
+        color: $color-normal;
+    }
+
+    .select__menu {
+        position: relative;
+        margin-top: 0;
+        border-radius: 0 0 4px 4px;
+        border: 1px solid $color-light;
+        border-top: none;
+        box-shadow: none;
+
+        &::before {
+            $spacing: $spacing-extra-small * 2;
+            content: "";
+            position: absolute;
+            left: $spacing; right: $spacing;
+            height: 1px;
+            background-color: $color-light;
+        }
+    }
+
+    .select__menu-list {
+        padding: 1px 0 0 0;
+    }
+
+    .select__option {
+        padding: $spacing-extra-small $spacing-extra-small * 2;
+
+        &.select__option--is-focused, &.select__option--is-selected {
+            background-color: rgba(122, 122, 122, .1);
+            color: $color-normal;
+        }
+    }
 }
