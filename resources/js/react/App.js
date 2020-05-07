@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom"
-import { createMuiTheme, ThemeProvider, CircularProgress } from "@material-ui/core"
 
 import Index from "./pages/Index.js"
 import Login from "./pages/Login.js"
@@ -18,14 +17,6 @@ import Layout from "./components/Layout/Layout.js"
 
 import { login } from "./redux/actions.js"
 import { getProfile } from "./config/API.js"
-
-const theme = createMuiTheme({
-    palette: {
-        background: {
-            default: "#ffffff"
-        }
-    }
-})
 
 const mapStateToProps = store => ({
     auth: store.auth
@@ -48,59 +39,57 @@ const App = ({ login }) => {
 
     return (
         <Router>
-            <ThemeProvider theme={theme}>
-                <div className="app">
-                    <Layout>
-                        {isLoading ? (
-                            <main className="screen-center">
-                                <CircularProgress/>
-                            </main>
-                        ) : (
-                            <Switch>
-                                <ProtectedRoute path="/admin" role="admin">
-                                    <AdminPanel/>
-                                </ProtectedRoute>
-                                
-                                <ProtectedRoute path="/my-blogposts" role="author">
-                                    <ProfileBlogposts/>
-                                </ProtectedRoute>
+            <div className="app">
+                <Layout>
+                    {isLoading ? (
+                        <main className="screen-center">
+                            Loading...
+                        </main>
+                    ) : (
+                        <Switch>
+                            <ProtectedRoute path="/admin" role="admin">
+                                <AdminPanel/>
+                            </ProtectedRoute>
+                            
+                            <ProtectedRoute path="/my-blogposts" role="author">
+                                <ProfileBlogposts/>
+                            </ProtectedRoute>
 
-                                <ProtectedRoute path="/create-post" role="author">
-                                    <CreateBlogpost/>
-                                </ProtectedRoute>
-                                
-                                <ProtectedRoute path="/my-comments">
-                                    <ProfileComments/>
-                                </ProtectedRoute>
-                                
-                                <ProtectedRoute path="/edit-profile">
-                                    <EditProfile/>
-                                </ProtectedRoute>
+                            <ProtectedRoute path="/create-post" role="author">
+                                <CreateBlogpost/>
+                            </ProtectedRoute>
+                            
+                            <ProtectedRoute path="/my-comments">
+                                <ProfileComments/>
+                            </ProtectedRoute>
+                            
+                            <ProtectedRoute path="/edit-profile">
+                                <EditProfile/>
+                            </ProtectedRoute>
 
-                                <ProtectedRoute path="/user/:id">
-                                    <User />
-                                </ProtectedRoute>
+                            <ProtectedRoute path="/user/:id">
+                                <User />
+                            </ProtectedRoute>
 
-                                <Route path="/blogpost/:id">
-                                    <Blogpost />
-                                </Route>
+                            <Route path="/blogpost/:id">
+                                <Blogpost />
+                            </Route>
 
-                                <Route path="/register">
-                                    <Register />
-                                </Route>
+                            <Route path="/register">
+                                <Register />
+                            </Route>
 
-                                <Route path="/login">
-                                    <Login />
-                                </Route>
+                            <Route path="/login">
+                                <Login />
+                            </Route>
 
-                                <Route path="/">
-                                    <Index />
-                                </Route>
-                            </Switch>
-                        )}
-                    </Layout>
-                </div>
-            </ThemeProvider>
+                            <Route path="/">
+                                <Index />
+                            </Route>
+                        </Switch>
+                    )}
+                </Layout>
+            </div>
         </Router>
     )
 }
