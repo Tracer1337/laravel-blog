@@ -44,6 +44,15 @@ class BlogpostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        $validated_data = $request->validate([
+            "id" => "nullable|Integer",
+            "title" => "required|max:255",
+            "teaser" => "required|max:512",
+            "topic_id" => "required|Integer",
+            "content" => "required",
+            "tag_ids" => "required|Array"
+        ]);
+
         $isUpdate = $request->isMethod("put");
         $blogpost = $isUpdate ? Blogpost::findOrFail($request->id) : new Blogpost;
         $user = $request->user();
@@ -56,12 +65,15 @@ class BlogpostController extends Controller
             return response(null, 403);
         }
 
-        $blogpost->id = $request->input("id");
+        $skip_keys = ["tag_ids"];
+
+        foreach($validated_data as $key => $value) {
+            if(!in_array($key, $skip_keys)) {
+                $blogpost->{$key} = $value;
+            }
+        }
+
         $blogpost->user_id = $user->id;
-        $blogpost->topic_id = $request->input("topic_id");
-        $blogpost->title = $request->input("title");
-        $blogpost->teaser = $request->input("teaser");
-        $blogpost->content = $request->input("content");
         $blogpost->cover_url = "abc";
 
         if($request->publish) {
@@ -69,7 +81,7 @@ class BlogpostController extends Controller
         }
 
         if($blogpost->save()) {
-            $blogpost->tags()->sync($request->input("tag_ids"));
+            $blogpost->tags()->sync($validated_data["tag_ids"]);
             return new BlogpostResource($blogpost);
         }
     }

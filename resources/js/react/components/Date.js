@@ -2,6 +2,10 @@ import React, { useMemo } from "react"
 
 const Date = ({ timestamp, className }) => {
     const str = useMemo(() => {
+        if(!timestamp) {
+            return "No timestamp given"
+        }
+        
         const parts = timestamp.match(/(\d{4})-(\d{1,2})-(\d{1,2})/)
         const day = parts[3]
         const month = parts[2]

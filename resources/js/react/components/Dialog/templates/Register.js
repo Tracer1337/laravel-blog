@@ -1,5 +1,4 @@
 import React from "react"
-import AddAPhotoIcon from "@material-ui/icons/AddAPhotoOutlined"
 
 import Dialog from "../Dialog.js"
 
@@ -31,13 +30,6 @@ const Register = ({ onSubmit }) => (
                 inputType: "password",
                 label: "Password",
                 name: "password"
-            },
-            {
-                type: "file",
-                label: "Avatar",
-                name: "avatar",
-                accept: "image/*",
-                icon: AddAPhotoIcon
             },
             {
                 type: "submit",

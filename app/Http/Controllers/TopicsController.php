@@ -30,8 +30,11 @@ class TopicsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
+        $validated_data = $request->validate([
+            "name" => "required|max:255"
+        ]);
+
         $isUpdate = $request->isMethod("put");
 
         if(!$isUpdate && !$request->user()->can("create topics")) {
@@ -42,7 +45,7 @@ class TopicsController extends Controller
 
         $topic = $isUpdate ? Topic::findOrFail($request->id) : new Topic;
         $topic->id = $request->id;
-        $topic->name = $request->name;
+        $topic->name = $validated_data["name"];
 
         $topic->save();
 

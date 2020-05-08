@@ -23,6 +23,12 @@ class CommentsController extends Controller
             return response(null, 403);
         }
 
+        $validated_data = $request->validate([
+            "content" => "required",
+            "blogpost_id" => "required|Integer",
+            "id" => "nullable|Integer"
+        ]);
+
         $isUpdate = $request->isMethod("put");
         $comment = $isUpdate ? Comment::findOrFail($request->id) : new Comment;
         $user = $request->user();
@@ -31,10 +37,10 @@ class CommentsController extends Controller
             return response(null, 403);
         }
 
-        $comment->id = $request->input("id");
+        $comment->id = isset($validated_data["id"]) ? $validated_data["id"] : null;
         $comment->user_id = $user->id;
-        $comment->blogpost_id = $request->input("blogpost_id");
-        $comment->content = $request->content;
+        $comment->blogpost_id = $validated_data["blogpost_id"];
+        $comment->content = $validated_data["content"];
 
         if($comment->save()) {
             return new CommentResource($comment);

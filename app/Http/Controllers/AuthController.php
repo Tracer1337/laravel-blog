@@ -23,21 +23,26 @@ class AuthController extends Controller
     }
 
     private function store(Request $request, User $user) {
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
-        $user->username = $request->username;
-        $user->biography = $request->biography;
-        $user->links = $request->links;
+        $validated_data = $request->validate([
+            "first_name" => "nullable|alpha",
+            "last_name" => "nullable|alpha",
+            "username" => "required|unique:users",
+            "email" => "required|email|unique:users",
+            "biography" => "nullable",
+            "links" => "nullable|JSON",
+            "avatar" => "nullable|image|dimensions:max_width:512,max_height=512,ration=1"
+        ]);
+        
+        $skip_keys = ["avatar"];
 
-        if($request->file("avatar")) {
-            $request->validate([
-                "avatar" => [
-                    "image",
-                    Rule::dimensions()->maxWidth(512)->maxHeight(512)->ratio(1)
-                ]
-            ]);
+        foreach($validated_data as $key => $value) {
+            if(!in_array($key, $skip_keys)) {
+                $user->{$key} = $value;
+            }
+        }
 
-            $path = $request->file("avatar")->storeAs("public/avatars", $user->id);
+        if(isset($validated_data["avatar"])) {
+            $path = $validated_data["avatar"]->storeAs("public/avatars", $user->id);
             $user->avatar_url = Storage::url($path);
         }
 
@@ -49,9 +54,13 @@ class AuthController extends Controller
     }
 
     public function register(Request $request) {
+        $validated_data = $request->validate([
+            "password" => "required"
+        ]);
+
         $user = new User;
 
-        $user->password = Hash::make($request->password);
+        $user->password = Hash::make($validated_data["password"]);
         $user->email = $request->email;
 
         $user_role = Role::findByName("user");
@@ -76,9 +85,22 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
+        // Remove in production
+        if(!$request->input("email") == "admin") {
+            $validated_data = $request->validate([
+                "email" => "required|email",
+                "password" => "required"
+            ]);
+        } else {
+            $validated_data = $request->validate([
+                "email" => "required",
+                "password" => "required"
+            ]);
+        }
+
         $credentials = [
-            "email" => $request->input("email"),
-            "password" => $request->input("password")
+            "email" => $validated_data["email"],
+            "password" => $validated_data["password"]
         ];
 
         $token = JWTAuth::attempt($credentials);

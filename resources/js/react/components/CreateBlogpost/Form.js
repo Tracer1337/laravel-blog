@@ -17,7 +17,7 @@ const Form = ({ postId, editData }) => {
     const transformValues = () => {
         const values = getValues()
 
-        values.topic_id = values.topic_id.value
+        values.topic_id = values.topic_id.value || editData?.topic_id
         values.tag_ids = values.tag_ids?.map(selection => selection.value)
 
         return values

@@ -30,8 +30,11 @@ class TagsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
+        $validated_data = $request->validate([
+            "name" => "required"
+        ]);
+
         $isUpdate = $request->isMethod("put");
 
         if(!$isUpdate && !$request->user()->can("create tags")) {
@@ -42,7 +45,7 @@ class TagsController extends Controller
 
         $tag = $isUpdate ? Tag::findOrFail($request->id) : new Tag;
         $tag->id = $tag->id;
-        $tag->name = $request->name;
+        $tag->name = $validated_data["name"];
 
         $tag->save();
 
