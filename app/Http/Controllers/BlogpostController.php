@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Blogpost;
 use App\Http\Resources\Blogpost as BlogpostResource;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class BlogpostController extends Controller
 {
@@ -50,10 +51,11 @@ class BlogpostController extends Controller
             "teaser" => "required|max:512",
             "topic_id" => "required|Integer",
             "content" => "required",
-            "tag_ids" => "required|Array"
+            "tag_ids" => "required|Array",
+            "cover" => "nullable|image"
         ]);
 
-        $isUpdate = $request->isMethod("put");
+        $isUpdate = $request->input("method_put");
         $blogpost = $isUpdate ? Blogpost::findOrFail($request->id) : new Blogpost;
         $user = $request->user();
 
@@ -65,7 +67,7 @@ class BlogpostController extends Controller
             return response(null, 403);
         }
 
-        $skip_keys = ["tag_ids"];
+        $skip_keys = ["tag_ids", "cover"];
 
         foreach($validated_data as $key => $value) {
             if(!in_array($key, $skip_keys)) {
@@ -74,10 +76,14 @@ class BlogpostController extends Controller
         }
 
         $blogpost->user_id = $user->id;
-        $blogpost->cover_url = "abc";
 
         if($request->publish) {
             $blogpost->published_at = Carbon::now();
+        }
+
+        if(isset($validated_data["cover"])) {
+            $path = $validated_data["cover"]->storeAs("public/blogpost-covers", $blogpost->id);
+            $blogpost->cover_url = Storage::url($path);
         }
 
         if($blogpost->save()) {

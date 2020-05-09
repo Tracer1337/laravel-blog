@@ -6,7 +6,11 @@ import Date from "./Date.js"
 const BlogpostCard = ({ post }) => (
     <Link to={"/blogpost/"+post.id} className="blogpost-card-wrapper">
         <div className="blogpost-card">
-            <div className="image"/>
+            <div className="image-wrapper">
+                {post.cover_url && (
+                    <img src={post.cover_url} alt="cover"/>
+                )}
+            </div>
 
             <div className="body">
                 <div className="top">

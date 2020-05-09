@@ -12,8 +12,8 @@ const ProfileBlogposts = () => {
             
             <Pagination
                 fetchMethod={getProfileBlogposts}
-                child={({ data }) => data.map(post => (
-                    <BlogpostCard post={post}/>
+                child={({ data }) => data.map((post, i) => (
+                    <BlogpostCard post={post} key={i}/>
                 ))}
             />
         </div>

@@ -1,4 +1,3 @@
-* Input validation
 * Include image-upload support for blogposts
 * Blogpost Cover
 * Screen: topics -> Links to specific topics pages
@@ -15,3 +14,7 @@
 * Fix biography = "null" sometimes after editing profile => Fix form values = null
 * SEO => React Helmet
 * Assign roles in admin panel
+* Change fragments during data fetching to spinner / loaders
+* If cover ration is not 4:3, fill borders with gradients according to colors on image
+* Loading skeleton
+* Ask user if he wants to stay logged in

@@ -73,11 +73,13 @@ const BlogpostPage = () => {
                         <Markdown source={data.content} />
                     </div>
 
+                    <hr />
+
                     <Auth>
                         <Actions data={data} onAction={fetchPost} id={id} />
                     </Auth>
 
-                    <hr />
+                    <div className="spacer-small"/>
 
                     <Tags data={data} />
 

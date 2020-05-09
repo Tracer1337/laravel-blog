@@ -1,6 +1,11 @@
 const url = path => `${window.location.origin}/api/${path}`
 const paginated = (path, pageNr) => `${path}?page=${pageNr}`
 
+const putFormData = formData => {
+    formData.append("method_put", true)
+    return formData
+}
+
 // Auth
 export const register = formData => {
     return new Promise((resolve, reject) => {
@@ -44,9 +49,17 @@ export const getAllBlogposts = () => axios.get(url("blogposts/all"))
 
 export const getBlogpost = id => axios.get(url("blogpost/"+id))
 
-export const addBlogpost = args => axios.post(url("blogpost"), args)
+export const addBlogpost = formData => axios.post(url("blogpost"), formData, {
+    headers: {
+        "Content-Type": "multipart/form-data"
+    }
+})
 
-export const editBlogpost = args => axios.put(url("blogpost"), args)
+export const editBlogpost = formData => axios.post(url("blogpost"), putFormData(formData), {
+    headers: {
+        "Content-Type": "multipart/form-data"
+    }
+})
 
 export const deleteBlogpost = id => axios.delete(url("blogpost/"+id))
 

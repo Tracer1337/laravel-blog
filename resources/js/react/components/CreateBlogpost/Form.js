@@ -1,43 +1,46 @@
 import React from "react"
-import { useForm, Controller } from "react-hook-form"
+import { useForm, Controller, FormContext } from "react-hook-form"
 import MarkdownEditor from "react-simplemde-editor"
 import SaveIcon from "@material-ui/icons/Save"
 import SendIcon from "@material-ui/icons/Send"
+import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate"
 
 import TopicSelection from "./TopicSelection.js"
 import TagSelection from "./TagSelection.js"
+import FileInput from "../FileInput.js"
 
 import { addBlogpost, editBlogpost } from "../../config/API.js"
+import objectToForm from "../../utils/objectToForm.js"
 
 const Form = ({ postId, editData }) => {
-    const { register, control, getValues } = useForm({
+    const { register, control, getValues, setValue } = useForm({
         defaultValues: editData
     })
 
     const transformValues = () => {
         const values = getValues()
 
-        values.topic_id = values.topic_id.value || editData?.topic_id
+        values.topic_id = values.topic_id?.value || editData?.topic_id
         values.tag_ids = values.tag_ids?.map(selection => selection.value)
 
-        return values
+        return objectToForm(values)
     }
     
     const handleSubmit = method => {
-        const values = transformValues()
+        const formData = transformValues()
 
         if (method === 1) {
-            values.publish = true
+            formData.append("publish", true)
         }
 
         const msg = method === 1 ? "Published" : "Saved"
 
         if (postId) {
-            values.id = postId
-            editBlogpost(values)
+            formData.append("id", postId)
+            editBlogpost(formData)
                 .then(() => alert(msg))
         } else {
-            addBlogpost(values)
+            addBlogpost(formData)
                 .then(() => alert(msg))
         }
     }
@@ -55,6 +58,10 @@ const Form = ({ postId, editData }) => {
                 <label>Teaser</label>
                 <input type="text" name="teaser" placeholder="Teaser" className="input" ref={register()}/>
             </div>
+
+            <FormContext {...{ register, setValue }}>
+                <FileInput accept="image/*" name="cover" label="Upload Cover" icon={AddPhotoAlternateIcon} useHooks />
+            </FormContext>
 
             <div>
                 <label>Content</label>

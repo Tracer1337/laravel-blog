@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\User;
 
 class CreateUsersTable extends Migration
 {
@@ -25,6 +26,13 @@ class CreateUsersTable extends Migration
             $table->mediumText("biography")->nullable();
             $table->string("avatar_url")->nullable();
         });
+
+        // Create admin user
+        $admin = new User;
+        $admin->username = ENV("ADMIN_USERNAME");
+        $admin->email = ENV("ADMIN_EMAIL");
+        $admin->password = bcrypt(ENV("ADMIN_PASSWORD"));
+        $admin->save();
     }
 
     /**

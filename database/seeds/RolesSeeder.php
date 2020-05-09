@@ -36,15 +36,16 @@ class RolesSeeder extends Seeder
         for($i = 1; $i < $user_count + 1; $i++) {
             $user = User::find($i);
 
+            if($user->username == ENV("ADMIN_USERNAME")) {
+                $user->assignRole($role_admin);
+                continue;
+            }
+
             if($i % 2 == 0) {
                 $user->assignRole($role_user);
             } else {
                 $user->assignRole($role_author);
             }
         }
-
-        $admin = User::where("username", "admin")->first();
-        $admin->removeRole($role_user);
-        $admin->assignRole($role_admin);
     }
 }

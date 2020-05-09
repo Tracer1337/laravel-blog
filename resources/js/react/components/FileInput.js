@@ -1,17 +1,31 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { useFormContext } from "react-hook-form"
 
 let idCounter = 0
 
-const FileInput = ({ accept, onChange, icon, ...props }) => {
+const FileInput = ({ accept, onChange, icon, name, useHooks, ...props }) => {
+    const formHooks = useFormContext()
+
     const [id] = useState(idCounter++)
     const [label, setLabel] = useState(props.label)
 
     const htmlId = "file_upload_" + id
 
     const handleChange = event => {
-        onChange(event.target.files[0])
-        setLabel(event.target.files[0].name || props.label)
+        const file = event.target.files[0]
+        onChange?.(file)
+        setLabel(file.name || props.label)
+
+        if(useHooks) {
+            formHooks.setValue(name, file)
+        }
     }
+
+    useEffect(() => {
+        if(useHooks) {
+            formHooks.register({ name })
+        }
+    }, [formHooks])
 
     return (
         <div className="file-input-wrapper">

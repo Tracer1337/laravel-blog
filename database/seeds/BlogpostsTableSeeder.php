@@ -25,7 +25,6 @@ class BlogpostsTableSeeder extends Seeder
             $blogpost->title = $faker->text(50);
             $blogpost->teaser = $faker->text(80);
             $blogpost->content = $faker->text(5000);
-            $blogpost->cover_url = $faker->word;
             $blogpost->published_at = $faker->dateTimeBetween($min = "-1 year", $max = "now");
             $blogpost->save();
         }

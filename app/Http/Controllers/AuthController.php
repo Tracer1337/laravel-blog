@@ -22,27 +22,17 @@ class AuthController extends Controller
         $this->middleware("auth:api", ["except" => ["login", "register"]]);
     }
 
-    private function store(Request $request, User $user) {
-        $validated_data = $request->validate([
-            "first_name" => "nullable|alpha",
-            "last_name" => "nullable|alpha",
-            "username" => "required|unique:users",
-            "email" => "required|email|unique:users",
-            "biography" => "nullable",
-            "links" => "nullable|JSON",
-            "avatar" => "nullable|image|dimensions:max_width:512,max_height=512,ration=1"
-        ]);
-        
+    private function store($data, User $user) {
         $skip_keys = ["avatar"];
 
-        foreach($validated_data as $key => $value) {
+        foreach($data as $key => $value) {
             if(!in_array($key, $skip_keys)) {
                 $user->{$key} = $value;
             }
         }
 
-        if(isset($validated_data["avatar"])) {
-            $path = $validated_data["avatar"]->storeAs("public/avatars", $user->id);
+        if(isset($data["avatar"])) {
+            $path = $data["avatar"]->storeAs("public/avatars", $user->id);
             $user->avatar_url = Storage::url($path);
         }
 
@@ -55,7 +45,14 @@ class AuthController extends Controller
 
     public function register(Request $request) {
         $validated_data = $request->validate([
-            "password" => "required"
+            "first_name" => "nullable|alpha",
+            "last_name" => "nullable|alpha",
+            "username" => "required|unique:users",
+            "email" => "required|email|unique:users",
+            "password" => "required",
+            "biography" => "nullable",
+            "links" => "nullable|JSON",
+            "avatar" => "nullable|image|dimensions:max_width:512,max_height=512,ration=1"
         ]);
 
         $user = new User;
@@ -66,10 +63,10 @@ class AuthController extends Controller
         $user_role = Role::findByName("user");
         $user->assignRole($user_role);
 
-        if($this->store($request, $user)) {
+        if($this->store($validated_data, $user)) {
             $token = JWTAuth::attempt([
-                "email" => $request->email,
-                "password" => $request->password
+                "email" => $validated_data["email"],
+                "password" => $validated_data["password"]
             ]);
 
             if(!$token) {
@@ -86,7 +83,7 @@ class AuthController extends Controller
 
     public function login(Request $request){
         // Remove in production
-        if(!$request->input("email") == "admin") {
+        if(!$request->input("email") == ENV("ADMIN_EMAIL")) {
             $validated_data = $request->validate([
                 "email" => "required|email",
                 "password" => "required"
@@ -144,8 +141,17 @@ class AuthController extends Controller
     }
 
     public function update(Request $request) {
+        $validated_data = $request->validate([
+            "first_name" => "nullable|alpha",
+            "last_name" => "nullable|alpha",
+            "username" => "required",
+            "biography" => "nullable",
+            "links" => "nullable|JSON",
+            "avatar" => "nullable|image|dimensions:max_width:512,max_height=512,ration=1"
+        ]);
+
         $user = $request->user();
-        return $this->store($request, $user);
+        return $this->store($validated_data, $user);
     }
 
     public function subscriptions(Request $request) {

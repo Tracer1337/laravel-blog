@@ -29,10 +29,12 @@ const Actions = ({ data, onAction, id, profile }) => {
 
     return (
         <div className="actions">
-            <div className="action-container" onClick={handleLike}>
-                <ThumbUpIcon className="icon" />
-                <span className="label">{data.likesCount}</span>
-            </div>
+            {data.user_id !== profile.id && (
+                <div className="action-container" onClick={handleLike}>
+                    <ThumbUpIcon className="icon" />
+                    <span className="label">{data.likesCount}</span>
+                </div>
+            )}
 
             <Auth role="author">
                 {isRecommending ? (
