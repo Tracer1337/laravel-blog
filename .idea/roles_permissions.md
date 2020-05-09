@@ -29,6 +29,10 @@
 * roles
     * view
 
+* file
+    * store
+    * delete
+
 ### Roles
 
 * User
@@ -52,6 +56,9 @@
     * user.follow
 
     * comment.create
+
+    * file.store
+    * file.delete
 
 * Admin
     * *

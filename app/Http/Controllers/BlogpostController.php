@@ -10,24 +10,23 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Webpatser\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\File\File;
+use App\Asset;
 
 function sameFiles($file_a, $file_b) {
     return filesize($file_a) == filesize($file_b) && md5_file($file_a) == md5_file($file_b);
 }
 
-function getNewImages($images, $existing_json) {
-    if(!isset($existing_json)) {
+function getNewImages($images, $existing_images) {
+    if(count($existing_images) == 0) {
         return $images;
     }
 
     $new_images = [];
 
-    $existing_image_objects = json_decode($existing_json);
-
     $existing_image_paths = [];
 
     // Filter paths of existing images
-    foreach($existing_image_objects as $object) {
+    foreach($existing_images as $object) {
         $path = Storage::path($object->path);
         array_push($existing_image_paths, $path);
     }
@@ -130,31 +129,36 @@ class BlogpostController extends Controller
             $blogpost->published_at = Carbon::now();
         }
 
-        // Store cover image
-        if(isset($validated_data["cover"])) {
-            $path = $validated_data["cover"]->storeAs("public/blogpost-covers", $blogpost->id);
-            $blogpost->cover_url = Storage::url($path);
-        }
-
-        // Store images array
-        if(isset($validated_data["images"])) {
-            $urls = isset($blogpost->images) ? json_decode($blogpost->images) : [];
-
-            // Remove existing images
-            $store_images = getNewImages($validated_data["images"], $blogpost->images);
-
-            // Store images from array
-            foreach($store_images as $image) {
-                $path = $image->storeAs("public/blogpost-content", Uuid::generate()->string);
-                $url = Storage::url($path);
-
-                array_push($urls, [
-                    "path" => $path,
-                    "url" => $url
-                ]);
+        if($user->can("store files")) {
+            // Store cover image
+            if(isset($validated_data["cover"])) {
+                $path = $validated_data["cover"]->storeAs("public/blogpost-covers", $blogpost->id);
+                $blogpost->cover_url = Storage::url($path);
             }
 
-            $blogpost->images = json_encode($urls);
+            // Store images array
+            if(isset($validated_data["images"])) {
+                $new_images = $blogpost->assets;
+
+                // Remove existing images
+                $store_images = getNewImages($validated_data["images"], $blogpost->assets);
+
+                // Store images from array
+                foreach($store_images as $image) {
+                    $filename = Uuid::generate()->string;
+                    $path = $image->storeAs("public/blogpost-content", $filename);
+                    $url = Storage::url($path);
+
+                    // Create new asset
+                    $new_image = new Asset;
+                    $new_image->filename = $filename;
+                    $new_image->blogpost_id = $blogpost->id;
+                    $new_image->path = $path;
+                    $new_image->url = $url;
+
+                    $new_image->save();
+                }
+            }
         }
 
         // Store post in database
@@ -217,6 +221,26 @@ class BlogpostController extends Controller
         if($blogpost->delete()) {
             return new BlogpostResource($blogpost);
         }
+    }
+
+    public function delete_asset($filename, Request $request) {
+        $user = $request->user();
+
+        if(!$user->can("delete files")) {
+            return response(null, 403);
+        }
+
+        $path = "public/blogpost-content/" . $filename;
+
+        if(!Storage::exists($path)) {
+            return response(null, 404);
+        }
+
+        Storage::delete($path);
+
+        Asset::where("filename", $filename)->delete();
+
+        return response(null, 200);
     }
 
     public function like(Request $request) {

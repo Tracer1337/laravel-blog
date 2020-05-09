@@ -24,7 +24,12 @@ const Form = ({ postId, editData }) => {
         }
     })())
 
-    const [availableImages, setAvailableImages] = useState(editData?.images && JSON.parse(editData.images))
+    const [availableImages, setAvailableImages] = useState(editData?.assets)
+
+    const handleRemoveImage = filename => {
+        const newImages = availableImages.filter(obj => obj.filename !== filename)
+        setAvailableImages(newImages)
+    }
 
     const transformValues = () => {
         const values = getValues()
@@ -82,7 +87,7 @@ const Form = ({ postId, editData }) => {
                 </div>
 
                 {availableImages && (
-                    <AvailableImages data={availableImages}/>
+                    <AvailableImages data={availableImages} onRemove={handleRemoveImage}/>
                 )}
 
                 <ImageUpload/>

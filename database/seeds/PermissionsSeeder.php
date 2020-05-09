@@ -37,5 +37,8 @@ class PermissionsSeeder extends Seeder
 
         Permission::create(["name" => "create comments"]);
         Permission::create(["name" => "delete any comment"]);
+
+        Permission::create(["name" => "store files"]);
+        Permission::create(["name" => "delete files"]);
     }
 }

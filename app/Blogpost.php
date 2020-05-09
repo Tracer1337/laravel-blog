@@ -29,4 +29,8 @@ class Blogpost extends Model
     public function tags() {
         return $this->belongsToMany("App\Tag", "blogposts_tags");
     }
+
+    public function assets() {
+        return $this->hasMany("App\Asset");
+    }
 }

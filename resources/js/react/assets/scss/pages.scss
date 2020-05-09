@@ -66,12 +66,22 @@
         .available-images {
             margin-bottom: $spacing-small;
 
-            .item {
+            .card {
                 font-size: $font-size-extra-small;
                 margin: $spacing-extra-small 0;
                 padding: $spacing-extra-small;
                 display: flex;
-                align-items: center;
+                justify-content: space-between;
+
+                .item {
+                    display: flex;
+                    align-items: center;
+
+                    .icon {
+                        cursor: pointer;
+                        color: $color-normal;
+                    }
+                }
 
                 .image-wrapper {
                     width: 100px;

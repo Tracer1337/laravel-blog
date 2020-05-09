@@ -63,6 +63,8 @@ export const editBlogpost = formData => axios.post(url("blogpost"), putFormData(
 
 export const deleteBlogpost = id => axios.delete(url("blogpost/"+id))
 
+export const deleteBlogpostAsset = id => axios.delete(url("blogpost/asset/"+id))
+
 export const likeBlogpost = id => axios.post(url("blogpost/like"), {id})
 
 export const addRecommendation = id => axios.put(url("blogpost/recommend/"+id))

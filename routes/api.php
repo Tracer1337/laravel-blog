@@ -17,6 +17,8 @@ Route::put("/blogpost", "BlogpostController@store");
 
 Route::delete("/blogpost/{id}", "BlogpostController@destroy");
 
+Route::delete("/blogpost/asset/{filename}", "BlogpostController@delete_asset");
+
 Route::post("/blogpost/like", "BlogpostController@like");
 
 Route::put("/blogpost/recommend/{id}", "BlogpostController@recommend");

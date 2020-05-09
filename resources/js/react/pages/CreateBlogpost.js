@@ -10,10 +10,14 @@ const CreateBlogpost = () => {
 
     const [editData, setEditData] = useState()
 
+    const fetchData = () => {
+        getBlogpost(post_id)
+            .then(res => setEditData(res.data.data))
+    }
+
     useEffect(() => {
         if (post_id) {
-            getBlogpost(post_id)
-                .then(res => setEditData(res.data.data))
+            fetchData()
         } else {
             setEditData(null)
         }

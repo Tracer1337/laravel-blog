@@ -30,6 +30,8 @@ class RolesSeeder extends Seeder
         $role_author->givePermissionTo("create tags");
         $role_author->givePermissionTo("view users");
         $role_author->givePermissionTo("follow users");
+        $role_author->givePermissionTo("store files");
+        $role_author->givePermissionTo("delete files");
 
         // Assign roles to users
         $user_count = User::all()->count();

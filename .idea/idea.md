@@ -1,3 +1,4 @@
+* Remove images
 * Screen: topics -> Links to specific topics pages
 * Some method to create recommendation-relations
 * UUID instead of increments (more secure)

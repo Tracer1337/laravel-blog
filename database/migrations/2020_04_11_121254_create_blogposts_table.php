@@ -20,7 +20,6 @@ class CreateBlogpostsTable extends Migration
             $table->string("title");
             $table->text("teaser");
             $table->mediumText("content");
-            $table->text("images")->nullable();
             $table->string("cover_url")->nullable();
             $table->timestamp("created_at")->nullable();
             $table->timestamp("published_at")->nullable();
