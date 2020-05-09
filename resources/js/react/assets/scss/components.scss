@@ -8,6 +8,7 @@
     label {
         display: flex;
         cursor: pointer;
+        align-items: center;
 
         .icon {
             margin-right: 12px;
@@ -451,5 +452,20 @@
     input, .select__control, .select__menu {
         border: none !important;
         width: 100%;
+    }
+}
+
+.multi-file-input {
+    margin-bottom: $spacing-small;
+
+    .input-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $spacing-extra-small * 2;
+    }
+
+    .icon {
+        cursor: pointer;
     }
 }

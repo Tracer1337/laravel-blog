@@ -8,6 +8,51 @@ use App\Blogpost;
 use App\Http\Resources\Blogpost as BlogpostResource;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Webpatser\Uuid\Uuid;
+use Symfony\Component\HttpFoundation\File\File;
+
+function sameFiles($file_a, $file_b) {
+    return filesize($file_a) == filesize($file_b) && md5_file($file_a) == md5_file($file_b);
+}
+
+function getNewImages($images, $existing_json) {
+    if(!isset($existing_json)) {
+        return $images;
+    }
+
+    $new_images = [];
+
+    $existing_image_objects = json_decode($existing_json);
+
+    $existing_image_paths = [];
+
+    // Filter paths of existing images
+    foreach($existing_image_objects as $object) {
+        $path = Storage::path($object->path);
+        array_push($existing_image_paths, $path);
+    }
+
+    // Compare images to existing images
+    foreach($images as $image) {
+        $image_path = $image->getPathName();
+        $is_new = true;
+        
+        foreach($existing_image_paths as $compare_path) {
+
+            if(sameFiles($image_path, $compare_path)) {
+                $is_new = false;
+                break;
+            }
+
+        }
+
+        if($is_new) {
+            array_push($new_images, $image);
+        }
+    }
+
+    return $new_images;
+}
 
 class BlogpostController extends Controller
 {
@@ -52,13 +97,15 @@ class BlogpostController extends Controller
             "topic_id" => "required|Integer",
             "content" => "required",
             "tag_ids" => "required|Array",
-            "cover" => "nullable|image"
+            "cover" => "nullable|image",
+            "images" => "nullable|Array"
         ]);
 
         $isUpdate = $request->input("method_put");
         $blogpost = $isUpdate ? Blogpost::findOrFail($request->id) : new Blogpost;
         $user = $request->user();
 
+        // Check permission
         if(!$user->can("create blogposts")) {
             return response(null, 403);
         }
@@ -67,7 +114,8 @@ class BlogpostController extends Controller
             return response(null, 403);
         }
 
-        $skip_keys = ["tag_ids", "cover"];
+        // Assign transmitted data
+        $skip_keys = ["tag_ids", "cover", "images"];
 
         foreach($validated_data as $key => $value) {
             if(!in_array($key, $skip_keys)) {
@@ -77,15 +125,39 @@ class BlogpostController extends Controller
 
         $blogpost->user_id = $user->id;
 
+        // Publish post if flag is set
         if($request->publish) {
             $blogpost->published_at = Carbon::now();
         }
 
+        // Store cover image
         if(isset($validated_data["cover"])) {
             $path = $validated_data["cover"]->storeAs("public/blogpost-covers", $blogpost->id);
             $blogpost->cover_url = Storage::url($path);
         }
 
+        // Store images array
+        if(isset($validated_data["images"])) {
+            $urls = isset($blogpost->images) ? json_decode($blogpost->images) : [];
+
+            // Remove existing images
+            $store_images = getNewImages($validated_data["images"], $blogpost->images);
+
+            // Store images from array
+            foreach($store_images as $image) {
+                $path = $image->storeAs("public/blogpost-content", Uuid::generate()->string);
+                $url = Storage::url($path);
+
+                array_push($urls, [
+                    "path" => $path,
+                    "url" => $url
+                ]);
+            }
+
+            $blogpost->images = json_encode($urls);
+        }
+
+        // Store post in database
         if($blogpost->save()) {
             $blogpost->tags()->sync($validated_data["tag_ids"]);
             return new BlogpostResource($blogpost);

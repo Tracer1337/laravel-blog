@@ -1,5 +1,3 @@
-* Include image-upload support for blogposts
-* Blogpost Cover
 * Screen: topics -> Links to specific topics pages
 * Some method to create recommendation-relations
 * UUID instead of increments (more secure)
@@ -8,9 +6,8 @@
 * Refactor login / register forms to use react-hook-form library
 * Fix Dialog stylings
 * Search bar
-* React-Select implementation (Create Post)
 * Google Analytics => Admin Panel
-* Async select box => Check if it fetches everytime you type because caching is deactive when devtools open
+* Async select box => Check if it fetches everytime because caching is deactive when devtools open
 * Fix biography = "null" sometimes after editing profile => Fix form values = null
 * SEO => React Helmet
 * Assign roles in admin panel
@@ -18,3 +15,8 @@
 * If cover ration is not 4:3, fill borders with gradients according to colors on image
 * Loading skeleton
 * Ask user if he wants to stay logged in
+* Storage permissions
+* Show storage in admin panel
+* Auto saving markdown editor
+* Image resizing in markdown
+* Implement isValid() method for validating files

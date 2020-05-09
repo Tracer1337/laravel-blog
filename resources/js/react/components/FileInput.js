@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form"
 
 let idCounter = 0
 
-const FileInput = ({ accept, onChange, icon, name, useHooks, ...props }) => {
+const FileInput = ({ accept, onChange, icon, name, useHooks, className, ...props }) => {
     const formHooks = useFormContext()
 
     const [id] = useState(idCounter++)
@@ -13,7 +13,7 @@ const FileInput = ({ accept, onChange, icon, name, useHooks, ...props }) => {
 
     const handleChange = event => {
         const file = event.target.files[0]
-        onChange?.(file)
+        onChange?.(file, name)
         setLabel(file.name || props.label)
 
         if(useHooks) {
@@ -28,8 +28,15 @@ const FileInput = ({ accept, onChange, icon, name, useHooks, ...props }) => {
     }, [formHooks])
 
     return (
-        <div className="file-input-wrapper">
-            <input type="file" accept={accept} id={htmlId} style={{display: "none"}} onChange={handleChange}/>
+        <div className={`file-input-wrapper ${className || ""}`}>
+            <input
+                type="file"
+                accept={accept}
+                id={htmlId}
+                style={{display: "none"}}
+                onChange={handleChange}
+            />
+
             <label htmlFor={htmlId}>
                 {icon && React.createElement(icon, {
                     className: "icon"

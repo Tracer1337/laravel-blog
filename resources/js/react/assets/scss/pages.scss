@@ -29,7 +29,10 @@
 
         .file-input-wrapper {
             display: flex;
-            margin-bottom: $input-spacing;
+
+            &:not(.multi) {
+                margin-bottom: $input-spacing;
+            }
 
             label {
                 display: flex;
@@ -60,12 +63,25 @@
             display: flex;
         }
 
-        .chips {
+        .available-images {
             margin-bottom: $spacing-small;
 
-            .chip {
-                margin: 0 $spacing-extra-small $spacing-extra-small 0;
-                cursor: pointer;
+            .item {
+                font-size: $font-size-extra-small;
+                margin: $spacing-extra-small 0;
+                padding: $spacing-extra-small;
+                display: flex;
+                align-items: center;
+
+                .image-wrapper {
+                    width: 100px;
+                    margin-right: $spacing-small;
+                    display: flex;
+
+                    img {
+                        width: 100%;
+                    }
+                }
             }
         }
     }
