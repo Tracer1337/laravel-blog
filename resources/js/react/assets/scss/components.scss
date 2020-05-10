@@ -324,14 +324,18 @@
     }
 }
 
-.topic-crumb {
-    margin: 0 $spacing-normal;
-    height: $spacing-normal;
-    display: flex;
-    align-items: center;
+.topic-crumb-wrapper {
+    z-index: 10;
 
-    .label {
-        font-size: $font-size-normal;
+    .topic-crumb {
+        margin: 0 $spacing-normal;
+        height: $spacing-normal;
+        display: flex;
+        align-items: center;
+    
+        .label {
+            font-size: $font-size-normal;
+        }
     }
 }
 
@@ -412,6 +416,21 @@
 }
 
 .paginated {
+    &.paginated-blogposts {
+        padding: $spacing-extra-small;
+    
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+    
+            .blogpost-card {
+                $spacing: $spacing-extra-small * 2;
+                margin: 0 $spacing $spacing-normal $spacing;
+            }
+        }
+    }
+
     .pagination-links {
         display: flex;
         justify-content: center;

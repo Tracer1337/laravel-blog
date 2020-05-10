@@ -54,7 +54,7 @@ function get_new_images($images, $existing_images) {
 }
 
 function delete_asset($filename) {
-    $path = "public/blogpost-content/" . $filename;
+    $path = "public/blogpost-assets/" . $filename;
 
     if(!Storage::exists($path)) {
         return 404;

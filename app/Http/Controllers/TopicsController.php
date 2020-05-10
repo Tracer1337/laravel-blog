@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Topic;
 use App\Http\Resources\Topic as TopicResource;
+use App\Http\Resources\Blogpost as BlogpostResource;
 
 class TopicsController extends Controller
 {
     public function __construct() {
-        $this->middleware("auth:api", ["except" => ["index"]]);
+        $this->middleware("auth:api", ["except" => ["index", "blogposts"]]);
     }
 
     /**
@@ -17,11 +18,24 @@ class TopicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         $topics = Topic::all();
 
         return TopicResource::collection($topics);
+    }
+
+    public function get_specific($id) {
+        $topic = Topic::findOrFail($id);
+
+        return new TopicResource($topic);
+    }
+
+    public function blogposts($id) {
+        $topic = Topic::findOrFail($id);
+        $blogposts = $topic->blogposts()->whereNotNull("published_at")->orderBy("published_at", "DESC")->Paginate(20);
+        $blogposts->makeHidden("content");
+
+        return BlogpostResource::collection($blogposts);
     }
 
     /**

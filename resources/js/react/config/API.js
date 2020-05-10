@@ -74,6 +74,10 @@ export const removeRecommendation = id => axios.delete(url("blogpost/recommend/"
 // Topics
 export const getAllTopics = () => axios.get(url("topics"))
 
+export const getTopic = id => axios.get(url("topics/"+id))
+
+export const getTopicBlogposts = (id, pageNr) => axios.get(paginated(url(`topics/${id}/blogposts`), pageNr))
+
 export const addTopic = args => axios.post(url("topics"), args)
 
 export const deleteTopic = id => axios.delete(url("topics/" + id))
@@ -83,7 +87,7 @@ export const getAllTags = () => axios.get(url("tags"))
 
 export const addTag = args => axios.post(url("tags"), args)
 
-export const deleteTag = id => axios.delete(url("tags/" + id))
+export const deleteTag = id => axios.delete(url("tags/"+id))
 
 //Comments
 export const addComment = args => axios.post(url("comment"), args)

@@ -11,8 +11,9 @@ const ProfileBlogposts = () => {
             <h3 className="title">My Posts</h3>
             
             <Pagination
+                className="paginated-blogposts"
                 fetchMethod={getProfileBlogposts}
-                child={({ data }) => data.map((post, i) => (
+                renderChildren={({ data }) => data.map((post, i) => (
                     <BlogpostCard post={post} key={i}/>
                 ))}
             />

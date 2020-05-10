@@ -59,7 +59,7 @@ const BlogpostPage = () => {
 
     return (
         <>
-            <TopicCrumb name={data.topic.name} />
+            <TopicCrumb data={data.topic} />
 
             <div className="blogpost-page">
                 <main>

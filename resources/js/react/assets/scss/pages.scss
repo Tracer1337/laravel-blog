@@ -130,21 +130,6 @@
     }
 }
 
-.profile-blogposts-page {
-    padding: $spacing-extra-small;
-
-    .paginated .items {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-
-        .blogpost-card {
-            $spacing: $spacing-extra-small * 2;
-            margin: 0 $spacing $spacing-normal $spacing;
-        }
-    }
-}
-
 .user-page {
     main {
         .head {
@@ -284,5 +269,13 @@
 
     .control {
         margin-bottom: $spacing-small;
+    }
+}
+
+.topic-page {
+    .title {
+        text-align: center;
+        margin-bottom: $spacing-normal;
+        font-size: $font-size-large;
     }
 }

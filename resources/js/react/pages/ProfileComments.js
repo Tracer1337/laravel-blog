@@ -27,7 +27,7 @@ const ProfileComments = () => (
 
         <Pagination
             fetchMethod={getProfileComments}
-            child={({ data }) => data.map((comment, i) => <Comment data={comment} key={i}/>)}
+            renderChildren={({ data }) => data.map((comment, i) => <Comment data={comment} key={i}/>)}
         />
     </main>
 )

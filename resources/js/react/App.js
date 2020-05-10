@@ -12,6 +12,7 @@ import ProfileComments from "./pages/ProfileComments.js"
 import CreateBlogpost from "./pages/CreateBlogpost.js"
 import ProfileBlogposts from "./pages/ProfileBlogposts.js"
 import AdminPanel from "./pages/AdminPanel.js"
+import Topic from "./pages/Topic.js"
 
 import Layout from "./components/Layout/Layout.js"
 
@@ -68,23 +69,27 @@ const App = ({ login }) => {
                             </ProtectedRoute>
 
                             <ProtectedRoute path="/user/:id">
-                                <User />
+                                <User/>
                             </ProtectedRoute>
 
+                            <Route path="/topic/:id">
+                                <Topic/>
+                            </Route>
+
                             <Route path="/blogpost/:id">
-                                <Blogpost />
+                                <Blogpost/>
                             </Route>
 
                             <Route path="/register">
-                                <Register />
+                                <Register/>
                             </Route>
 
                             <Route path="/login">
-                                <Login />
+                                <Login/>
                             </Route>
 
                             <Route path="/">
-                                <Index />
+                                <Index/>
                             </Route>
                         </Switch>
                     )}

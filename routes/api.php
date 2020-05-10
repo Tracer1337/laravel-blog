@@ -29,6 +29,10 @@ Route::delete("/blogpost/recommend/{id}", "BlogpostController@recommend");
 
 Route::get("/topics", "TopicsController@index");
 
+Route::get("/topics/{id}", "TopicsController@get_specific");
+
+Route::get("/topics/{id}/blogposts", "TopicsController@blogposts");
+
 Route::post("/topics", "TopicsController@store");
 
 Route::put("/topics", "TopicsController@store");
