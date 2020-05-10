@@ -15,8 +15,8 @@ class CreateFollowersTable extends Migration
     {
         Schema::create('followers', function (Blueprint $table) {
             $table->id();
-            $table->integer("user_from_id");
-            $table->integer("user_to_id");
+            $table->uuid("user_from_id");
+            $table->uuid("user_to_id");
         });
     }
 

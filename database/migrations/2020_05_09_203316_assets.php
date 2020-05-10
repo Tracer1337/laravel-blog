@@ -15,7 +15,7 @@ class Assets extends Migration
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
-            $table->integer("blogpost_id");
+            $table->uuid("blogpost_id");
             $table->string("filename");
             $table->string("path");
             $table->string("url");

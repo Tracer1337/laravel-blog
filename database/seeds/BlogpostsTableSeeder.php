@@ -15,7 +15,7 @@ class BlogpostsTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        factory(App\Blogpost::class, 20)->create();
+        factory(Blogpost::class, 20)->create();
 
         $admin = User::where("username", "admin")->first();
         for($i = 0; $i < 53; $i++) {

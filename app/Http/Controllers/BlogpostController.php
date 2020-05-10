@@ -120,7 +120,7 @@ class BlogpostController extends Controller
      */
     public function store(Request $request) {
         $validated_data = $request->validate([
-            "id" => "nullable|Integer",
+            "id" => "nullable|uuid",
             "title" => "required|max:255",
             "teaser" => "required|max:512",
             "topic_id" => "required|Integer",

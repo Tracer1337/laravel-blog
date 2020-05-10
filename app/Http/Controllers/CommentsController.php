@@ -25,7 +25,7 @@ class CommentsController extends Controller
 
         $validated_data = $request->validate([
             "content" => "required",
-            "blogpost_id" => "required|Integer",
+            "blogpost_id" => "required|uuid",
             "id" => "nullable|Integer"
         ]);
 

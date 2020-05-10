@@ -4,8 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Blogpost extends Model
-{
+class Blogpost extends Model {
+    use Uuids;
+
+    public $incrementing = false;
+
     public function user() {
         return $this->belongsTo("App\User");
     }

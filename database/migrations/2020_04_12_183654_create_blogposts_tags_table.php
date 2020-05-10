@@ -15,7 +15,7 @@ class CreateBlogpostsTagsTable extends Migration
     {
         Schema::create('blogposts_tags', function (Blueprint $table) {
             $table->id();
-            $table->integer("blogpost_id");
+            $table->uuid("blogpost_id");
             $table->integer("tag_id");
         });
     }

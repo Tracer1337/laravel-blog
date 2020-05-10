@@ -1,6 +1,4 @@
-* Screen: topics -> Links to specific topics pages
 * Some method to create recommendation-relations
-* UUID instead of increments (more secure)
 * Overthink concept of selecting related posts by related topics => does not make sense (rather use tags)
 * Seed link-inputs serversided / validation because user-input
 * Refactor login / register forms to use react-hook-form library
@@ -22,3 +20,4 @@
 * Implement isValid() method for validating files
 * Screen: tags -> Show all blogposts associated with tags
 * Store fetched data in redux -> do not make requests twice
+* Assign user to assets

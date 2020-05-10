@@ -34,10 +34,10 @@ class RolesSeeder extends Seeder
         $role_author->givePermissionTo("delete files");
 
         // Assign roles to users
-        $user_count = User::all()->count();
-        for($i = 1; $i < $user_count + 1; $i++) {
-            $user = User::find($i);
+        $users = User::all();
 
+        $i = 0;
+        foreach($users as $user) {
             if($user->username == ENV("ADMIN_USERNAME")) {
                 $user->assignRole($role_admin);
                 continue;
@@ -48,6 +48,8 @@ class RolesSeeder extends Seeder
             } else {
                 $user->assignRole($role_author);
             }
+
+            $i++;
         }
     }
 }

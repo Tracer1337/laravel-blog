@@ -11,11 +11,15 @@ class BlogpostsTagsTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 2; $i < 40; $i++) {
-            DB::table("blogposts_tags")->insert([
-                "blogpost_id" => floor($i / 2),
-                "tag_id"      => $i % 2 + 1
-            ]);
+        for($i = 2; $i < 20; $i++) {
+            for($j = 1; $j < 3; $j++) {
+                $blogpost = App\Blogpost::all()->get($i);
+    
+                DB::table("blogposts_tags")->insert([
+                    "blogpost_id" => $blogpost->id,
+                    "tag_id"      => $j
+                ]);
+            }
         }
     }
 }

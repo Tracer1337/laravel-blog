@@ -15,8 +15,8 @@ class CreateRecommendationsTable extends Migration
     {
         Schema::create('recommendations', function (Blueprint $table) {
             $table->id();
-            $table->integer("user_id");
-            $table->integer("blogpost_id");
+            $table->uuid("user_id");
+            $table->uuid("blogpost_id");
         });
     }
 

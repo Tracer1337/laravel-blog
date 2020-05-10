@@ -13,9 +13,12 @@ class LikesTableSeeder extends Seeder
     {
         for($i = 1; $i < 20; $i++) {
             for($j = 1; $j <= 2; $j++) {
+                $user = App\User::all()->get($j);
+                $blogpost = App\Blogpost::all()->get($i);
+
                 DB::table("likes")->insert([
-                    "blogpost_id" => $i,
-                    "user_id"     => $j
+                    "blogpost_id" => $blogpost->id,
+                    "user_id"     => $user->id
                 ]);
             }
         }

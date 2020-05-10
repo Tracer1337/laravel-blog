@@ -7,8 +7,10 @@ use Faker\Generator as Faker;
 use Carbon\Carbon;
 
 $factory->define(App\Blogpost::class, function (Faker $faker) {
+    $user = App\User::all()->random();
+
     return [
-        "user_id"      => $faker->numberBetween(1, 5),
+        "user_id"      => $user->id,
         "topic_id"     => $faker->numberBetween(1, 3),
         "title"        => $faker->text(50),
         "teaser"       => $faker->text(80),
