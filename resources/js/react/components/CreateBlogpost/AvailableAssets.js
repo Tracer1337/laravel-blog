@@ -5,26 +5,29 @@ import { deleteBlogpostAsset } from "../../config/API.js"
 
 const transformUrl = url => window.location.origin + url
 
-const AvailableImages = ({ data, onRemove }) => {
+const AvailableAssets = ({ data, onRemove }) => {
     const handleRemove = filename => {
-        deleteBlogpostAsset(filename).then(() => onRemove(filename))
+        deleteBlogpostAsset(filename).then(onRemove)
     }
 
     return (
-        <div className="available-images">
-            <label>Available Images</label>
+        <div className="available-assets">
+            <label>Available Assets</label>
 
-            {data.map(({ filename, url}, i) => {
+            {data.map(({ filename, url, type }, i) => {
                 const newUrl = transformUrl(url)
 
                 return (
                     <div className="card" key={i}>
                         <div className="item">
-                            <div className="image-wrapper">
-                                <img src={newUrl} alt="preview" />
+                            <div className="preview">
+                                <img src={newUrl} alt="preview"/>
                             </div>
 
-                            <span>{newUrl}</span>
+                            <div className="meta">
+                                <span>{type}</span>
+                                <span>{newUrl}</span>
+                            </div>
                         </div>
 
                         <div className="item">
@@ -37,4 +40,4 @@ const AvailableImages = ({ data, onRemove }) => {
     )
 }
 
-export default AvailableImages
+export default AvailableAssets

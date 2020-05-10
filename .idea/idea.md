@@ -1,4 +1,3 @@
-* Remove images
 * Screen: topics -> Links to specific topics pages
 * Some method to create recommendation-relations
 * UUID instead of increments (more secure)
@@ -21,3 +20,4 @@
 * Auto saving markdown editor
 * Image resizing in markdown
 * Implement isValid() method for validating files
+* Screen: tags -> Show all blogposts associated with tags

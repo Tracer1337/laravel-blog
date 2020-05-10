@@ -12,11 +12,11 @@ use Webpatser\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\File\File;
 use App\Asset;
 
-function sameFiles($file_a, $file_b) {
+function same_files($file_a, $file_b) {
     return filesize($file_a) == filesize($file_b) && md5_file($file_a) == md5_file($file_b);
 }
 
-function getNewImages($images, $existing_images) {
+function get_new_images($images, $existing_images) {
     if(count($existing_images) == 0) {
         return $images;
     }
@@ -38,7 +38,7 @@ function getNewImages($images, $existing_images) {
         
         foreach($existing_image_paths as $compare_path) {
 
-            if(sameFiles($image_path, $compare_path)) {
+            if(same_files($image_path, $compare_path)) {
                 $is_new = false;
                 break;
             }
@@ -51,6 +51,36 @@ function getNewImages($images, $existing_images) {
     }
 
     return $new_images;
+}
+
+function delete_asset($filename) {
+    $path = "public/blogpost-content/" . $filename;
+
+    if(!Storage::exists($path)) {
+        return 404;
+    }
+
+    Storage::delete($path);
+
+    Asset::where("filename", $filename)->delete();
+
+    return 200;
+}
+
+function create_asset($data) {
+    $filename = Uuid::generate()->string;
+    $path = $data["file"]->storeAs("public/blogpost-assets", $filename);
+    $url = Storage::url($path);
+
+    // Create new asset
+    $new_image = new Asset;
+    $new_image->filename = $filename;
+    $new_image->blogpost_id = $data["blogpost_id"];
+    $new_image->path = $path;
+    $new_image->url = $url;
+    $new_image->type = $data["type"];
+
+    return $new_image;
 }
 
 class BlogpostController extends Controller
@@ -132,29 +162,35 @@ class BlogpostController extends Controller
         if($user->can("store files")) {
             // Store cover image
             if(isset($validated_data["cover"])) {
-                $path = $validated_data["cover"]->storeAs("public/blogpost-covers", $blogpost->id);
-                $blogpost->cover_url = Storage::url($path);
+                // Check if cover is new
+                $store_images = get_new_images([$validated_data["cover"]], $blogpost->assets);
+
+                // Store cover
+                if(isset($store_images[0])) {
+                    $new_cover = create_asset([
+                        "file" => $store_images[0],
+                        "blogpost_id" => $blogpost->id,
+                        "type" => "cover"
+                    ]);
+
+                    $new_cover->save();
+                }
             }
 
             // Store images array
             if(isset($validated_data["images"])) {
                 $new_images = $blogpost->assets;
 
-                // Remove existing images
-                $store_images = getNewImages($validated_data["images"], $blogpost->assets);
+                // Filter new images
+                $store_images = get_new_images($validated_data["images"], $blogpost->assets);
 
                 // Store images from array
                 foreach($store_images as $image) {
-                    $filename = Uuid::generate()->string;
-                    $path = $image->storeAs("public/blogpost-content", $filename);
-                    $url = Storage::url($path);
-
-                    // Create new asset
-                    $new_image = new Asset;
-                    $new_image->filename = $filename;
-                    $new_image->blogpost_id = $blogpost->id;
-                    $new_image->path = $path;
-                    $new_image->url = $url;
+                    $new_image = create_asset([
+                        "file" => $image,
+                        "blogpost_id" => $blogpost->id,
+                        "type" => "image"
+                    ]);
 
                     $new_image->save();
                 }
@@ -219,6 +255,13 @@ class BlogpostController extends Controller
         }
 
         if($blogpost->delete()) {
+            // Delete all assets associated with this post
+            $assets = Asset::where("blogpost_id", $blogpost->id)->get();
+
+            foreach($assets as $asset) {
+                delete_asset($asset->filename);
+            }
+            
             return new BlogpostResource($blogpost);
         }
     }
@@ -230,17 +273,9 @@ class BlogpostController extends Controller
             return response(null, 403);
         }
 
-        $path = "public/blogpost-content/" . $filename;
+        $response_code = delete_asset($filename);
 
-        if(!Storage::exists($path)) {
-            return response(null, 404);
-        }
-
-        Storage::delete($path);
-
-        Asset::where("filename", $filename)->delete();
-
-        return response(null, 200);
+        return response(null, $response_code);
     }
 
     public function like(Request $request) {
@@ -273,5 +308,5 @@ class BlogpostController extends Controller
         }
 
         return response(null, 200);
-    }
+    } 
 }

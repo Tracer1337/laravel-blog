@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
+import { useHistory } from "react-router-dom"
 import { useForm, Controller, FormContext } from "react-hook-form"
 import MarkdownEditor from "react-simplemde-editor"
 import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate"
@@ -7,13 +8,15 @@ import TopicSelection from "./TopicSelection.js"
 import TagSelection from "./TagSelection.js"
 import FileInput from "../FileInput.js"
 import ImageUpload from "./ImageUpload.js"
-import AvailableImages from "./AvailableImages.js"
+import AvailableAssets from "./AvailableAssets.js"
 import Actions from "./Actions.js"
 
 import { addBlogpost, editBlogpost } from "../../config/API.js"
 import objectToForm from "../../utils/objectToForm.js"
 
-const Form = ({ postId, editData }) => {
+const Form = ({ postId, editData, reload }) => {
+    const history = useHistory()
+
     const { register, control, getValues, setValue } = useForm((function() {
         if(editData) {
             const newValues = {...editData}
@@ -23,13 +26,6 @@ const Form = ({ postId, editData }) => {
             }
         }
     })())
-
-    const [availableImages, setAvailableImages] = useState(editData?.assets)
-
-    const handleRemoveImage = filename => {
-        const newImages = availableImages.filter(obj => obj.filename !== filename)
-        setAvailableImages(newImages)
-    }
 
     const transformValues = () => {
         const values = getValues()
@@ -53,15 +49,13 @@ const Form = ({ postId, editData }) => {
         if (postId) {
             formData.append("id", postId)
             res = await editBlogpost(formData)
+            reload()
         } else {
             res = await addBlogpost(formData)
+            history.push("/create-post?post_id=" + res.data.data.id)
         }
 
         alert(msg)
-
-        if(res.data.data.images) {
-            setAvailableImages(JSON.parse(res.data.data.images))
-        }
     }
 
     return (
@@ -86,8 +80,8 @@ const Form = ({ postId, editData }) => {
                     <Controller as={MarkdownEditor} name="content" className="markdown-editor" control={control}/>
                 </div>
 
-                {availableImages && (
-                    <AvailableImages data={availableImages} onRemove={handleRemoveImage}/>
+                {editData?.assets && (
+                    <AvailableAssets data={editData.assets} onRemove={reload}/>
                 )}
 
                 <ImageUpload/>

@@ -63,7 +63,7 @@
             display: flex;
         }
 
-        .available-images {
+        .available-assets {
             margin-bottom: $spacing-small;
 
             .card {
@@ -83,7 +83,7 @@
                     }
                 }
 
-                .image-wrapper {
+                .preview {
                     width: 100px;
                     margin-right: $spacing-small;
                     display: flex;
@@ -91,6 +91,13 @@
                     img {
                         width: 100%;
                     }
+                }
+
+                .meta {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    height: 100%
                 }
             }
         }

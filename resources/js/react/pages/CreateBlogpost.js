@@ -32,7 +32,7 @@ const CreateBlogpost = () => {
             <main>
                 <h3 className="title">Create Post</h3>
 
-                <Form editData={editData} postId={post_id}/>
+                <Form editData={editData} postId={post_id} reload={fetchData}/>
             </main>
         </div>
     )

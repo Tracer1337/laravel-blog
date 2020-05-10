@@ -19,6 +19,7 @@ class Assets extends Migration
             $table->string("filename");
             $table->string("path");
             $table->string("url");
+            $table->string("type");
         });
     }
 
