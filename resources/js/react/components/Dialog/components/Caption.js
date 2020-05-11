@@ -1,9 +1,10 @@
 import React from "react"
-import { Typography } from "@material-ui/core"
 
 const Caption = ({ value }) => {
     return (
-        <Typography variant="caption">{value}</Typography>
+        <span className="caption">
+            {value}
+        </span>
     )
 }
 

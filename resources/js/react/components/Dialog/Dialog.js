@@ -1,37 +1,17 @@
 import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import { Dialog as MuiDialog, Container, withStyles } from "@material-ui/core"
-import clsx from "clsx"
 
-import String from "./components/String.js"
-import List from "./components/List.js"
-import ListItem from "./components/ListItem.js"
 import Textbox from "./components/Textbox.js"
 import Title from "./components/Title.js"
 import Subtitle from "./components/Subtitle.js"
 import Button from "./components/Button.js"
-import Functions from "./components/Functions.js"
-import Select from "./components/Select.js"
 import Warning from "./components/Warning.js"
 import Caption from "./components/Caption.js"
 import Error from "./components/Error.js"
-import File from "./components/File.js"
 
 import Verification from "./templates/Verification.js"
 import WarningTemplate from "./templates/Warning.js"
 import ErrorTemplate from "./templates/Error.js"
-import Login from "./templates/Login.js"
-import Register from "./templates/Register.js"
-
-const styles = theme => ({
-    outerDialog: {
-        zIndex: theme.zIndex.drawer
-    },
-
-    innerDialog: {
-        paddingBottom: 6
-    }
-})
 
 class Dialog extends Component {
     constructor(props) {
@@ -53,18 +33,6 @@ class Dialog extends Component {
         let element
 
         switch(field.type) {
-            case "string":
-                element = <String {...field} value={this.state.fieldState[field.name]} onChange={value => this.handleChange(field.name, value)}/>
-                break
-            
-            case "list":
-                element = <List {...field}>{field.items.map((f, i) => this.getField(f, index + i, {margin: 0}))}</List>
-                break
-
-            case "listItem":
-                element = <ListItem {...field}/>
-                break
-            
             case "textbox":
                 element = <Textbox {...field}/>
                 break
@@ -85,14 +53,6 @@ class Dialog extends Component {
                 element = <Button {...field} onClick={this.handleSubmit.bind(this)}/>
                 break
 
-            case "functions":
-                element = <Functions {...field}/>
-                break
-
-            case "select":
-                element = <Select {...field} value={this.state.fieldState[field.name]} onChange={value => this.handleChange(field.name, value)}/>
-                break
-
             case "warning":
                 element = <Warning {...field}/>
                 break
@@ -108,10 +68,6 @@ class Dialog extends Component {
             case "error":
                 element = <Error {...field}/>
                 break
-
-            case "file":
-                element = <File {...field} onChange={value => this.handleChange(field.name, value)}/>
-                break
             
             default:
                 element = <p>Element type {field.type} not found</p>
@@ -119,7 +75,7 @@ class Dialog extends Component {
         }
 
         return (
-            <div key={field.key} style={style} className={"dialog-field"}>
+            <div key={field.key} style={style} className="dialog-field">
                 {element}
             </div>
         )
@@ -147,27 +103,23 @@ class Dialog extends Component {
         }
     }
 
+    componentDidMount() {
+        document.body.style.overflow = "hidden"
+    }
+
+    componentWillUnmount() {
+        document.body.style.overflow = null
+    }
+
     render() {
-        const { classes } = this.props
-
         const fields = this.props.fields.filter(e => e).map((f, i) => this.getField(f, i))
-
-        if(this.props.fieldsOnly) {
-            return <>{fields}</>
-        }
         
         return ReactDOM.createPortal(
-            <MuiDialog 
-                className={clsx(classes.outerDialog)}
-                open={true}
-                onKeyDown={this.handleKeyPress.bind(this)}
-                maxWidth="md"
-                fullWidth
-            >
-                <Container className={classes.innerDialog}>
+            <div onKeyDown={this.handleKeyPress.bind(this)} className="dialog">
+                <div className="inner-dialog">
                     {fields}
-                </Container>
-            </MuiDialog>
+                </div>
+            </div>
         , document.getElementById("root"))
     }
 }
@@ -176,9 +128,4 @@ Dialog.verify = Verification
 Dialog.warn = WarningTemplate
 Dialog.error = ErrorTemplate
 
-Dialog.forms = {
-    login: Login,
-    register: Register
-}
-
-export default withStyles(styles)(Dialog)
+export default Dialog

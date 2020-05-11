@@ -1,4 +1,3 @@
-* Fix Dialog stylings
 * Search bar
 * Google Analytics => Admin Panel
 * Async select box => Check if it fetches everytime because caching is deactive when devtools open
@@ -18,3 +17,5 @@
 * Assign user to assets
 * Refresh page buttons
 * Authentication failes when not reloading
+* Remove material ui dependency
+* Generalize some stylings (Border)

@@ -1,5 +1,4 @@
 import React from "react"
-import { Typography, withStyles } from "@material-ui/core"
 
 const styles = {
     subtitle: {
@@ -8,12 +7,12 @@ const styles = {
     }
 }
 
-function Subtitle({ value, classes }) {
+function Subtitle({ value }) {
     return (
-        <Typography variant="h6" className={classes.subtitle}>
+        <h6 className="subtitle">
             {value}
-        </Typography>
+        </h6>
     )
 }
 
-export default withStyles(styles)(Subtitle)
+export default Subtitle

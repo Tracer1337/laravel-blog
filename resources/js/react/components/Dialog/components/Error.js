@@ -1,9 +1,14 @@
 import React from "react"
-import { Alert } from "@material-ui/lab"
+import ErrorIcon from "@material-ui/icons/ErrorOutline"
 
 const Error = ({ value }) => {
     return (
-        <Alert severity="error">{value}</Alert>
+        <div className="alert">
+            <ErrorIcon/>
+            <span>
+                {value}
+            </span>
+        </div>
     )
 }
 

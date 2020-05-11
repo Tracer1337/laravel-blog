@@ -1,9 +1,14 @@
 import React from "react"
-import { Alert } from "@material-ui/lab"
+import WarningIcon from "@material-ui/icons/WarningOutlined"
 
-const Warning = ({value}) => {
+const Warning = ({ value }) => {
     return (
-        <Alert severity="warning">{value}</Alert>
+        <div className="alert">
+            <WarningIcon/>
+            <span>
+                {value}
+            </span>
+        </div>
     )
 }
 

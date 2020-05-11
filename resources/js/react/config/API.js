@@ -15,6 +15,8 @@ store.subscribe(() => {
     }
 })
 
+setToken()
+
 const url = path => `${window.location.origin}/api/${path}`
 const paginated = (path, pageNr) => `${path}?page=${pageNr}`
 
