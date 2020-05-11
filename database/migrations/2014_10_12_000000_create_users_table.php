@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->timestamps();
             $table->string('email')->unique();
-            $table->string("links")->nullable();
+            $table->text("links")->nullable();
             $table->mediumText("biography")->nullable();
             $table->string("avatar_url")->nullable();
         });

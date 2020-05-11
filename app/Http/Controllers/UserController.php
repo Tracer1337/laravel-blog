@@ -150,4 +150,8 @@ class UserController extends Controller
             return response(null, 403);
         }
     }
+    
+    public function links(Request $request) {
+        return config("app.available_link_keys");
+    }
 }

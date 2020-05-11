@@ -12,16 +12,28 @@ import FileInput from "../components/FileInput.js"
 import objectToForm from "../utils/objectToForm.js"
 import { editProfile } from "../config/API.js"
 import { modifyProfile } from "../redux/actions.js"
-
-const links = ["Github", "Website", "Twitter", "Instagram"]
+import useAPIData from "../utils/useAPIData.js"
 
 const EditProfile = ({ profile, modifyProfile }) => {
     const { register, handleSubmit, control } = useForm()
+
     const [avatar, setAvatar] = useState()
+
+    const [availableLinks] = useAPIData("getAvailableLinks")
     
     const onSubmit = data => {
         const formData = {...data}
         formData.avatar = avatar
+
+        // Format links to JSON array
+        const formattedLinks = {}
+        availableLinks.forEach(key => {
+            if(formData[key]) {
+                formattedLinks[key] = formData[key]
+                delete formData[key]
+            }
+        })
+        formData.links = JSON.stringify(formattedLinks)
 
         editProfile(objectToForm(formData))
             .then(res => {
@@ -51,7 +63,7 @@ const EditProfile = ({ profile, modifyProfile }) => {
                     <FileInput label="Upload Avatar" icon={AddAPhotoIcon} onChange={handleAvatarChange} accept="image/*"/>
 
                     <div className="links">
-                        {links.map((name, i) => (
+                        {availableLinks && availableLinks.map((name, i) => (
                             <input type="text" name={name} defaultValue={profile.links?.[name]} placeholder={name} ref={register()} key={i}/>
                         ))}
                     </div>

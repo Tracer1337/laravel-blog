@@ -63,6 +63,8 @@ Route::get("/user/{id}", "UserController@index");
 
 Route::get("/users/all", "UserController@all");
 
+Route::get("/users/links", "UserController@links");
+
 Route::post("/user/follow", "UserController@follow");
 
 Route::post("/user/unfollow", "UserController@unfollow");

@@ -6,6 +6,10 @@ const defaultState = {
 }
 
 function auth(state = defaultState, action) {
+    if(action.profile?.links && typeof action.profile.links === "string") {
+        action.profile.links = JSON.parse(action.profile.links)
+    }
+
     switch (action.type) {
         case LOGIN:
             return {

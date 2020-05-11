@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 
 import Head from "../components/User/Head.js"
 import Information from "../components/User/Information.js"
+import Links from "../components/User/Links.js"
 import Biography from "../components/User/Biography.js"
 import Recommendations from "../components/User/Recommendations.js"
 import SubscribeFab from "../components/User/SubscribeFab.js"
@@ -27,7 +28,11 @@ const User = () => {
 
                 <div className="spacer"/>
 
-                <Information data={user}/>
+                <div className="information-links-wrapper">
+                    <Information data={user}/>
+
+                    <Links data={user}/>
+                </div>
 
                 <div className="spacer"/>
 

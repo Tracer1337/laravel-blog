@@ -1,4 +1,3 @@
-* Seed link-inputs serversided / validation because user-input
 * Refactor login / register forms to use react-hook-form library
 * Fix Dialog stylings
 * Search bar
@@ -18,3 +17,5 @@
 * Implement isValid() method for validating files
 * Screen: tags -> Show all blogposts associated with tags
 * Assign user to assets
+* Refresh page buttons
+* Authentication failes when not reloading

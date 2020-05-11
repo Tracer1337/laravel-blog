@@ -302,8 +302,8 @@ class BlogpostController extends Controller
     public function recommend($id, Request $request) {
         $user = $request->user();
 
-        if($user->can("recommend blogposts")) {
-            return reponse(null, 403);
+        if(!$user->can("recommend blogposts")) {
+            return response(null, 403);
         }
 
         $blogpost = Blogpost::findOrFail($id);

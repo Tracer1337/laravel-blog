@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use JWTAuth;
 use App\Http\Resources\User as UserResource;
@@ -28,6 +29,22 @@ class AuthController extends Controller
         foreach($data as $key => $value) {
             if(!in_array($key, $skip_keys)) {
                 $user->{$key} = $value;
+            }
+        }
+
+        if(isset($data["links"])) {
+            $links = json_decode($data["links"]);
+            $available_links = config("app.available_link_keys");
+
+            foreach($links as $key => $url) {
+                if(!in_array($key, $available_links)) {
+                    $message = $key . " is not a valid key";
+                    return response($message, 500);
+                }
+
+                Validator::make(["url" => $url], [
+                    "url" => "required|url"
+                ])->validate();
             }
         }
 

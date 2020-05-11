@@ -101,6 +101,8 @@ export const getUser = id => axios.get(url("user/"+id))
 
 export const getAllUsers = () => axios.get(url("users/all"))
 
+export const getAvailableLinks = () => axios.get(url("users/links"))
+
 export const followUser = id => axios.post(url("user/follow"), {id})
 
 export const unfollowUser = id => axios.post(url("user/unfollow"), {id})

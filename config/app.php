@@ -2,6 +2,8 @@
 
 return [
 
+    "available_link_keys" => ["Github", "Website", "Twitter", "Instagram"],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
