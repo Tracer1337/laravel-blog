@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { useParams } from "react-router-dom"
 
 import Head from "../components/User/Head.js"
@@ -7,40 +7,38 @@ import Biography from "../components/User/Biography.js"
 import Recommendations from "../components/User/Recommendations.js"
 import SubscribeFab from "../components/User/SubscribeFab.js"
 
-import { getUser } from "../config/API.js"
+import useAPIData from "../utils/useAPIData.js"
 
 const User = () => {
     const { id } = useParams()
 
-    const [data, setData] = useState()
-
-    useEffect(() => {
-        getUser(id).then(res => setData(res.data.data))
-    }, [id])
+    const [data] = useAPIData("getUser", id)
 
     if(!data) {
         return <></>
     }
 
+    const user = data.data
+
     return (
         <div className="user-page">
             <main>
-                <Head data={data}/>
+                <Head data={user}/>
 
                 <div className="spacer"/>
 
-                <Information data={data}/>
+                <Information data={user}/>
 
                 <div className="spacer"/>
 
-                <Biography data={data}/>
+                <Biography data={user}/>
 
                 <div className="spacer"/>
             </main>
 
-            {data.recommendations.length > 0 && (
+            {user.recommendations.length > 0 && (
                 <>
-                    <Recommendations data={data} />
+                    <Recommendations data={user} />
 
                     <div className="spacer"/>
                 </>

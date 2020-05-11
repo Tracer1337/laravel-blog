@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useEffect, useRef } from "react"
 import { useParams } from "react-router-dom"
 import Markdown from "react-markdown"
 
@@ -11,8 +11,8 @@ import CommentForm from "../components/Blogpost/CommentForm.js"
 import RelatedPosts from "../components/Blogpost/RelatedPosts.js"
 import Auth from "../components/Auth.js"
 
-import { getBlogpost } from "../config/API.js"
 import useQuery from "../utils/useQuery.js"
+import useAPIData from "../utils/useAPIData.js"
 
 const BlogpostPage = () => {
     const { id } = useParams()
@@ -20,19 +20,7 @@ const BlogpostPage = () => {
     const editComment = useQuery("editComment") === "true"
     const formRef = useRef()
 
-    const [data, setData] = useState()
-
-    const fetchPost = () => {
-        return new Promise(async resolve => {
-            const res = await getBlogpost(id)
-
-            // Reverse comments => Push newest to the top
-            res.data.data.comments.reverse()
-
-            setData(res.data.data)
-            resolve()
-        })
-    }
+    const [data, reload] = useAPIData("getBlogpost", id)
 
     const handleQuery = () => {
         if (commentId && editComment) {
@@ -46,7 +34,6 @@ const BlogpostPage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        fetchPost().then(handleQuery)
     }, [id])
 
     useEffect(handleQuery, [commentId, editComment])
@@ -55,50 +42,52 @@ const BlogpostPage = () => {
         return <></>
     }
 
-    const editCommentObject = data.comments.find(comment => comment.id == commentId)
+    const post = data.data
+
+    const editCommentObject = post.comments.find(comment => comment.id == commentId)
 
     return (
         <>
-            <TopicCrumb data={data.topic} />
+            <TopicCrumb data={post.topic} />
 
             <div className="blogpost-page">
                 <main>
-                    <Head data={data} />
+                    <Head data={post} />
 
                     <hr />
 
-                    <div className="blogpost-title">{data.title}</div>
+                    <div className="blogpost-title">{post.title}</div>
 
                     <div className="content">
-                        <Markdown source={data.content} />
+                        <Markdown source={post.content} />
                     </div>
 
                     <hr />
 
                     <Auth>
-                        <Actions data={data} onAction={fetchPost} id={id} />
+                        <Actions data={post} onAction={reload} id={id} />
                     </Auth>
 
                     <div className="spacer-small"/>
 
-                    <Tags data={data} />
+                    <Tags data={post} />
 
                     <div className="spacer" />
 
-                    <Comments comments={data.comments} onAction={fetchPost} />
+                    <Comments comments={post.comments} onAction={reload} />
 
                     <div className="spacer" />
 
                     <Auth>
-                        <CommentForm blogpostId={id} onSubmit={fetchPost} ref={formRef} edit={editComment} seed={editCommentObject}/>
+                        <CommentForm blogpostId={id} onSubmit={reload} ref={formRef} edit={editComment} seed={editCommentObject}/>
 
                         <div className="spacer" />
                     </Auth>
                 </main>
 
-                {data.relations.length > 0 && (
+                {post.relations.length > 0 && (
                     <>
-                        <RelatedPosts relations={data.relations} />
+                        <RelatedPosts relations={post.relations} />
                         <div className="spacer" />
                     </>
                 )}

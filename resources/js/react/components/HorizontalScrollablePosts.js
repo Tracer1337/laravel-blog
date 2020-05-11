@@ -5,6 +5,8 @@ import Slider from "react-slick"
 
 import BlogpostCard from "./BlogpostCard.js"
 
+import useAPIData from "../utils/useAPIData.js"
+
 const cardWidth = 350
 
 const sliderSettings = {
@@ -16,12 +18,9 @@ const sliderSettings = {
 
 const HorizontalScrollablePosts = (props) => {
     const [posts, setPosts] = useState(props.posts)
-    const slider = useRef()
+    const [data] = props.fetchMethod ? useAPIData(props.fetchMethod) : []
 
-    const fetchPosts = async () => {
-        const res = await props.fetchMethod()
-        setPosts(res.data.data)
-    }
+    const slider = useRef()
 
     const prev = () => {
         slider.current.slickPrev()
@@ -32,18 +31,18 @@ const HorizontalScrollablePosts = (props) => {
     }
 
     useEffect(() => {
-        if(!posts) {
-            fetchPosts()
-        } else if (props.posts) {
+        if (props.posts) {
             setPosts(props.posts)
         }
     }, [props.posts])
 
-    if (!posts) {
+    if ((!props.fetchMethod && !posts) || (props.fetchMethod && !data)) {
         return <></>
     }
 
-    const slidesToShow = posts.length < sliderSettings.slidesToShow ? posts.length : sliderSettings.slidesToShow
+    const renderPosts = props.fetchMethod ? data.data : posts
+
+    const slidesToShow = renderPosts.length < sliderSettings.slidesToShow ? renderPosts.length : sliderSettings.slidesToShow
 
     // Generate responsive breakpoints for slider
     const responsive = []
@@ -71,7 +70,7 @@ const HorizontalScrollablePosts = (props) => {
                 slidesToScroll={slidesToShow}
                 responsive={responsive}
             >
-                {posts.map(post => <BlogpostCard post={post} key={post.id}/>)}
+                {renderPosts.map(post => <BlogpostCard post={post} key={post.id}/>)}
             </Slider>
 
 

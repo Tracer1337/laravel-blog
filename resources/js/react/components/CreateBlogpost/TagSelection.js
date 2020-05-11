@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react"
 import { Controller } from "react-hook-form"
 import Select from "react-select"
 
-import { getAllTags } from "../../config/API.js"
+import useAPIData from "../../utils/useAPIData.js"
 
 const TagSelection = (props) => {
     const defaultValue = useMemo(() => {
@@ -19,21 +19,18 @@ const TagSelection = (props) => {
         return values
     }, [props.defaultValue])
 
-    const [tags, setTags] = useState()
+    const [data] = useAPIData("getAllTags")
+    
+    const tags = data?.data
 
     const tagsOptions = useMemo(() => {
         return tags?.map(({ name, id }) => ({
             label: name,
             value: id
         }))
-    }, [tags])
+    }, [data])
 
-    useEffect(() => {
-        getAllTags()
-            .then(res => setTags(res.data.data))
-    }, [])
-
-    if(!tags) {
+    if(!data) {
         return <></>
     }
 

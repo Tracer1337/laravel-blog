@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
 
-import { getAllTopics } from "../config/API.js"
+import useAPIData from "../utils/useAPIData.js"
 
 const AllTopics = () => {
-    const [topics, setTopics] = useState()
+    const [data] = useAPIData("getAllTopics")
 
-    useEffect(() => {
-        getAllTopics().then(res => setTopics(res.data.data))
-    }, [])
-
-    if(!topics) {
+    if(!data) {
         return <></>
     }
+
+    const topics = data.data
 
     return (
         <section className="all-topics">

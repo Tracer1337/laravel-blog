@@ -1,6 +1,5 @@
 import React from "react"
 
-import { getNewestSubscriptionPosts } from "../config/API.js"
 import HorizontalScrollablePosts from "./HorizontalScrollablePosts.js"
 
 const Subscriptions = () => {
@@ -8,7 +7,7 @@ const Subscriptions = () => {
         <section className="subscriptions">
             <h3 className="title">Subscriptions</h3>
 
-            <HorizontalScrollablePosts fetchMethod={getNewestSubscriptionPosts}/>
+            <HorizontalScrollablePosts fetchMethod="getNewestSubscriptionPosts"/>
         </section>
     )
 }

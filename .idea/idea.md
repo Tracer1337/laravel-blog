@@ -17,5 +17,4 @@
 * Image resizing in markdown
 * Implement isValid() method for validating files
 * Screen: tags -> Show all blogposts associated with tags
-* Store fetched data in redux -> do not make requests twice
 * Assign user to assets

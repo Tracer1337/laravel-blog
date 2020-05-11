@@ -1,8 +1,8 @@
-import React, { useState, useMemo, useEffect } from "react"
+import React, { useMemo } from "react"
 import { Controller } from  "react-hook-form"
 import Select from "react-select"
 
-import { getAllTopics } from "../../config/API.js"
+import useAPIData from "../../utils/useAPIData.js"
 
 const TopicSelection = (props) => {
     const defaultValue = props.defaultValue ? {
@@ -10,21 +10,18 @@ const TopicSelection = (props) => {
         value: props.defaultValue.id
     } : null
 
-    const [topics, setTopics] = useState()
+    const [data] = useAPIData("getAllTopics")
+
+    const topics = data?.data
 
     const topicsOptions = useMemo(() => {
         return topics?.map(({ name, id }) => ({
             label: name,
             value: id
         }))
-    }, [topics])
+    }, [data])
 
-    useEffect(() => {
-        getAllTopics()
-            .then(res => setTopics(res.data.data))
-    }, [])
-
-    if(!topics) {
+    if (!data) {
         return <></>
     }
 

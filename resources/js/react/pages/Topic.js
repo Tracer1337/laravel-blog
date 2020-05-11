@@ -1,23 +1,19 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { useParams } from "react-router-dom"
 
 import Pagination from "../components/Pagination.js"
 import BlogpostCard from "../components/BlogpostCard.js"
 
-import { getTopicBlogposts, getTopic } from "../config/API.js"
+import { getTopicBlogposts } from "../config/API.js"
+import useAPIData from "../utils/useAPIData.js"
 
 const TopicPage = () => {
     const { id } = useParams()
-    const [data, setData] = useState()
-
-    useEffect(() => {
-        getTopic(id)
-            .then(res => setData(res.data.data))
-    }, [id])
+    const [data] = useAPIData("getTopic", id)
 
     return (
         <div className="topic-page">
-            <h3 className="title">{data?.name}</h3>
+            <h3 className="title">{data?.data.name}</h3>
 
             <Pagination 
                 className="paginated-blogposts" 
