@@ -11,6 +11,7 @@ const SearchBar = () => {
     const submit = () => {
         if(value) {
             history.push("/search?query=" + value)
+            setValue("")
         }
     }
 

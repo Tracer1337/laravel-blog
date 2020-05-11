@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react"
+import { Helmet } from "react-helmet"
 import { useParams } from "react-router-dom"
 import Markdown from "react-markdown"
 
@@ -13,6 +14,7 @@ import Auth from "../components/Auth.js"
 
 import useQuery from "../utils/useQuery.js"
 import useAPIData from "../utils/useAPIData.js"
+import pageTitle from "../config/pageTitle.js"
 
 const BlogpostPage = () => {
     const { id } = useParams()
@@ -48,6 +50,11 @@ const BlogpostPage = () => {
 
     return (
         <>
+            <Helmet>
+                <title>{pageTitle(post.title)}</title>
+                <meta name="description" content={post.teaser}/>
+            </Helmet>
+
             <TopicCrumb data={post.topic} />
 
             <div className="blogpost-page">

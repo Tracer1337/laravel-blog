@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Helmet } from "react-helmet"
 import { connect } from "react-redux"
 import MarkdownEditor from "react-simplemde-editor"
 import { useForm, Controller } from "react-hook-form"
@@ -13,6 +14,7 @@ import objectToForm from "../utils/objectToForm.js"
 import { editProfile } from "../config/API.js"
 import { modifyProfile } from "../redux/actions.js"
 import useAPIData from "../utils/useAPIData.js"
+import pageTitle from "../config/pageTitle.js"
 
 const EditProfile = ({ profile, modifyProfile }) => {
     const { register, handleSubmit, control } = useForm()
@@ -46,6 +48,10 @@ const EditProfile = ({ profile, modifyProfile }) => {
 
     return (
         <div className="form-page">
+            <Helmet>
+                <title>{pageTitle("Edit Profile")}</title>
+            </Helmet>
+
             <main>
                 <h3 className="title">Edit Profile</h3>
 

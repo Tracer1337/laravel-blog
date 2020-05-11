@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 import { connect } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { useForm } from "react-hook-form"
@@ -7,6 +8,7 @@ import Dialog from "../components/Dialog/Dialog.js"
 
 import { login as loginAction } from "../redux/actions.js"
 import { login } from "../config/API.js"
+import pageTitle from "../config/pageTitle.js"
 
 const Login = ({ loginAction }) => {
     const history = useHistory()
@@ -25,6 +27,10 @@ const Login = ({ loginAction }) => {
 
     return (
         <div className="form-page">
+            <Helmet>
+                <title>{pageTitle("Login")}</title>
+            </Helmet>
+            
             <main>
 
                 <h3 className="title">Login</h3>

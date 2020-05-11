@@ -1,12 +1,14 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 import { connect } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { useForm } from "react-hook-form"
 
+import Dialog from "../components/Dialog/Dialog.js"
+
 import { login as loginAction } from "../redux/actions.js"
 import { register as APIRegister } from "../config/API.js"
-
-import Dialog from "../components/Dialog/Dialog.js"
+import pageTitle from "../config/pageTitle.js"
 
 const Register = ({ loginAction }) => {
     const history = useHistory()
@@ -25,6 +27,10 @@ const Register = ({ loginAction }) => {
 
     return (
         <div className="form-page">
+            <Helmet>
+                <title>{pageTitle("Register")}</title>
+            </Helmet>
+
             <main>
 
                 <h3 className="title">Register</h3>

@@ -1,4 +1,5 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 import { useParams } from "react-router-dom"
 
 import Head from "../components/User/Head.js"
@@ -9,6 +10,7 @@ import Recommendations from "../components/User/Recommendations.js"
 import SubscribeFab from "../components/User/SubscribeFab.js"
 
 import useAPIData from "../utils/useAPIData.js"
+import pageTitle from "../config/pageTitle.js"
 
 const User = () => {
     const { id } = useParams()
@@ -23,6 +25,11 @@ const User = () => {
 
     return (
         <div className="user-page">
+            <Helmet>
+                <title>{pageTitle(user.username)}</title>
+                <meta name="description" content={user.biography}/>
+            </Helmet>
+            
             <main>
                 <Head data={user}/>
 

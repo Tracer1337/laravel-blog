@@ -1,9 +1,11 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 
 import Form from "../components/CreateBlogpost/Form.js"
 
 import useQuery from "../utils/useQuery.js"
 import useAPIData from "../utils/useAPIData.js"
+import pageTitle from "../config/pageTitle.js"
 
 const CreateBlogpost = () => {
     const post_id = useQuery("post_id")
@@ -18,6 +20,10 @@ const CreateBlogpost = () => {
 
     return (
         <div className="form-page">
+            <Helmet>
+                <title>{pageTitle("Create Post")}</title>
+            </Helmet>
+
             <main>
                 <h3 className="title">Create Post</h3>
 

@@ -1,10 +1,12 @@
 import React from "react"
+import { Helmet } from "react-helmet"
 import { Link } from "react-router-dom"
 
 import Pagination from "../components/Pagination.js"
 import Date from "../components/Date.js"
 
 import { getProfileComments } from "../config/API.js"
+import pageTitle from "../config/pageTitle.js"
 
 const Comment = ({ data }) => {
     return (
@@ -23,6 +25,10 @@ const Comment = ({ data }) => {
 
 const ProfileComments = () => (
     <main className="profile-comments-page">
+        <Helmet>
+            <title>{pageTitle("My Comments")}</title>
+        </Helmet>
+
         <h3 className="title">My Comments</h3>
 
         <Pagination
