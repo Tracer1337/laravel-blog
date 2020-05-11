@@ -1,18 +1,21 @@
 import React from "react"
 import { connect } from "react-redux"
 import { useHistory } from "react-router-dom"
+import { useForm } from "react-hook-form"
+
+import Dialog from "../components/Dialog/Dialog.js"
 
 import { login as loginAction } from "../redux/actions.js"
 import { login } from "../config/API.js"
 
-import Dialog from "../components/Dialog/Dialog.js"
-
 const Login = ({ loginAction }) => {
     const history = useHistory()
 
-    const handleSubmit = fields => {
+    const { register, handleSubmit } = useForm()
+
+    const onSubmit = fields => {
         login(fields)
-            .then((profile) => {
+            .then(profile => {
                 loginAction(profile)
                 history.push("/")
             }).catch(() => {
@@ -21,19 +24,27 @@ const Login = ({ loginAction }) => {
     }
 
     return (
-        <main className="screen-center">
-            
-            <div className="card">
-                <h3>Login</h3>
+        <div className="form-page">
+            <main>
 
-                <form onSubmit={event => event.preventDefault()}>
-                    {React.createElement(Dialog.forms.login, {
-                        onSubmit: handleSubmit
-                    })}
+                <h3 className="title">Login</h3>
+
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <label>E-Mail</label>
+                        <input type="text" name="email" placeholder="E-Mail" className="input" ref={register()}/>
+                    </div>
+
+                    <div>
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Password" className="input" ref={register()}/>
+                    </div>
+
+                    <button type="submit">Login</button>
                 </form>
-            </div>
 
-        </main>
+            </main> 
+        </div>
     )
 }
 

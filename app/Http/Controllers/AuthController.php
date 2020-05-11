@@ -24,7 +24,7 @@ class AuthController extends Controller
     }
 
     private function store($data, User $user) {
-        $skip_keys = ["avatar"];
+        $skip_keys = ["avatar", "password"];
 
         foreach($data as $key => $value) {
             if(!in_array($key, $skip_keys)) {
@@ -66,36 +66,32 @@ class AuthController extends Controller
             "last_name" => "nullable|alpha",
             "username" => "required|unique:users",
             "email" => "required|email|unique:users",
-            "password" => "required",
-            "biography" => "nullable",
-            "links" => "nullable|JSON",
-            "avatar" => "nullable|image|dimensions:max_width:512,max_height=512,ration=1"
+            "password" => "required"
         ]);
 
         $user = new User;
 
         $user->password = Hash::make($validated_data["password"]);
-        $user->email = $request->email;
 
         $user_role = Role::findByName("user");
         $user->assignRole($user_role);
 
-        if($this->store($validated_data, $user)) {
-            $token = JWTAuth::attempt([
-                "email" => $validated_data["email"],
-                "password" => $validated_data["password"]
-            ]);
+        $this->store($validated_data, $user);
 
-            if(!$token) {
-                return response(null, 500);
-            }
-            
-            $user->role = $user->roles()->first()->name;
+        $token = JWTAuth::attempt([
+            "email" => $validated_data["email"],
+            "password" => $validated_data["password"]
+        ]);
 
-            return $this->withToken($token, [
-                "profile" => new UserResource($user)
-            ]);
+        if(!$token) {
+            return response(null, 500);
         }
+        
+        $user->role = $user->roles()->first()->name;
+
+        return $this->withToken($token, [
+            "profile" => new UserResource($user)
+        ]);
     }
 
     public function login(Request $request){

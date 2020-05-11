@@ -1,4 +1,3 @@
-* Refactor login / register forms to use react-hook-form library
 * Fix Dialog stylings
 * Search bar
 * Google Analytics => Admin Panel

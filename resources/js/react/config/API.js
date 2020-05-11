@@ -1,3 +1,20 @@
+import store from "../redux/store.js"
+
+const setToken = () => window.axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("JWTToken")
+
+// Refresh token when logged in as new user
+const getProfileId = store => store.auth.profile?.id
+
+let currentValue
+store.subscribe(() => {
+    let previousValue = currentValue
+    currentValue = getProfileId(store.getState())
+
+    if(previousValue !== currentValue) {
+        setToken()
+    }
+})
+
 const url = path => `${window.location.origin}/api/${path}`
 const paginated = (path, pageNr) => `${path}?page=${pageNr}`
 
@@ -7,35 +24,24 @@ const putFormData = formData => {
 }
 
 // Auth
-export const register = formData => {
-    return new Promise((resolve, reject) => {
-        axios.post(url("auth/register"), formData, {
-            headers: {
-                "Content-Type": "multipart/form-data"
-            }
+const authorize = post_url => {
+    return args => {
+        return new Promise((resolve, reject) => {
+            axios.post(url(post_url), args)
+                .then(res => {
+                    localStorage.setItem("JWTToken", res.data.access_token)
+                    resolve(res.data.profile)
+                })
+                .catch(() => {
+                    reject()
+                })
         })
-        .then(res => {
-            localStorage.setItem("JWTToken", res.data.access_token)
-            resolve(res.data.profile)
-        })
-        .catch(() => {
-            reject()
-        })
-    })
+    }
 }
+ 
+export const register = authorize("auth/register")
 
-export const login = args => {
-    return new Promise((resolve, reject) => {
-        axios.post(url("auth/login"), args)
-            .then(res => {
-                localStorage.setItem("JWTToken", res.data.access_token)
-                resolve(res.data.profile)
-            })
-            .catch(() => {
-                reject()
-            })
-    })
-}
+export const login = authorize("auth/login")
 
 export const logout = () => {
     axios.post(url("auth/logout"))

@@ -1,20 +1,20 @@
 import React from "react"
 import { connect } from "react-redux"
 import { useHistory } from "react-router-dom"
+import { useForm } from "react-hook-form"
 
 import { login as loginAction } from "../redux/actions.js"
-import { register } from "../config/API.js"
-import objectToForm from "../utils/objectToForm.js"
+import { register as APIRegister } from "../config/API.js"
 
 import Dialog from "../components/Dialog/Dialog.js"
 
 const Register = ({ loginAction }) => {
     const history = useHistory()
 
-    const handleSubmit = fields => {
-        const formData = objectToForm(fields)
+    const { register, handleSubmit } = useForm()
 
-        register(formData)
+    const onSubmit = fields => {
+        APIRegister(fields)
             .then(profile => {
                 loginAction(profile)
                 history.push("/")
@@ -24,19 +24,42 @@ const Register = ({ loginAction }) => {
     }
 
     return (
-        <main className="screen-center">
+        <div className="form-page">
+            <main>
 
-            <div className="card">
-                <h3>Register</h3>
+                <h3 className="title">Register</h3>
 
-                <form onSubmit={event => event.preventDefault()}>
-                    {React.createElement(Dialog.forms.register, {
-                        onSubmit: handleSubmit
-                    })}
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <label>First Name</label>
+                        <input type="text" name="first_name" placeholder="First Name" className="input" ref={register}/>
+                    </div>
+
+                    <div>
+                        <label>Last Name</label>
+                        <input type="text" name="last_name" placeholder="Last Name" className="input" ref={register}/>
+                    </div>
+
+                    <div>
+                        <label>Username</label>
+                        <input type="text" name="username" placeholder="Username" className="input" ref={register}/>
+                    </div>
+
+                    <div>
+                        <label>E-Mail</label>
+                        <input type="text" name="email" placeholder="E-Mail" className="input" ref={register}/>
+                    </div>
+
+                    <div>
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Password" className="input" ref={register}/>
+                    </div>
+
+                    <button type="submit">Register</button>
                 </form>
-            </div>
 
-        </main>
+            </main>
+        </div>
     )
 }
 
