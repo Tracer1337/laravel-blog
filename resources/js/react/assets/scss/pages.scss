@@ -249,6 +249,10 @@
             }
         }
     }
+
+    .blogpost-tags span:first-child{
+        margin-right: $spacing-small;
+    }
 }
 
 .admin-panel {

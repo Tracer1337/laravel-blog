@@ -20,7 +20,7 @@ const Head = ({ data, profile }) => (
         </div>
 
         {profile?.id === data.user_id && (
-            <Link to={"/create-post/?post_id=" + data.id} className="edit-blogpost-link">
+            <Link to={"/create-post?post_id=" + data.id} className="edit-blogpost-link">
                 <EditIcon className="icon"/>
                 <span>Edit this post</span>
             </Link>

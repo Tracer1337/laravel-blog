@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom"
 import Logo from "../Logo.js"
 import Avatar from "../Avatar.js"
 import Menu from "./Menu.js"
+import SearchBar from "../SearchBar.js"
 
 import { logout } from "../../redux/actions.js"
 
@@ -40,7 +41,10 @@ const Header = ({ isLoggedIn, profile, logout }) => {
 
     return (
         <header className="header">
-            <Logo/>
+            <div className="left">
+                <Logo/>
+                <SearchBar/>
+            </div>
 
             {
                 !isLoggedIn ? (

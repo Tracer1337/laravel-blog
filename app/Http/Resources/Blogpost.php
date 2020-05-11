@@ -13,8 +13,11 @@ class Blogpost extends JsonResource
      * @return array
      */
     public function toArray($request) {
+        $user = $this->user;
+        $user->makeHidden("biography");
+
         $array = array_merge(parent::toArray($request), [
-            "user" => $this->user,
+            "user" => $user,
             "topic" => $this->topic,
             "tags" => $this->tags,
             "likesCount" => $this->likes->count(),

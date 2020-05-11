@@ -1,23 +1,24 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 import * as APIMethods from "../config/API.js"
 import useCachedData from "./useCachedData.js"
 
-function useAPIData(method, ...args) {
-    const key = `${method}.${args.join(".")}`
+function useAPIData(method, args = [], cache = true) {
+    let key = method
+    args.forEach(value => key += "." + value)
 
-    const [data, setCachedData] = useCachedData(key)
+    const [data, setData] = cache ? useCachedData(key) : useState()
 
     const fetchData = () => {
         return new Promise(async resolve => {
             const res = await APIMethods[method].apply(null, args)
             resolve(res.data)
-            setCachedData(res.data)
+            setData(res.data)
         })
     }
 
     useEffect(() => {
-        if(!data) {
+        if((cache && !data) || !cache) {
             fetchData()
         }
     }, [method, ...args])

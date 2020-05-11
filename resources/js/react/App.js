@@ -13,6 +13,7 @@ import CreateBlogpost from "./pages/CreateBlogpost.js"
 import ProfileBlogposts from "./pages/ProfileBlogposts.js"
 import AdminPanel from "./pages/AdminPanel.js"
 import Topic from "./pages/Topic.js"
+import Search from "./pages/Search.js"
 
 import Layout from "./components/Layout/Layout.js"
 
@@ -71,6 +72,10 @@ const App = ({ login }) => {
                             <ProtectedRoute path="/user/:id">
                                 <User/>
                             </ProtectedRoute>
+
+                            <Route path="/search">
+                                <Search/>
+                            </Route>
 
                             <Route path="/topic/:id">
                                 <Topic/>

@@ -8,7 +8,7 @@ import useAPIData from "../utils/useAPIData.js"
 const CreateBlogpost = () => {
     const post_id = useQuery("post_id")
 
-    const [data, reload] = post_id ? useAPIData("getBlogpost", post_id) : []
+    const [data, reload] = useAPIData("getBlogpost", [post_id])
 
     if (post_id && !data) {
         return <></>

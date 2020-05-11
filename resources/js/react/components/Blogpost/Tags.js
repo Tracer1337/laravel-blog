@@ -1,18 +1,13 @@
 import React from "react"
-import { Link } from "react-router-dom"
 
-const Tags = ({ data }) => (
-    <div className="tags">
+import Tags from "../Tags.js"
+
+const TagsSection = ({ data }) => (
+    <div className="blogpost-tags">
         <span>Tags:</span>
 
-        {data.tags.map(({ id, name }) => (
-            <span className="tag" key={id}>
-                <Link to={"/tags/" + id}>
-                    {name}
-                </Link>
-            </span>
-        ))}
+        <Tags data={data.tags}/>
     </div>
 )
 
-export default Tags
+export default TagsSection

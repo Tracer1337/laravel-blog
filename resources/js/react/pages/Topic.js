@@ -9,7 +9,7 @@ import useAPIData from "../utils/useAPIData.js"
 
 const TopicPage = () => {
     const { id } = useParams()
-    const [data] = useAPIData("getTopic", id)
+    const [data] = useAPIData("getTopic", [id])
 
     return (
         <div className="topic-page">

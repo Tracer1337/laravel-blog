@@ -42,6 +42,10 @@ const HorizontalScrollablePosts = (props) => {
 
     const renderPosts = props.fetchMethod ? data.data : posts
 
+    if(!renderPosts.length) {
+        return null
+    }
+
     const slidesToShow = renderPosts.length < sliderSettings.slidesToShow ? renderPosts.length : sliderSettings.slidesToShow
 
     // Generate responsive breakpoints for slider

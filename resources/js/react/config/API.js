@@ -133,3 +133,6 @@ export const getProfileBlogposts = pageNr => axios.get(paginated(url("profile/bl
 export const getProfileComments = pageNr => axios.get(paginated(url("profile/comments"), pageNr))
 
 export const getNewestSubscriptionPosts = () => axios.get(url("profile/subscriptions"))
+
+// Search
+export const getSearchResults = query => axios.get(url("search?query=" + query))

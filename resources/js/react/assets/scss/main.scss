@@ -36,6 +36,7 @@ body {
 
 section {
     padding: 0 $spacing-normal;
+    margin-bottom: $spacing-normal;
 }
 
 .title {
@@ -93,6 +94,10 @@ input, textarea {
         @include text;
         font-size: $font-size-extra-small;
         color: $color-light;
+    }
+
+    &:focus {
+        outline: none;
     }
 }
 

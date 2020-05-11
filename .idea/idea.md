@@ -1,6 +1,5 @@
 * Search bar
 * Google Analytics => Admin Panel
-* Async select box => Check if it fetches everytime because caching is deactive when devtools open
 * Fix biography = "null" sometimes after editing profile => Fix form values = null
 * SEO => React Helmet
 * Assign roles in admin panel
@@ -19,3 +18,4 @@
 * Authentication failes when not reloading
 * Remove material ui dependency
 * Generalize some stylings (Border)
+* Responsive Design

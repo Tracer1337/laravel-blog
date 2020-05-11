@@ -13,7 +13,7 @@ import useAPIData from "../utils/useAPIData.js"
 const User = () => {
     const { id } = useParams()
 
-    const [data] = useAPIData("getUser", id)
+    const [data] = useAPIData("getUser", [id])
 
     if(!data) {
         return <></>

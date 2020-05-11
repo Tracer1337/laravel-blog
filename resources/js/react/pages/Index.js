@@ -10,16 +10,10 @@ const Index = () => {
         <>
             <NewestPosts/>
 
-            <div className="spacer"/>
-
             <AllTopics/>
-
-            <div className="spacer"/>
 
             <Auth>
                 <Subscriptions/>
-
-                <div className="spacer"/>
             </Auth>
         </>
     )
