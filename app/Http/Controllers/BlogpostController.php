@@ -218,9 +218,14 @@ class BlogpostController extends Controller
         
         // Get posts with one of requested posts tags
         $tags = $blogpost->tags()->select("tags.id")->get();
-        $related_posts = Blogpost::whereHas("tags", function(Builder $query) use ($tags) {
-            $query->whereIn("tags.id", $tags);
-        })->limit(5)->get();
+        $related_posts = Blogpost::whereNotNull("published_at")
+                            ->where("id", "!=", $blogpost->id)
+                            ->whereHas("tags", function(Builder $query) use ($tags) {
+                                $query->whereIn("tags.id", $tags);
+                            })
+                            ->orderBy("published_at", "DESC")
+                            ->limit(5)
+                            ->get();
 
         $related_posts->makeHidden(["content"]);
 
