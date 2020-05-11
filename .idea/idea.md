@@ -1,6 +1,4 @@
-* Search bar
 * Google Analytics => Admin Panel
-* Fix biography = "null" sometimes after editing profile => Fix form values = null
 * SEO => React Helmet
 * Assign roles in admin panel
 * Change fragments during data fetching to spinner / loaders

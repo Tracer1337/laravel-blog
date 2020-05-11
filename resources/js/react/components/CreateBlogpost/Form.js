@@ -33,6 +33,13 @@ const Form = ({ postId, editData, reload }) => {
         values.topic_id = values.topic_id?.value || editData?.topic_id
         values.tag_ids = values.tag_ids?.map(selection => selection.value)
 
+        // Remove null values
+        for(let key in values) {
+            if(values[key] === null) {
+                values[key] = undefined
+            }
+        }
+
         return objectToForm(values)
     }
     
