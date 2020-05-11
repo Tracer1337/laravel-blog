@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Webpatser\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\File\File;
 use App\Asset;
+use Illuminate\Database\Eloquent\Builder;
 
 function same_files($file_a, $file_b) {
     return filesize($file_a) == filesize($file_b) && md5_file($file_a) == md5_file($file_b);
@@ -214,16 +215,18 @@ class BlogpostController extends Controller
         $blogpost = Blogpost::findOrFail($id);
 
         $relations = [];
-        $related_topics = $blogpost->topic->relations()->get();
         
-        foreach($related_topics as $topic) {
-            $blogposts = $topic->blogposts()->limit(5)->get();
-            $blogposts->makeHidden(["content"]);
+        // Get posts with one of requested posts tags
+        $tags = $blogpost->tags()->select("tags.id")->get();
+        $related_posts = Blogpost::whereHas("tags", function(Builder $query) use ($tags) {
+            $query->whereIn("tags.id", $tags);
+        })->limit(5)->get();
 
-            foreach($blogposts as $related_post) {
-                $resource = new BlogpostResource($related_post);
-                array_push($relations, $resource);
-            }
+        $related_posts->makeHidden(["content"]);
+
+        foreach($related_posts as $related_post) {
+            $resource = new BlogpostResource($related_post);
+            array_push($relations, $resource);
         }
 
         $blogpost->relations = $relations;
