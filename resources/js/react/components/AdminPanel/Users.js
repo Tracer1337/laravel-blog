@@ -4,6 +4,7 @@ import DeleteIcon from "@material-ui/icons/Delete"
 
 import Dialog from "../Dialog/Dialog.js"
 import Date from "../Date.js"
+import LoadingIndicator from "../LoadingIndicator.js"
 
 import { deleteUser, assignRole } from "../../config/API.js"
 import useAPIData from "../../utils/useAPIData.js"
@@ -30,7 +31,7 @@ const Users = () => {
     }
 
     if (!data) {
-        return <></>
+        return <LoadingIndicator center/>
     }
 
     return (

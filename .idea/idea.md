@@ -1,5 +1,4 @@
 * Google Analytics => Admin Panel
-* Change fragments during data fetching to spinner / loaders
 * If cover ration is not 4:3, fill borders with gradients according to colors on image
 * Loading skeleton
 * Ask user if he wants to stay logged in

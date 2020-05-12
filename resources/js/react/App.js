@@ -16,6 +16,7 @@ import Topic from "./pages/Topic.js"
 import Search from "./pages/Search.js"
 
 import Layout from "./components/Layout/Layout.js"
+import LoadingIndicator from "./components/LoadingIndicator.js"
 
 import { login } from "./redux/actions.js"
 import { getProfile } from "./config/API.js"
@@ -44,9 +45,7 @@ const App = ({ login }) => {
             <div className="app">
                 <Layout>
                     {isLoading ? (
-                        <main className="screen-center">
-                            Loading...
-                        </main>
+                        <LoadingIndicator center/>
                     ) : (
                         <Switch>
                             <ProtectedRoute path="/admin" role="admin">

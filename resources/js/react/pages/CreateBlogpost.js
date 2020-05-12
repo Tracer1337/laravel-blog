@@ -2,6 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 
 import Form from "../components/CreateBlogpost/Form.js"
+import LoadingIndicator from "../components/LoadingIndicator.js"
 
 import useQuery from "../utils/useQuery.js"
 import useAPIData from "../utils/useAPIData.js"
@@ -13,7 +14,7 @@ const CreateBlogpost = () => {
     const [data, reload] = useAPIData("getBlogpost", [post_id])
 
     if (post_id && !data) {
-        return <></>
+        return <LoadingIndicator center/>
     }
 
     const editData = data?.data

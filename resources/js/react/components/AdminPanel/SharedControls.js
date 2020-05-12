@@ -4,6 +4,7 @@ import DeleteIcon from "@material-ui/icons/Delete"
 import AddIcon from "@material-ui/icons/Add"
 
 import Dialog from "../Dialog/Dialog.js"
+import LoadingIndicator from "../LoadingIndicator.js"
 
 import * as APIMethods from "../../config/API.js"
 import getAPIData from "../../utils/useAPIData.js"
@@ -34,7 +35,7 @@ const SharedControls = ({ methods, label, generateLink }) => {
     }
 
     if (!data) {
-        return <></>
+        return <LoadingIndicator center/>
     }
 
     return (

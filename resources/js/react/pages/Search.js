@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet"
 import HorizontalScrollablePosts from "../components/HorizontalScrollablePosts.js"
 import Topics from "../components/Topics.js"
 import Tags from "../components/Tags.js"
+import LoadingIndicator from "../components/LoadingIndicator.js"
 
 import useQuery from "../utils/useQuery.js"
 import useAPIData from "../utils/useAPIData.js"
@@ -12,6 +13,10 @@ import pageTitle from "../config/pageTitle.js"
 const SearchPage = () => {
     const query = useQuery("query")
     const [data] = useAPIData("getSearchResults", [query], false)
+
+    if(!data) {
+        return <LoadingIndicator center/>
+    }
 
     return (
         <div className="search-page">

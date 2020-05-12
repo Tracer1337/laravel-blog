@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { Pagination as MuiPagination } from "@material-ui/lab"
 
+import LoadingIndicator from "./LoadingIndicator.js"
+
 const Pagination = ({ fetchMethod, renderChildren, className }) => {
     const [data, setData] = useState()
     const [pageNr, setPageNr] = useState(1)
@@ -22,7 +24,7 @@ const Pagination = ({ fetchMethod, renderChildren, className }) => {
     }, [pageNr, fetchMethod])
 
     if(!data) {
-        return <></>
+        return <LoadingIndicator center/>
     }
     
     return (

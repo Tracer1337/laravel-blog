@@ -10,6 +10,7 @@ import "easymde/dist/easymde.min.css"
 
 import FileInput from "../components/FileInput.js"
 import Auth from "../components/Auth.js"
+import LoadingIndicator from "../components/LoadingIndicator.js"
 
 import objectToForm from "../utils/objectToForm.js"
 import { editProfile } from "../config/API.js"
@@ -72,7 +73,7 @@ const EditProfile = ({ profile, modifyProfile }) => {
                     </Auth>
 
                     <div className="links">
-                        {availableLinks && availableLinks.map((name, i) => (
+                        {!availableLinks ? <LoadingIndicator/> : availableLinks.map((name, i) => (
                             <input type="text" name={name} defaultValue={profile.links?.[name]} placeholder={name} ref={register()} key={i}/>
                         ))}
                     </div>

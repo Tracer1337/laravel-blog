@@ -11,6 +11,7 @@ import Comments from "../components/Blogpost/Comments.js"
 import CommentForm from "../components/Blogpost/CommentForm.js"
 import RelatedPosts from "../components/Blogpost/RelatedPosts.js"
 import Auth from "../components/Auth.js"
+import LoadingIndicator from "../components/LoadingIndicator.js"
 
 import useQuery from "../utils/useQuery.js"
 import useAPIData from "../utils/useAPIData.js"
@@ -41,7 +42,7 @@ const BlogpostPage = () => {
     useEffect(handleQuery, [commentId, editComment])
 
     if (!data) {
-        return <></>
+        return <LoadingIndicator center/>
     }
 
     const post = data.data

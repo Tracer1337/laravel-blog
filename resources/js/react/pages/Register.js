@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom"
 import { useForm } from "react-hook-form"
 
 import Dialog from "../components/Dialog/Dialog.js"
+import LoadingIndicator from "../components/LoadingIndicator.js"
 
 import { login as loginAction } from "../redux/actions.js"
 import { register as APIRegister } from "../config/API.js"
@@ -15,7 +16,10 @@ const Register = ({ loginAction }) => {
 
     const { register, handleSubmit } = useForm()
 
+    const [isLoading, setIsLoading] = useState(false)
+
     const onSubmit = fields => {
+        setIsLoading(true)
         APIRegister(fields)
             .then(profile => {
                 loginAction(profile)
@@ -23,6 +27,11 @@ const Register = ({ loginAction }) => {
             }).catch(() => {
                 Dialog.error("Registration failed")
             })
+            .finally(() => setIsLoading(false))
+    }
+
+    if(isLoading) {
+        return <LoadingIndicator/>
     }
 
     return (
