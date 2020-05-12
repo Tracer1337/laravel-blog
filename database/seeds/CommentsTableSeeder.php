@@ -19,9 +19,11 @@ class CommentsTableSeeder extends Seeder
 
         $admin = User::where("username", "admin")->first();
         for($i = 0; $i < 53; $i++) {
+            $blogpost = App\Blogpost::all()->random();
+
             $comment = new Comment;
             $comment->user_id = $admin->id;
-            $comment->blogpost_id = $i % 2 + 1;
+            $comment->blogpost_id = $blogpost->id;
             $comment->content = $faker->text;
             $comment->save();
         }

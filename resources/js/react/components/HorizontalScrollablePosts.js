@@ -4,6 +4,7 @@ import ChevronLeft from "@material-ui/icons/ChevronLeft"
 import Slider from "react-slick"
 
 import BlogpostCard from "./BlogpostCard.js"
+import LoadingIndicator from "./LoadingIndicator.js"
 
 import useAPIData from "../utils/useAPIData.js"
 
@@ -37,7 +38,7 @@ const HorizontalScrollablePosts = (props) => {
     }, [props.posts])
 
     if ((!props.fetchMethod && !posts) || (props.fetchMethod && !data)) {
-        return <></>
+        return <LoadingIndicator/>
     }
 
     const renderPosts = props.fetchMethod ? data.data : posts

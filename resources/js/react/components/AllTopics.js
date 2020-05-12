@@ -1,6 +1,7 @@
 import React from "react"
 
 import Topics from "./Topics.js"
+import LoadingIndicator from "./LoadingIndicator.js"
 
 import useAPIData from "../utils/useAPIData.js"
 
@@ -8,7 +9,7 @@ const AllTopics = () => {
     const [data] = useAPIData("getAllTopics")
 
     if(!data) {
-        return <></>
+        return <LoadingIndicator/>
     }
 
     return (

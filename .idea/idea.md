@@ -16,3 +16,4 @@
 * Responsive Design
 * Add statistics to admin panel (How many posts per topic / tag etc.)
 * Show likes and recommendations on MyBlogposts page
+* Add Legal Disclosure / Privacy / Contact
