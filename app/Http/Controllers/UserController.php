@@ -50,6 +50,10 @@ class UserController extends Controller
 
         $users = User::all();
 
+        foreach($users as $user) {
+            $user->role = $user->roles()->first();
+        }
+
         return UserResource::collection($users);
     }
 
@@ -138,8 +142,14 @@ class UserController extends Controller
             return response(null, 403);
         }
 
+        // Prevent changing own role
+        if($request->user()->id == $request->user_id) {
+            return response(null, 403);
+        }
+        
         $user = User::findOrFail($request->user_id);
         $role = Role::findOrFail($request->role_id);
+        
         $user->syncRoles($role);
     }
 

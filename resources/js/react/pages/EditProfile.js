@@ -9,6 +9,7 @@ import SaveIcon from "@material-ui/icons/Save"
 import "easymde/dist/easymde.min.css"
 
 import FileInput from "../components/FileInput.js"
+import Auth from "../components/Auth.js"
 
 import objectToForm from "../utils/objectToForm.js"
 import { editProfile } from "../config/API.js"
@@ -66,7 +67,9 @@ const EditProfile = ({ profile, modifyProfile }) => {
                         <Controller as={MarkdownEditor} name="biography" className="markdown-editor" control={control} defaultValue={profile.biography}/>
                     </div>
 
-                    <FileInput label="Upload Avatar" icon={AddAPhotoIcon} onChange={handleAvatarChange} accept="image/*"/>
+                    <Auth role={["author"]}>
+                        <FileInput label="Upload Avatar" icon={AddAPhotoIcon} onChange={handleAvatarChange} accept="image/*"/>
+                    </Auth>
 
                     <div className="links">
                         {availableLinks && availableLinks.map((name, i) => (

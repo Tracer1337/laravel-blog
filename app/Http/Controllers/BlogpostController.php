@@ -96,7 +96,7 @@ class BlogpostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $blogposts = Blogpost::whereNotNull("published_at")->orderBy("published_at", "desc")->limit(20)->get();
+        $blogposts = Blogpost::whereNotNull("published_at")->orderBy("published_at", "DESC")->limit(20)->get();
         $blogposts->makeHidden(["content"]);
 
         return BlogpostResource::collection($blogposts);
@@ -107,7 +107,7 @@ class BlogpostController extends Controller
             return response(null, 403);
         }
 
-        $blogposts = Blogpost::all();
+        $blogposts = Blogpost::orderBy("published_at", "DESC")->Paginate(50);
         $blogposts->makeHidden("content");
 
         return BlogpostResource::collection($blogposts);

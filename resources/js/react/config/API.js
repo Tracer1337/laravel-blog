@@ -53,7 +53,7 @@ export const logout = () => {
 // Blogposts
 export const getNewestBlogposts = () => axios.get(url("blogposts"))
 
-export const getAllBlogposts = () => axios.get(url("blogposts/all"))
+export const getAllBlogposts = pageNr => axios.get(paginated(url("blogposts/all"), pageNr))
 
 export const getBlogpost = id => axios.get(url("blogpost/"+id))
 
@@ -136,3 +136,8 @@ export const getNewestSubscriptionPosts = () => axios.get(url("profile/subscript
 
 // Search
 export const getSearchResults = query => axios.get(url("search?query=" + query))
+
+// Roles
+export const getRoles = () => axios.get(url("roles"))
+
+export const assignRole = args => axios.post(url("roles/user"), args)

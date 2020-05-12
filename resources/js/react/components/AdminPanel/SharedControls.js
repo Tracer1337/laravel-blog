@@ -1,45 +1,61 @@
-import React from "react"
+import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import DeleteIcon from "@material-ui/icons/Delete"
+import AddIcon from "@material-ui/icons/Add"
 
-import AddField from "../AddField.js"
-import Dropdown from "../Dropdown.js"
-import CustomOption from "../CustomOption.js"
+import Dialog from "../Dialog/Dialog.js"
 
-const Single = ({ methods, label, routePrefix, labelKey }) => (
-    <div className="control">
-        <Dropdown
-            getMethod={methods.getAll}
-            labelKey={labelKey}
-            placeholder={"All " + label}
-            cacheOptions
-            Option={props => (
-                <CustomOption
-                    methods={methods}
-                    linkTo={routePrefix + props.data.value}
-                    {...props}
-                />
-            )}
-        />
-    </div>
-)
+import * as APIMethods from "../../config/API.js"
+import getAPIData from "../../utils/useAPIData.js"
 
-const Multi = ({ methods, label }) => {
+const SharedControls = ({ methods, label, generateLink }) => {
+    const [data, refresh] = getAPIData(methods.get)
+
+    const [addValue, setAddValue] = useState("")
+
+    const handleRemove = async (name, id) => {
+        const shouldRemove = await Dialog.verify(`"${name}" will be deleted`)
+        if (shouldRemove) {
+            APIMethods[methods.delete](id).then(refresh)
+        }
+    }
+
+    const handleAddChange = event => {
+        setAddValue(event.target.value)
+    }
+
+    const handleAdd = () => {
+        const args = { name: addValue }
+        APIMethods[methods.add](args)
+            .then(() => {
+                setAddValue("")
+                refresh()
+            })
+    }
+
+    if (!data) {
+        return <></>
+    }
+
     return (
-        <div className="control melt-inputs">
-            <AddField submitTo={methods.add} placeholder={label + " ..."} />
+        <div>
+            <div className="card">
+                <input type="text" value={addValue} onChange={handleAddChange} placeholder={"Add " + label} />
+                <AddIcon className="icon" onClick={handleAdd} />
+            </div>
 
-            <Dropdown 
-                getMethod={methods.getAll}
-                labelKey="name"
-                placeholder={"All "+label}
-                Option={props => (
-                    <CustomOption methods={methods} {...props}/>
-                )}
-            />
+            <hr/>
+
+            {data.data.map(({ name, id }) => (
+                <div className="card" key={id}>
+                    <Link to={generateLink(id)} className="wrapper-link">
+                        <div>{name}</div>
+                    </Link>
+
+                    <DeleteIcon className="icon" onClick={handleRemove.bind(null, name, id)} />
+                </div>
+            ))}
         </div>
     )
 }
-
-export {
-    Single,
-    Multi
-}
+export default SharedControls

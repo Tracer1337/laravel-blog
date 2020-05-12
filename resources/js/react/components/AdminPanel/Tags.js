@@ -1,18 +1,19 @@
 import React from "react"
 
-import { Multi } from "./SharedControls.js"
+import SharedControls from "./SharedControls.js"
 
-import { getAllTags, addTag, deleteTag } from "../../config/API.js"
+const Tags = () => {
+    return (
+        <SharedControls
+            label="Tag"
+            generateLink={id => "/tag/" + id}
+            methods={{
+                get: "getAllTags",
+                add: "addTag",
+                delete: "deleteTag"
+            }}
+        />
+    )
+}
 
-const Topics = () => (
-    <Multi
-        label="Tags"
-        methods={{
-            getAll: getAllTags,
-            add: addTag,
-            delete: deleteTag
-        }}
-    />
-)
-
-export default Topics
+export default Tags

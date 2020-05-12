@@ -93,7 +93,7 @@ const App = ({ login }) => {
                                 <Login/>
                             </Route>
 
-                            <Route path="/">
+                            <Route exact path="/">
                                 <Index/>
                             </Route>
                         </Switch>

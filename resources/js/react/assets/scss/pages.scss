@@ -257,7 +257,7 @@
 
 .admin-panel {
     .title {
-        text-align: center;
+        margin-left: $spacing-small;
     }
 
     .select__option {
@@ -286,8 +286,43 @@
         }
     }
 
-    .control {
-        margin-bottom: $spacing-small;
+    .body {
+        display: flex;
+        margin-right: $spacing-large;
+
+        aside {
+            width: 300px;
+            margin-right: $spacing-normal;
+            
+            a {
+                text-decoration: none;
+
+                div {
+                    padding: $spacing-extra-small * 2 $spacing-small;
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.1);
+                    }
+                }
+            }
+        }
+
+        .content {
+            flex-grow: 1;
+        }
+
+        .card {
+            padding: $spacing-extra-small * 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: $spacing-extra-small * 2;
+
+            input {
+                border: none;
+                padding: 0;
+            }
+        }
     }
 }
 

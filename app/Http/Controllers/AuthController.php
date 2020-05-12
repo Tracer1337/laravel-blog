@@ -48,9 +48,11 @@ class AuthController extends Controller
             }
         }
 
-        if(isset($data["avatar"])) {
-            $path = $data["avatar"]->storeAs("public/avatars", $user->id);
-            $user->avatar_url = Storage::url($path);
+        if($user->can("store files")) {
+            if(isset($data["avatar"])) {
+                $path = $data["avatar"]->storeAs("public/avatars", $user->id);
+                $user->avatar_url = Storage::url($path);
+            }
         }
 
         if($user->save()) {

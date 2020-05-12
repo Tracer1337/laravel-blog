@@ -1,6 +1,4 @@
 * Google Analytics => Admin Panel
-* SEO => React Helmet
-* Assign roles in admin panel
 * Change fragments during data fetching to spinner / loaders
 * If cover ration is not 4:3, fill borders with gradients according to colors on image
 * Loading skeleton
@@ -17,3 +15,5 @@
 * Remove material ui dependency
 * Generalize some stylings (Border)
 * Responsive Design
+* Add statistics to admin panel (How many posts per topic / tag etc.)
+* Show likes and recommendations on MyBlogposts page
