@@ -1,5 +1,6 @@
+* Shrink image size in getImageGradient -> 4K images take to long
+* Define the cover gap in create-blogpost page (Preview it there)
 * Google Analytics => Admin Panel
-* If cover ration is not 4:3, fill borders with gradients according to colors on image
 * Loading skeleton
 * Ask user if he wants to stay logged in
 * Storage permissions
