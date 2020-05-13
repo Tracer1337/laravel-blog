@@ -10,19 +10,18 @@ import "./assets/scss/main.scss"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const setToken = () => window.axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("JWTToken")
-setToken()
+const setToken = token => window.axios.defaults.headers.common["Authorization"] = "Bearer " + token
+setToken(localStorage.getItem("JWTToken"))
 
 // Refresh token when logged in as new user
-const getProfileId = store => store.auth.profile?.id
-
 let currentValue
 store.subscribe(() => {
+    const { token, profile } = store.getState().auth
     let previousValue = currentValue
-    currentValue = getProfileId(store.getState())
+    currentValue = profile.id
 
     if (previousValue !== currentValue) {
-        setToken()
+        setToken(token)
     }
 })
 

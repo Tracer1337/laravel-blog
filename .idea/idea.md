@@ -1,7 +1,6 @@
 * Google Analytics => Admin Panel
 * Loading skeleton
 * Ask user if he wants to stay logged in
-* Storage permissions
 * Show storage in admin panel
 * Auto saving markdown editor
 * Image resizing in markdown
@@ -17,3 +16,4 @@
 * Show likes and recommendations on MyBlogposts page
 * Add Legal Disclosure / Privacy / Contact
 * Add authors to search page
+* Frontend storage interface (Cookie | Localstorage | Remote)

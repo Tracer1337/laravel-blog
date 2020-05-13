@@ -19,10 +19,11 @@ const Login = ({ loginAction }) => {
     const [isLoading, setIsLoading] = useState(false)
 
     const onSubmit = fields => {
+        console.log(fields)
         setIsLoading(true)
         login(fields)
-            .then(profile => {
-                loginAction(profile)
+            .then(data => {
+                loginAction(data)
                 history.push("/")
             }).catch(() => {
                 Dialog.error("Login failed")
@@ -53,6 +54,11 @@ const Login = ({ loginAction }) => {
                     <div>
                         <label>Password</label>
                         <input type="password" name="password" placeholder="Password" className="input" ref={register()}/>
+                    </div>
+
+                    <div className="checkbox">
+                        <input type="checkbox" id="remember_me" name="remember_me" ref={register()}/>
+                        <label htmlFor="remember_me">Remember Me</label>
                     </div>
 
                     <button type="submit">Login</button>

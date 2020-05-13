@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Helmet } from "react-helmet"
 import { connect } from "react-redux"
 import { useHistory } from "react-router-dom"
@@ -68,6 +68,11 @@ const Register = ({ loginAction }) => {
                     <div>
                         <label>Password</label>
                         <input type="password" name="password" placeholder="Password" className="input" ref={register}/>
+                    </div>
+
+                    <div className="checkbox">
+                        <input type="checkbox" id="remember_me" name="remember_me" ref={register()} />
+                        <label htmlFor="remember_me">Remember Me</label>
                     </div>
 
                     <button type="submit">Register</button>

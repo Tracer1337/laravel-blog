@@ -14,8 +14,11 @@ const authorize = post_url => {
         return new Promise((resolve, reject) => {
             axios.post(url(post_url), args)
                 .then(res => {
-                    localStorage.setItem("JWTToken", res.data.access_token)
-                    resolve(res.data.profile)
+                    if(args.remember_me) {
+                        localStorage.setItem("JWTToken", res.data.access_token)
+                    }
+
+                    resolve(res.data)
                 })
                 .catch(() => {
                     reject()

@@ -244,3 +244,16 @@ table {
     justify-content: center;
     align-items: center;
 }
+
+.checkbox {
+    display: flex;
+    align-items: center;
+
+    label, input {
+        cursor: pointer;
+    }
+
+    label {
+        margin: 0 0 0 $spacing-extra-small !important;
+    }
+}

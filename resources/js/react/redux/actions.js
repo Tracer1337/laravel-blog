@@ -1,9 +1,10 @@
 import { LOGIN, LOGOUT, MODIFY_PROFILE, CACHE_DATA } from "./actionTypes.js"
 
-export function login(profile) {
+export function login(data) {
     return {
         type: LOGIN,
-        profile
+        profile: data.profile,
+        token: data.access_token
     }
 }
 

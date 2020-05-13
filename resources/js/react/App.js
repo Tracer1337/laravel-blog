@@ -36,7 +36,10 @@ const App = ({ login }) => {
 
     useEffect(() => {
         getProfile()
-            .then(res => login(res.data.data))
+            .then(res => login({
+                profile: res.data.data,
+                access_token: localStorage.getItem("JWTToken")
+            }))
             .finally(() => setIsLoading(false))
     }, [])
 

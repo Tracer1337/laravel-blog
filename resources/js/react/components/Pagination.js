@@ -26,8 +26,6 @@ const Pagination = ({ fetchMethod, renderChildren, className }) => {
     if(!data) {
         return <LoadingIndicator center/>
     }
-
-    console.log(data)
     
     return (
         <div className={`paginated ${className}`}>

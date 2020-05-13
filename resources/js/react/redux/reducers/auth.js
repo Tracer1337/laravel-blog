@@ -15,6 +15,7 @@ function auth(state = defaultState, action) {
             return {
                 ...state,
                 profile: action.profile,
+                token: action.token,
                 isLoggedIn: true
             }
 
