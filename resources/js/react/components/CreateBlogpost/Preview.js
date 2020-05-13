@@ -43,10 +43,17 @@ const Preview = ({ data }) => {
     return (
         <div>
             <h3 className="title">Preview</h3>
-            <BlogpostCard post={formattedData}/>
 
-            <h4>Gradient Gap</h4>
-            <input type="number" min="0" max=".9" step=".1" defaultValue="0.8" onChange={handleGapChange}/>
+            {formattedData ? (
+                <>
+                    <BlogpostCard post={formattedData} />
+
+                    <h4>Gradient Gap</h4>
+                    <input type="number" min="0" max=".9" step=".1" defaultValue="0.8" onChange={handleGapChange} />
+                </>
+            ) : (
+                <em>Preview is not available</em>
+            )}
         </div>
     )
 }

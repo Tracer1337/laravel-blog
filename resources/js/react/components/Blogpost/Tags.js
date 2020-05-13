@@ -6,7 +6,7 @@ const TagsSection = ({ data }) => (
     <div className="blogpost-tags">
         <span>Tags:</span>
 
-        <Tags data={data.tags}/>
+        <Tags data={data?.tags}/>
     </div>
 )
 

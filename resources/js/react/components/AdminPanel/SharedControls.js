@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import DeleteIcon from "@material-ui/icons/Delete"
 import AddIcon from "@material-ui/icons/Add"
+import Skeleton from "react-loading-skeleton"
 
 import Dialog from "../Dialog/Dialog.js"
-import LoadingIndicator from "../LoadingIndicator.js"
 
 import * as APIMethods from "../../config/API.js"
 import getAPIData from "../../utils/useAPIData.js"
@@ -34,10 +34,6 @@ const SharedControls = ({ methods, label, generateLink }) => {
             })
     }
 
-    if (!data) {
-        return <LoadingIndicator center/>
-    }
-
     return (
         <div>
             <div className="card">
@@ -47,15 +43,17 @@ const SharedControls = ({ methods, label, generateLink }) => {
 
             <hr/>
 
-            {data.data.map(({ name, id }) => (
-                <div className="card" key={id}>
-                    <Link to={generateLink(id)} className="wrapper-link">
-                        <div>{name}</div>
-                    </Link>
+            {data ? (
+                data.data.map(({ name, id }) => (
+                    <div className="card" key={id}>
+                        <Link to={generateLink(id)} className="wrapper-link">
+                            <div>{name}</div>
+                        </Link>
 
-                    <DeleteIcon className="icon" onClick={handleRemove.bind(null, name, id)} />
-                </div>
-            ))}
+                        <DeleteIcon className="icon" onClick={handleRemove.bind(null, name, id)} />
+                    </div>
+                ))
+            ) : <Skeleton height={58} count={5}/>}
         </div>
     )
 }

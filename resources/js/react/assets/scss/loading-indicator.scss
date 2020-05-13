@@ -6,41 +6,55 @@ $color: $color-normal;
   height: 64px;
   border-radius: 50%;
   perspective: 800px;
+  display: flex;
+  flex-direction: column;
 
   &.center {
     position: absolute;
-    top: calc(50% - 32px);
-    left: calc(50% - 32px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
   }
-}
 
-.inner {
-  position: absolute;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;  
-}
+  .spinners {
+    width: 64px;
+    min-height: 64px;
+    position: relative;
+  }
 
-.inner.one {
-  left: 0%;
-  top: 0%;
-  animation: rotate-one 500ms linear infinite;
-  border-bottom: 3px solid $color;
-}
+  .inner {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;  
+  }
 
-.inner.two {
-  right: 0%;
-  top: 0%;
-  animation: rotate-two 500ms linear infinite;
-  border-right: 3px solid $color;
-}
+  .inner.one {
+    left: 0%;
+    top: 0%;
+    animation: rotate-one 500ms linear infinite;
+    border-bottom: 3px solid $color;
+  }
 
-.inner.three {
-  right: 0%;
-  bottom: 0%;
-  animation: rotate-three 500ms linear infinite;
-  border-top: 3px solid $color;
+  .inner.two {
+    right: 0%;
+    top: 0%;
+    animation: rotate-two 500ms linear infinite;
+    border-right: 3px solid $color;
+  }
+
+  .inner.three {
+    right: 0%;
+    bottom: 0%;
+    animation: rotate-three 500ms linear infinite;
+    border-top: 3px solid $color;
+  }
+
+  .text {
+    text-align: center;
+  }
 }
 
 @keyframes rotate-one {

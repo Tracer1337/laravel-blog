@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import DeleteIcon from "@material-ui/icons/Delete"
+import Skeleton from "react-loading-skeleton"
 
 import Dialog from "../Dialog/Dialog.js"
 import Date from "../Date.js"
@@ -30,9 +31,7 @@ const Users = () => {
         assignRole(args).then(refresh)
     }
 
-    if (!data) {
-        return <LoadingIndicator center/>
-    }
+    const users = data ? data.data : Array(5).fill({})
 
     return (
         <table>
@@ -50,36 +49,38 @@ const Users = () => {
             </thead>
 
             <tbody>
-                {data.data.map(user => (
-                    <tr key={user.id}>
+                {users.map((user, i) => (
+                    <tr key={user.id || i}>
                         <td>
-                            <Link to={"/user/" + user.id} className="wrapper-link">
-                                {user.username}
+                            <Link to={!data ? "" : "/user/" + user.id} className="wrapper-link">
+                                {user.username || <Skeleton/>}
                             </Link>
                         </td>
 
-                        <td>{user.email}</td>
+                        <td>{user.email || <Skeleton width={200}/>}</td>
 
-                        <td>{user.first_name}</td>
+                        <td>{!data ? <Skeleton/> : user.first_name}</td>
 
-                        <td>{user.last_name}</td>
+                        <td>{!data ? <Skeleton/> : user.last_name}</td>
                         
                         <td>
-                            {roles && (
+                            {data && roles ? (
                                 <select defaultValue={user.role.id} onChange={handleRoleChange.bind(null, user)}>
                                     {roles.map(({ name, id }) => (
                                         <option value={id} key={id}>{name}</option>
                                     ))}
                                 </select>
-                            )}
+                            ) : <Skeleton/>}
                         </td>
 
-                        <td><Date timestamp={user.created_at}/></td>
+                        <td>{!data ? <Skeleton/> : <Date timestamp={user.created_at}/>}</td>
 
-                        <td><Date timestamp={user.updated_at}/></td>
+                        <td>{!data ? <Skeleton/> : <Date timestamp={user.updated_at} />}</td>
 
                         <td>
-                            <DeleteIcon className="icon" onClick={handleRemove.bind(null, user)} />
+                            {!data ? <Skeleton circle width={30} height={30}/> : (
+                                <DeleteIcon className="icon" onClick={handleRemove.bind(null, user)} />
+                            )}
                         </td>
                     </tr>
                 ))}

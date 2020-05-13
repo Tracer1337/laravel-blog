@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react"
 import { Helmet } from "react-helmet"
 import { useParams } from "react-router-dom"
 import Markdown from "react-markdown"
+import Skeleton from "react-loading-skeleton"
 
 import TopicCrumb from "../components/Blogpost/TopicCrumb.js"
 import Head from "../components/Blogpost/Head.js"
@@ -11,7 +12,6 @@ import Comments from "../components/Blogpost/Comments.js"
 import CommentForm from "../components/Blogpost/CommentForm.js"
 import RelatedPosts from "../components/Blogpost/RelatedPosts.js"
 import Auth from "../components/Auth.js"
-import LoadingIndicator from "../components/LoadingIndicator.js"
 
 import useQuery from "../utils/useQuery.js"
 import useAPIData from "../utils/useAPIData.js"
@@ -41,13 +41,9 @@ const BlogpostPage = () => {
 
     useEffect(handleQuery, [commentId, editComment])
 
-    if (!data) {
-        return <LoadingIndicator center/>
-    }
+    const post = data ? data.data : {}
 
-    const post = data.data
-
-    const editCommentObject = post.comments.find(comment => comment.id == commentId)
+    const editCommentObject = post.comments?.find(comment => comment.id == commentId)
 
     return (
         <>
@@ -64,16 +60,16 @@ const BlogpostPage = () => {
 
                     <hr />
 
-                    <div className="blogpost-title">{post.title}</div>
+                    <div className="blogpost-title">{post.title || <Skeleton/>}</div>
 
                     <div className="content">
-                        <Markdown source={post.content} />
+                        {post.content ? <Markdown source={post.content}/> : <Skeleton count={30}/>}
                     </div>
 
                     <hr />
 
                     <Auth>
-                        <Actions data={post} onAction={reload} id={id} />
+                        <Actions data={post} onAction={reload} id={id}/>
                     </Auth>
 
                     <div className="spacer-small"/>
@@ -82,7 +78,7 @@ const BlogpostPage = () => {
 
                     <div className="spacer" />
 
-                    <Comments comments={post.comments} onAction={reload} />
+                    <Comments comments={post?.comments} onAction={reload} />
 
                     <div className="spacer" />
 
@@ -93,7 +89,7 @@ const BlogpostPage = () => {
                     </Auth>
                 </main>
 
-                {post.relations.length > 0 && (
+                {post.relations?.length > 0 && (
                     <>
                         <RelatedPosts relations={post.relations} />
                         <div className="spacer" />

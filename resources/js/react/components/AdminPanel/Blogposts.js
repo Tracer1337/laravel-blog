@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import DeleteIcon from "@material-ui/icons/Delete"
+import Skeleton from "react-loading-skeleton"
 
 import Dialog from "../Dialog/Dialog.js"
 import Date from "../Date.js"
@@ -20,51 +21,59 @@ const Blogposts = () => {
     return (
         <Pagination
             fetchMethod={getAllBlogposts}
-            renderChildren={({ data }) => (
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>User</th>
-                            <th>Topic</th>
-                            <th>Published</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
+            renderChildren={({ data }) => {
+                const posts = data || Array(20).fill({})
 
-                    <tbody>
-                        {data.map(post => (
-                            <tr key={post.id}>
-                                <td>
-                                    <Link to={"/blogpost/" + post.id} className="wrapper-link">
-                                        {post.title}
-                                    </Link>
-                                </td>
-
-                                <td>
-                                    <Link to={"/user/" + post.user_id} className="wrapper-link">
-                                        {post.user.username}
-                                    </Link>
-                                </td>
-
-                                <td>
-                                    <Link to={"/topic/" + post.topic_id} className="wrapper-link">
-                                        {post.topic.name}
-                                    </Link>
-                                </td>
-
-                                <td>
-                                    <Date timestamp={post.published_at} />
-                                </td>
-
-                                <td>
-                                    <DeleteIcon className="icon" onClick={handleRemove.bind(null, post)} />
-                                </td>
+                return (
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>User</th>
+                                <th>Topic</th>
+                                <th>Published</th>
+                                <th>Actions</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            )}
+                        </thead>
+
+                        <tbody>
+                            {posts.map((post, i) => (
+                                <tr key={post.id || i}>
+                                    <td>
+                                        <Link to={!data ? "" : "/blogpost/" + post.id} className="wrapper-link">
+                                            {post.title || <Skeleton width={300}/>}
+                                        </Link>
+                                    </td>
+
+                                    <td>
+                                        <Link to={!data ? "" : "/user/" + post.user_id} className="wrapper-link">
+                                            {!data ? <Skeleton width={150}/> : post.user.username}
+                                        </Link>
+                                    </td>
+
+                                    <td>
+                                        <Link to={!data ? "" : "/topic/" + post.topic_id} className="wrapper-link">
+                                            {!data ? <Skeleton width={100}/> : post.topic.name}
+                                        </Link>
+                                    </td>
+
+                                    <td>
+                                        {!data ? <Skeleton width={100}/> : <Date timestamp={post.published_at}/>}
+                                    </td>
+
+                                    <td>
+                                        {!data ? (
+                                            <Skeleton circle width={30} height={30}/>
+                                        ) : (
+                                            <DeleteIcon className="icon" onClick={handleRemove.bind(null, post)}/>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                )
+            }}
         />
     )
 }

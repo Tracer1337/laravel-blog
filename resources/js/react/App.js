@@ -31,16 +31,20 @@ const ProtectedRoute = connect(mapStateToProps)(({ role, path, children, auth })
     </Route>
 ))
 
+const shouldLogin = !!localStorage.getItem("JWTToken")
+
 const App = ({ login }) => {
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(shouldLogin)
 
     useEffect(() => {
-        getProfile()
-            .then(res => login({
-                profile: res.data.data,
-                access_token: localStorage.getItem("JWTToken")
-            }))
-            .finally(() => setIsLoading(false))
+        if(shouldLogin) {
+            getProfile()
+                .then(res => login({
+                    profile: res.data.data,
+                    access_token: localStorage.getItem("JWTToken")
+                }))
+                .finally(() => setIsLoading(false))
+        }
     }, [])
 
     return (
@@ -48,7 +52,7 @@ const App = ({ login }) => {
             <div className="app">
                 <Layout>
                     {isLoading ? (
-                        <LoadingIndicator center/>
+                        <LoadingIndicator center message="Logging in..."/>
                     ) : (
                         <Switch>
                             <ProtectedRoute path="/admin" role="admin">

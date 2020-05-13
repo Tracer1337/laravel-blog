@@ -8,7 +8,6 @@ import Links from "../components/User/Links.js"
 import Biography from "../components/User/Biography.js"
 import Recommendations from "../components/User/Recommendations.js"
 import SubscribeFab from "../components/User/SubscribeFab.js"
-import LoadingIndicator from "../components/LoadingIndicator.js"
 
 import useAPIData from "../utils/useAPIData.js"
 import pageTitle from "../config/pageTitle.js"
@@ -18,11 +17,7 @@ const User = () => {
 
     const [data] = useAPIData("getUser", [id])
 
-    if(!data) {
-        return <LoadingIndicator center/>
-    }
-
-    const user = data.data
+    const user = data ? data.data : {}
 
     return (
         <div className="user-page">
@@ -49,7 +44,7 @@ const User = () => {
                 <div className="spacer"/>
             </main>
 
-            {user.recommendations.length > 0 && (
+            {user.recommendations?.length > 0 && (
                 <>
                     <Recommendations data={user} />
 

@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import AccountCircleIcon from "@material-ui/icons/AccountCircle"
+import Skeleton from "react-loading-skeleton"
 
 const defaultSize = 48
 
@@ -8,9 +9,18 @@ const Avatar = ({
     avatar_url, 
     onClick = () => null, 
     size = defaultSize,
-    profile
+    user,
+    showSkeleton
 }) => {
-    const img_src = profile ? profile.avatar_url : avatar_url
+    if(showSkeleton) {
+        return (
+            <div className="avatar">
+                <Skeleton circle width={size} height={size}/>
+            </div>
+        )
+    }
+
+    const img_src = user ? user.avatar_url : avatar_url
 
     if(img_src) {
         return (

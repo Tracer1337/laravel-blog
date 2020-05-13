@@ -4,7 +4,6 @@ import ChevronLeft from "@material-ui/icons/ChevronLeft"
 import Slider from "react-slick"
 
 import BlogpostCard from "./BlogpostCard.js"
-import LoadingIndicator from "./LoadingIndicator.js"
 
 import useAPIData from "../utils/useAPIData.js"
 
@@ -37,17 +36,20 @@ const HorizontalScrollablePosts = (props) => {
         }
     }, [props.posts])
 
-    if ((!props.fetchMethod && !posts) || (props.fetchMethod && !data)) {
-        return <LoadingIndicator/>
-    }
+    const isLoading = (!props.fetchMethod && !posts) || (props.fetchMethod && !data)
 
-    const renderPosts = props.fetchMethod ? data.data : posts
+    const renderPosts = isLoading ? Array(5).fill() : props.fetchMethod ? data.data : posts
 
-    if(!renderPosts.length) {
+    if(!renderPosts.length && !isLoading) {
         return null
     }
 
-    const slidesToShow = renderPosts.length < sliderSettings.slidesToShow ? renderPosts.length : sliderSettings.slidesToShow
+    let slidesToShow
+    if(!isLoading) {
+        slidesToShow = renderPosts.length < sliderSettings.slidesToShow ? renderPosts.length : sliderSettings.slidesToShow
+    } else {
+        slidesToShow = sliderSettings.slidesToShow
+    }
 
     // Generate responsive breakpoints for slider
     const responsive = []
@@ -75,7 +77,7 @@ const HorizontalScrollablePosts = (props) => {
                 slidesToScroll={slidesToShow}
                 responsive={responsive}
             >
-                {renderPosts.map(post => <BlogpostCard post={post} key={post.id}/>)}
+                {renderPosts.map((post, i) => <BlogpostCard post={post} showSkeleton={isLoading} key={i}/>)}
             </Slider>
 
 

@@ -1,6 +1,5 @@
 * Google Analytics => Admin Panel
-* Loading skeleton
-* Ask user if he wants to stay logged in
+* Refactor pagination to use useAPIData
 * Show storage in admin panel
 * Auto saving markdown editor
 * Image resizing in markdown
@@ -17,3 +16,6 @@
 * Add Legal Disclosure / Privacy / Contact
 * Add authors to search page
 * Frontend storage interface (Cookie | Localstorage | Remote)
+* Make user in blogpost screen accessible
+* Set entries for information on user screen serversided (Currently hardcoded)
+* Load underlying page while logging in -> Show skeleton in Header where user sits

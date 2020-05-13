@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react"
 import { Pagination as MuiPagination } from "@material-ui/lab"
 
-import LoadingIndicator from "./LoadingIndicator.js"
-
 const Pagination = ({ fetchMethod, renderChildren, className }) => {
     const [data, setData] = useState()
     const [pageNr, setPageNr] = useState(1)
+    const [isLoading, setIsLoading] = useState(true)
 
     const loadPage = () => {
+        window.scrollTo(0, 0)
+        setIsLoading(true)
         fetchMethod(pageNr)
             .then(res => {
                 setData(res.data)
-                window.scrollTo({ top: 0, behavior: "smooth" })
+                setIsLoading(false)
             })
     }
 
@@ -22,20 +23,19 @@ const Pagination = ({ fetchMethod, renderChildren, className }) => {
     useEffect(() => {
         loadPage()
     }, [pageNr, fetchMethod])
-
-    if(!data) {
-        return <LoadingIndicator center/>
-    }
     
     return (
         <div className={`paginated ${className}`}>
             <div className="items">
                 {React.createElement(renderChildren, {
-                    data: data.data
+                    data: data?.data,
+                    isLoading
                 })}
             </div>
-
-            <MuiPagination count={data.meta.last_page} page={data.meta.current_page} onChange={handlePageChange} className="pagination-links"/>
+            
+            {!isLoading && (
+                <MuiPagination count={data.meta.last_page} page={data.meta.current_page} onChange={handlePageChange} className="pagination-links"/>
+            )}
         </div>
     )
 }

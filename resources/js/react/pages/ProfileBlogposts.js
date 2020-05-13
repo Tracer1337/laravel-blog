@@ -19,9 +19,15 @@ const ProfileBlogposts = () => {
             <Pagination
                 className="paginated-blogposts"
                 fetchMethod={getProfileBlogposts}
-                renderChildren={({ data }) => data.map((post, i) => (
-                    <BlogpostCard post={post} key={i}/>
-                ))}
+                renderChildren={({ data, isLoading }) => {
+                    if(!isLoading) {
+                        return data.map((post, i) => (
+                            <BlogpostCard post={post} key={i}/>
+                        ))
+                    } else {
+                        return Array(20).fill().map((_, i) => <BlogpostCard showSkeleton key={i}/>)
+                    }
+                }}
             />
         </div>
     )

@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet"
 import HorizontalScrollablePosts from "../components/HorizontalScrollablePosts.js"
 import Topics from "../components/Topics.js"
 import Tags from "../components/Tags.js"
-import LoadingIndicator from "../components/LoadingIndicator.js"
 
 import useQuery from "../utils/useQuery.js"
 import useAPIData from "../utils/useAPIData.js"
@@ -12,10 +11,10 @@ import pageTitle from "../config/pageTitle.js"
 
 const SearchPage = () => {
     const query = useQuery("query")
-    const [data] = useAPIData("getSearchResults", [query], false)
-
+    let [data] = useAPIData("getSearchResults", [query], false)
+    
     if(!data) {
-        return <LoadingIndicator center/>
+        data = {}
     }
 
     return (
@@ -26,28 +25,26 @@ const SearchPage = () => {
 
             <h3 className="title center">Results for: {query}</h3>
 
-            {data && (
-                <div>
-                    <section>
-                        <h3 className="title">Posts</h3>
-                        <HorizontalScrollablePosts posts={data.blogposts}/>
-                    </section>
+            <div>
+                <section>
+                    <h3 className="title">Posts</h3>
+                    <HorizontalScrollablePosts posts={data.blogposts}/>
+                </section>
 
-                    <div className="spacer"/>
+                <div className="spacer"/>
 
-                    <section>
-                        <h3 className="title">Topics</h3>
-                        <Topics data={data.topics}/>
-                    </section>
+                <section>
+                    <h3 className="title">Topics</h3>
+                    <Topics data={data.topics}/>
+                </section>
 
-                    <div className="spacer"/>
+                <div className="spacer"/>
 
-                    <section>
-                        <h3 className="title">Tags</h3>
-                        <Tags data={data.tags}/>
-                    </section>
-                </div>
-            )}
+                <section>
+                    <h3 className="title">Tags</h3>
+                    <Tags data={data.tags}/>
+                </section>
+            </div>
         </div>
     )
 }

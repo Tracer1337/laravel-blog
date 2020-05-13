@@ -1,4 +1,5 @@
 import React from "react"
+import Skeleton from "react-loading-skeleton"
 
 const entries = [
     {
@@ -29,7 +30,7 @@ const Head = ({ data }) => (
             {entries.map(({ label, selector }, i) => (
                 <li key={i}>
                     <span className="name">{label}</span>
-                    <span className="value">{data[selector]}</span>
+                    <span className="value">{!data.username ? <Skeleton width={50}/> : data[selector]}</span>
                 </li>
             ))}
         </ul>
