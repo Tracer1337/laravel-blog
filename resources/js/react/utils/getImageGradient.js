@@ -42,7 +42,7 @@ function getAverageRGBValues(data) {
     return [avgR, avgG, avgB]
 }
 
-async function getImageGradient(imgSource) {
+async function getImageGradient(imgSource, gap = 0.8) {
     if(!imgSource) {
         return ""
     }
@@ -54,7 +54,6 @@ async function getImageGradient(imgSource) {
     // (1 - gap) / 2
     //      gap
     // (1 - gap) / 2
-    const gap = 0.8
     const halfLength =  Math.ceil(data.length / 2)
     const top = data.slice(0, halfLength - halfLength * gap)
     const bottom = data.slice(halfLength + halfLength * gap, data.length)

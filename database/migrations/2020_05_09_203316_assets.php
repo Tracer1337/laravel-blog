@@ -20,6 +20,7 @@ class Assets extends Migration
             $table->string("path");
             $table->string("url");
             $table->string("type");
+            $table->text("meta")->nullable();
         });
     }
 

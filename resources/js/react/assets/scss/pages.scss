@@ -333,3 +333,12 @@
         font-size: $font-size-large;
     }
 }
+
+.create-blogpost-form {
+    display: flex;
+
+    form {
+        margin-right: $spacing-normal;
+        flex-grow: 1;
+    }
+}

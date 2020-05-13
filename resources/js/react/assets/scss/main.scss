@@ -54,6 +54,10 @@ main {
     margin: 0 auto;
     max-width: 900px;
 
+    &.large {
+        max-width: 1400px;
+    }
+
     @media only screen and (max-width: 900px) {
         & {
             padding: 0 $spacing-extra-small * 2;

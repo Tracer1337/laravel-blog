@@ -126,9 +126,10 @@ class BlogpostController extends Controller
             "teaser" => "required|max:512",
             "topic_id" => "required|Integer",
             "content" => "required",
-            "tag_ids" => "required|Array",
+            "tag_ids" => "nullable|Array",
             "cover" => "nullable|image",
-            "images" => "nullable|Array"
+            "images" => "nullable|Array",
+            "cover->gradient" => "nullable|string"
         ]);
 
         $isUpdate = $request->input("method_put");
@@ -145,7 +146,7 @@ class BlogpostController extends Controller
         }
 
         // Assign transmitted data
-        $skip_keys = ["tag_ids", "cover", "images"];
+        $skip_keys = ["tag_ids", "cover", "images", "cover-gradient", "cover->gradient"];
 
         foreach($validated_data as $key => $value) {
             if(!in_array($key, $skip_keys)) {
@@ -160,14 +161,15 @@ class BlogpostController extends Controller
             $blogpost->published_at = Carbon::now();
         }
 
-        if($user->can("store files")) {
+        if($user->can("store files")) { 
             // Store cover image
             if(isset($validated_data["cover"])) {
                 // Check if cover is new
                 $store_images = get_new_images([$validated_data["cover"]], $blogpost->assets);
 
-                // Store cover
+                // Store data
                 if(isset($store_images[0])) {
+                    // Store cover
                     $new_cover = create_asset([
                         "file" => $store_images[0],
                         "blogpost_id" => $blogpost->id,
@@ -177,6 +179,22 @@ class BlogpostController extends Controller
                     $new_cover->save();
                 }
             }
+
+            // Store cover metadata
+            if(isset($validated_data["cover->gradient"])) {
+                // Create meta array
+                $meta = json_encode([
+                    "gradient" => $validated_data["cover->gradient"] ?? ""
+                ]);
+
+                // Save metadata to cover
+                $cover = $blogpost->assets()->where("type", "cover")->first();
+                if($cover) {
+                    $cover->meta = $meta;
+                    $cover->save();
+                }
+            }
+            
 
             // Store images array
             if(isset($validated_data["images"])) {
@@ -200,7 +218,11 @@ class BlogpostController extends Controller
 
         // Store post in database
         if($blogpost->save()) {
-            $blogpost->tags()->sync($validated_data["tag_ids"]);
+            // Store tags
+            if(isset($validated_data["tag_ids"])) {
+                $blogpost->tags()->sync($validated_data["tag_ids"]);
+            }
+
             return new BlogpostResource($blogpost);
         }
     }

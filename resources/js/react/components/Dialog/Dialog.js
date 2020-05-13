@@ -8,10 +8,12 @@ import Button from "./components/Button.js"
 import Warning from "./components/Warning.js"
 import Caption from "./components/Caption.js"
 import Error from "./components/Error.js"
+import Success from "./components/Success.js"
 
 import Verification from "./templates/Verification.js"
 import WarningTemplate from "./templates/Warning.js"
 import ErrorTemplate from "./templates/Error.js"
+import SuccessTemplate from "./templates/Success.js"
 
 class Dialog extends Component {
     constructor(props) {
@@ -67,6 +69,10 @@ class Dialog extends Component {
 
             case "error":
                 element = <Error {...field}/>
+                break
+
+            case "success":
+                element = <Success {...field}/>
                 break
             
             default:
@@ -127,5 +133,6 @@ class Dialog extends Component {
 Dialog.verify = Verification
 Dialog.warn = WarningTemplate
 Dialog.error = ErrorTemplate
+Dialog.success = SuccessTemplate
 
 export default Dialog

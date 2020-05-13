@@ -25,7 +25,7 @@ const CreateBlogpost = () => {
                 <title>{pageTitle("Create Post")}</title>
             </Helmet>
 
-            <main>
+            <main className="large">
                 <h3 className="title">Create Post</h3>
 
                 <Form editData={editData} postId={post_id} reload={reload}/>

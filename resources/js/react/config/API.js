@@ -1,21 +1,4 @@
-import store from "../redux/store.js"
-
-const setToken = () => window.axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("JWTToken")
-
-// Refresh token when logged in as new user
-const getProfileId = store => store.auth.profile?.id
-
-let currentValue
-store.subscribe(() => {
-    let previousValue = currentValue
-    currentValue = getProfileId(store.getState())
-
-    if(previousValue !== currentValue) {
-        setToken()
-    }
-})
-
-setToken()
+import format, { blogpost, blogposts, search } from "./format.js"
 
 const url = path => `${window.location.origin}/api/${path}`
 const paginated = (path, pageNr) => `${path}?page=${pageNr}`
@@ -51,11 +34,11 @@ export const logout = () => {
 }
 
 // Blogposts
-export const getNewestBlogposts = () => axios.get(url("blogposts"))
+export const getNewestBlogposts = () => axios.get(url("blogposts")).then(format(blogposts))
 
-export const getAllBlogposts = pageNr => axios.get(paginated(url("blogposts/all"), pageNr))
+export const getAllBlogposts = pageNr => axios.get(paginated(url("blogposts/all"), pageNr)).then(format(blogposts))
 
-export const getBlogpost = id => axios.get(url("blogpost/"+id))
+export const getBlogpost = id => axios.get(url("blogpost/"+id)).then(format(blogpost))
 
 export const addBlogpost = formData => axios.post(url("blogpost"), formData, {
     headers: {
@@ -84,7 +67,7 @@ export const getAllTopics = () => axios.get(url("topics"))
 
 export const getTopic = id => axios.get(url("topics/"+id))
 
-export const getTopicBlogposts = (id, pageNr) => axios.get(paginated(url(`topics/${id}/blogposts`), pageNr))
+export const getTopicBlogposts = (id, pageNr) => axios.get(paginated(url(`topics/${id}/blogposts`), pageNr)).then(format("blogposts"))
 
 export const addTopic = args => axios.post(url("topics"), args)
 
@@ -128,14 +111,14 @@ export const editProfile = formData => axios.post(url("profile"), formData, {
     }
 })
 
-export const getProfileBlogposts = pageNr => axios.get(paginated(url("profile/blogposts"), pageNr))
+export const getProfileBlogposts = pageNr => axios.get(paginated(url("profile/blogposts"), pageNr)).then(format(blogposts))
 
 export const getProfileComments = pageNr => axios.get(paginated(url("profile/comments"), pageNr))
 
-export const getNewestSubscriptionPosts = () => axios.get(url("profile/subscriptions"))
+export const getNewestSubscriptionPosts = () => axios.get(url("profile/subscriptions")).then(format(blogposts))
 
 // Search
-export const getSearchResults = query => axios.get(url("search?query=" + query))
+export const getSearchResults = query => axios.get(url("search?query=" + query)).then(format(search))
 
 // Roles
 export const getRoles = () => axios.get(url("roles"))

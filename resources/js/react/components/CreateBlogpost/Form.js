@@ -10,6 +10,8 @@ import FileInput from "../FileInput.js"
 import ImageUpload from "./ImageUpload.js"
 import AvailableAssets from "./AvailableAssets.js"
 import Actions from "./Actions.js"
+import Preview from "./Preview.js"
+import Dialog from "../Dialog/Dialog.js"
 
 import { addBlogpost, editBlogpost } from "../../config/API.js"
 import objectToForm from "../../utils/objectToForm.js"
@@ -17,15 +19,7 @@ import objectToForm from "../../utils/objectToForm.js"
 const Form = ({ postId, editData, reload }) => {
     const history = useHistory()
 
-    const { register, control, getValues, setValue } = useForm((function() {
-        if(editData) {
-            const newValues = {...editData}
-            delete newValues.images
-            return {
-                defaultValues: newValues
-            }
-        }
-    })())
+    const { register, control, getValues, setValue } = useForm({ defaultValues: editData })
 
     const transformValues = () => {
         const values = getValues()
@@ -50,53 +44,54 @@ const Form = ({ postId, editData, reload }) => {
             formData.append("publish", true)
         }
 
-        const msg = method === 1 ? "Published" : "Saved"
-        let res
-
         if (postId) {
             formData.append("id", postId)
-            res = await editBlogpost(formData)
+            await editBlogpost(formData)
             reload()
         } else {
-            res = await addBlogpost(formData)
+            const res = await addBlogpost(formData)
             history.push("/create-post?post_id=" + res.data.data.id)
         }
 
-        alert(msg)
+        Dialog.success(method === 1 ? "Published" : "Saved")
     }
-
+    
     return (
         <FormContext {...{ register, setValue }}>
-            <form onSubmit={e => e.preventDefault()}>
-                <div>
-                    <label>Title</label>
-                    <input type="text" name="title" placeholder="Title" className="input" ref={register()}/>
-                </div>
+            <div className="create-blogpost-form">
+                <form onSubmit={e => e.preventDefault()}>
+                    <div>
+                        <label>Title</label>
+                        <input type="text" name="title" placeholder="Title" className="input" ref={register()}/>
+                    </div>
 
-                <TopicSelection control={control} defaultValue={editData?.topic}/>
+                    <TopicSelection control={control} defaultValue={editData?.topic}/>
 
-                <div>
-                    <label>Teaser</label>
-                    <input type="text" name="teaser" placeholder="Teaser" className="input" ref={register()}/>
-                </div>
+                    <div>
+                        <label>Teaser</label>
+                        <input type="text" name="teaser" placeholder="Teaser" className="input" ref={register()}/>
+                    </div>
 
-                <FileInput accept="image/*" name="cover" label="Upload Cover" icon={AddPhotoAlternateIcon} useHooks/>
+                    <FileInput accept="image/*" name="cover" label="Upload Cover" icon={AddPhotoAlternateIcon} useHooks/>
 
-                <div>
-                    <label>Content</label>
-                    <Controller as={MarkdownEditor} name="content" className="markdown-editor" control={control}/>
-                </div>
+                    <div>
+                        <label>Content</label>
+                        <Controller as={MarkdownEditor} name="content" className="markdown-editor" control={control}/>
+                    </div>
 
-                {editData?.assets && (
-                    <AvailableAssets data={editData.assets} onRemove={reload}/>
-                )}
+                    {editData?.assets && (
+                        <AvailableAssets data={editData.assets} onRemove={reload}/>
+                    )}
 
-                <ImageUpload/>
+                    <ImageUpload/>
 
-                <TagSelection control={control} defaultValue={editData?.tags}/>
+                    <TagSelection control={control} defaultValue={editData?.tags}/>
 
-                <Actions onSubmit={handleSubmit} editData={editData}/>
-            </form>
+                    <Actions onSubmit={handleSubmit} editData={editData}/>
+                </form>
+
+                <Preview data={editData}/>
+            </div>
         </FormContext>
     )
 }
