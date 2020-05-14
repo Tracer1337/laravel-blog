@@ -40,9 +40,7 @@ const AdminPanel = () => {
                     </Route>
 
                     <Route exact path={path}>
-                        <div>
-                            <h3 className="title">Some Content</h3>
-                        </div>
+                        <Topics/>
                     </Route>
                 </div>
             </div>

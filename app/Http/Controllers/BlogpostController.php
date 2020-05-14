@@ -68,7 +68,7 @@ function delete_asset($filename) {
     return 200;
 }
 
-function create_asset($data) {
+function create_asset($data, $user) {
     $filename = Uuid::generate()->string;
     $path = $data["file"]->storeAs("public/blogpost-assets", $filename);
     $url = Storage::url($path);
@@ -77,6 +77,7 @@ function create_asset($data) {
     $new_image = new Asset;
     $new_image->filename = $filename;
     $new_image->blogpost_id = $data["blogpost_id"];
+    $new_image->user_id = $user->id;
     $new_image->path = $path;
     $new_image->url = $url;
     $new_image->type = $data["type"];
@@ -178,7 +179,7 @@ class BlogpostController extends Controller
                         "file" => $store_images[0],
                         "blogpost_id" => $blogpost->id,
                         "type" => "cover"
-                    ]);
+                    ], $user);
 
                     $new_cover->save();
                 }
@@ -217,7 +218,7 @@ class BlogpostController extends Controller
                         "file" => $image,
                         "blogpost_id" => $blogpost->id,
                         "type" => "image"
-                    ]);
+                    ], $user);
 
                     $new_image->save();
                 }
