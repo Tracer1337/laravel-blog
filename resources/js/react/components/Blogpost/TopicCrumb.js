@@ -18,7 +18,7 @@ const TopicCrumb = ({ data }) => {
     }
 
     return ReactDOM.createPortal((
-        <Link to={!data ? "" : "/topic/" + data.id} className="wrapper-link">
+        <Link to={!data ? "" : "/topic/" + data.id} className="wrapper-link topic-crumb-wrapper">
             <div className="topic-crumb">
                 <ArrowRightIcon />
                 <span className="label">

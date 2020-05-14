@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 
 import Fab from "../Fab.js"
 import Auth from "../Auth.js"
+import LoadingIndicator from "../LoadingIndicator.js"
 
 import { followUser, unfollowUser, followsUser } from "../../config/API.js"
 
@@ -12,20 +13,25 @@ const SubscribeFab = ({ userId, profileId }) => {
     }
 
     const [hasSubscribed, setHasSubscribed] = useState()
+    const [isLoading, setIsLoading] = useState(false)
     
-    const checkSubscription = () => {
-        followsUser(userId)
-            .then(res => setHasSubscribed(res.data))
+    const checkSubscription = async () => {
+        const res = await followsUser(userId)
+        setHasSubscribed(res.data)
+        return
     }
 
     const handleClick = async () => {
+        setIsLoading(true)
+
         if(hasSubscribed) {
             await unfollowUser(userId)
         } else {
             await followUser(userId)
         }
 
-        checkSubscription()
+        await checkSubscription()
+        setIsLoading(false)
     }
 
     useEffect(() => {
@@ -39,7 +45,9 @@ const SubscribeFab = ({ userId, profileId }) => {
     return (
         <Auth>
             <Fab onClick={handleClick}>
-                {hasSubscribed ? "Unsubscribe" : "Subscribe"}
+                {isLoading ? <LoadingIndicator/> : (
+                    hasSubscribed ? "Unsubscribe": "Subscribe"
+                )}
             </Fab>
         </Auth>
     )

@@ -25,4 +25,8 @@ button {
     z-index: 10;
     padding: $spacing-extra-small * 2;
     border-radius: 26px;
+
+    &:focus {
+        outline: none;
+    }
 }

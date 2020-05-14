@@ -8,9 +8,12 @@ import FolderOpenIcon from "@material-ui/icons/FolderOpen"
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline"
 import ViewListIcon from "@material-ui/icons/ViewList"
 import LockIcon from "@material-ui/icons/Lock"
+import ExitToAppIcon from "@material-ui/icons/ExitToApp"
 
 import Avatar from "../Avatar.js"
 import Auth from "../Auth.js"
+
+import { logout } from "../../redux/actions.js"
 
 const width = 176
 const marginTop = 8
@@ -66,6 +69,11 @@ class Menu extends React.Component {
         this.links[0].to = this.userlink
     }
 
+    handleLogout() {
+        localStorage.removeItem("JWTToken")
+        this.props.logout()
+    }
+
     render() {
         const { profile } = this.props
 
@@ -94,6 +102,13 @@ class Menu extends React.Component {
                             </Link>
                         </Auth>
                     ))}
+
+                    <li className="menu-item" onClick={this.handleLogout.bind(this)}>
+                        {React.createElement(ExitToAppIcon, { style: { fontSize: 24 }, className: "icon" })}
+                        <span className="label">
+                            Logout
+                        </span>
+                    </li>
                 </ul>
             </div>
         )
@@ -104,4 +119,4 @@ const mapStateToProps = store => ({
     profile: store.auth.profile
 })
 
-export default connect(mapStateToProps)(Menu)
+export default connect(mapStateToProps, { logout })(Menu)

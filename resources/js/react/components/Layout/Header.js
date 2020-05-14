@@ -6,6 +6,7 @@ import Logo from "../Logo.js"
 import Avatar from "../Avatar.js"
 import Menu from "./Menu.js"
 import SearchBar from "../SearchBar.js"
+import Auth from "../Auth.js"
 
 import { logout } from "../../redux/actions.js"
 import { isMobile } from "../../config/constants.js"
@@ -40,16 +41,38 @@ const Header = ({ isLoggedIn, profile, logout }) => {
 
     useEffect(closeMenu, [location])
     
-    const menu = menuOpen && <Menu anchor={anchorElement}/>
+    const menu = menuOpen && (
+        <Auth>
+            <Menu anchor={anchorElement}/>
+        </Auth>
+    )
 
     if(isMobile) {
         return (
             <header className="header">
-                <Logo/>
+                <div className="top">
+                    <Logo/>
+
+                    {!isLoggedIn ? (
+                        <div className="auth">
+                            <Link to="/login">Login</Link>
+                            <Link to="/register">Register</Link>
+                        </div>
+                    ) : (
+                        <div className="profile">
+                            <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.username}</strong></Link>
+                            <Avatar onClick={toggleMenu} />
+                        </div>
+                    )}
+                </div>
+
                 <SearchBar/>
-                <div id="header-portal" />
+
+                <div id="header-portal"/>
 
                 {menu}
+
+                <hr/>
             </header>
         )
     }
@@ -62,23 +85,21 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                 <SearchBar/>
             </div>
 
-            {
-                !isLoggedIn ? (
-                    <div className="links">
-                        <Link to="/login">Login</Link>
-                        <Link to="/register">Register</Link>
-                    </div>
-                ) : (
-                    <div className="links">
-                        <a href="#" onClick={handleLogout}>Logout</a>
+            {!isLoggedIn ? (
+                <div className="auth">
+                    <Link to="/login">Login</Link>
+                    <Link to="/register">Register</Link>
+                </div>
+            ) : (
+                <div className="auth">
+                    <a href="#" onClick={handleLogout}>Logout</a>
 
-                        <div className="profile">
-                            <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.username}</strong></Link>
-                            <Avatar onClick={toggleMenu}/>
-                        </div>
+                    <div className="profile">
+                        <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.username}</strong></Link>
+                        <Avatar onClick={toggleMenu} />
                     </div>
-                )
-            }
+                </div>
+            )}
 
             {menu}
         </header>

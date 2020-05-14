@@ -25,6 +25,16 @@
     .chip {
         margin-top: $spacing-extra-small;
     }
+
+    @media only screen and (max-width: 1000px) {
+        margin-right: 0;
+        
+        .chip {
+            width: calc(100% - 12px * 2);
+            margin: 0 0 $spacing-extra-small * 2 0;
+            text-align: center;
+        }
+    }
 }
 
 .topic-crumb {

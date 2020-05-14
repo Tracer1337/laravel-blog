@@ -1,7 +1,7 @@
 .menu {
     @include shadow-depth-1;
     $padding: $spacing-extra-small * 2;
-    width: 8.8rem - $padding * 2;
+    width: 176px - $padding * 2;
     border-radius: 4px;
     background: white;
     z-index: 100;

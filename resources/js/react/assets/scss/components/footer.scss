@@ -29,4 +29,28 @@
         border-bottom-left-radius: $spacing-normal * 2;
         border-bottom-right-radius: $spacing-normal * 2;
     }
+
+    @media only screen and (max-width: 1000px) {
+        height: unset;
+        padding: $spacing-extra-small;
+
+        &:after {
+            content: none;
+        }
+
+        .links {
+            display: block;
+            height: unset;
+            padding: 0;
+            position: static;
+            text-align: center;
+
+            a{
+                display: block;
+                text-decoration: underline;
+                margin-right: 0;
+                margin: $spacing-extra-small;
+            }
+        }
+    }
 }
