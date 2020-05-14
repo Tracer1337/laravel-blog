@@ -85,4 +85,12 @@ class User extends Authenticatable implements JWTSubject
     public function recommendations() {
         return $this->belongsToMany("App\Blogpost", "recommendations");
     }
+
+    public function assets() {
+        return $this->hasMany("App\Asset");
+    }
+
+    public function getAvatarAttribute() {
+        return $this->assets()->where("type", "avatar")->first();
+    }
 }

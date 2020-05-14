@@ -20,7 +20,7 @@ const Avatar = ({
         )
     }
 
-    const img_src = user ? user.avatar_url : avatar_url
+    const img_src = user ? user.avatar?.url : avatar_url
 
     if(img_src) {
         return (
@@ -49,7 +49,7 @@ const Avatar = ({
 }
 
 const mapStateToProps = store => ({
-    avatar_url: store.auth.profile.avatar_url
+    avatar_url: store.auth.profile.avatar.url
 })
 
 export default connect(mapStateToProps)(Avatar)

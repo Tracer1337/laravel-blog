@@ -14,6 +14,7 @@ class Blogpost extends JsonResource
      */
     public function toArray($request) {
         $user = $this->user;
+        $user->avatar = $user->getAvatarAttribute();
         $user->makeHidden("biography");
 
         $array = array_merge(parent::toArray($request), [
@@ -26,9 +27,7 @@ class Blogpost extends JsonResource
         ]);
 
         // Remove path from response
-        foreach($array["assets"] as $asset) {
-            unset($asset->path);
-        }
+        format_assets_for_response($array["assets"]);
 
         return $array; 
     }

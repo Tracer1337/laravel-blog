@@ -7,83 +7,9 @@ use App\Http\Requests;
 use App\Blogpost;
 use App\Http\Resources\Blogpost as BlogpostResource;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Storage;
-use Webpatser\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\File\File;
 use App\Asset;
 use Illuminate\Database\Eloquent\Builder;
-
-function same_files($file_a, $file_b) {
-    return filesize($file_a) == filesize($file_b) && md5_file($file_a) == md5_file($file_b);
-}
-
-function get_new_images($images, $existing_images) {
-    if(count($existing_images) == 0) {
-        return $images;
-    }
-
-    $new_images = [];
-
-    $existing_image_paths = [];
-
-    // Filter paths of existing images
-    foreach($existing_images as $object) {
-        $path = Storage::path($object->path);
-        array_push($existing_image_paths, $path);
-    }
-
-    // Compare images to existing images
-    foreach($images as $image) {
-        $image_path = $image->getPathName();
-        $is_new = true;
-        
-        foreach($existing_image_paths as $compare_path) {
-
-            if(same_files($image_path, $compare_path)) {
-                $is_new = false;
-                break;
-            }
-
-        }
-
-        if($is_new) {
-            array_push($new_images, $image);
-        }
-    }
-
-    return $new_images;
-}
-
-function delete_asset($filename) {
-    $path = "public/blogpost-assets/" . $filename;
-
-    if(!Storage::exists($path)) {
-        return 404;
-    }
-
-    Storage::delete($path);
-
-    Asset::where("filename", $filename)->delete();
-
-    return 200;
-}
-
-function create_asset($data, $user) {
-    $filename = Uuid::generate()->string;
-    $path = $data["file"]->storeAs("public/blogpost-assets", $filename);
-    $url = Storage::url($path);
-
-    // Create new asset
-    $new_image = new Asset;
-    $new_image->filename = $filename;
-    $new_image->blogpost_id = $data["blogpost_id"];
-    $new_image->user_id = $user->id;
-    $new_image->path = $path;
-    $new_image->url = $url;
-    $new_image->type = $data["type"];
-
-    return $new_image;
-}
 
 class BlogpostController extends Controller
 {
@@ -170,7 +96,7 @@ class BlogpostController extends Controller
                 }
 
                 // Check if cover is new
-                $store_images = get_new_images([$validated_data["cover"]], $blogpost->assets);
+                $store_images = get_new_files([$validated_data["cover"]], $blogpost->assets->toArray());
 
                 // Store data
                 if(isset($store_images[0])) {
@@ -178,8 +104,9 @@ class BlogpostController extends Controller
                     $new_cover = create_asset([
                         "file" => $store_images[0],
                         "blogpost_id" => $blogpost->id,
-                        "type" => "cover"
-                    ], $user);
+                        "type" => "cover",
+                        "user_id" => $user->id
+                    ]);
 
                     $new_cover->save();
                 }
@@ -210,7 +137,7 @@ class BlogpostController extends Controller
                 }
 
                 // Filter new images
-                $store_images = get_new_images($validated_data["images"], $blogpost->assets);
+                $store_images = get_new_files($validated_data["images"], $blogpost->assets->toArray());
 
                 // Store images from array
                 foreach($store_images as $image) {

@@ -49,13 +49,27 @@ class AuthController extends Controller
         }
 
         if($user->can("store files")) {
+            // Store avatar
             if(isset($data["avatar"])) {
                 if(!$data["avatar"]->isValid()) {
                     return reponse(null, 422);
                 }
 
-                $path = $data["avatar"]->storeAs("public/avatars", $user->id);
-                $user->avatar_url = Storage::url($path);
+                // Check if avatar is new
+                $current_avatar = $user->getAvatarAttribute();
+                $store_images = get_new_files([$data["avatar"]], [$current_avatar]);
+
+
+                if(isset($store_images[0])) {
+                    // Create asset for avatar
+                    $new_avatar = create_asset([
+                        "file" => $store_images[0],
+                        "user_id" => $user->id,
+                        "type" => "avatar"
+                    ]);
+
+                    $new_avatar->save();
+                }
             }
         }
 

@@ -77,7 +77,9 @@ const Form = ({ postId, editData, reload }) => {
                         <input type="text" name="teaser" placeholder="Teaser" className="input" ref={register()}/>
                     </div>
 
-                    <FileInput accept="image/*" name="cover" label="Upload Cover" icon={AddPhotoAlternateIcon} useHooks/>
+                    {postId && (
+                        <FileInput accept="image/*" name="cover" label="Upload Cover" icon={AddPhotoAlternateIcon} useHooks/>
+                    )}
 
                     <div>
                         <label>Content</label>
@@ -88,7 +90,7 @@ const Form = ({ postId, editData, reload }) => {
                         <AvailableAssets data={editData.assets} onRemove={reload}/>
                     )}
 
-                    <ImageUpload/>
+                    {postId && <ImageUpload/>}
 
                     <TagSelection control={control} defaultValue={editData?.tags}/>
 

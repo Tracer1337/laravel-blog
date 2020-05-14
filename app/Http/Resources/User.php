@@ -14,6 +14,12 @@ class User extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        $result = array_merge(parent::toArray($request), [
+            "avatar" => $this->getAvatarAttribute()
+        ]);
+
+        format_assets_for_response([$result["avatar"]]);
+
+        return $result;
     }
 }

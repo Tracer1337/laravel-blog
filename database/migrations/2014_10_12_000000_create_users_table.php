@@ -24,7 +24,6 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->text("links")->nullable();
             $table->mediumText("biography")->nullable();
-            $table->string("avatar_url")->nullable();
         });
 
         // Create admin user
