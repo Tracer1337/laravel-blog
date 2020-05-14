@@ -15,6 +15,10 @@ import AdminPanel from "./pages/AdminPanel.js"
 import Topic from "./pages/Topic.js"
 import Search from "./pages/Search.js"
 import Tag from "./pages/Tag.js"
+import Disclaimer from "./pages/Disclaimer.js"
+import Privacy from "./pages/Privacy.js"
+import TermsOfService from "./pages/TermsOfService.js"
+import Legal from "./pages/Legal.js"
 
 import Layout from "./components/Layout/Layout.js"
 import LoadingIndicator from "./components/LoadingIndicator.js"
@@ -106,6 +110,22 @@ const App = ({ login }) => {
 
                             <Route exact path="/">
                                 <Index/>
+                            </Route>
+
+                            <Route path="/disclaimer">
+                                <Disclaimer/>
+                            </Route>
+
+                            <Route path="/privacy">
+                                <Privacy/>
+                            </Route>
+
+                            <Route path="/terms-of-service">
+                                <TermsOfService/>
+                            </Route>
+
+                            <Route path="/legal">
+                                <Legal/>
                             </Route>
 
                             <Route>
