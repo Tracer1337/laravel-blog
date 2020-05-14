@@ -1,0 +1,61 @@
+.comments {
+    .comment {
+        padding: $spacing-extra-small * 2;
+        margin-bottom: $spacing-small;
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &.highlighted {
+            @include shadow-depth-2;
+        }
+
+        .comment-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: $spacing-small;
+
+            .username {
+                font-weight: $font-weight-normal;
+            }
+
+            .dates {
+                display: flex;
+                align-items: center;
+
+                .edited-hint {
+                    display: flex;
+                    justify-content: flex-end;
+                    font-size: $font-size-extra-small;
+                    margin-right: $spacing-extra-small;
+                    padding-right: $spacing-extra-small;
+                    border-right: 1px solid $color-light;
+
+                    div {
+                        margin-left: $spacing-extra-small;
+                    }
+                }
+            }
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: $spacing-extra-small;
+
+            .icon {
+                margin-left: $spacing-extra-small;
+                color: $color-normal;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.comment-form {
+    textarea {
+        margin-bottom: $spacing-extra-small * 2;
+    }
+}

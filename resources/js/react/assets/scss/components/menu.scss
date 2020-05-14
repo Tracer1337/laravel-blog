@@ -1,0 +1,55 @@
+.menu {
+    @include shadow-depth-1;
+    $padding: $spacing-extra-small * 2;
+    width: 8.8rem - $padding * 2;
+    border-radius: 4px;
+    background: white;
+    z-index: 100;
+    position: absolute;
+    top: 0; left: 0;
+    padding: $padding;
+    font-size: 14px;
+
+    a {
+        text-decoration: none;
+    }
+
+    span {
+        color: black;
+    }
+
+    .menu-profile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .avatar, .first {
+            margin: $spacing-extra-small 0;
+        }
+
+        .last {
+            margin-bottom: $spacing-extra-small * 2;
+        }
+    }
+
+    hr {
+        margin-top: $spacing-extra-small;
+        margin-bottom: $spacing-extra-small;
+        margin-left: -$padding;
+        margin-right: -$padding;
+    }
+
+    .menu-item {
+        height: 32px;
+        display: flex;
+        align-items: center;
+
+        .label {
+            padding: $spacing-extra-small;
+        }
+
+        .icon {
+            margin-right: $spacing-extra-small;
+        }
+    }
+}

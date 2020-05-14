@@ -49,7 +49,7 @@ const Avatar = ({
 }
 
 const mapStateToProps = store => ({
-    avatar_url: store.auth.profile.avatar.url
+    avatar_url: store.auth.profile.avatar?.url
 })
 
 export default connect(mapStateToProps)(Avatar)

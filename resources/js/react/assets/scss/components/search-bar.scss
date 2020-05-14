@@ -1,0 +1,38 @@
+.search-bar {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(122, 122, 122, .25);
+    width: 200px;
+    transition: 250ms all;
+
+    input {
+        padding: 0;
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        font-size: $font-size-small;
+        width: 100%;
+
+        &::placeholder {
+            font-size: $font-size-small;
+            font-weight: $font-weight-light;
+            color: $color-light;
+            opacity: .5;
+        }
+    }
+
+    .icon {
+        cursor: pointer;
+    }
+
+    &.focus {
+        border-bottom-color: $color-normal;
+        width: 500px;
+    }
+
+    @media only screen and (max-width: 1380px) {
+        &.focus {
+            width: 200px;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.header {
+    padding: $spacing-normal $spacing-normal 0 $spacing-normal;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-normal;
+
+    #header-portal {
+        display: flex;
+        align-items: center;
+    }
+
+    .left {
+        display: flex;
+
+        .search-bar {
+            margin-left: $spacing-normal;
+        }
+    }
+
+    .links, .profile {
+        font-size: $font-size-small;
+        display: flex;
+        align-items: center;
+
+        a {
+            margin-left: $spacing-small;
+        }
+    }
+
+    .profile {
+        .avatar {
+            margin-left: $spacing-small;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    }
+}

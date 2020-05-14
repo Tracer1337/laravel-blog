@@ -1,0 +1,28 @@
+button {
+    border: 1px solid $color-light;
+    background: white;
+    color: $color-normal;
+    font-size: $font-size-extra-small;
+    padding: $spacing-extra-small;
+    cursor: pointer;
+    border-radius: 4px;
+
+    &.large {
+        padding: $spacing-extra-small $spacing-extra-small * 2;
+    }
+
+    &:disabled {
+        opacity: .5;
+        cursor: default;
+    }
+}
+
+.fab {
+    @include shadow-depth-1;
+    $spacing: $spacing-small;
+    position: fixed;
+    bottom: $spacing; right: $spacing;
+    z-index: 10;
+    padding: $spacing-extra-small * 2;
+    border-radius: 26px;
+}

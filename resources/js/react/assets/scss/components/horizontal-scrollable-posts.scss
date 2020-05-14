@@ -1,0 +1,26 @@
+.horizontal-scrollable-posts {
+    position: relative;
+
+    .blogpost-card {
+        margin: auto;
+    }
+
+    .scroll-arrow {
+        $offset: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0; bottom: 0;
+        cursor: pointer;
+        z-index: 1;
+
+        &.right {
+            right: $offset;
+        }
+
+        &.left {
+            left: $offset;
+        }
+    }
+}

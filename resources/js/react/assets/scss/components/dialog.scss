@@ -1,0 +1,47 @@
+.dialog {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, .15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+
+    .inner-dialog {
+        border: 1px solid $color-light;
+        border-radius: 4px;
+        background-color: white;
+        padding: $spacing-extra-small * 2;
+        padding-top: 0;
+        width: 500px;
+
+        .title {
+            text-align: center;
+            margin: 0;
+        }
+
+        .alert {
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            
+            svg {
+                margin-right: $spacing-extra-small;
+            }
+        }
+    }
+}
+
+.dialog-field {
+    margin: $spacing-extra-small;
+    margin-top: $spacing-small;
+
+    &.inline {
+        display: inline;
+    }
+
+    button {
+        width: 100% !important;
+    }
+}

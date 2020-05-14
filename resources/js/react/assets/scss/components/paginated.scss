@@ -1,0 +1,21 @@
+.paginated {
+    &.paginated-blogposts {
+        padding: $spacing-extra-small;
+    
+        .items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+    
+            .blogpost-card {
+                $spacing: $spacing-extra-small * 2;
+                margin: 0 $spacing $spacing-normal $spacing;
+            }
+        }
+    }
+
+    .pagination-links {
+        display: flex;
+        justify-content: center;
+    }
+}

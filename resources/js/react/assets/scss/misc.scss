@@ -1,0 +1,130 @@
+html {
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+    html {
+        font-size: 10px;
+    }
+} 
+
+body {
+    color: $color-normal;
+    font-family: $font-family;
+    font-weight: $font-weight-light;
+    font-size: $font-size-small;
+    margin: 0;
+    overflow-x: hidden;
+
+    a {
+        color: $color-normal;
+    }
+
+    &::-webkit-scrollbar {
+        width: 14px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $color-light;
+        border: 2px solid white;
+
+        &:hover {
+            background: $color-normal;
+        }
+    }
+}
+
+section {
+    padding: 0 $spacing-normal;
+    margin-bottom: $spacing-normal;
+
+    .horizontal-scrollable-posts {
+        margin: 0 -#{$spacing-normal};
+    }
+}
+
+.title {
+    font-weight: $font-weight-light;
+    font-size: $font-size-normal;
+    margin: 0 0 25px 0;
+
+    &.center {
+        text-align: center;
+    }
+}
+
+main {
+    margin: 0 auto;
+    max-width: 900px;
+
+    &.large {
+        max-width: 1400px;
+    }
+
+    @media only screen and (max-width: 900px) {
+        & {
+            padding: 0 $spacing-extra-small * 2;
+        }
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+strong {
+    font-weight: $font-weight-normal;
+}
+
+.spacer {
+    height: $spacing-normal;
+}
+
+.spacer-small {
+    height: $spacing-small;
+}
+
+.skeleton-spacer {
+    margin-right: $spacing-normal;
+}
+
+hr {
+    margin: $spacing-normal / 2 0;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-link {
+    text-decoration: none;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar {
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0;
+}
+
+.logo {
+    font-size: $font-size-large;
+    text-decoration: none;
+}

@@ -15,11 +15,11 @@ $font-weight-medium: 500;
 $font-weight-bold: 700;
 $font-weight-black: 900;
 
-$spacing-extra-small: 8px;
-$spacing-small: 32px;
-$spacing-normal: 64px;
-$spacing-large: 256px;
-$spacing-extra-large: 512px;
+$spacing-extra-small: .4rem;
+$spacing-small: 1.6rem;
+$spacing-normal: 3.2rem;
+$spacing-large: 12.8rem;
+$spacing-extra-large: 25.6rem;
 
 @mixin shadow-depth-1 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);

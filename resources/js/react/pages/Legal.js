@@ -12,9 +12,9 @@ const Legal = () => (
 
         <h1>Legal Disclosure</h1>
         Information in accordance with Section 5 TMG
-        <br/><br/>Osterbekstraße 94<br/>22083 Hamburg<br/>
+        <br/><br/>Merlin Moelter<br/>Osterbekstraße 94<br/>22083 Hamburg<br/>
         <h2>Contact Information</h2>
-        Telephone: 017643879620<br/>E-Mail: <a href="mailto:merlin.moelter@gmail.com">merlin.moelter@gmail.com</a><br/>Internet address: <a href="http://www.yet-another-blog.com" target="_blank">http://www.yet-another-blog.com</a><br/><br/>
+        Telephone: 017643879620<br/>E-Mail: <a href="mailto:merlin.moelter@gmail.com">merlin.moelter@gmail.com</a><br/><br/>
         <h2>Disclaimer</h2>
         Accountability for content<br/>
         The contents of our pages have been created with the utmost care. However, we cannot guarantee the contents'

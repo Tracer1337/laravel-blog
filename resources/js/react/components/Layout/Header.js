@@ -8,6 +8,7 @@ import Menu from "./Menu.js"
 import SearchBar from "../SearchBar.js"
 
 import { logout } from "../../redux/actions.js"
+import { isMobile } from "../../config/constants.js"
 
 const Header = ({ isLoggedIn, profile, logout }) => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -38,6 +39,20 @@ const Header = ({ isLoggedIn, profile, logout }) => {
     }
 
     useEffect(closeMenu, [location])
+    
+    const menu = menuOpen && <Menu anchor={anchorElement}/>
+
+    if(isMobile) {
+        return (
+            <header className="header">
+                <Logo/>
+                <SearchBar/>
+                <div id="header-portal" />
+
+                {menu}
+            </header>
+        )
+    }
 
     return (
         <header className="header">
@@ -65,7 +80,7 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                 )
             }
 
-            {menuOpen && <Menu anchor={anchorElement} />}
+            {menu}
         </header>
     )
 }

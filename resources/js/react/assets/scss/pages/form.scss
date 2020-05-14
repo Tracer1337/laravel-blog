@@ -1,0 +1,114 @@
+.form-page {
+    .title {
+        text-align: center;
+    }
+
+    form {
+        $input-spacing: $spacing-small;
+
+        .input, label {
+            display: block;
+        }
+
+        label {
+            margin-bottom: $spacing-extra-small;
+        }
+
+        .input {
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .input, .checkbox {
+            margin-bottom: $spacing-small;
+        }
+
+        .markdown-editor {
+            margin-bottom: $input-spacing / 2;
+        }
+
+        .file-input-wrapper {
+            display: flex;
+
+            &:not(.multi) {
+                margin-bottom: $input-spacing;
+            }
+
+            label {
+                display: flex;
+            }
+        }
+
+        .links {
+            display: grid;
+            grid-template: 
+                "1fr 1fr"
+                "1fr 1fr";
+            grid-gap: $spacing-extra-small * 2;
+            margin-bottom: $input-spacing;
+        }
+
+        .submit {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            margin-right: $spacing-small;
+
+            .icon {
+                margin-right: 12px;
+            }
+        }
+
+        .actions {
+            display: flex;
+        }
+
+        .available-assets {
+            margin-bottom: $spacing-small;
+
+            .card {
+                font-size: $font-size-extra-small;
+                margin: $spacing-extra-small 0;
+                padding: $spacing-extra-small;
+                display: flex;
+                justify-content: space-between;
+
+                .item {
+                    display: flex;
+                    align-items: center;
+
+                    .icon {
+                        cursor: pointer;
+                        color: $color-normal;
+                    }
+                }
+
+                .preview {
+                    width: 100px;
+                    margin-right: $spacing-small;
+                    display: flex;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                .meta {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    height: 100%
+                }
+            }
+        }
+    }
+}
+
+.create-blogpost-form {
+    display: flex;
+
+    form {
+        margin-right: $spacing-normal;
+        flex-grow: 1;
+    }
+}

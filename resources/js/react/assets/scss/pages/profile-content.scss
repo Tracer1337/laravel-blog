@@ -1,0 +1,25 @@
+.profile-comments-page, .profile-blogposts-page {
+    .title {
+        text-align: center;
+        margin-bottom: $spacing-normal;
+    }
+}
+
+.profile-comments-page {
+    .comment {
+        margin-bottom: $spacing-small;
+        padding: $spacing-extra-small * 2;
+
+        .head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: $spacing-extra-small;
+            font-weight: $font-weight-normal;
+
+            .prefix {
+                font-weight: $font-weight-light;
+            }
+        }
+
+    }
+}

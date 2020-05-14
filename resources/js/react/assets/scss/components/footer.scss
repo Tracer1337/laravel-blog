@@ -1,0 +1,32 @@
+.footer {
+    padding: 0 $spacing-normal;
+    background-color: $color-light;
+    height: 128px;
+    position: relative;
+    margin-top: auto;
+
+    .links {
+        position: absolute;
+        bottom: 0; left: 0;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        padding-left: $spacing-normal;
+        
+        a {
+            color: white;
+            text-decoration: none;
+            margin-right: $spacing-normal;
+        }
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: $spacing-normal;
+        background-color: white;
+        border-bottom-left-radius: $spacing-normal * 2;
+        border-bottom-right-radius: $spacing-normal * 2;
+    }
+}

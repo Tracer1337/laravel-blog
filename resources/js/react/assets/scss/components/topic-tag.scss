@@ -1,0 +1,41 @@
+.topics .chip {
+    margin-right: $spacing-normal;
+}
+
+.chip {
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 25px;
+    border: 1px solid $color-normal;
+    display: inline-block;
+
+    &.small {
+        padding: $spacing-extra-small;
+        font-size: $font-size-extra-small;
+    }
+}
+
+.all-topics {
+    margin-right: -$spacing-normal;
+    
+    title {
+        margin-bottom: 17px;
+    }
+
+    .chip {
+        margin-top: $spacing-extra-small;
+    }
+}
+
+.topic-crumb {
+    display: flex;
+    align-items: center;
+
+    .label {
+        font-size: $font-size-normal;
+    }
+}
+
+.tags .tag {
+    margin-right: $spacing-small;
+}

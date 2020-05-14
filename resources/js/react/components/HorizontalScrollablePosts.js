@@ -6,6 +6,7 @@ import Slider from "react-slick"
 import BlogpostCard from "./BlogpostCard.js"
 
 import useAPIData from "../utils/useAPIData.js"
+import { isMobile } from "../config/constants.js"
 
 const cardWidth = 350
 
@@ -42,6 +43,10 @@ const HorizontalScrollablePosts = (props) => {
 
     if(!renderPosts.length && !isLoading) {
         return null
+    }
+
+    if(isMobile) {
+        return renderPosts.map((post, i) => <BlogpostCard post={post} showSkeleton={isLoading} key={i} />)
     }
 
     let slidesToShow
