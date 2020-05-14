@@ -52,9 +52,9 @@ const BlogpostPage = () => {
                 <meta name="description" content={post.teaser}/>
             </Helmet>
 
-            <TopicCrumb data={post.topic} />
-
             <div className="blogpost-page">
+                <TopicCrumb data={post.topic}/>
+
                 <main>
                     <Head data={post} />
 

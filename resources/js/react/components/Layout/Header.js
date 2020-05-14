@@ -43,6 +43,7 @@ const Header = ({ isLoggedIn, profile, logout }) => {
         <header className="header">
             <div className="left">
                 <Logo/>
+                <div id="header-portal" />
                 <SearchBar/>
             </div>
 

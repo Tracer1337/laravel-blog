@@ -10,16 +10,16 @@ import Date from "../Date.js"
 const Head = ({ data, profile }) => (
     <>
         <div className="head">
-            <Link to={!data.user ? "" : "/user/" + data.user.id} className="user-wrapper">
-                <div className="user">
-                    <Avatar user={data.user} showSkeleton={!data.user}/>
-                    <span className="username">{!data.user ? <Skeleton width={100}/> : data.user.username}</span>
-                </div>
-            </Link>
+                <Link to={!data.user ? "" : "/user/" + data.user.id} className="user-wrapper">
+                    <div className="user">
+                        <Avatar user={data.user} showSkeleton={!data.user} />
+                        <span className="username">{!data.user ? <Skeleton width={100} /> : data.user.username}</span>
+                    </div>
+                </Link>
 
-            {!data.published_at ? <Skeleton width={100}/> : (
-                <Date timestamp={data.published_at} className="date" />
-            )}
+                {!data.published_at ? <Skeleton width={100} /> : (
+                    <Date timestamp={data.published_at} className="date" />
+                )}
         </div>
 
         {profile?.id === data.user_id && (
