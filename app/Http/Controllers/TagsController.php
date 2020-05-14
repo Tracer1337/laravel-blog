@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tag;
 use App\Http\Resources\Tag as TagResource;
+use App\Http\Resources\Blogpost as BlogpostResource;
 
 class TagsController extends Controller
 {
     public function __construct() {
-        $this->middleware("auth:api", ["except" => ["index"]]);
+        $this->middleware("auth:api", ["except" => ["index", "get_specific", "blogposts"]]);
     }
 
     /**
@@ -17,11 +18,24 @@ class TagsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         $tags = Tag::all();
 
         return TagResource::collection($tags);
+    }
+
+    public function get_specific($id) {
+        $tag = Tag::findOrFail($id);
+
+        return new TagResource($tag);
+    }
+
+    public function blogposts($id) {
+        $tag = Tag::findOrFail($id);
+        $blogposts = $tag->blogposts()->whereNotNull("published_at")->orderBy("published_at", "DESC")->Paginate(20);
+        $blogposts->makeHidden("content");
+
+        return BlogpostResource::collection($blogposts);
     }
 
     /**

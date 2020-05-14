@@ -14,7 +14,7 @@ const Tags = ({ data }) => (
         ) : (
             data.map(({ id, name }) => (
                 <span className="tag" key={id}>
-                    <Link to={"/tags/" + id}>
+                    <Link to={"/tag/" + id}>
                         {name}
                     </Link>
                 </span>

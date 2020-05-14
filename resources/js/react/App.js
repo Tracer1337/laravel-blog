@@ -14,6 +14,7 @@ import ProfileBlogposts from "./pages/ProfileBlogposts.js"
 import AdminPanel from "./pages/AdminPanel.js"
 import Topic from "./pages/Topic.js"
 import Search from "./pages/Search.js"
+import Tag from "./pages/Tag.js"
 
 import Layout from "./components/Layout/Layout.js"
 import LoadingIndicator from "./components/LoadingIndicator.js"
@@ -83,6 +84,10 @@ const App = ({ login }) => {
                                 <Search/>
                             </Route>
 
+                            <Route path="/tag/:id">
+                                <Tag/>
+                            </Route>
+
                             <Route path="/topic/:id">
                                 <Topic/>
                             </Route>
@@ -101,6 +106,10 @@ const App = ({ login }) => {
 
                             <Route exact path="/">
                                 <Index/>
+                            </Route>
+
+                            <Route>
+                                Not found
                             </Route>
                         </Switch>
                     )}

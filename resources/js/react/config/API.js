@@ -70,14 +70,18 @@ export const getAllTopics = () => axios.get(url("topics"))
 
 export const getTopic = id => axios.get(url("topics/"+id))
 
-export const getTopicBlogposts = (id, pageNr) => axios.get(paginated(url(`topics/${id}/blogposts`), pageNr)).then(format("blogposts"))
+export const getTopicBlogposts = (id, pageNr) => axios.get(paginated(url(`topics/${id}/blogposts`), pageNr)).then(format(blogposts))
 
 export const addTopic = args => axios.post(url("topics"), args)
 
-export const deleteTopic = id => axios.delete(url("topics/" + id))
+export const deleteTopic = id => axios.delete(url("topics/"+id))
 
 //Tags
 export const getAllTags = () => axios.get(url("tags"))
+
+export const getTag = id => axios.get(url("tags/"+id))
+
+export const getTagBlogposts = (id, pageNr) => axios.get(paginated(url(`tags/${id}/blogposts`), pageNr)).then(format(blogposts))
 
 export const addTag = args => axios.post(url("tags"), args)
 

@@ -10,7 +10,7 @@ use App\Http\Resources\Blogpost as BlogpostResource;
 class TopicsController extends Controller
 {
     public function __construct() {
-        $this->middleware("auth:api", ["except" => ["index", "blogposts"]]);
+        $this->middleware("auth:api", ["except" => ["index", "blogposts", "get_specific"]]);
     }
 
     /**
