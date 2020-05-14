@@ -50,6 +50,10 @@ class AuthController extends Controller
 
         if($user->can("store files")) {
             if(isset($data["avatar"])) {
+                if(!$data["avatar"]->isValid()) {
+                    return reponse(null, 422);
+                }
+
                 $path = $data["avatar"]->storeAs("public/avatars", $user->id);
                 $user->avatar_url = Storage::url($path);
             }
@@ -59,7 +63,7 @@ class AuthController extends Controller
             return new UserResource($user);
         }
 
-        return response(0, 400);
+        return response(null, 400);
     }
 
     public function register(Request $request) {
@@ -162,7 +166,7 @@ class AuthController extends Controller
             "username" => "required",
             "biography" => "nullable",
             "links" => "nullable|JSON",
-            "avatar" => "nullable|image|dimensions:max_width:512,max_height=512,ration=1"
+            "avatar" => "nullable|image|dimensions:ratio=1"
         ]);
 
         $user = $request->user();

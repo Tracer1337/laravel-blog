@@ -164,6 +164,10 @@ class BlogpostController extends Controller
         if($user->can("store files")) { 
             // Store cover image
             if(isset($validated_data["cover"])) {
+                if(!$validated_data["cover"]->isValid()) {
+                    return response(null, 422);
+                }
+
                 // Check if cover is new
                 $store_images = get_new_images([$validated_data["cover"]], $blogpost->assets);
 
@@ -198,7 +202,11 @@ class BlogpostController extends Controller
 
             // Store images array
             if(isset($validated_data["images"])) {
-                $new_images = $blogpost->assets;
+                foreach($validated_data["images"] as $image) {
+                    if(!$image->isValid()) {
+                        return response(null, 422);
+                    }
+                }
 
                 // Filter new images
                 $store_images = get_new_images($validated_data["images"], $blogpost->assets);

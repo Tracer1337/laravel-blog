@@ -11,6 +11,7 @@ import "easymde/dist/easymde.min.css"
 import FileInput from "../components/FileInput.js"
 import Auth from "../components/Auth.js"
 import LoadingIndicator from "../components/LoadingIndicator.js"
+import Dialog from "../components/Dialog/Dialog.js"
 
 import objectToForm from "../utils/objectToForm.js"
 import { editProfile } from "../config/API.js"
@@ -42,7 +43,10 @@ const EditProfile = ({ profile, modifyProfile }) => {
         editProfile(objectToForm(formData))
             .then(res => {
                 modifyProfile(res.data.data)
-                alert("Saved")
+                Dialog.success("Saved")
+            })
+            .catch(() => {
+                Dialog.error("Failed")
             })
     }
 

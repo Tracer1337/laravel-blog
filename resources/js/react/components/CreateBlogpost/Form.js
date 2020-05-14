@@ -44,13 +44,18 @@ const Form = ({ postId, editData, reload }) => {
             formData.append("publish", true)
         }
 
-        if (postId) {
-            formData.append("id", postId)
-            await editBlogpost(formData)
-            reload()
-        } else {
-            const res = await addBlogpost(formData)
-            history.push("/create-post?post_id=" + res.data.data.id)
+        try {
+            if (postId) {
+                formData.append("id", postId)
+                await editBlogpost(formData)
+                reload()
+            } else {
+                const res = await addBlogpost(formData)
+                history.push("/create-post?post_id=" + res.data.data.id)
+            }
+        } catch {
+            Dialog.error("Request failed")
+            return
         }
 
         Dialog.success(method === 1 ? "Published" : "Saved")
