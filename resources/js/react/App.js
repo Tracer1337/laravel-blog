@@ -22,6 +22,7 @@ import Legal from "./pages/Legal.js"
 
 import Layout from "./components/Layout/Layout.js"
 import LoadingIndicator from "./components/LoadingIndicator.js"
+import GATracking from "./utils/GATracking.js"
 
 import { login } from "./redux/actions.js"
 import { getProfile } from "./config/API.js"
@@ -54,6 +55,8 @@ const App = ({ login }) => {
 
     return (
         <Router>
+            <GATracking/>
+
             <div className="app">
                 <Layout>
                     {isLoading ? (
