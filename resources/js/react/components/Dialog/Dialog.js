@@ -14,6 +14,8 @@ import Verification from "./templates/Verification.js"
 import WarningTemplate from "./templates/Warning.js"
 import ErrorTemplate from "./templates/Error.js"
 import SuccessTemplate from "./templates/Success.js"
+import CookieConsent from "./templates/CookieConsent.js"
+import CookiePreferences from "./templates/CookiePreferences.js"
 
 class Dialog extends Component {
     constructor(props) {
@@ -134,5 +136,7 @@ Dialog.verify = Verification
 Dialog.warn = WarningTemplate
 Dialog.error = ErrorTemplate
 Dialog.success = SuccessTemplate
+Dialog.cookieConsent = CookieConsent
+Dialog.cookiePreferences = CookiePreferences
 
 export default Dialog

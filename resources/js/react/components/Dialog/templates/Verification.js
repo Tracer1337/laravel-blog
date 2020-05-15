@@ -8,13 +8,12 @@ export default (args) => {
     const subContent = args.subContent || null
     
     return new Promise(resolve => {
-        const eventEmitter = new EventTarget()
         const container = document.createElement("div")
 
-        eventEmitter.addEventListener("answer", ({ detail: { value } }) => {
+        const handleAnswer = hasAccepted => {
             ReactDOM.unmountComponentAtNode(container)
-            resolve(value)
-        })
+            resolve(hasAccepted)
+        }
 
         ReactDOM.render(
             <Dialog
@@ -37,13 +36,13 @@ export default (args) => {
                         type: "button",
                         inline: true,
                         value: "Accept",
-                        onClick: () => eventEmitter.dispatchEvent(new CustomEvent("answer", { detail: { value: true } }))
+                        onClick: () => handleAnswer(true)
                     },
                     {
                         type: "button",
                         inline: true,
                         value: "Decline",
-                        onClick: () => eventEmitter.dispatchEvent(new CustomEvent("answer", { detail: { value: false } }))
+                        onClick: () => handleAnswer(false)
                     }
                 ]}
             />

@@ -1,0 +1,21 @@
+.cookie-consent {
+    @include shadow-depth-2;
+    position: fixed;
+    bottom: $spacing-small;
+    left: $spacing-small;
+    width: 500px;
+    z-index: 10;
+    background-color: white;
+
+    .actions {
+        display: flex;
+
+        button {
+            width: 50%;
+
+            &:first-child {
+                margin-right: $spacing-extra-small;
+            }
+        }
+    }
+}
