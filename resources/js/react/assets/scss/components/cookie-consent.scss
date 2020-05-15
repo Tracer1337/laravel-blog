@@ -3,7 +3,7 @@
     position: fixed;
     bottom: $spacing-small;
     left: $spacing-small;
-    width: 500px;
+    max-width: 500px;
     z-index: 10;
     background-color: white;
 
@@ -17,5 +17,10 @@
                 margin-right: $spacing-extra-small;
             }
         }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        left: 0;
+        bottom: 0;
     }
 }
