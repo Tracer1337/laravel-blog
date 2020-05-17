@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
+use App\User;
 
 class CreatePermissionTables extends Migration
 {
@@ -86,6 +90,8 @@ class CreatePermissionTables extends Migration
         app('cache')
             ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
             ->forget(config('permission.cache.key'));
+
+        $this->seed();
     }
 
     /**
@@ -106,5 +112,60 @@ class CreatePermissionTables extends Migration
         Schema::drop($tableNames['model_has_permissions']);
         Schema::drop($tableNames['roles']);
         Schema::drop($tableNames['permissions']);
+    }
+
+    public function seed() {
+        // Seed permissions
+        app()[PermissionRegistrar::class]->forgetCachedPermissions();
+
+        Permission::create(["name" => "create blogposts"]);
+        Permission::create(["name" => "delete any blogpost"]);
+        Permission::create(["name" => "like blogposts"]);
+        Permission::create(["name" => "recommend blogposts"]);
+        Permission::create(["name" => "get all blogposts"]);
+
+        Permission::create(["name" => "create topics"]);
+        Permission::create(["name" => "update topics"]);
+        Permission::create(["name" => "delete topics"]);
+
+        Permission::create(["name" => "create tags"]);
+        Permission::create(["name" => "update tags"]);
+        Permission::create(["name" => "delete tags"]);
+
+        Permission::create(["name" => "update any user"]);
+        Permission::create(["name" => "delete any user"]);
+        Permission::create(["name" => "view users"]);
+        Permission::create(["name" => "follow users"]);
+        Permission::create(["name" => "get all users"]);
+
+        Permission::create(["name" => "create comments"]);
+        Permission::create(["name" => "delete any comment"]);
+
+        Permission::create(["name" => "store files"]);
+        Permission::create(["name" => "delete files"]);
+
+        // Seed roles
+        $role_user = Role::create(["name" => "user"]);
+        $role_author = Role::create(["name" => "author"]);
+        $role_admin = Role::create(["name" => "admin"]);
+
+        $role_user->givePermissionTo("like blogposts");
+        $role_user->givePermissionTo("create comments");
+        $role_user->givePermissionTo("view users");
+        $role_user->givePermissionTo("follow users");
+        
+        $role_author->givePermissionTo("create blogposts");
+        $role_author->givePermissionTo("like blogposts");
+        $role_author->givePermissionTo("recommend blogposts");
+        $role_author->givePermissionTo("create comments");
+        $role_author->givePermissionTo("create topics");
+        $role_author->givePermissionTo("create tags");
+        $role_author->givePermissionTo("view users");
+        $role_author->givePermissionTo("follow users");
+        $role_author->givePermissionTo("store files");
+        $role_author->givePermissionTo("delete files");
+
+        // Give admin user the admin role
+        User::first()->assignRole($role_admin);
     }
 }
