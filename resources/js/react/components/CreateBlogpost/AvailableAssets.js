@@ -16,7 +16,7 @@ const AvailableAssets = ({ data, onRemove }) => {
                 <div className="card" key={i}>
                     <div className="item">
                         <div className="preview">
-                            <img src={window.location.origin + url} alt="preview"/>
+                            <img src={url} alt="preview"/>
                         </div>
 
                         <div className="meta">
