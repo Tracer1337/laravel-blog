@@ -11,6 +11,8 @@ const BlogpostCard = ({ post, showSkeleton }) => {
         }
     }, [post, showSkeleton])
 
+    const fullName = post?.user?.first_name + " " + post?.user?.last_name
+
     return (
         <Link to={showSkeleton ? "" : "/blogpost/"+post.id} className="blogpost-card-wrapper">
             <div className="blogpost-card">
@@ -21,7 +23,7 @@ const BlogpostCard = ({ post, showSkeleton }) => {
 
                 <div className="body">
                     <div className="top">
-                        <div className="left author">{ showSkeleton ? <Skeleton/> : post.user?.username }</div>
+                        <div className="left author">{ showSkeleton ? <Skeleton/> : fullName }</div>
                         { showSkeleton ? <Skeleton width={100}/> : (
                             <Date timestamp={post.published_at} className="right published-date" />
                         )}

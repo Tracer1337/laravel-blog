@@ -27,6 +27,8 @@ $factory->define(App\User::class, function (Faker $faker) {
     }
 
     return [
+        "first_name" => $faker->firstName,
+        "last_name" => $faker->lastName,
         "username" => $faker->username,
         "password" => bcrypt("123456"),
         "email" => $faker->email,
