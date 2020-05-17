@@ -18,12 +18,24 @@ function get_new_files($files, $existing_files) {
     }
 
     $new_files = [];
-
     $existing_files_paths = [];
+    $temp_files = [];
 
     // Filter paths of existing files
     foreach($existing_files as $object) {
-        $path = Storage::path($object->path);
+        // Get file
+        // $file_content = Storage::get($object->path);
+        $file_content = Storage::get($object["path"]);
+
+        // Create temp file
+        $temp = tmpfile();
+        fwrite($temp, $file_content);
+        array_push($temp_files, $temp);
+
+        // Get temp file path
+        $meta_data = stream_get_meta_data($temp);
+        $path = $meta_data["uri"];
+
         array_push($existing_files_paths, $path);
     }
 
@@ -43,6 +55,13 @@ function get_new_files($files, $existing_files) {
 
         if($is_new) {
             array_push($new_files, $file);
+        }
+    }
+
+    // Delete temp files
+    if(count($temp_files) > 0) {
+        foreach($temp_files as $file) {
+            fclose($file);
         }
     }
 
@@ -67,6 +86,11 @@ function create_asset($data) {
     $filename = Uuid::generate()->string;
     $path = $data["file"]->storeAs("public/assets", $filename);
     $url = Storage::url($path);
+
+    // Make asset accessible directly from s3 bucket
+    if(ENV("FILESYSTEM_DRIVER") == "s3") {
+        Storage::disk("s3")->setVisibility($path, "public");
+    }
 
     // Create new asset
     $new_image = new Asset;

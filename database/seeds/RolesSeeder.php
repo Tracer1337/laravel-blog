@@ -13,6 +13,9 @@ class RolesSeeder extends Seeder
      */
     public function run()
     {
+        $role_user = Role::findByName("user");
+        $role_author = Role::findByName("author");
+
         // Assign roles to users
         $users = User::all();
 

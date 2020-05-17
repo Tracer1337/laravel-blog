@@ -46,7 +46,7 @@ const Preview = ({ data }) => {
 
             {formattedData ? (
                 <>
-                    <BlogpostCard post={formattedData} />
+                    <BlogpostCard post={formattedData}/>
 
                     <h4>Gradient Gap</h4>
                     <input type="number" min="0" max=".9" step=".1" defaultValue="0.8" onChange={handleGapChange} />

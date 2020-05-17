@@ -59,7 +59,6 @@ class AuthController extends Controller
                 $current_avatar = $user->getAvatarAttribute();
                 $store_images = get_new_files([$data["avatar"]], [$current_avatar]);
 
-
                 if(isset($store_images[0])) {
                     // Create asset for avatar
                     $new_avatar = create_asset([

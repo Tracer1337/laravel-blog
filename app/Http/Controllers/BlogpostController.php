@@ -144,8 +144,9 @@ class BlogpostController extends Controller
                     $new_image = create_asset([
                         "file" => $image,
                         "blogpost_id" => $blogpost->id,
-                        "type" => "image"
-                    ], $user);
+                        "type" => "image",
+                        "user_id" => $user->id
+                    ]);
 
                     $new_image->save();
                 }
