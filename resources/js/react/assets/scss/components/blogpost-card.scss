@@ -9,15 +9,18 @@
         width: #{$width}px;
         height: 500px;
         border: 1px solid $color-normal;
+        border-radius: 4px;
 
         .image-wrapper {
             width: #{$width}px;
             height: #{$image-height}px;
+
             background-color: rgba(0, 0, 0, 0.12);
             border-bottom: 1px solid $color-normal;
             display: flex;
             justify-content: center;
             align-items: center;
+            border-radius: 4px;
 
             img {
                 max-width: 100%;
