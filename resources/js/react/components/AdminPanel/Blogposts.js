@@ -14,7 +14,8 @@ const Blogposts = () => {
         const shouldRemove = await Dialog.verify(`"${post.title}" will be removed`)
 
         if(shouldRemove) {
-            deleteBlogpost(post.id).then(refresh)
+            deleteBlogpost(post.id)
+                .then(() => Dialog.success("Removed"))
         }
     }
 

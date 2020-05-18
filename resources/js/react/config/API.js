@@ -1,4 +1,4 @@
-import format, { blogpost, blogposts, search, user, auth } from "./format.js"
+import format, { blogpost, blogposts, search, user, auth, assets } from "./format.js"
 
 const url = path => `${window.location.origin}/api/${path}`
 const paginated = (path, pageNr) => `${path}?page=${pageNr}`
@@ -134,3 +134,8 @@ export const getSearchResults = query => axios.get(url("search?query=" + query))
 export const getRoles = () => axios.get(url("roles"))
 
 export const assignRole = args => axios.post(url("roles/user"), args)
+
+// Storage
+export const getAllAssets = pageNr => axios.get(paginated(url("storage/assets"), pageNr)).then(format(assets))
+
+export const deleteAsset = id => axios.delete(url("storage/asset/" + id))

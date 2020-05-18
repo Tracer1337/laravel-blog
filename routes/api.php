@@ -110,3 +110,9 @@ Route::get("profile/subscriptions", "AuthController@subscriptions");
 // Search
 
 Route::get("search", "SearchController@index");
+
+// Storage
+
+Route::get("storage/assets", "StorageController@api_assets");
+
+Route::delete("storage/asset/{filename}", "StorageController@api_delete_asset");

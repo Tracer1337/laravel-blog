@@ -32,6 +32,8 @@
 * file
     * store
     * delete
+    * view-all
+    * delete any
 
 ### Roles
 

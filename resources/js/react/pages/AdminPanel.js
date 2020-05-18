@@ -7,6 +7,7 @@ import Topics from "../components/AdminPanel/Topics.js"
 import Tags from "../components/AdminPanel/Tags.js"
 import Blogposts from "../components/AdminPanel/Blogposts.js"
 import Users from "../components/AdminPanel/Users.js"
+import Storage from "../components/AdminPanel/Storage.js"
 
 import pageTitle from "../config/pageTitle.js"
 
@@ -37,6 +38,10 @@ const AdminPanel = () => {
 
                     <Route path={`${path}/users`}>
                         <Users/>
+                    </Route>
+
+                    <Route path={`${path}/storage`}>
+                        <Storage/>
                     </Route>
 
                     <Route exact path={path}>

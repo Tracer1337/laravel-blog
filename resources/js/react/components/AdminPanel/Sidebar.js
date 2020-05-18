@@ -25,6 +25,10 @@ const Sidebar = () => {
             <Link to={`${url}/users`}>
                 <div>Users</div>
             </Link>
+
+            <Link to={`${url}/storage`}>
+                <div>Storage</div>
+            </Link>
         </aside>
     )
 }

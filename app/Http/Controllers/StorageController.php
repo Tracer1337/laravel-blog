@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Asset;
+use App\Http\Resources\Asset as AssetResource;
 use Illuminate\Support\Facades\Storage;
 
 function pathToArray($path) {
@@ -21,6 +22,10 @@ function pathToArray($path) {
 
 class StorageController extends Controller
 {
+    public function __construct() {
+        $this->middleware("auth:api", ["except" => ["index"]]);
+    }
+
     /**
      * Get a file from storage
      */
@@ -40,5 +45,35 @@ class StorageController extends Controller
         }
 
         return response(null, 404);
+    }
+
+    /**
+     * API Methods
+     */
+
+    /**
+     * Get all assets
+     */
+    public function api_assets(Request $request) {
+        if(!$request->user()->can("view all files")) {
+            return response(null, 403);
+        }
+
+        $assets = Asset::Paginate(20);
+
+        return AssetResource::collection($assets);
+    }
+
+    /**
+     * Delete asset
+     */
+    public function api_delete_asset($filename, Request $request) {
+        if(!$request->user()->can("delete any file")) {
+            return response(null, 403);
+        }
+
+        $response_code = delete_asset($filename);
+        
+        return response(null, $response_code);
     }
 }
