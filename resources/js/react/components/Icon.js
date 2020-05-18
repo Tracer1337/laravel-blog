@@ -4,7 +4,7 @@ import icons from "../assets/icons.json"
 
 const sizes = ["large", "small"]
 
-const Icon = ({ type, fontSize, ...props }) => {
+const Icon = ({ type, fontSize, className, ...props }) => {
     if (!(type in icons)) {
         return <div>Icon {type} not found</div>
     }
@@ -21,8 +21,9 @@ const Icon = ({ type, fontSize, ...props }) => {
             height="24"
             viewBox="0 0 24 24"
             dangerouslySetInnerHTML={{__html: path}}
-            className={`${props.className || ""} ${setSizeClass ? fontSize : ""}`}
+            className={`${className || ""} ${setSizeClass ? fontSize : ""}`}
             style={{ fontSize: size+"px" }}
+            {...props}
         />
     )
 }
