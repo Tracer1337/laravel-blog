@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import { Helmet } from "react-helmet"
 import { useParams } from "react-router-dom"
-import Markdown from "react-markdown"
 import Skeleton from "react-loading-skeleton"
 
 import TopicCrumb from "../components/Blogpost/TopicCrumb.js"
@@ -12,6 +11,7 @@ import Comments from "../components/Blogpost/Comments.js"
 import CommentForm from "../components/Blogpost/CommentForm.js"
 import RelatedPosts from "../components/Blogpost/RelatedPosts.js"
 import Auth from "../components/Auth.js"
+import MarkdownViewer from "../components/MarkdownViewer.js"
 
 import useQuery from "../utils/useQuery.js"
 import useAPIData from "../utils/useAPIData.js"
@@ -63,7 +63,7 @@ const BlogpostPage = () => {
                     <div className="blogpost-title">{post.title || <Skeleton/>}</div>
 
                     <div className="content">
-                        {post.content ? <Markdown source={post.content}/> : <Skeleton count={30}/>}
+                        {post.content ? <MarkdownViewer source={post.content}/> : <Skeleton count={30}/>}
                     </div>
 
                     <hr />

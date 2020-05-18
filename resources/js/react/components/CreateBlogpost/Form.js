@@ -1,4 +1,5 @@
 import React from "react"
+import ReactDOMServer from "react-dom/server"
 import { useHistory } from "react-router-dom"
 import { useForm, Controller, FormContext } from "react-hook-form"
 import MarkdownEditor from "react-simplemde-editor"
@@ -12,6 +13,7 @@ import AvailableAssets from "./AvailableAssets.js"
 import Actions from "./Actions.js"
 import Preview from "./Preview.js"
 import Dialog from "../Dialog/Dialog.js"
+import MarkdownViewer from "../MarkdownViewer.js"
 
 import { addBlogpost, editBlogpost } from "../../config/API.js"
 import objectToForm from "../../utils/objectToForm.js"
@@ -83,7 +85,9 @@ const Form = ({ postId, editData, reload }) => {
 
                     <div>
                         <label>Content</label>
-                        <Controller as={MarkdownEditor} name="content" className="markdown-editor" control={control}/>
+                        <Controller as={MarkdownEditor} name="content" className="markdown-editor" control={control} options={{
+                            previewRender: text => ReactDOMServer.renderToStaticMarkup(<MarkdownViewer source={text}/>)
+                        }}/>
                     </div>
 
                     {editData?.assets && (
