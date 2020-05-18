@@ -2,7 +2,6 @@ async function getImageData(imgSource) {
     const image = new Image()
     
     const [width, height] = await new Promise(resolve => {
-        image.crossOrigin = "Anonymous"
         image.onload = function () {
             resolve([this.width, this.height])
         }

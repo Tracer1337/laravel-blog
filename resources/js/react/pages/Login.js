@@ -14,12 +14,15 @@ import pageTitle from "../config/pageTitle.js"
 const Login = ({ loginAction }) => {
     const history = useHistory()
 
-    const { register, handleSubmit } = useForm()
+    const { register, handleSubmit } = useForm({
+        defaultValues: {
+            remember_me: "true"
+        }
+    })
 
     const [isLoading, setIsLoading] = useState(false)
 
     const onSubmit = fields => {
-        console.log(fields)
         setIsLoading(true)
         login(fields)
             .then(data => {

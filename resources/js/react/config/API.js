@@ -1,4 +1,4 @@
-import format, { blogpost, blogposts, search } from "./format.js"
+import format, { blogpost, blogposts, search, user } from "./format.js"
 
 const url = path => `${window.location.origin}/api/${path}`
 const paginated = (path, pageNr) => `${path}?page=${pageNr}`
@@ -95,7 +95,7 @@ export const editComment = args => axios.put(url("comment"), args)
 export const deleteComment = id => axios.delete(url("comment/"+id))
 
 // Users
-export const getUser = id => axios.get(url("user/"+id))
+export const getUser = id => axios.get(url("user/"+id)).then(format(user))
 
 export const getAllUsers = () => axios.get(url("users/all"))
 

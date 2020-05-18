@@ -85,12 +85,12 @@ function delete_asset($filename) {
 function create_asset($data) {
     $filename = Uuid::generate()->string;
     $path = $data["file"]->storeAs("public/assets", $filename);
-    $url = Storage::url($path);
+    $url = ENV("APP_URL") . "/storage/assets/" . $filename;
 
     // Make asset accessible directly from s3 bucket
-    if(ENV("FILESYSTEM_DRIVER") == "s3") {
-        Storage::disk("s3")->setVisibility($path, "public");
-    }
+    // if(ENV("FILESYSTEM_DRIVER") == "s3") {
+    //     Storage::disk("s3")->setVisibility($path, "public");
+    // }
 
     // Create new asset
     $new_image = new Asset;
