@@ -7,7 +7,7 @@ import Dialog from "../Dialog/Dialog.js"
 import Date from "../Date.js"
 import Pagination from "../Pagination.js"
 
-import { getAllBlogposts, deleteBlogpost } from "../../config/API.js"
+import { deleteBlogpost } from "../../config/API.js"
 
 const Blogposts = () => {
     const handleRemove = async post => {
@@ -21,7 +21,7 @@ const Blogposts = () => {
 
     return (
         <Pagination
-            fetchMethod={getAllBlogposts}
+            fetchMethod="getAllBlogposts"
             renderChildren={({ data }) => {
                 const posts = data || Array(20).fill({})
 

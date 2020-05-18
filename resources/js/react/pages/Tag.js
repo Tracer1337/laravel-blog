@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom"
 import Pagination from "../components/Pagination.js"
 import BlogpostCard from "../components/BlogpostCard.js"
 
-import { getTagBlogposts } from "../config/API.js"
 import useAPIData from "../utils/useAPIData.js"
 import pageTitle from "../config/pageTitle.js"
 
@@ -14,8 +13,6 @@ const TagPage = () => {
     const [data] = useAPIData("getTag", [id])
 
     const name = data?.data.name || ""
-
-    console.log(id)
 
     return (
         <div className="tag-page">
@@ -27,7 +24,8 @@ const TagPage = () => {
 
             <Pagination
                 className="paginated-blogposts"
-                fetchMethod={getTagBlogposts.bind(null, id)}
+                fetchMethod="getTagBlogposts"
+                args={[id]}
                 renderChildren={({ data, isLoading }) => {
                     if (!isLoading) {
                         return data.map((post, i) => (

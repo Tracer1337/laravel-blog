@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react"
 import { Pagination as MuiPagination } from "@material-ui/lab"
 
-const Pagination = ({ fetchMethod, renderChildren, className }) => {
-    const [data, setData] = useState()
+import useAPIData from "../utils/useAPIData.js"
+
+const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCache = false }) => {
+    const [data, refresh] = useAPIData(fetchMethod, [...args, 1], useCache)
     const [pageNr, setPageNr] = useState(1)
     const [isLoading, setIsLoading] = useState(true)
 
-    const loadPage = () => {
+    const loadPage = async () => {
         window.scrollTo(0, 0)
         setIsLoading(true)
-        fetchMethod(pageNr)
-            .then(res => {
-                setData(res.data)
-                setIsLoading(false)
-            })
+        await refresh([...args, pageNr])
+        setIsLoading(false)
     }
 
     const handlePageChange = (event, value) => {

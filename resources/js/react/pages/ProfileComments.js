@@ -6,7 +6,6 @@ import Skeleton from "react-loading-skeleton"
 import Pagination from "../components/Pagination.js"
 import Date from "../components/Date.js"
 
-import { getProfileComments } from "../config/API.js"
 import pageTitle from "../config/pageTitle.js"
 
 const Comment = ({ data }) => {
@@ -33,7 +32,7 @@ const ProfileComments = () => (
         <h3 className="title">My Comments</h3>
 
         <Pagination
-            fetchMethod={getProfileComments}
+            fetchMethod="getProfileComments"
             renderChildren={({ data }) => {
                 if(!data) {
                     return Array(20).fill().map((_, i) => <Comment key={i}/>)

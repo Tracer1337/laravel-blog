@@ -4,7 +4,6 @@ import { Helmet } from "react-helmet"
 import Pagination from "../components/Pagination.js"
 import BlogpostCard from "../components/BlogpostCard.js"
 
-import { getProfileBlogposts } from "../config/API.js"
 import pageTitle from "../config/pageTitle.js"
 
 const ProfileBlogposts = () => {
@@ -18,7 +17,7 @@ const ProfileBlogposts = () => {
             
             <Pagination
                 className="paginated-blogposts"
-                fetchMethod={getProfileBlogposts}
+                fetchMethod="getProfileBlogposts"
                 renderChildren={({ data, isLoading }) => {
                     if(!isLoading) {
                         return data.map((post, i) => (

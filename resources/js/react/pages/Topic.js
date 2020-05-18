@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom"
 import Pagination from "../components/Pagination.js"
 import BlogpostCard from "../components/BlogpostCard.js"
 
-import { getTopicBlogposts } from "../config/API.js"
 import useAPIData from "../utils/useAPIData.js"
 import pageTitle from "../config/pageTitle.js"
 
@@ -25,7 +24,8 @@ const TopicPage = () => {
 
             <Pagination 
                 className="paginated-blogposts" 
-                fetchMethod={getTopicBlogposts.bind(null, id)} 
+                fetchMethod="getTopicBlogposts"
+                args={[id]}
                 renderChildren={({ data, isLoading }) => {
                     if (!isLoading) {
                         return data.map((post, i) => (

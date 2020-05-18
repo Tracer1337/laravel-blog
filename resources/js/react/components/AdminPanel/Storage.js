@@ -5,7 +5,7 @@ import DeleteIcon from "@material-ui/icons/Delete"
 import Pagination from "../Pagination.js"
 import Dialog from "../Dialog/Dialog.js"
 
-import { getAllAssets, deleteAsset } from "../../config/API.js"
+import { deleteAsset } from "../../config/API.js"
 
 const Storage = () => {
     const handleRemove = async asset => {
@@ -21,7 +21,7 @@ const Storage = () => {
         <div className="storage">
             <h3 className="title">Assets</h3>
             <Pagination
-                fetchMethod={getAllAssets}
+                fetchMethod="getAllAssets"
                 renderChildren={({ data, isLoading }) => {
                     const assets = isLoading ? Array(5).fill() : data
 
