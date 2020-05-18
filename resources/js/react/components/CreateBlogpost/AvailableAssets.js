@@ -1,5 +1,6 @@
 import React from "react"
-import DeleteIcon from "@material-ui/icons/Delete"
+
+import Icon from "../Icon.js"
 
 import { deleteBlogpostAsset } from "../../config/API.js"
 
@@ -26,7 +27,7 @@ const AvailableAssets = ({ data, onRemove }) => {
                     </div>
 
                     <div className="item">
-                        <DeleteIcon className="icon" onClick={() => handleRemove(filename)}/>
+                        <Icon type="delete" className="icon" onClick={() => handleRemove(filename)}/>
                     </div>
                 </div>
             ))}

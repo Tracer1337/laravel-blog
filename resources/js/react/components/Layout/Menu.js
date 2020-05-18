@@ -2,16 +2,9 @@ import React from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
-import PersonIcon from "@material-ui/icons/PersonOutlined"
-import TuneIcon from "@material-ui/icons/Tune"
-import FolderOpenIcon from "@material-ui/icons/FolderOpen"
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline"
-import ViewListIcon from "@material-ui/icons/ViewList"
-import LockIcon from "@material-ui/icons/Lock"
-import ExitToAppIcon from "@material-ui/icons/ExitToApp"
-
 import Avatar from "../Avatar.js"
 import Auth from "../Auth.js"
+import Icon from "../Icon.js"
 
 import { logout } from "../../redux/actions.js"
 
@@ -20,33 +13,33 @@ const marginTop = 8
 
 const links = [
     {
-        icon: PersonIcon,
+        icon: "person",
         label: "View Profile"
     },
     {
-        icon: TuneIcon,
+        icon: "tune",
         label: "Edit Profile",
         to: "/edit-profile"
     },
     {
-        icon: ViewListIcon,
+        icon: "view-list",
         label: "My Comments",
         to: "/my-comments"
     },
     {
-        icon: FolderOpenIcon,
+        icon: "folder-open",
         label: "My Posts",
         to: "/my-blogposts",
         role: "author"
     },
     {
-        icon: AddCircleOutlineIcon,
+        icon: "add-circle",
         label: "Create Post",
         to: "/create-post",
         role: "author"
     },
     {
-        icon: LockIcon,
+        icon: "lock",
         label: "Admin Panel",
         to: "/admin",
         role: "admin"
@@ -94,7 +87,7 @@ class Menu extends React.Component {
                         <Auth role={role} key={i}>
                             <Link to={to}>
                                 <li className="menu-item">
-                                    {React.createElement(icon, { style: { fontSize: 24 }, className: "icon" })}
+                                    <Icon type={icon} fontSize={24} className="icon"/>
                                     <span className="label">
                                         {label}
                                     </span>
@@ -104,7 +97,7 @@ class Menu extends React.Component {
                     ))}
 
                     <li className="menu-item" onClick={this.handleLogout.bind(this)}>
-                        {React.createElement(ExitToAppIcon, { style: { fontSize: 24 }, className: "icon" })}
+                        <Icon type="exit-to-app" fontSize={24} className="icon"/>
                         <span className="label">
                             Logout
                         </span>

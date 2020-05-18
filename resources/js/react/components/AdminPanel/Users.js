@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import DeleteIcon from "@material-ui/icons/Delete"
 import Skeleton from "react-loading-skeleton"
 
 import Dialog from "../Dialog/Dialog.js"
 import Date from "../Date.js"
+import Icon from "../Icon.js"
 
 import { deleteUser, assignRole } from "../../config/API.js"
 import useAPIData from "../../utils/useAPIData.js"
@@ -78,7 +78,7 @@ const Users = () => {
 
                         <td>
                             {!data ? <Skeleton circle width={30} height={30}/> : (
-                                <DeleteIcon className="icon" onClick={handleRemove.bind(null, user)} />
+                                <Icon type="delete" className="icon" onClick={handleRemove.bind(null, user)} />
                             )}
                         </td>
                     </tr>

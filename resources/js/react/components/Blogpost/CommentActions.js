@@ -1,11 +1,11 @@
 import React from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
-import DeleteIcon from "@material-ui/icons/Delete"
-import EditIcon from "@material-ui/icons/Edit"
+
+import Dialog from "../Dialog/Dialog.js"
+import Icon from "../Icon.js"
 
 import { deleteComment } from "../../config/API.js"
-import Dialog from "../Dialog/Dialog.js"
 
 const CommentActions = ({ comment, profile, onAction }) => {
     if(comment.user_id !== profile.id) {
@@ -23,9 +23,9 @@ const CommentActions = ({ comment, profile, onAction }) => {
     return (
         <div className="actions">
             <Link to={`/blogpost/${comment.blogpost_id}?commentId=${comment.id}&editComment=true`}>
-                <EditIcon className="icon"/>
+                <Icon type="edit" className="icon"/>
             </Link>
-            <DeleteIcon className="icon" onClick={handleDelete}/>
+            <Icon type="delete" className="icon" onClick={handleDelete}/>
         </div>
     )
 }

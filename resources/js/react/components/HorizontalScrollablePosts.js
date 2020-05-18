@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useRef, useImperativeHandle } from "react"
-import ChevronRight from "@material-ui/icons/ChevronRight"
-import ChevronLeft from "@material-ui/icons/ChevronLeft"
 import Slider from "react-slick"
 
 import BlogpostCard from "./BlogpostCard.js"
+import Icon from "./Icon.js"
 
 import useAPIData from "../utils/useAPIData.js"
 import { isMobile } from "../config/constants.js"
@@ -74,7 +73,7 @@ const HorizontalScrollablePosts = (props, ref) => {
     return (
         <div className="horizontal-scrollable-posts">
             <div className="scroll-arrow left" onClick={prev}>
-                <ChevronLeft fontSize="large"/>
+                <Icon type="chevron-left" fontSize="large"/>
             </div>
 
             <Slider
@@ -89,7 +88,7 @@ const HorizontalScrollablePosts = (props, ref) => {
 
 
             <div className="scroll-arrow right" onClick={next}>
-                <ChevronRight fontSize="large"/>
+                <Icon type="chevron-right" fontSize="large"/>
             </div>
         </div>
     )

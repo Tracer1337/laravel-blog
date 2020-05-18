@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useHistory } from "react-router-dom"
-import SearchIcon from "@material-ui/icons/Search"
+
+import Icon from "./Icon.js"
 
 const SearchBar = () => {
     const history = useHistory()
@@ -41,7 +42,7 @@ const SearchBar = () => {
                 onBlur={handleBlur}
                 onKeyDown={handleKeyDown}
             />
-            <SearchIcon className="icon" onClick={handleClick}/>
+            <Icon type="search" className="icon" onClick={handleClick}/>
         </div>
     )
 }

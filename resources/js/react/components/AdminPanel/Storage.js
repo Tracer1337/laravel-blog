@@ -1,9 +1,9 @@
 import React, { useRef } from "react"
 import Skeleton from "react-loading-skeleton"
-import DeleteIcon from "@material-ui/icons/Delete"
 
 import Pagination from "../Pagination.js"
 import Dialog from "../Dialog/Dialog.js"
+import Icon from "../Icon.js"
 
 import { deleteAsset } from "../../config/API.js"
 
@@ -72,7 +72,7 @@ const Storage = () => {
 
                                         <td>
                                             {isLoading ? <Skeleton circle width={30} height={30}/> : (
-                                                <DeleteIcon className="icon" onClick={handleRemove.bind(null, asset)}/>
+                                                <Icon type="delete" className="icon" onClick={handleRemove.bind(null, asset)}/>
                                             )}
                                         </td>
                                     </tr>

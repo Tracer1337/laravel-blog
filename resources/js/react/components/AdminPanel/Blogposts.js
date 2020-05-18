@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import DeleteIcon from "@material-ui/icons/Delete"
 import Skeleton from "react-loading-skeleton"
 
 import Dialog from "../Dialog/Dialog.js"
 import Date from "../Date.js"
 import Pagination from "../Pagination.js"
+import Icon from "../Icon.js"
 
 import { deleteBlogpost } from "../../config/API.js"
 
@@ -66,7 +66,7 @@ const Blogposts = () => {
                                         {!data ? (
                                             <Skeleton circle width={30} height={30}/>
                                         ) : (
-                                            <DeleteIcon className="icon" onClick={handleRemove.bind(null, post)}/>
+                                            <Icon type="delete" className="icon" onClick={handleRemove.bind(null, post)}/>
                                         )}
                                     </td>
                                 </tr>

@@ -1,10 +1,11 @@
 import React from "react"
-import ThumbUpIcon from "@material-ui/icons/ThumbUpAlt"
 
-const Warning = ({ value }) => {
+import Icon from "../../Icon.js"
+
+const Success = ({ value }) => {
     return (
         <div className="alert">
-            <ThumbUpIcon/>
+            <Icon type="thumb-up-alt"/>
             <span>
                 {value}
             </span>
@@ -12,4 +13,4 @@ const Warning = ({ value }) => {
     )
 }
 
-export default Warning
+export default Success

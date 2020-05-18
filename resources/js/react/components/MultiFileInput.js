@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useFormContext } from "react-hook-form"
-import AddIcon from "@material-ui/icons/Add"
-import CloseIcon from "@material-ui/icons/Close"
+
+import Icon from "./Icon.js"
 
 import FileInput from "./FileInput.js"
 
@@ -56,10 +56,10 @@ const MultiFileInput = ({ useHooks, onChange, name, ...props }) => {
             {inputs.map(({ element, id }) => (
                 <div className="input-wrapper" key={id}>
                     {element}    
-                    <CloseIcon className="icon" onClick={() => handleRemove(id)}/>
+                    <Icon type="close" className="icon" onClick={() => handleRemove(id)}/>
                 </div>
             ))}
-            <AddIcon onClick={addInput} className="icon"/>
+            <Icon type="add" className="icon" onClick={addInput}/>
         </div>
     )
 }

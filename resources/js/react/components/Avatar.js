@@ -1,7 +1,8 @@
 import React from "react"
 import { connect } from "react-redux"
-import AccountCircleIcon from "@material-ui/icons/AccountCircle"
 import Skeleton from "react-loading-skeleton"
+
+import Icon from "./Icon.js"
 
 const defaultSize = 48
 
@@ -38,12 +39,11 @@ const Avatar = ({
     }
 
     return (
-        <AccountCircleIcon
+        <Icon
+            type="account-circle"
             className="avatar"
             onClick={onClick}
-            style={{
-                fontSize: size
-            }}
+            fontSize={size}
         />
     )
 }

@@ -1,10 +1,9 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import DeleteIcon from "@material-ui/icons/Delete"
-import AddIcon from "@material-ui/icons/Add"
 import Skeleton from "react-loading-skeleton"
 
 import Dialog from "../Dialog/Dialog.js"
+import Icon from "../Icon.js"
 
 import * as APIMethods from "../../config/API.js"
 import getAPIData from "../../utils/useAPIData.js"
@@ -38,7 +37,7 @@ const SharedControls = ({ methods, label, generateLink }) => {
         <div>
             <div className="card">
                 <input type="text" value={addValue} onChange={handleAddChange} placeholder={"Add " + label} />
-                <AddIcon className="icon" onClick={handleAdd} />
+                <Icon type="add" className="icon" onClick={handleAdd} />
             </div>
 
             <hr/>
@@ -50,7 +49,7 @@ const SharedControls = ({ methods, label, generateLink }) => {
                             <div>{name}</div>
                         </Link>
 
-                        <DeleteIcon className="icon" onClick={handleRemove.bind(null, name, id)} />
+                        <Icon type="delete" className="icon" onClick={handleRemove.bind(null, name, id)} />
                     </div>
                 ))
             ) : <Skeleton height={58} count={5}/>}

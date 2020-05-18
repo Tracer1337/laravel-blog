@@ -1,11 +1,9 @@
 import React, { useState } from "react"
 import { connect } from "react-redux"
-import ThumbUpIcon from "@material-ui/icons/ThumbUp"
-import AddIcon from "@material-ui/icons/Add"
-import RemoveIcon from "@material-ui/icons/Remove"
 import Skeleton from "react-loading-skeleton"
 
 import Auth from "../Auth.js"
+import Icon from "../Icon.js"
 
 import { likeBlogpost, addRecommendation, removeRecommendation } from "../../config/API.js"
 
@@ -33,7 +31,7 @@ const Actions = ({ data, onAction, id, profile }) => {
             {data.user_id ? (
                 data.user_id !== profile.id && (
                 <div className="action-container" onClick={handleLike}>
-                    <ThumbUpIcon className="icon" />
+                    <Icon type="thumb-up" className="icon" />
                     <span className="label">{data.likesCount}</span>
                 </div>
             )) : (
@@ -47,12 +45,12 @@ const Actions = ({ data, onAction, id, profile }) => {
                 {data.user_id ? (
                     isRecommending ? (
                         <div className="action-container" onClick={handleRemoveRecommendation}>
-                            <RemoveIcon className="icon" />
+                            <Icon type="remove" className="icon" />
                             <span className="label">Remove from Recommendations</span>
                         </div>
                     ) : (
                         <div className="action-container" onClick={handleAddRecommendation}>
-                            <AddIcon className="icon"/>
+                            <Icon type="add" className="icon"/>
                             <span className="label">Add to Recommendations</span>
                         </div>
                     )

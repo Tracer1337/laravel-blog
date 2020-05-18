@@ -3,8 +3,6 @@ import { Helmet } from "react-helmet"
 import { connect } from "react-redux"
 import MarkdownEditor from "react-simplemde-editor"
 import { useForm, Controller } from "react-hook-form"
-import AddAPhotoIcon from "@material-ui/icons/AddAPhotoOutlined"
-import SaveIcon from "@material-ui/icons/Save"
 
 import "easymde/dist/easymde.min.css"
 
@@ -12,6 +10,7 @@ import FileInput from "../components/FileInput.js"
 import Auth from "../components/Auth.js"
 import LoadingIndicator from "../components/LoadingIndicator.js"
 import Dialog from "../components/Dialog/Dialog.js"
+import Icon from "../components/Icon.js"
 
 import objectToForm from "../utils/objectToForm.js"
 import { editProfile } from "../config/API.js"
@@ -83,7 +82,7 @@ const EditProfile = ({ profile, modifyProfile }) => {
                     </div>
 
                     <Auth role={["author"]}>
-                        <FileInput label="Upload Avatar" icon={AddAPhotoIcon} onChange={handleAvatarChange} accept="image/*"/>
+                        <FileInput label="Upload Avatar" icon="add-a-photo" onChange={handleAvatarChange} accept="image/*"/>
                     </Auth>
 
                     <div className="links">
@@ -93,7 +92,7 @@ const EditProfile = ({ profile, modifyProfile }) => {
                     </div>
 
                     <button type="submit" className="submit">
-                        <SaveIcon className="icon"/>
+                        <Icon type="save" className="icon"/>
                         <span>Save</span>
                     </button>
                 </form>

@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
-import RefreshIcon from "@material-ui/icons/Sync"
 
 import HorizontalScrollablePosts from "./HorizontalScrollablePosts.js"
+import Icon from "./Icon.js"
 
 const NewestPosts = () => {
     const postsRef = useRef()
@@ -14,7 +14,7 @@ const NewestPosts = () => {
         <section className="newest-posts">
             <h3 className="title with-refresh">
                 Newest Posts 
-                <RefreshIcon className="icon" onClick={handleRefresh}/>
+                <Icon type="refresh" className="icon" onClick={handleRefresh}/>
             </h3>
             
             <HorizontalScrollablePosts fetchMethod="getNewestBlogposts" ref={postsRef}/>

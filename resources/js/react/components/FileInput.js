@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 import { useFormContext } from "react-hook-form"
 
+import Icon from "./Icon.js"
+
 let idCounter = 0
 
 const FileInput = ({ accept, onChange, icon, name, useHooks, className, ...props }) => {
@@ -38,9 +40,7 @@ const FileInput = ({ accept, onChange, icon, name, useHooks, className, ...props
             />
 
             <label htmlFor={htmlId}>
-                {icon && React.createElement(icon, {
-                    className: "icon"
-                })}
+                {icon && <Icon type={icon} className="icon"/>}
                 <span>{label}</span>
             </label>
         </div>

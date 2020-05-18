@@ -3,7 +3,6 @@ import ReactDOMServer from "react-dom/server"
 import { useHistory } from "react-router-dom"
 import { useForm, Controller, FormContext } from "react-hook-form"
 import MarkdownEditor from "react-simplemde-editor"
-import AddPhotoAlternateIcon from "@material-ui/icons/AddPhotoAlternate"
 
 import TopicSelection from "./TopicSelection.js"
 import TagSelection from "./TagSelection.js"
@@ -80,7 +79,7 @@ const Form = ({ postId, editData, reload }) => {
                     </div>
 
                     {postId && (
-                        <FileInput accept="image/*" name="cover" label="Upload Cover" icon={AddPhotoAlternateIcon} useHooks/>
+                        <FileInput accept="image/*" name="cover" label="Upload Cover" icon="add-a-photo-alternate" useHooks/>
                     )}
 
                     <div>

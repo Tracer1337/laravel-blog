@@ -14,8 +14,58 @@
         }
     }
 
-    .pagination-links {
+    .pagination-nav {
         display: flex;
         justify-content: center;
+
+        ul {
+            margin: 0;
+            display: flex;
+            padding: 0;
+            flex-wrap: wrap;
+            list-style: none;
+            align-items: center;
+
+            button {
+                color: rgba(0, 0, 0, 0.87);
+                height: 32px;
+                margin: 0 3px;
+                padding: 0 6px;
+                font-size: 0.875rem;
+                min-width: 32px;
+                box-sizing: border-box;
+                text-align: center;
+                line-height: 1.43;
+                border-radius: 16px;
+                letter-spacing: 0.01071em;
+                border: none;
+                display: inline-flex;
+                outline: 0;
+                position: relative;
+                align-items: center;
+                user-select: none;
+                vertical-align: middle;
+                justify-content: center;
+                text-decoration: none;
+                background-color: transparent;
+                -webkit-appearance: none;
+                -webkit-tap-highlight-color: transparent;
+                transition: all 150ms;
+
+                &.current {
+                    background-color: rgba(0, 0, 0, 0.08);
+                }
+
+                &.disabled {
+                    opacity: 0.38;
+                    cursor: default;
+                    pointer-events: none;
+                }
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.08);
+                }
+            }
+        }
     }
 }

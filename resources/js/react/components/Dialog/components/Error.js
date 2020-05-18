@@ -1,10 +1,11 @@
 import React from "react"
-import ErrorIcon from "@material-ui/icons/ErrorOutline"
+
+import Icon from "../../Icon.js"
 
 const Error = ({ value }) => {
     return (
         <div className="alert">
-            <ErrorIcon/>
+            <Icon type="error"/>
             <span>
                 {value}
             </span>
