@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef, useImperativeHandle } from "react"
 import ChevronRight from "@material-ui/icons/ChevronRight"
 import ChevronLeft from "@material-ui/icons/ChevronLeft"
 import Slider from "react-slick"
@@ -17,9 +17,9 @@ const sliderSettings = {
     draggable: true
 }
 
-const HorizontalScrollablePosts = (props) => {
+const HorizontalScrollablePosts = (props, ref) => {
     const [posts, setPosts] = useState(props.posts)
-    const [data] = props.fetchMethod ? useAPIData(props.fetchMethod) : []
+    const [data, refresh] = props.fetchMethod ? useAPIData(props.fetchMethod) : []
 
     const slider = useRef()
 
@@ -36,6 +36,8 @@ const HorizontalScrollablePosts = (props) => {
             setPosts(props.posts)
         }
     }, [props.posts])
+
+    useImperativeHandle(ref, () => ({ refresh }))
 
     const isLoading = (!props.fetchMethod && !posts) || (props.fetchMethod && !data)
 
@@ -93,4 +95,4 @@ const HorizontalScrollablePosts = (props) => {
     )
 }
 
-export default HorizontalScrollablePosts
+export default React.forwardRef(HorizontalScrollablePosts)

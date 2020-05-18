@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import Skeleton from "react-loading-skeleton"
 import DeleteIcon from "@material-ui/icons/Delete"
 
@@ -8,12 +8,17 @@ import Dialog from "../Dialog/Dialog.js"
 import { deleteAsset } from "../../config/API.js"
 
 const Storage = () => {
+    const assetsRef = useRef()
+
     const handleRemove = async asset => {
         const shouldRemove = await Dialog.verify(`"${asset.filename}" will be removed`)
 
         if(shouldRemove) {
             deleteAsset(asset.filename)
-                .then(() => Dialog.success("Removed"))
+                .then(() => {
+                    Dialog.success("Removed")
+                    assetsRef.current.refresh()
+                })
         }
     }
 
@@ -22,6 +27,7 @@ const Storage = () => {
             <h3 className="title">Assets</h3>
             <Pagination
                 fetchMethod="getAllAssets"
+                ref={assetsRef}
                 renderChildren={({ data, isLoading }) => {
                     const assets = isLoading ? Array(5).fill() : data
 

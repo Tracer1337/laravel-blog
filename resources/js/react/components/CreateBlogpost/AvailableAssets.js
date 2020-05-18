@@ -5,7 +5,7 @@ import { deleteBlogpostAsset } from "../../config/API.js"
 
 const AvailableAssets = ({ data, onRemove }) => {
     const handleRemove = filename => {
-        deleteBlogpostAsset(filename).then(onRemove)
+        deleteBlogpostAsset(filename).then(() => onRemove())
     }
 
     return (

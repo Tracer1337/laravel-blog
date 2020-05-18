@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useImperativeHandle } from "react"
 import { Pagination as MuiPagination } from "@material-ui/lab"
 
 import useAPIData from "../utils/useAPIData.js"
 
-const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCache = false }) => {
+const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCache = false }, ref) => {
     const [data, refresh] = useAPIData(fetchMethod, [...args, 1], useCache)
     const [pageNr, setPageNr] = useState(1)
     const [isLoading, setIsLoading] = useState(true)
@@ -22,6 +22,10 @@ const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCach
     useEffect(() => {
         loadPage()
     }, [pageNr, fetchMethod])
+
+    useImperativeHandle(ref, () => ({ 
+        refresh: loadPage
+     }))
     
     return (
         <div className={`paginated ${className}`}>
@@ -39,4 +43,4 @@ const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCach
     )
 }
 
-export default Pagination
+export default React.forwardRef(Pagination)

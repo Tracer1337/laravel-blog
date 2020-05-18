@@ -10,6 +10,7 @@ function useAPIData(method, args = [], cache = true) {
     const [data, setData] = cache ? useCachedData(key) : useState()
     
     const fetchData = newArgs => {
+        setData(null)
         return new Promise(async resolve => {
             const res = await APIMethods[method].apply(null, newArgs || args)
             resolve(res.data)

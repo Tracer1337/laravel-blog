@@ -235,7 +235,7 @@ class BlogpostController extends Controller
 
     public function delete_asset($filename, Request $request) {
         $user = $request->user();
-        $asset = Asset::where("filename", $filename)->get();
+        $asset = Asset::where("filename", $filename)->first();
 
         if(!$user->can("delete files") || $user->id != $asset->user_id) {
             return response(null, 403);

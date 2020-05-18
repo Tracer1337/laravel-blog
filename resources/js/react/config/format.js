@@ -41,7 +41,6 @@ const formatUser = data => {
 }
 
 const formatAsset = data => {
-    console.log(data)
     if(data.user) {
         formatUser(data.user)
     }

@@ -133,3 +133,12 @@ hr {
 .em {
     font-style: italic;
 }
+
+.with-refresh {
+    display: flex;
+    align-items: center;
+
+    .icon {
+        margin-left: $spacing-extra-small;
+    }
+}
