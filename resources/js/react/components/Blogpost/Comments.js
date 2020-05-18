@@ -11,7 +11,7 @@ const Comments = ({ comments, onAction }) => (
         {comments ? comments.map(comment => (
             <div className="card comment" key={comment.id} data-id={comment.id}>
                 <div className="comment-head">
-                    <div className="username">{comment.user.username}</div>
+                    <div className="username">{comment.user.full_name}</div>
                     <div className="dates">
                         {comment.created_at !== comment.updated_at && (
                             <div className="edited-hint">Edited: <Date timestamp={comment.updated_at} /></div>

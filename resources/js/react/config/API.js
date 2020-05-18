@@ -1,4 +1,4 @@
-import format, { blogpost, blogposts, search, user } from "./format.js"
+import format, { blogpost, blogposts, search, user, auth } from "./format.js"
 
 const url = path => `${window.location.origin}/api/${path}`
 const paginated = (path, pageNr) => `${path}?page=${pageNr}`
@@ -10,6 +10,8 @@ const putFormData = formData => {
 
 // Auth
 const authorize = post_url => {
+    const formatter = format(auth)
+    
     return args => {
         return new Promise((resolve, reject) => {
             axios.post(url(post_url), args)
@@ -18,6 +20,7 @@ const authorize = post_url => {
                         localStorage.setItem("JWTToken", res.data.access_token)
                     }
 
+                    formatter(res)
                     resolve(res.data)
                 })
                 .catch(() => {
@@ -110,7 +113,7 @@ export const followsUser = id => axios.get(url("user/follows/"+id))
 export const deleteUser = id => axios.delete(url("user/"+id))
 
 // Profile
-export const getProfile = () => axios.get(url("profile"))
+export const getProfile = () => axios.get(url("profile")).then(format(user))
 
 export const editProfile = formData => axios.post(url("profile"), formData, {
     headers: {

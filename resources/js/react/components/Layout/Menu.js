@@ -82,7 +82,7 @@ class Menu extends React.Component {
                 <Link to={this.userlink}>
                     <div className="menu-profile">
                         <Avatar size={58}/>
-                        <span className="first">{profile.username}</span>
+                        <span className="first">{profile.full_name}</span>
                         <span className="last">{profile.role}</span>
                     </div>
                 </Link>

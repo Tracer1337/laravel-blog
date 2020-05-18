@@ -22,7 +22,7 @@ const User = () => {
     return (
         <div className="user-page">
             <Helmet>
-                <title>{pageTitle(user.username)}</title>
+                <title>{pageTitle(user.full_name)}</title>
                 <meta name="description" content={user.biography}/>
             </Helmet>
             

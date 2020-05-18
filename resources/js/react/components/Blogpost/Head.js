@@ -13,7 +13,7 @@ const Head = ({ data, profile }) => (
                 <Link to={!data.user ? "" : "/user/" + data.user.id} className="user-wrapper">
                     <div className="user">
                         <Avatar user={data.user} showSkeleton={!data.user} />
-                        <span className="username">{!data.user ? <Skeleton width={100} /> : data.user.username}</span>
+                        <span className="username">{!data.user ? <Skeleton width={100} /> : data.user.full_name}</span>
                     </div>
                 </Link>
 

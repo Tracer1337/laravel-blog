@@ -50,29 +50,31 @@ const Register = ({ loginAction }) => {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
-                        <label>First Name</label>
+                        <label>First Name *</label>
                         <input type="text" name="first_name" placeholder="First Name" className="input" ref={register}/>
                     </div>
 
                     <div>
-                        <label>Last Name</label>
+                        <label>Last Name *</label>
                         <input type="text" name="last_name" placeholder="Last Name" className="input" ref={register}/>
                     </div>
 
                     <div>
-                        <label>Username</label>
+                        <label>Username *</label>
                         <input type="text" name="username" placeholder="Username" className="input" ref={register}/>
                     </div>
 
                     <div>
-                        <label>E-Mail</label>
+                        <label>E-Mail *</label>
                         <input type="text" name="email" placeholder="E-Mail" className="input" ref={register}/>
                     </div>
 
                     <div>
-                        <label>Password</label>
+                        <label>Password *</label>
                         <input type="password" name="password" placeholder="Password" className="input" ref={register}/>
                     </div>
+
+                    <p className="em">* Required</p>
 
                     <div className="checkbox">
                         <input type="checkbox" id="remember_me" name="remember_me" ref={register()} />
@@ -81,6 +83,7 @@ const Register = ({ loginAction }) => {
 
                     <button type="submit">Register</button>
                 </form>
+
 
             </main>
         </div>

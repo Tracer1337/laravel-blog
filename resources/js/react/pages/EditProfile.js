@@ -68,6 +68,16 @@ const EditProfile = ({ profile, modifyProfile }) => {
                     </div>
 
                     <div>
+                        <label htmlFor="first_name">First Name</label>
+                        <input type="text" name="first_name" placeholder="First Name" className="input" defaultValue={profile.first_name} ref={register()}/>
+                    </div>
+
+                    <div>
+                        <label htmlFor="last_name">Last Name</label>
+                        <input type="text" name="last_name" placeholder="Last Name" className="input" defaultValue={profile.last_name} ref={register()}/>
+                    </div>
+
+                    <div>
                         <label htmlFor="biography">Biography</label>
                         <Controller as={MarkdownEditor} name="biography" className="markdown-editor" control={control} defaultValue={profile.biography}/>
                     </div>

@@ -60,7 +60,7 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                         </div>
                     ) : (
                         <div className="profile">
-                            <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.username}</strong></Link>
+                            <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.full_name}</strong></Link>
                             <Avatar onClick={toggleMenu} />
                         </div>
                     )}
@@ -95,7 +95,7 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                     <a href="#" onClick={handleLogout}>Logout</a>
 
                     <div className="profile">
-                        <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.username}</strong></Link>
+                        <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.full_name}</strong></Link>
                         <Avatar onClick={toggleMenu} />
                     </div>
                 </div>

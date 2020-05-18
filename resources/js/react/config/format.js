@@ -2,8 +2,17 @@ export const blogpost = "blogpost"
 export const blogposts = "blogposts"
 export const search = "search"
 export const user = "user"
+export const auth = "auth"
 
 const formatBlogpost = post => {
+    // Format user
+    formatUser(post.user)
+
+    // Format comment's users
+    if(post.comments) {
+        post.comments.forEach(comment => formatUser(comment.user))
+    }
+
     // Create assets
     if (!post.assets) {
         post.assets = []
@@ -25,8 +34,14 @@ const formatSearch = data => {
 }
 
 const formatUser = data => {
+    data.full_name = data.first_name + " " + data.last_name
+    
     // Format all blogposts
-    data.recommendations.forEach(formatBlogpost)
+    if(data.recommendations) {
+        data.recommendations.forEach(formatBlogpost)
+    } else {
+        data.recommendations = []
+    }
 }
 
 const format = type => {
@@ -39,6 +54,8 @@ const format = type => {
         f = res => formatSearch(res.data)
     } else if (type === user) {
         f = res => formatUser(res.data.data)
+    } else if (type === auth) {
+        f = res => formatUser(res.data.profile)
     }
 
     return res => {
