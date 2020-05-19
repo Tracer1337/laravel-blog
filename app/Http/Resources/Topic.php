@@ -14,6 +14,15 @@ class Topic extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        $result = parent::toArray($request);
+
+        // Append metadata
+        if($request->query("with-meta")) {
+            $result = array_merge($result, [
+                "blogposts_count" => $this->blogposts()->count()
+            ]);
+        }
+        
+        return $result;
     }
 }

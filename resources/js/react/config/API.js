@@ -69,7 +69,7 @@ export const addRecommendation = id => axios.put(url("blogpost/recommend/"+id))
 export const removeRecommendation = id => axios.delete(url("blogpost/recommend/"+id))
 
 // Topics
-export const getAllTopics = () => axios.get(url("topics"))
+export const getAllTopics = (withMeta = false) => axios.get(url("topics?with-meta=" + withMeta))
 
 export const getTopic = id => axios.get(url("topics/"+id))
 
@@ -80,7 +80,7 @@ export const addTopic = args => axios.post(url("topics"), args)
 export const deleteTopic = id => axios.delete(url("topics/"+id))
 
 //Tags
-export const getAllTags = () => axios.get(url("tags"))
+export const getAllTags = (withMeta = false) => axios.get(url("tags?with-meta=" + withMeta))
 
 export const getTag = id => axios.get(url("tags/"+id))
 

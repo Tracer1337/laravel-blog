@@ -9,7 +9,7 @@ import * as APIMethods from "../../config/API.js"
 import getAPIData from "../../utils/useAPIData.js"
 
 const SharedControls = ({ methods, label, generateLink }) => {
-    const [data, refresh] = getAPIData(methods.get)
+    const [data, refresh] = getAPIData(methods.get, [true], false)
 
     const [addValue, setAddValue] = useState("")
 
@@ -33,26 +33,46 @@ const SharedControls = ({ methods, label, generateLink }) => {
             })
     }
 
+    const elements = data ? data.data : Array(5).fill()
+
     return (
         <div>
             <div className="card">
                 <input type="text" value={addValue} onChange={handleAddChange} placeholder={"Add " + label} />
                 <Icon type="add" className="icon" onClick={handleAdd} />
             </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Posts Count</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
 
-            <hr/>
+                <tbody>
+                    {elements.map((element, i) => (
+                        <tr key={element?.id || i}>
+                            <td>
+                                <Link to={generateLink(element?.id)} className="wrapper-link">
+                                    <div>{element ? element.name : <Skeleton/>}</div>
+                                </Link>
+                            </td>
 
-            {data ? (
-                data.data.map(({ name, id }) => (
-                    <div className="card" key={id}>
-                        <Link to={generateLink(id)} className="wrapper-link">
-                            <div>{name}</div>
-                        </Link>
+                            <td>
+                                {element ? element.blogposts_count : <Skeleton/>}
+                            </td>
 
-                        <Icon type="delete" className="icon" onClick={handleRemove.bind(null, name, id)} />
-                    </div>
-                ))
-            ) : <Skeleton height={58} count={5}/>}
+                            <td>
+                                {element ? (
+                                    <Icon type="delete" className="icon" onClick={handleRemove.bind(null, element.name, element.id)} />
+                                ) : <Skeleton circle width={30} height={30}/>}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 }
