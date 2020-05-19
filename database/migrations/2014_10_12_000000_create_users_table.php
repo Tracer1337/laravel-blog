@@ -29,8 +29,8 @@ class CreateUsersTable extends Migration
         // Create admin user
         $admin = new User;
         $admin->username = ENV("ADMIN_USERNAME");
-        $admin->first_name = "admin";
-        $admin->last_name = "yab";
+        $admin->first_name = "Merlin";
+        $admin->last_name = "Moelter";
         $admin->email = ENV("ADMIN_EMAIL");
         $admin->password = bcrypt(ENV("ADMIN_PASSWORD"));
         $admin->save();

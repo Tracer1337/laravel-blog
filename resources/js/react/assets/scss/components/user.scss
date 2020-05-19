@@ -1,0 +1,13 @@
+.user-card {
+    @include border-light;
+    border-radius: 40px;
+    padding: $spacing-extra-small;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: $spacing-extra-small * 2;
+
+    .avatar {
+        margin-right: $spacing-extra-small;
+    }
+}

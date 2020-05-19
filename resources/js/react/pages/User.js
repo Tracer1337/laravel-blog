@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Helmet } from "react-helmet"
 import { useParams } from "react-router-dom"
 
@@ -19,6 +19,10 @@ const User = () => {
         method: "getUser",
         args: [id]
     })
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     const user = data ? data.data : {}
 

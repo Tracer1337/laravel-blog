@@ -27,6 +27,9 @@ const formatBlogpost = post => {
 const formatSearch = data => {
     // Format all blogposts
     data.blogposts.forEach(formatBlogpost)
+
+    // Format all users
+    data.authors.forEach(formatUser)
 }
 
 const formatUser = data => {
@@ -59,16 +62,22 @@ const formatAsset = data => {
 
 const format = type => {
     let f
+    
     if (type === blogpost) {
         f = res => formatBlogpost(res.data.data)
+
     } else if (type === blogposts) {
         f = res => res.data.data.forEach(formatBlogpost)
+
     } else if (type === search) {
         f = res => formatSearch(res.data)
+
     } else if (type === user) {
         f = res => formatUser(res.data.data)
+
     } else if (type === auth) {
         f = res => formatUser(res.data.profile)
+
     } else if (type === assets) {
         f = res => res.data.data.forEach(formatAsset)
     }
