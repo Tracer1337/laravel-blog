@@ -26,6 +26,7 @@ import GATracking from "./utils/GATracking.js"
 
 import { login } from "./redux/actions.js"
 import { getProfile } from "./config/API.js"
+import Storage from "./utils/Storage.js"
 
 const mapStateToProps = store => ({
     auth: store.auth
@@ -37,7 +38,7 @@ const ProtectedRoute = connect(mapStateToProps)(({ role, path, children, auth })
     </Route>
 ))
 
-const shouldLogin = !!localStorage.getItem("JWTToken")
+const shouldLogin = !!Storage.getLocal("JWTToken")
 
 const App = ({ login }) => {
     const [isLoading, setIsLoading] = useState(shouldLogin)
@@ -47,7 +48,7 @@ const App = ({ login }) => {
             getProfile()
                 .then(res => login({
                     profile: res.data.data,
-                    access_token: localStorage.getItem("JWTToken")
+                    access_token: Storage.getLocal("JWTToken")
                 }))
                 .finally(() => setIsLoading(false))
         }

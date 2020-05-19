@@ -5,9 +5,9 @@ import ReactGA from "react-ga"
 import Dialog from "../components/Dialog/Dialog.js"
 
 import { GATrackingId } from "../config/constants.js" 
-import { getCookie } from "../utils/cookies.js"
+import Storage from "../utils/Storage.js"
 
-const getAccepted = () => getCookie("ga-accepted")
+const getAccepted = () => Storage.getCookie("ga-accepted")
 
 const GATracking = () => {
     const [isInitialized, setIsInitialized] = useState(false)

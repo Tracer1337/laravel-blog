@@ -10,6 +10,7 @@ import Auth from "../Auth.js"
 
 import { logout } from "../../redux/actions.js"
 import { isMobile } from "../../config/constants.js"
+import Storage from "../../utils/Storage.js"
 
 const Header = ({ isLoggedIn, profile, logout }) => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -17,7 +18,7 @@ const Header = ({ isLoggedIn, profile, logout }) => {
     const location = useLocation()
 
     const handleLogout = () => {
-        localStorage.removeItem("JWTToken")
+        Storage.removeLocal("JWTToken")
         logout()
     }
 

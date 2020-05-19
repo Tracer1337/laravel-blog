@@ -7,6 +7,7 @@ import Auth from "../Auth.js"
 import Icon from "../Icon.js"
 
 import { logout } from "../../redux/actions.js"
+import Storage from "../../utils/Storage.js"
 
 const width = 176
 const marginTop = 8
@@ -63,7 +64,7 @@ class Menu extends React.Component {
     }
 
     handleLogout() {
-        localStorage.removeItem("JWTToken")
+        Storage.removeLocal("JWTToken")
         this.props.logout()
     }
 

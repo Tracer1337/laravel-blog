@@ -1,4 +1,5 @@
 import format, { blogpost, blogposts, search, user, auth, assets } from "./format.js"
+import Storage from "../utils/Storage.js"
 
 const url = path => `${window.location.origin}/api/${path}`
 const paginated = (path, pageNr) => `${path}?page=${pageNr}`
@@ -17,7 +18,7 @@ const authorize = post_url => {
             axios.post(url(post_url), args)
                 .then(res => {
                     if(args.remember_me) {
-                        localStorage.setItem("JWTToken", res.data.access_token)
+                        Storage.setLocal("JWTToken", res.data.access_token)
                     }
 
                     formatter(res)
@@ -36,7 +37,7 @@ export const login = authorize("auth/login")
 
 export const logout = () => {
     axios.post(url("auth/logout"))
-    localStorage.removeItem("JWTToken")
+    Storage.removeLocal("JWTToken")
 }
 
 // Blogposts

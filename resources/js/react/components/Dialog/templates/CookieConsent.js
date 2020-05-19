@@ -2,9 +2,9 @@ import React, { useState } from "react"
 
 import Dialog from "../Dialog.js"
 
-import { getCookie, setCookie } from "../../../utils/cookies.js"
+import Storage from "../../../utils/Storage.js"
 
-const getAccepted = () => getCookie("cookie-consent-accepted")
+const getAccepted = () => Storage.getCookie("cookie-consent-accepted")
 
 const CookieConsent = ({ onAccept }) => {
     const [shouldRender, setShouldRender] = useState(!getAccepted())
@@ -14,10 +14,10 @@ const CookieConsent = ({ onAccept }) => {
     }
 
     const handleAccept = (shouldAccept = ["tracking"]) => {
-        setCookie("cookie-consent-accepted", "true", 365)
+        Storage.setCookie("cookie-consent-accepted", "true", 365)
 
         if(shouldAccept.includes("tracking")) {
-            setCookie("ga-accepted", "true", 365)
+            Storage.setCookie("ga-accepted", "true", 365)
         }
 
         setShouldRender(false)
