@@ -12,7 +12,7 @@
         }
 
         &.select__control--menu-is-open {
-            border-radius: 4px 4px 0 0;
+            border-radius: $border-radius-normal $border-radius-normal 0 0;
             border-bottom: none;
 
             .select__dropdown-indicator {
@@ -52,11 +52,11 @@
 
     .select__menu {
         @include seperator-top;
+        @include border-light;
         
         position: relative;
         margin: 0;
-        border-radius: 0 0 4px 4px;
-        border: 1px solid $color-light;
+        border-radius: 0 0 $border-radius-normal $border-radius-normal;
         border-top: none;
         box-shadow: none;
     }

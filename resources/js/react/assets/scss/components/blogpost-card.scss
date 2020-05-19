@@ -2,26 +2,25 @@
     text-decoration: none;
 
     .blogpost-card {
+        @include border-normal;
         $width: 350;
         $image-ratio: 4 / 3;
         $image-height: $width * (1 / $image-ratio);
-
+        
         width: #{$width}px;
         height: 500px;
-        border: 1px solid $color-normal;
-        border-radius: 4px;
 
         .image-wrapper {
             width: #{$width}px;
             height: #{$image-height}px;
 
             background-color: rgba(0, 0, 0, 0.12);
-            border-bottom: 1px solid $color-normal;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
+            border-bottom: 1px solid $color-normal;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
 
             img {
                 max-width: 100%;

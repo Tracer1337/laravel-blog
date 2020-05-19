@@ -3,10 +3,10 @@
 }
 
 .chip {
+    @include border-normal;
+    border-radius: 25px;
     text-decoration: none;
     padding: 12px;
-    border-radius: 25px;
-    border: 1px solid $color-normal;
     display: inline-block;
 
     &.small {

@@ -21,6 +21,8 @@ $spacing-normal: 64px;
 $spacing-large: 256px;
 $spacing-extra-large: 512px;
 
+$border-radius-normal: 4px;
+
 @mixin shadow-depth-1 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
@@ -51,4 +53,14 @@ $spacing-extra-large: 512px;
         background-color: $color-light;
         z-index: 10;
     }
+}
+
+@mixin border-normal {
+    border: 1px solid $color-normal;
+    border-radius: $border-radius-normal;
+}
+
+@mixin border-light {
+    @include border-normal;
+    border-color: $color-light;
 }

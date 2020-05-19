@@ -9,8 +9,7 @@
     z-index: 100;
 
     .inner-dialog {
-        border: 1px solid $color-light;
-        border-radius: 4px;
+        @include border-light;
         background-color: white;
         padding: $spacing-extra-small * 2;
         padding-top: 0;
@@ -22,7 +21,7 @@
         }
 
         .alert {
-            border-radius: 4px;
+            border-radius: $border-radius-normal;
             display: flex;
             align-items: center;
             
