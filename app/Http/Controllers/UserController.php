@@ -23,22 +23,27 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->role = $user->roles()->first()->name;
         
+        // Get Recommendations
         $recommendations = $user->recommendations()->get();
         $recommendations->makeHidden(["content"]);
         $user->recommendations = BlogpostResource::collection($recommendations);
 
-        $user->subscriberCount = $user->followers()->count();
-        $user->subscriptionCount = $user->follows()->count();
-        $user->blogpostCount = $user->blogposts()->count();
-        $user->commentCount = $user->comments()->count();
+        $user->available_statistics = config("app.available_user_statistics");
+
+        // Set statistics
+        $user->subscriber_count = $user->followers()->count();
+        $user->subscription_count = $user->follows()->count();
+        $user->blogpost_count = $user->blogposts()->count();
+        $user->comment_count = $user->comments()->count();
         
-        $likes_recieved = 0;
+        // Calculate total likes
+        $likes_received = 0;
         $blogposts = $user->blogposts()->get();
         foreach($blogposts as $blogpost) {
-            $likes_recieved += $blogpost->likes()->count();
+            $likes_received += $blogpost->likes()->count();
         }
 
-        $user->likesRecieved = $likes_recieved;
+        $user->likes_received = $likes_received;
 
         return new UserResource($user);
     }

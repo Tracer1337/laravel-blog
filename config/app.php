@@ -2,7 +2,21 @@
 
 return [
 
+    /**
+     * This array defines the links a user can store in his profile
+     */
     "available_link_keys" => ["Github", "Website", "Twitter", "Instagram"],
+
+    /**
+     * This array defines the statistics on the "/user/{id}" page
+     */
+    "available_user_statistics" => [
+        "Subscriber" => "subscriber_count",
+        "Subscribed" => "subscription_count",
+        "Posts" => "blogpost_count",
+        "Comments" => "comment_count",
+        "Likes Received" => "likes_received"
+    ],
 
     /*
     |--------------------------------------------------------------------------
