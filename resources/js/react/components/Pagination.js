@@ -76,7 +76,7 @@ const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCach
      }))
     
     return (
-        <div className={`paginated ${className}`}>
+        <div className={`paginated ${className || ""}`}>
             <div className="items">
                 {React.createElement(renderChildren, {
                     data: data?.data,

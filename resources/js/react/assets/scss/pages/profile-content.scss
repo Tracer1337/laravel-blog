@@ -5,6 +5,14 @@
     }
 }
 
+.profile-blogposts-page {
+    margin: 0 $spacing-small;
+
+    @media only screen and (max-width: 1000px) {
+        margin: 0;
+    }
+}
+
 .profile-comments-page {
     .comment {
         margin-bottom: $spacing-small;

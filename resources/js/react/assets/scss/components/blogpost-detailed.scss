@@ -1,0 +1,32 @@
+.blogpost-detailed {
+    @include border-light;
+    padding: $spacing-small;
+    display: flex;
+    margin-bottom: $spacing-small;
+
+    .divider {
+        width: 1px;
+        background-color: $color-light;
+        margin: 0 $spacing-small;
+    }
+
+    table {
+        td {
+            padding: $spacing-extra-small;
+
+            &:first-child {
+                width: 200px;
+            }
+        }
+    }
+
+    .tag {
+        margin-right: $spacing-extra-small;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        display: unset;
+        padding: 0;
+        border: none;
+    }
+}

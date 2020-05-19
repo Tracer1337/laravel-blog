@@ -159,8 +159,14 @@ class AuthController extends Controller
 
     public function blogposts(Request $request) {
         $user = $request->user();
+
         $blogposts = $user->blogposts()->orderBy("created_at", "DESC")->Paginate(20);
         $blogposts->makeHidden("content");
+
+        foreach($blogposts as $blogpost) {
+            $blogpost->content_length = strlen($blogpost->content);
+            $blogpost->comments_count = $blogpost->comments()->count();
+        }
 
         return BlogpostResource::collection($blogposts);
     }
