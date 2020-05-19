@@ -18,7 +18,7 @@ const sliderSettings = {
 
 const HorizontalScrollablePosts = (props, ref) => {
     const [posts, setPosts] = useState(props.posts)
-    const [data, refresh] = props.fetchMethod ? useAPIData(props.fetchMethod) : []
+    const [data, refresh] = props.fetchMethod ? useAPIData({ method: props.fetchMethod }) : []
 
     const slider = useRef()
 

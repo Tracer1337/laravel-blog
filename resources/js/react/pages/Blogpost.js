@@ -23,7 +23,11 @@ const BlogpostPage = () => {
     const editComment = useQuery("editComment") === "true"
     const formRef = useRef()
 
-    const [data, reload] = useAPIData("getBlogpost", [id])
+    const [data, reload] = useAPIData({
+        method: "getBlogpost",
+        args: [id],
+        removeDataBeforeLoading: false
+    })
 
     const handleQuery = () => {
         if (commentId && editComment) {

@@ -19,7 +19,9 @@ const TagSelection = (props) => {
         return values
     }, [props.defaultValue])
 
-    const [data] = useAPIData("getAllTags")
+    const [data] = useAPIData({
+        method: "getAllTags"
+    })
     
     const tags = data?.data
 

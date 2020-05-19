@@ -166,6 +166,7 @@ class AuthController extends Controller
         foreach($blogposts as $blogpost) {
             $blogpost->content_length = strlen($blogpost->content);
             $blogpost->comments_count = $blogpost->comments()->count();
+            $blogpost->assets_count = $blogpost->assets()->count();
         }
 
         return BlogpostResource::collection($blogposts);

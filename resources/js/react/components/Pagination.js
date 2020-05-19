@@ -52,7 +52,12 @@ const Navigation = ({ count, page, onChange }) => {
 }
 
 const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCache = false }, ref) => {
-    const [data, refresh] = useAPIData(fetchMethod, [...args, 1], useCache)
+    const [data, refresh] = useAPIData({
+        method: fetchMethod,
+        args: [...args, 1],
+        cache: useCache,
+        initialLoad: false
+    })
     const [pageNr, setPageNr] = useState(1)
     const [isLoading, setIsLoading] = useState(true)
 

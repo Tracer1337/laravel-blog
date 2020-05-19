@@ -11,7 +11,11 @@ import pageTitle from "../config/pageTitle.js"
 const CreateBlogpost = () => {
     const post_id = useQuery("post_id")
 
-    const [data, reload] = useAPIData("getBlogpost", [post_id])
+    const [data, reload] = useAPIData({
+        method: "getBlogpost",
+        args: [post_id],
+        removeDataBeforeLoading: false
+    })
 
     if (post_id && !data) {
         return <LoadingIndicator center/>

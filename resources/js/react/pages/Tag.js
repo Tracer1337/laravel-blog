@@ -10,7 +10,10 @@ import pageTitle from "../config/pageTitle.js"
 
 const TagPage = () => {
     const { id } = useParams()
-    const [data] = useAPIData("getTag", [id])
+    const [data] = useAPIData({
+        method: "getTag",
+        args: [id]
+    })
 
     const name = data?.data.name || ""
 

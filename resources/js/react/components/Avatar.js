@@ -22,11 +22,11 @@ const Avatar = ({
     }
 
     const img_src = user ? user.avatar?.url : avatar_url
-
+    
     if(img_src) {
         return (
             <img
-                src={avatar_url}
+                src={img_src}
                 alt="avatar"
                 className="avatar"
                 onClick={onClick}

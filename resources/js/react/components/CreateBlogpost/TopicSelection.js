@@ -10,7 +10,9 @@ const TopicSelection = (props) => {
         value: props.defaultValue.id
     } : null
 
-    const [data] = useAPIData("getAllTopics")
+    const [data] = useAPIData({
+        method: "getAllTopics"
+    })
 
     const topics = data?.data
 

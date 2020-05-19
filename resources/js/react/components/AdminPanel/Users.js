@@ -10,8 +10,14 @@ import { deleteUser, assignRole } from "../../config/API.js"
 import useAPIData from "../../utils/useAPIData.js"
 
 const Users = () => {
-    const [data, refresh] = useAPIData("getAllUsers", [], false)
-    const [roles] = useAPIData("getRoles")
+    const [data, refresh] = useAPIData({
+        method: "getAllUsers",
+        args: [],
+        cache: false
+    })
+    const [roles] = useAPIData({
+        method: "getRoles"
+    })
 
     const handleRemove = async user => {
         const shouldRemove = await Dialog.verify(`"${user.username}" will be removed`)

@@ -6,6 +6,7 @@ import BlogpostCard from "../BlogpostCard.js"
 import getImageGradient from "../../utils/getImageGradient.js"
 
 const gradientInputName = "cover->gradient"
+const gradientGapDefaultValue = .8
 
 const Preview = ({ data }) => {
     const { register, setValue } = useFormContext()
@@ -40,6 +41,13 @@ const Preview = ({ data }) => {
         register({ name: gradientInputName })
     }, [register])
 
+    useEffect(() => {
+        const cover = data.assets.find(asset => asset.type === "cover")
+        if(cover && !cover.meta.gradient) {
+            handleGapChange({ target: { value: gradientGapDefaultValue } })
+        }
+    }, [data.assets])
+
     return (
         <div>
             <h3 className="title">Preview</h3>
@@ -49,7 +57,7 @@ const Preview = ({ data }) => {
                     <BlogpostCard post={formattedData}/>
 
                     <h4>Gradient Gap</h4>
-                    <input type="number" min="0" max=".9" step=".1" defaultValue="0.8" onChange={handleGapChange} />
+                    <input type="number" min="0" max=".9" step=".1" defaultValue={gradientGapDefaultValue} onChange={handleGapChange} />
                 </>
             ) : (
                 <em>Preview is not available</em>

@@ -5,7 +5,7 @@ import Topics from "./Topics.js"
 import useAPIData from "../utils/useAPIData.js"
 
 const AllTopics = () => {
-    const [data] = useAPIData("getAllTopics")
+    const [data] = useAPIData({ method: "getAllTopics" })
 
     return (
         <section className="all-topics">

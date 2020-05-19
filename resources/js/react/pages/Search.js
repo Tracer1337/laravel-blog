@@ -11,7 +11,11 @@ import pageTitle from "../config/pageTitle.js"
 
 const SearchPage = () => {
     const query = useQuery("query")
-    let [data] = useAPIData("getSearchResults", [query], false)
+    let [data] = useAPIData({
+        method: "getSearchResults",
+        args: [query],
+        cache: false
+    })
     
     if(!data) {
         data = {}

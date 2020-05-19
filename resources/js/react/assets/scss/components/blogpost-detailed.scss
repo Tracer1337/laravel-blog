@@ -3,11 +3,13 @@
     padding: $spacing-small;
     display: flex;
     margin-bottom: $spacing-small;
+    align-items: center;
 
     .divider {
         width: 1px;
         background-color: $color-light;
         margin: 0 $spacing-small;
+        align-self: stretch;
     }
 
     table {

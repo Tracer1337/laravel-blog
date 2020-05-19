@@ -15,7 +15,10 @@ import pageTitle from "../config/pageTitle.js"
 const User = () => {
     const { id } = useParams()
 
-    const [data] = useAPIData("getUser", [id])
+    const [data] = useAPIData({
+        method: "getUser",
+        args: [id]
+    })
 
     const user = data ? data.data : {}
 

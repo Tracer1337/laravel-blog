@@ -9,7 +9,11 @@ import * as APIMethods from "../../config/API.js"
 import getAPIData from "../../utils/useAPIData.js"
 
 const SharedControls = ({ methods, label, generateLink }) => {
-    const [data, refresh] = getAPIData(methods.get, [true], false)
+    const [data, refresh] = getAPIData({
+        method: methods.get,
+        args: [true],
+        cache: false
+    })
 
     const [addValue, setAddValue] = useState("")
 

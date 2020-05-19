@@ -30,6 +30,11 @@ const BlogpostDetailed = ({ post, showSkeleton }) => {
                     </tr>
 
                     <tr>
+                        <td>Assets</td>
+                        <td>{showSkeleton ? <Skeleton /> : post.assets_count}</td>
+                    </tr>
+
+                    <tr>
                         <td>Topic</td>
                         <td>{showSkeleton ? <Skeleton /> : (
                             <Link to={`/topic/${post.topic.id}`}>
@@ -41,7 +46,7 @@ const BlogpostDetailed = ({ post, showSkeleton }) => {
                     <tr>
                         <td>Tags</td>
                         <td>{showSkeleton ? <Skeleton /> : post.tags.map(tag => (
-                            <Link to={`/topic/${tag.id}`} className="tag">
+                            <Link to={`/topic/${tag.id}`} className="tag" key={tag.id}>
                                 {tag.name}
                             </Link>
                         ))}</td>

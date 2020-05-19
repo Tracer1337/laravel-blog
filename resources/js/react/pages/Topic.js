@@ -10,7 +10,10 @@ import pageTitle from "../config/pageTitle.js"
 
 const TopicPage = () => {
     const { id } = useParams()
-    const [data] = useAPIData("getTopic", [id])
+    const [data] = useAPIData({
+        method: "getTopic",
+        args: [id]
+    })
 
     const name = data?.data.name || ""
 

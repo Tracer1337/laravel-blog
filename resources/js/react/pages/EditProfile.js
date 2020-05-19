@@ -29,7 +29,9 @@ const EditProfile = ({ profile, modifyProfile }) => {
 
     const [avatar, setAvatar] = useState()
 
-    const [availableLinks] = useAPIData("getAvailableLinks")
+    const [availableLinks] = useAPIData({
+        method: "getAvailableLinks"
+    })
     
     const onSubmit = data => {
         const formData = {...data}
