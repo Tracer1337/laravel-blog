@@ -2,7 +2,8 @@ import React from "react"
 import ReactDOMServer from "react-dom/server"
 import { useHistory } from "react-router-dom"
 import { useForm, Controller, FormContext } from "react-hook-form"
-import MarkdownEditor from "react-simplemde-editor"
+import Loadable from "react-loadable"
+import Skeleton from "react-loading-skeleton"
 
 import TopicSelection from "./TopicSelection.js"
 import TagSelection from "./TagSelection.js"
@@ -16,6 +17,11 @@ import MarkdownViewer from "../MarkdownViewer.js"
 
 import { addBlogpost, editBlogpost } from "../../config/API.js"
 import objectToForm from "../../utils/objectToForm.js"
+
+const MarkdownEditor = Loadable({
+    loader: () => import("react-simplemde-editor"),
+    loading: Skeleton
+})
 
 const Form = ({ postId, editData, reload }) => {
     const history = useHistory()

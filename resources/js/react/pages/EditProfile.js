@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { Helmet } from "react-helmet"
 import { connect } from "react-redux"
-import MarkdownEditor from "react-simplemde-editor"
 import { useForm, Controller } from "react-hook-form"
+import Loadable from "react-loadable"
+import Skeleton from "react-loading-skeleton"
 
 import "easymde/dist/easymde.min.css"
 
@@ -17,6 +18,11 @@ import { editProfile } from "../config/API.js"
 import { modifyProfile } from "../redux/actions.js"
 import useAPIData from "../utils/useAPIData.js"
 import pageTitle from "../config/pageTitle.js"
+
+const MarkdownEditor = Loadable({
+    loader: () => import("react-simplemde-editor"),
+    loading: Skeleton
+})
 
 const EditProfile = ({ profile, modifyProfile }) => {
     const { register, handleSubmit, control } = useForm()
