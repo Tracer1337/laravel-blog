@@ -13,11 +13,10 @@ $converter = function($string) {
 
 $exclude_react_paths = array_map($converter, $exclude_react_paths);
 
-$regex = "^(" . implode("", $exclude_react_paths) . ".)*$";
+$regex = "^(" . implode("", $exclude_react_paths) . ".)+?.*$";
 
 Route::get('{path?}', function () {
     return view('react');
 })->where("path", $regex);
-
 
 Route::get("/storage/{path}", "StorageController@index")->where("path", ".*");
