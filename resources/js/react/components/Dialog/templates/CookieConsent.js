@@ -1,27 +1,25 @@
 import React, { useState } from "react"
+import { connect } from "react-redux"
 
 import Dialog from "../Dialog.js"
 
-import Storage from "../../../utils/Storage.js"
+import { setSetting } from "../../../redux/actions.js"
 
-const getAccepted = () => Storage.getCookie("cookie-consent-accepted")
-
-const CookieConsent = ({ onAccept }) => {
-    const [shouldRender, setShouldRender] = useState(!getAccepted())
+const CookieConsent = ({ settings, setSetting }) => {
+    const [shouldRender, setShouldRender] = useState(!settings["cookies.accepted"])
 
     if (!shouldRender) {
         return null
     }
 
-    const handleAccept = (shouldAccept = ["tracking"]) => {
-        Storage.setCookie("cookie-consent-accepted", "true", 365)
+    const handleAccept = (selected = ["tracking"]) => {
+        setSetting("cookies.accepted", true)
 
-        if(shouldAccept.includes("tracking")) {
-            Storage.setCookie("ga-accepted", "true", 365)
+        if(selected.includes("tracking")) {
+            setSetting("cookies.tracking", true)
         }
 
         setShouldRender(false)
-        onAccept()
     }
 
     const handlePreferences = async () => {
@@ -42,4 +40,8 @@ const CookieConsent = ({ onAccept }) => {
     )
 }
 
-export default CookieConsent
+const mapStateToProps = store => ({
+    settings: store.settings
+})
+
+export default connect(mapStateToProps, { setSetting })(CookieConsent)

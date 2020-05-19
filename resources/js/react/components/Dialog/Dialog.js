@@ -14,6 +14,7 @@ import ErrorTemplate from "./templates/Error.js"
 import SuccessTemplate from "./templates/Success.js"
 import CookieConsent from "./templates/CookieConsent.js"
 import CookiePreferences from "./templates/CookiePreferences.js"
+import Settings from "./templates/Settings.js"
 
 class Dialog extends Component {
     constructor(props) {
@@ -131,5 +132,6 @@ Dialog.error = ErrorTemplate
 Dialog.success = SuccessTemplate
 Dialog.cookieConsent = CookieConsent
 Dialog.cookiePreferences = CookiePreferences
+Dialog.settings = Settings
 
 export default Dialog

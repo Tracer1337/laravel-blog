@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react"
 
 import * as APIMethods from "../config/API.js"
-import useCachedData from "./useCachedData.js"
+import useCachedData, { getCachedData } from "./useCachedData.js"
+
+const generateKey = (method, args) => {
+    let key = method
+    args.forEach(value => key += "." + value)
+
+    return key
+}
 
 function useAPIData({
     method,
@@ -11,14 +18,13 @@ function useAPIData({
     removeDataBeforeLoading = true
 }) {
     // Generate key
-    let key = method
-    args.forEach(value => key += "." + value)
+    const [key, setKey] = useState(generateKey(method, args))
 
     // Get (cached) data
     const [data, setData] = cache ? useCachedData(key) : useState()
     
     // Fetch data with provided method & args
-    const fetchData = newArgs => {
+    const fetchData = (newArgs) => {
         if(removeDataBeforeLoading) {
             setData(null)
         }

@@ -9,6 +9,7 @@ return [
 
     /**
      * This array defines the statistics on the "/user/{id}" page
+     * Schema: "<Label>" => "<Key In Response>"
      */
     "available_user_statistics" => [
         "Subscriber" => "subscriber_count",

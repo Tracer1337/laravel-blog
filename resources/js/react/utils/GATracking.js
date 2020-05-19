@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
+import { connect } from "react-redux"
 import { useLocation } from "react-router-dom"
 import ReactGA from "react-ga"
 
-import Dialog from "../components/Dialog/Dialog.js"
+import { GATrackingId } from "../config/constants.js"
 
-import { GATrackingId } from "../config/constants.js" 
-import Storage from "../utils/Storage.js"
-
-const getAccepted = () => Storage.getCookie("ga-accepted")
-
-const GATracking = () => {
+const GATracking = ({ settings }) => {
     const [isInitialized, setIsInitialized] = useState(false)
-    const [trackingAccepted, setTrackingAccepted] = useState(getAccepted())
     const location = useLocation()
 
     useEffect(() => {
         // Ask for permissions to track user
-        if(!trackingAccepted) {
+        if(!settings["cookies.tracking"]) {
             return
         }
 
@@ -27,7 +22,7 @@ const GATracking = () => {
         })
 
         setIsInitialized(true)
-    }, [trackingAccepted])
+    }, [settings])
 
     useEffect(() => {
         if(!isInitialized) {
@@ -39,9 +34,11 @@ const GATracking = () => {
         ReactGA.pageview(page)
     }, [location, isInitialized])
 
-    return React.createElement(Dialog.cookieConsent, {
-        onAccept: () => setTrackingAccepted(getAccepted())
-    })
+    return null
 }
 
-export default GATracking
+const mapStateToProps = store => ({
+    settings: store.settings
+})
+
+export default connect(mapStateToProps)(GATracking)

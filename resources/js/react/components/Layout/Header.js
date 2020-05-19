@@ -7,6 +7,8 @@ import Avatar from "../Avatar.js"
 import Menu from "./Menu.js"
 import SearchBar from "../SearchBar.js"
 import Auth from "../Auth.js"
+import Icon from "../Icon.js"
+import Dialog from "../Dialog/Dialog.js"
 
 import { logout } from "../../redux/actions.js"
 import { isMobile } from "../../config/constants.js"
@@ -40,6 +42,10 @@ const Header = ({ isLoggedIn, profile, logout }) => {
         }
     }
 
+    const handleSettings = () => {
+        Dialog.settings()
+    }
+
     useEffect(closeMenu, [location])
     
     const menu = menuOpen && (
@@ -63,6 +69,10 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                         <div className="profile">
                             <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.full_name}</strong></Link>
                             <Avatar onClick={toggleMenu} />
+
+                            <Link to="/settings">
+                                <Icon type="settings" className="icon" />
+                            </Link>
                         </div>
                     )}
                 </div>
@@ -86,21 +96,27 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                 <SearchBar/>
             </div>
 
-            {!isLoggedIn ? (
-                <div className="auth">
-                    <Link to="/login">Login</Link>
-                    <Link to="/register">Register</Link>
-                </div>
-            ) : (
-                <div className="auth">
-                    <a href="#" onClick={handleLogout}>Logout</a>
-
-                    <div className="profile">
-                        <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.full_name}</strong></Link>
-                        <Avatar onClick={toggleMenu} />
+            <div className="right">
+                {!isLoggedIn ? (
+                    <div className="auth">
+                        <Link to="/login">Login</Link>
+                        <Link to="/register">Register</Link>
                     </div>
+                ) : (
+                        <div className="auth">
+                            <a href="#" onClick={handleLogout}>Logout</a>
+
+                            <div className="profile">
+                                <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.full_name}</strong></Link>
+                                <Avatar onClick={toggleMenu} />
+                            </div>
+                        </div>
+                    )}
+                    
+                <div className="settings-icon-wrapper">
+                    <Icon type="settings" className="icon settings" fontSize={32} onClick={handleSettings}/>
                 </div>
-            )}
+            </div>
 
             {menu}
         </header>

@@ -64,7 +64,7 @@ const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCach
     const loadPage = async () => {
         window.scrollTo(0, 0)
         setIsLoading(true)
-        await refresh([...args, pageNr])
+        await refresh([...args, pageNr], true)
         setIsLoading(false)
     }
 

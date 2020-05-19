@@ -9,11 +9,17 @@
         align-items: center;
     }
 
-    .left {
+    .left, .right {
         display: flex;
 
         .search-bar {
             margin-left: $spacing-normal;
+        }
+
+        .settings-icon-wrapper {
+            display: flex;
+            align-items: center;
+            margin-left: $spacing-small;
         }
     }
 

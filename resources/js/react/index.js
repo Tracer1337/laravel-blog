@@ -19,6 +19,7 @@ setToken(Storage.getLocal("JWTToken"))
 let currentValue
 store.subscribe(() => {
     const { token, profile } = store.getState().auth
+    
     let previousValue = currentValue
     currentValue = profile.id
 

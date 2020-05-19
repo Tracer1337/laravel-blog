@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, MODIFY_PROFILE, CACHE_DATA } from "./actionTypes.js"
+import { LOGIN, LOGOUT, MODIFY_PROFILE, CACHE_DATA, SET_SETTING, SET_SETTINGS, LOCATION_CHANGE } from "./actionTypes.js"
 
 export function login(data) {
     return {
@@ -9,7 +9,9 @@ export function login(data) {
 }
 
 export function logout() {
-    return { type: LOGOUT }
+    return {
+        type: LOGOUT
+    }
 }
 
 export function modifyProfile(profile) {
@@ -25,5 +27,28 @@ export function cacheData(key, data) {
         type: CACHE_DATA,
         key,
         data
+    }
+}
+
+
+export function setSetting(key, value) {
+    return {
+        type: SET_SETTING,
+        key,
+        value
+    }
+}
+
+export function setSettings(settings) {
+    return {
+        type: SET_SETTINGS,
+        settings
+    }
+}
+
+
+export function locationChange() {
+    return {
+        type: LOCATION_CHANGE
     }
 }

@@ -23,6 +23,8 @@ import Legal from "./pages/Legal.js"
 import Layout from "./components/Layout/Layout.js"
 import LoadingIndicator from "./components/LoadingIndicator.js"
 import GATracking from "./utils/GATracking.js"
+import Dialog from "./components/Dialog/Dialog.js"
+import ReduxRouterBinding from "./utils/ReduxRouterBinding.js"
 
 import { login } from "./redux/actions.js"
 import { getProfile } from "./config/API.js"
@@ -56,7 +58,12 @@ const App = ({ login }) => {
 
     return (
         <Router>
+            
+            {/* Utilities that require hooks or router */}
             <GATracking/>
+            <ReduxRouterBinding/>
+
+            {React.createElement(Dialog.cookieConsent)}
 
             <div className="app">
                 <Layout>
@@ -112,10 +119,6 @@ const App = ({ login }) => {
                                 <Login/>
                             </Route>
 
-                            <Route exact path="/">
-                                <Index/>
-                            </Route>
-
                             <Route path="/disclaimer">
                                 <Disclaimer/>
                             </Route>
@@ -130,6 +133,10 @@ const App = ({ login }) => {
 
                             <Route path="/legal">
                                 <Legal/>
+                            </Route>
+
+                            <Route exact path="/">
+                                <Index />
                             </Route>
 
                             <Route>
