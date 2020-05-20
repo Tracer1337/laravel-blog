@@ -8,6 +8,12 @@
             margin-right: 12px;
         }
     }
+
+    .size {
+        margin-right: $spacing-extra-small;
+        padding-right: $spacing-extra-small;
+        border-right: 1px solid $color-light;
+    }
 }
 
 .multi-file-input {
