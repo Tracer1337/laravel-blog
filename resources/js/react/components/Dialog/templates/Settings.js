@@ -1,5 +1,4 @@
 import React, { useMemo } from "react"
-import ReactDOM from "react-dom"
 import { useForm } from "react-hook-form"
 
 import Dialog from "../Dialog.js"
@@ -7,6 +6,7 @@ import Dialog from "../Dialog.js"
 import store from "../../../redux/store.js"
 import sizeOf from "../../../utils/sizeOf.js"
 import { setSettings } from "../../../redux/actions.js"
+import renderInRoot from "../../../utils/renderInRoot.js"
 
 // Map anonymous names to key since useForm converts dots to object
 const nameKeyMap = {
@@ -96,12 +96,4 @@ const Settings = ({ onClose }) => {
     )
 }
 
-export default () => {
-    const container = document.createElement("div")
-
-    ReactDOM.render(
-        ReactDOM.createPortal((
-            <Settings onClose={() => ReactDOM.unmountComponentAtNode(container)} />
-        ), document.getElementById("root"))
-    , container)
-}
+export default renderInRoot(Settings)

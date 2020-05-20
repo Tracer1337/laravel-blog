@@ -1,24 +1,22 @@
 import React from "react"
-import ReactDOM from "react-dom"
 
 import Dialog from "../Dialog.js"
+import renderInRoot from "../../../utils/renderInRoot.js"
 
-export default (content) => {
-    const container = document.createElement("div")
+const Success = content => renderInRoot(({ onClose }) => (
+    <Dialog
+        fields={[{
+            type: "title",
+            value: "Success"
+        }, {
+            type: "success",
+            value: content
+        }, {
+            type: "submit",
+            value: "Close"
+        }]}
+        onSubmit={onClose}
+    />
+))
 
-    ReactDOM.render(
-        <Dialog
-            fields={[{
-                type: "title",
-                value: "Success"
-            }, {
-                type: "success",
-                value: content
-            }, {
-                type: "submit",
-                value: "Close"
-            }]}
-            onSubmit={() => ReactDOM.unmountComponentAtNode(container)}
-        />
-    , container)
-}
+export default Success
