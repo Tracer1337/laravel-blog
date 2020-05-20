@@ -13,6 +13,10 @@
         
         .select-container {
             min-width: 200px;
+
+            .select__menu {
+                top: unset;
+            }
         }
     }
 }
