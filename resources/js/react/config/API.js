@@ -57,7 +57,8 @@ export const addBlogpost = formData => axios.post(url("blogpost"), formData, {
     }
 })
 
-export const editBlogpost = formData => axios.post(url("blogpost"), putFormData(formData), {
+export const editBlogpost = (formData, onUploadProgress) => axios.post(url("blogpost"), putFormData(formData), {
+    onUploadProgress,
     headers: {
         "Content-Type": "multipart/form-data"
     }

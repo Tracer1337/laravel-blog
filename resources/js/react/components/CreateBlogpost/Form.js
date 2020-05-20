@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import ReactDOMServer from "react-dom/server"
 import { useHistory } from "react-router-dom"
 import { useForm, Controller, FormContext } from "react-hook-form"
@@ -14,6 +14,7 @@ import Actions from "./Actions.js"
 import Preview from "./Preview.js"
 import Dialog from "../Dialog/Dialog.js"
 import MarkdownViewer from "../MarkdownViewer.js"
+import ProgressBar from "../ProgressBar.js"
 
 import { addBlogpost, editBlogpost } from "../../config/API.js"
 import objectToForm from "../../utils/objectToForm.js"
@@ -27,6 +28,9 @@ const Form = ({ postId, editData, reload }) => {
     const history = useHistory()
 
     const { register, control, getValues, setValue } = useForm({ defaultValues: editData })
+
+    const [isLoading, setIsLoading] = useState(false)
+    const [progress, setProgress] = useState(0)
 
     const transformValues = () => {
         const values = getValues()
@@ -43,6 +47,10 @@ const Form = ({ postId, editData, reload }) => {
 
         return objectToForm(values)
     }
+
+    const handleUploadProgress = ({ loaded, total }) => {
+        setProgress(loaded / total)
+    }
     
     const handleSubmit = async method => {
         const formData = transformValues()
@@ -51,10 +59,13 @@ const Form = ({ postId, editData, reload }) => {
             formData.append("publish", true)
         }
 
+        setIsLoading(true)
+        setProgress(0)
+
         try {
             if (postId) {
                 formData.append("id", postId)
-                await editBlogpost(formData)
+                await editBlogpost(formData, handleUploadProgress)
                 reload()
             } else {
                 const res = await addBlogpost(formData)
@@ -64,6 +75,8 @@ const Form = ({ postId, editData, reload }) => {
             Dialog.error("Request failed")
             return
         }
+
+        setIsLoading(false)
 
         Dialog.success(method === 1 ? "Published" : "Saved")
     }
@@ -102,6 +115,8 @@ const Form = ({ postId, editData, reload }) => {
                     {postId && <ImageUpload/>}
 
                     <TagSelection control={control} defaultValue={editData?.tags}/>
+
+                    {isLoading && <ProgressBar progress={progress}/>}
 
                     <Actions onSubmit={handleSubmit} editData={editData}/>
                 </form>

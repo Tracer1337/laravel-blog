@@ -1,0 +1,10 @@
+.progress-bar {
+    width: 100%;
+    height: $spacing-small;
+
+    .inner-bar {
+        background-color: $color-light;
+        height: 100%;
+        transition: all 150ms;
+    }
+}
