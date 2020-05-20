@@ -66,7 +66,7 @@ const App = ({ login }) => {
             {React.createElement(Dialog.cookieConsent)}
 
             <div className="app">
-                <Layout>
+                <Layout isLoading={isLoading}>
                     {isLoading ? (
                         <LoadingIndicator center message="Logging in..."/>
                     ) : (

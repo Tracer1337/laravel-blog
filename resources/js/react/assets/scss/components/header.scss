@@ -23,6 +23,10 @@
         }
     }
 
+    .right {
+        align-items: center;
+    }
+
     .auth, .profile {
         font-size: $font-size-small;
         display: flex;

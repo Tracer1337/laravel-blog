@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { connect } from "react-redux"
 import { Link, useLocation } from "react-router-dom"
+import Skeleton from "react-loading-skeleton"
 
 import Logo from "../Logo.js"
 import Avatar from "../Avatar.js"
@@ -14,7 +15,7 @@ import { logout } from "../../redux/actions.js"
 import { isMobile } from "../../config/constants.js"
 import Storage from "../../utils/Storage.js"
 
-const Header = ({ isLoggedIn, profile, logout }) => {
+const Header = ({ isLoading, isLoggedIn, profile, logout }) => {
     const [menuOpen, setMenuOpen] = useState(false)
     const [anchorElement, setAnchorElement] = useState(null)
     const location = useLocation()
@@ -103,12 +104,21 @@ const Header = ({ isLoggedIn, profile, logout }) => {
             </div>
 
             <div className="right">
-                {!isLoggedIn ? (
-                    <div className="auth">
-                        <Link to="/login">Login</Link>
-                        <Link to="/register">Register</Link>
+                {isLoading ? (
+                    <div className="profile">
+                        <Skeleton width={300} height={30} />
+
+                        <div className="avatar">
+                            <Skeleton circle width={48} height={48}/>
+                        </div>
                     </div>
                 ) : (
+                    !isLoggedIn ? (
+                        <div className="auth">
+                            <Link to="/login">Login</Link>
+                            <Link to="/register">Register</Link>
+                        </div>
+                    ) : (
                         <div className="auth">
                             <a href="#" onClick={handleLogout}>Logout</a>
 
@@ -117,7 +127,8 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                                 <Avatar onClick={toggleMenu} />
                             </div>
                         </div>
-                    )}
+                    )
+                )}
                     
                 <Settings />
             </div>
