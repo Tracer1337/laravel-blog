@@ -5,3 +5,14 @@
         font-size: $font-size-large;
     }
 }
+
+.tag-page {
+    .head {
+        display: flex;
+        justify-content: center;
+        
+        .select-container {
+            min-width: 200px;
+        }
+    }
+}

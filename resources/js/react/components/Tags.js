@@ -14,7 +14,10 @@ const Tags = ({ data }) => (
         ) : (
             data.map(({ id, name }) => (
                 <span className="tag" key={id}>
-                    <Link to={"/tag/" + id}>
+                    <Link to={{
+                        pathname: "/tags",
+                        search: `?tag_ids=${id}`
+                    }}>
                         {name}
                     </Link>
                 </span>

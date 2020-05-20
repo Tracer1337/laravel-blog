@@ -6,7 +6,7 @@ const Tags = () => {
     return (
         <SharedControls
             label="Tag"
-            generateLink={id => "/tag/" + id}
+            generateLink={id => `/tag?tag_ids=${id}`}
             methods={{
                 get: "getAllTags",
                 add: "addTag",

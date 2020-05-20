@@ -43,9 +43,9 @@ Route::delete("/topics/{id}", "TopicsController@destroy");
 
 Route::get("/tags", "TagsController@index");
 
-Route::get("/tags/{id}", "TagsController@get_specific");
+Route::get("/tags/{id}", "TagsController@get_specific")->where("id", "^[0-9]+$");
 
-Route::get("/tags/{id}/blogposts", "TagsController@blogposts");
+Route::get("/tags/blogposts", "TagsController@blogposts");
 
 Route::post("/tags", "TagsController@store");
 

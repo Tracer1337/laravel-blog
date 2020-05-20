@@ -99,7 +99,7 @@ const App = ({ login }) => {
                                 <Search/>
                             </Route>
 
-                            <Route path="/tag/:id">
+                            <Route path="/tags">
                                 <Tag/>
                             </Route>
 

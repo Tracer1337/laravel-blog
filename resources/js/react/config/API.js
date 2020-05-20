@@ -2,7 +2,11 @@ import format, { blogpost, blogposts, search, user, auth, assets } from "./forma
 import Storage from "../utils/Storage.js"
 
 const url = path => `${window.location.origin}/api/${path}`
-const paginated = (path, pageNr) => `${path}?page=${pageNr}`
+
+const query = (url, name, value) => `${url}${url.includes("?") ? "&" : "?"}${name}=${value}`
+const queryArray = (url, name, values) => url + values.reduce((query, value) => `${query}${(url + query).includes("?") ? "&" : "?"}${name}[]=${value}`, "")
+
+const paginated = (url, pageNr) => query(url, "page", pageNr)
 
 const putFormData = formData => {
     formData.append("method_put", true)
@@ -85,7 +89,13 @@ export const getAllTags = (withMeta = false) => axios.get(url("tags?with-meta=" 
 
 export const getTag = id => axios.get(url("tags/"+id))
 
-export const getTagBlogposts = (id, pageNr) => axios.get(paginated(url(`tags/${id}/blogposts`), pageNr)).then(format(blogposts))
+export const getTagsBlogposts = (ids, pageNr) => axios.get(
+    paginated(
+        queryArray(
+            url(`tags/blogposts`)
+        , "tag_ids", ids), 
+    pageNr)
+).then(format(blogposts))
 
 export const addTag = args => axios.post(url("tags"), args)
 

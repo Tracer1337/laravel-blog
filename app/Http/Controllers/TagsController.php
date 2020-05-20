@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Tag;
+use App\Blogpost;
 use App\Http\Resources\Tag as TagResource;
 use App\Http\Resources\Blogpost as BlogpostResource;
 
@@ -30,9 +32,44 @@ class TagsController extends Controller
         return new TagResource($tag);
     }
 
-    public function blogposts($id) {
-        $tag = Tag::findOrFail($id);
-        $blogposts = $tag->blogposts()->whereNotNull("published_at")->orderBy("published_at", "DESC")->Paginate(20);
+    public function blogposts(Request $request) {
+        $ids = $request->query("tag_ids");
+        $ids_count = count($ids);
+
+        // Get blogposts containing any of the tags        
+        $marks = array_fill(0, $ids_count, "?");
+        $blogpost_tags = DB::select("
+            SELECT t.id AS tag_id, b.id AS blogpost_id FROM blogposts AS b
+            INNER JOIN blogposts_tags AS bt ON bt.blogpost_id = b.id
+            INNER JOIN tags AS t ON bt.tag_id = t.id
+            WHERE t.id IN (" . implode(", ", $marks ) . ")
+        ", $ids);
+
+        // Count occurances of post ids in $blogpost_tags
+        $matches_per_blogpost = [];
+
+        foreach($blogpost_tags as $entry) {
+            if(!isset($matches_per_blogpost[$entry->blogpost_id])) {
+                $matches_per_blogpost[$entry->blogpost_id] = 1;
+            } else {
+                $matches_per_blogpost[$entry->blogpost_id]++;
+            }
+        }
+        
+        // Filter posts having too little matches
+        $result_ids = [];
+        
+        foreach($matches_per_blogpost as $id => $matches) {
+            if($matches == $ids_count) {
+                array_push($result_ids, $id);
+            }
+        }
+
+        $blogposts = Blogpost::whereNotNull("published_at")
+                                ->whereIn("id", $result_ids)
+                                ->orderBy("published_at", "DESC")
+                                ->Paginate(20);
+
         $blogposts->makeHidden("content");
 
         return BlogpostResource::collection($blogposts);
