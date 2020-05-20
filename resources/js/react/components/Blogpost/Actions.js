@@ -14,8 +14,8 @@ const Actions = ({ data, onAction, id, profile }) => {
     const throttleRequest = fn => async () => {
         if (!isLoading) {
             setIsLoading(true)
-            await fn()
-            await onAction()
+            const res = await fn()
+            await onAction(res.data)
             setIsLoading(false)
         }
     }

@@ -68,11 +68,11 @@ export const deleteBlogpost = id => axios.delete(url("blogpost/"+id))
 
 export const deleteBlogpostAsset = id => axios.delete(url("blogpost/asset/"+id))
 
-export const likeBlogpost = id => axios.post(url("blogpost/like"), {id})
+export const likeBlogpost = id => axios.post(url("blogpost/like"), {id}).then(format(blogpost))
 
-export const addRecommendation = id => axios.put(url("blogpost/recommend/"+id))
+export const addRecommendation = id => axios.put(url("blogpost/recommend/"+id)).then(format(blogpost))
 
-export const removeRecommendation = id => axios.delete(url("blogpost/recommend/"+id))
+export const removeRecommendation = id => axios.delete(url("blogpost/recommend/"+id)).then(format(blogpost))
 
 // Topics
 export const getAllTopics = (withMeta = false) => axios.get(url("topics?with-meta=" + withMeta))

@@ -23,7 +23,7 @@ const BlogpostPage = () => {
     const editComment = useQuery("editComment") === "true"
     const formRef = useRef()
 
-    const [data, reload] = useAPIData({
+    const [data, reload, setData] = useAPIData({
         method: "getBlogpost",
         args: [id],
         removeDataBeforeLoading: false
@@ -37,6 +37,10 @@ const BlogpostPage = () => {
             domElement?.scrollIntoView()
             domElement?.classList.add("highlighted")
         }
+    }
+
+    const handleAction = data => {
+        setData(data)
     }
 
     useEffect(() => {
@@ -73,7 +77,7 @@ const BlogpostPage = () => {
                     <hr />
 
                     <Auth>
-                        <Actions data={post} onAction={reload} id={id}/>
+                        <Actions data={post} onAction={handleAction} id={id}/>
                     </Auth>
 
                     <div className="spacer-small"/>

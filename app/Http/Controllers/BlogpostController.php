@@ -252,7 +252,8 @@ class BlogpostController extends Controller
     }
 
     public function like(Request $request) {
-        $blogpost = BlogPost::findOrFail($request->id);
+        $blogpost_id = $request->id;
+        $blogpost = BlogPost::findOrFail($blogpost_id);
         $user = $request->user();
 
         if($blogpost->user->id == $user->id || !$user->can("like blogposts")) {
@@ -261,7 +262,7 @@ class BlogpostController extends Controller
 
         $blogpost->likes()->attach($user);
 
-        return response(null, 200);
+        return $this->show($blogpost_id, $request);
     }
 
     public function recommend($id, Request $request) {
@@ -280,6 +281,6 @@ class BlogpostController extends Controller
             $blogpost->recommendations()->sync($user);
         }
 
-        return response(null, 200);
-    } 
+        return $this->show($id, $request);
+    }
 }

@@ -43,7 +43,7 @@ function useAPIData({
         }
     }, [method, ...args])
 
-    return [data, fetchData]
+    return [data, fetchData, setData]
 }
 
 export default useAPIData
