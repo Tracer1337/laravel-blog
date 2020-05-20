@@ -87,11 +87,6 @@ function create_asset($data) {
     $path = $data["file"]->storeAs("public/assets", $filename);
     $url = ENV("APP_URL") . "storage/assets/" . $filename;
 
-    // Make asset accessible directly from s3 bucket
-    // if(ENV("FILESYSTEM_DRIVER") == "s3") {
-    //     Storage::disk("s3")->setVisibility($path, "public");
-    // }
-
     // Create new asset
     $new_image = new Asset;
     $new_image->filename = $filename;

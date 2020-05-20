@@ -94,8 +94,12 @@ const EditProfile = ({ profile, modifyProfile }) => {
                     </Auth>
 
                     <div className="links">
-                        {!availableLinks ? <LoadingIndicator/> : availableLinks.map((name, i) => (
-                            <input type="text" name={name} defaultValue={profile.links?.[name]} placeholder={name} ref={register()} key={i}/>
+                        {!availableLinks ? (
+                            Array(4).fill().map((_, i) => <Skeleton width={450} height={45} key={i}/>)
+                        ) : (
+                            availableLinks.map((name, i) => (
+                                <input type="text" name={name} defaultValue={profile.links?.[name]} placeholder={name} ref={register()} key={i} />
+                            )
                         ))}
                     </div>
 
