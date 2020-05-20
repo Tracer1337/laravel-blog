@@ -17,6 +17,13 @@
         .title {
             text-align: center;
             margin: 0;
+            margin-top: $spacing-extra-small * 2;
+        }
+
+        .subtitle {
+            font-weight: $font-weight-light;
+            font-size: $font-size-normal;
+            margin-bottom: $spacing-extra-small * 2;
         }
 
         .alert {

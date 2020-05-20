@@ -54,6 +54,12 @@ const Header = ({ isLoggedIn, profile, logout }) => {
         </Auth>
     )
 
+    const Settings = () => (
+        <div className="settings-icon-wrapper">
+            <Icon type="settings" className="icon settings" fontSize={32} onClick={handleSettings} />
+        </div>
+    )
+
     if(isMobile) {
         return (
             <header className="header">
@@ -64,15 +70,15 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                         <div className="auth">
                             <Link to="/login">Login</Link>
                             <Link to="/register">Register</Link>
+
+                            <Settings/>
                         </div>
                     ) : (
                         <div className="profile">
                             <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.full_name}</strong></Link>
                             <Avatar onClick={toggleMenu} />
 
-                            <Link to="/settings">
-                                <Icon type="settings" className="icon" />
-                            </Link>
+                            <Settings/>
                         </div>
                     )}
                 </div>
@@ -113,9 +119,7 @@ const Header = ({ isLoggedIn, profile, logout }) => {
                         </div>
                     )}
                     
-                <div className="settings-icon-wrapper">
-                    <Icon type="settings" className="icon settings" fontSize={32} onClick={handleSettings}/>
-                </div>
+                <Settings />
             </div>
 
             {menu}

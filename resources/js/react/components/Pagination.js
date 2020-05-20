@@ -51,7 +51,7 @@ const Navigation = ({ count, page, onChange }) => {
     )
 }
 
-const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCache = false }, ref) => {
+const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCache = true }, ref) => {
     const [data, refresh] = useAPIData({
         method: fetchMethod,
         args: [...args, 1],
@@ -78,7 +78,7 @@ const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCach
 
     useImperativeHandle(ref, () => ({ 
         refresh: loadPage
-     }))
+    }))
     
     return (
         <div className={`paginated ${className || ""}`}>

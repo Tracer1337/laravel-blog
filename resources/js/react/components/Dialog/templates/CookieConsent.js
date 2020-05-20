@@ -3,30 +3,23 @@ import { connect } from "react-redux"
 
 import Dialog from "../Dialog.js"
 
-import { setSetting } from "../../../redux/actions.js"
+import { setSettings } from "../../../redux/actions.js"
 
-const CookieConsent = ({ settings, setSetting }) => {
+const CookieConsent = ({ settings, setSettings }) => {
     const [shouldRender, setShouldRender] = useState(!settings["cookies.accepted"])
 
     if (!shouldRender) {
         return null
     }
 
-    const handleAccept = (selected = ["tracking"]) => {
-        setSetting("cookies.accepted", true)
-
-        if(selected.includes("tracking")) {
-            setSetting("cookies.tracking", true)
-        }
-
+    const handleAccept = () => {
+        setSettings({
+            "cookies.accepted": true,
+            "cookies.tracking": true
+        })
         setShouldRender(false)
     }
-
-    const handlePreferences = async () => {
-        const shouldAccept = await Dialog.cookiePreferences()
-        handleAccept(shouldAccept)
-    }
-
+    
     return (
         <div className="card cookie-consent">
             <h3>We use cookies</h3>
@@ -34,7 +27,7 @@ const CookieConsent = ({ settings, setSetting }) => {
 
             <div className="actions">
                 <button onClick={() => handleAccept()}>Accept</button>
-                <button onClick={handlePreferences}>Change Preferences</button>
+                <button onClick={Dialog.cookiePreferences}>Change Preferences</button>
             </div>
         </div>
     )
@@ -44,4 +37,4 @@ const mapStateToProps = store => ({
     settings: store.settings
 })
 
-export default connect(mapStateToProps, { setSetting })(CookieConsent)
+export default connect(mapStateToProps, { setSettings })(CookieConsent)

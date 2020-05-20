@@ -10,7 +10,7 @@ const GATracking = ({ settings }) => {
     const location = useLocation()
 
     useEffect(() => {
-        // Ask for permissions to track user
+        // Require permissions to track user
         if(!settings["cookies.tracking"]) {
             return
         }
@@ -25,7 +25,7 @@ const GATracking = ({ settings }) => {
     }, [settings])
 
     useEffect(() => {
-        if(!isInitialized) {
+        if(!isInitialized || !settings["cookies.tracking"]) {
             return
         }
 

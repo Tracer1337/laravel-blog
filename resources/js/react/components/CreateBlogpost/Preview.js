@@ -42,11 +42,13 @@ const Preview = ({ data }) => {
     }, [register])
 
     useEffect(() => {
-        const cover = data.assets.find(asset => asset.type === "cover")
-        if(cover && !cover.meta.gradient) {
-            handleGapChange({ target: { value: gradientGapDefaultValue } })
+        if(data?.assets) {
+            const cover = data.assets.find(asset => asset.type === "cover")
+            if(cover && !cover.meta.gradient) {
+                handleGapChange({ target: { value: gradientGapDefaultValue } })
+            }
         }
-    }, [data.assets])
+    }, [data?.assets])
 
     return (
         <div>

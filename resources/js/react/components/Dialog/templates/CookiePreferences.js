@@ -2,28 +2,32 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { useForm } from "react-hook-form"
 
-const CookiePreferences = () => new Promise(resolve => {
+import store from "../../../redux/store.js"
+import { setSettings } from "../../../redux/actions.js"
+
+const CookiePreferences = () => {
     const container = document.createElement("div")
 
-    const Modal = () => {
+    const Modal = ({ onClose }) => {
+        const { settings } = store.getState()
+
         const { register, getValues } = useForm({
             defaultValues: {
-                tracking: true
+                tracking: typeof settings["cookies.tracking"] !== "undefined" ? settings["cookies.tracking"] : true
             }
         })
 
         const handleSave = () => {
-            let shouldAccept = []
-            
-            if (getValues("tracking")) {
-                shouldAccept.push("tracking")
+            const newPreferences = {
+                "cookies.tracking": getValues("tracking")
             }
 
-            resolve(shouldAccept)
-            ReactDOM.unmountComponentAtNode(container)
+            store.dispatch(setSettings(newPreferences))
+
+            onClose()
         }
 
-        return ReactDOM.createPortal((
+        return (
             <div className="dialog">
                 <div className="inner-dialog">
                     <h3>Change Preferences</h3>
@@ -42,15 +46,19 @@ const CookiePreferences = () => new Promise(resolve => {
                         <a href="https://www.freeprivacypolicy.com/free-cookie-consent/">FreePrivacyPolicy.com</a>
                     </div>
 
-                    <div className="spacer-small"/>
+                    <div className="spacer-small" />
 
                     <button onClick={handleSave}>Save Preferences</button>
                 </div>
             </div>
-        ), document.getElementById("root"))
+        )
     }
-
-    return ReactDOM.render(<Modal/>, container)
-})
+    
+    return ReactDOM.render((
+        ReactDOM.createPortal((
+            <Modal onClose={() => ReactDOM.unmountComponentAtNode(container)}/>
+        ), document.getElementById("root"))
+    ), container)
+}
 
 export default CookiePreferences

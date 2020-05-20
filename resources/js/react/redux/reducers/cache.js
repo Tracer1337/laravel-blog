@@ -3,6 +3,10 @@ import { CACHE_DATA, LOCATION_CHANGE } from "../actionTypes.js"
 const defaultState = {}
 
 function cache(state = defaultState, action, fullState) {
+    if(!fullState.settings?.["cache.enabled"]) {
+        return state
+    }
+
     switch(action.type) {
         case CACHE_DATA:
             return {

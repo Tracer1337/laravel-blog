@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import store from "../redux/store.js"
 import { cacheData } from "../redux/actions.js"
@@ -10,17 +10,21 @@ function getCachedData(key) {
 }
 
 function useCachedData(key) {
-    const updateStore = (data) => store.dispatch(cacheData(key, data))
+    const updateStore = (data) => {
+        store.dispatch(cacheData(key, data))
+    }
 
     const [data, setData] = useState(getCachedData(key))
 
     const setCachedData = data => {
         updateStore(data)
-        setData(getCachedData(key))
+        setData(data)
     }
 
-    // Reset redirect counter
-    updateStore(data)
+    useEffect(() => {
+        // Reset redirect counter
+        updateStore(data)
+    }, [])
 
     return [data, setCachedData]
 }
