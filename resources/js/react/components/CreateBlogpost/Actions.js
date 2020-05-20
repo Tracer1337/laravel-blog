@@ -10,10 +10,17 @@ const Actions = ({ onSubmit, editData }) => {
                 <span>Save</span>
             </button>
 
-            <button className="submit" onClick={() => onSubmit(1)} disabled={!!editData?.published_at}>
-                <Icon type="send" className="icon" />
-                <span>Publish</span>
-            </button>
+            {!editData?.published_at ? (
+                <button className="submit" onClick={() => onSubmit(1)}>
+                    <Icon type="send" className="icon" />
+                    <span>Publish</span>
+                </button>
+            ) : (
+                <button className="submit" onClick={() => onSubmit(2)}>
+                    <Icon type="unpublish" className="icon" />
+                    <span>Unpublish</span>
+                </button>
+            )}
         </div>
     )
 }

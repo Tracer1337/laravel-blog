@@ -83,9 +83,14 @@ class BlogpostController extends Controller
 
         $blogpost->user_id = $user->id;
 
-        // Publish post if flag is set
+        // Publish post
         if($request->publish) {
             $blogpost->published_at = Carbon::now();
+        }
+
+        // Unpublish post
+        if($request->unpublish) {
+            $blogpost->published_at = null;
         }
 
         if($user->can("store files")) { 

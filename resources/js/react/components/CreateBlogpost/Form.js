@@ -57,6 +57,8 @@ const Form = ({ postId, editData, reload }) => {
 
         if (method === 1) {
             formData.append("publish", true)
+        } else if (method === 2) {
+            formData.append("unpublish", true)
         }
 
         setIsLoading(true)
