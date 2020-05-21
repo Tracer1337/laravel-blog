@@ -32,7 +32,7 @@ const Actions = ({ data, onAction, id, profile }) => {
                 data.user_id !== profile.id && (
                 <div className="action-container" onClick={handleLike}>
                     <Icon type="thumb-up" className="icon" />
-                    <span className="label">{data.likesCount}</span>
+                    <span className="label">{data.likesCount} | From {data.likesDistinctUsers} Users</span>
                 </div>
             )) : (
                 <>

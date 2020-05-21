@@ -22,6 +22,7 @@ class Blogpost extends JsonResource
             "topic" => $this->topic,
             "tags" => $this->tags,
             "likesCount" => $this->likes->count(),
+            "likesDistinctUsers" => $this->likes()->distinct("user_id")->count(),
             "recommendationsCount" => $this->recommendations->count(),
             "assets" => $this->assets
         ]);

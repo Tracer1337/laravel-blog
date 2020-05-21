@@ -74,7 +74,7 @@ const BlogpostDetailed = ({ post, showSkeleton }) => {
 
                     <tr>
                         <td>Likes</td>
-                        <td>{showSkeleton ? <Skeleton /> : post.likesCount}</td>
+                        <td>{showSkeleton ? <Skeleton /> : `${post.likesCount} | From ${post.likesDistinctUsers} Users`}</td>
                     </tr>
 
                     <tr>
