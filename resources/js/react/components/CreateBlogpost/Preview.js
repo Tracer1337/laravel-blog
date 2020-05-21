@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react"
 import { useFormContext } from "react-hook-form"
 
 import BlogpostCard from "../BlogpostCard.js"
+import GradientGapConfig from "./GradientGapConfig.js"
 
 import getImageGradient from "../../utils/getImageGradient.js"
 
@@ -13,11 +14,11 @@ const Preview = ({ data }) => {
 
     const [gradient, setGradient] = useState()
 
+    const cover = data?.assets.find(asset => asset.type === "cover")
+
     // Format data for BlogpostCard
     const formattedData = useMemo(() => {
         if(data) {
-            const cover = data.assets.find(asset => asset.type === "cover")
-    
             // Add gradient from state
             if(cover && gradient) {
                 cover.meta.gradient = gradient
@@ -27,11 +28,9 @@ const Preview = ({ data }) => {
         return data
     }, [data, gradient])
 
-    const handleGapChange = async event => {
-        const gap = event.target.value
-        const coverUrl = data.assets.find(asset => asset.type === "cover").url
-        if(coverUrl) {
-            const gradient = await getImageGradient(coverUrl, gap)
+    const handleGapChange = async gapSize => {
+        if(cover.url) {
+            const gradient = await getImageGradient(cover.url, gapSize)
             setGradient(gradient)
             setValue(gradientInputName, gradient)
         }
@@ -43,9 +42,8 @@ const Preview = ({ data }) => {
 
     useEffect(() => {
         if(data?.assets) {
-            const cover = data.assets.find(asset => asset.type === "cover")
             if(cover && !cover.meta.gradient) {
-                handleGapChange({ target: { value: gradientGapDefaultValue } })
+                handleGapChange(gradientGapDefaultValue)
             }
         }
     }, [data?.assets])
@@ -58,8 +56,9 @@ const Preview = ({ data }) => {
                 <>
                     <BlogpostCard post={formattedData}/>
 
-                    <h4>Gradient Gap</h4>
-                    <input type="number" min="0" max=".9" step=".1" defaultValue={gradientGapDefaultValue} onChange={handleGapChange} />
+                    <div className="spacer-small"/>
+
+                    <GradientGapConfig defaultValue={gradientGapDefaultValue} onChange={handleGapChange} imgSrc={cover.url}/>
                 </>
             ) : (
                 <em>Preview is not available</em>

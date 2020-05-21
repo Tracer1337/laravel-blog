@@ -115,4 +115,15 @@
         margin-right: $spacing-normal;
         flex-grow: 1;
     }
+
+    .gradient-config {
+        form {
+            margin: 0;
+        }
+
+        .img-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+    }
 }
