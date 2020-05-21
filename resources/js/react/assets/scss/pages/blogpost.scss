@@ -53,6 +53,16 @@
             .label {
                 user-select: none;
             }
+
+            &.disabled {
+                &, .icon {
+                    cursor: default;
+                }
+
+                .icon {
+                    opacity: .7;
+                }
+            }
         }
     }
 

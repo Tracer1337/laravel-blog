@@ -11,6 +11,8 @@ const Actions = ({ data, onAction, id, profile }) => {
     const [isLoading, setIsLoading] = useState(false)
     const isRecommending = data.recommendations?.some(r => r.id = profile.id)
 
+    const sameUser = data.user_id === profile.id
+
     const throttleRequest = fn => async () => {
         if (!isLoading) {
             setIsLoading(true)
@@ -20,7 +22,11 @@ const Actions = ({ data, onAction, id, profile }) => {
         }
     }
 
-    const handleLike = throttleRequest(likeBlogpost.bind(null, id))
+    const handleLike = () => {
+        if(!sameUser) {
+            throttleRequest(likeBlogpost.bind(null, id))()
+        }
+    }
 
     const handleAddRecommendation = throttleRequest(addRecommendation.bind(null, id))
 
@@ -29,12 +35,11 @@ const Actions = ({ data, onAction, id, profile }) => {
     return (
         <div className="actions">
             {data.user_id ? (
-                data.user_id !== profile.id && (
-                <div className="action-container" onClick={handleLike}>
+                <div className={`action-container ${sameUser ? "disabled" : ""}`} onClick={handleLike}>
                     <Icon type="thumb-up" className="icon" />
                     <span className="label">{data.likesCount} | From {data.likesDistinctUsers} Users</span>
                 </div>
-            )) : (
+            ) : (
                 <>
                     <Skeleton width={100} height={30}/>
                     <br/>
