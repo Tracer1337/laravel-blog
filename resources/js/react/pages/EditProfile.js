@@ -9,7 +9,6 @@ import "easymde/dist/easymde.min.css"
 
 import FileInput from "../components/FileInput.js"
 import Auth from "../components/Auth.js"
-import LoadingIndicator from "../components/LoadingIndicator.js"
 import Dialog from "../components/Dialog/Dialog.js"
 import Icon from "../components/Icon.js"
 

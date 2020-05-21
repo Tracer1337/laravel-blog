@@ -151,3 +151,6 @@ export const assignRole = args => axios.post(url("roles/user"), args)
 export const getAllAssets = pageNr => axios.get(paginated(url("storage/assets"), pageNr)).then(format(assets))
 
 export const deleteAsset = id => axios.delete(url("storage/asset/" + id))
+
+// Configuration
+export const getMaxFileSize = () => axios.get(url("config/max-file-size"))

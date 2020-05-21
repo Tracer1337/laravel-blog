@@ -24,7 +24,6 @@ function get_new_files($files, $existing_files) {
     // Filter paths of existing files
     foreach($existing_files as $object) {
         // Get file
-        // $file_content = Storage::get($object->path);
         $file_content = Storage::get($object["path"]);
 
         // Create temp file

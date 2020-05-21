@@ -48,6 +48,8 @@ class BlogpostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        $max_file_size_kb = config("app.max_file_size") * 1024;
+
         $validated_data = $request->validate([
             "id" => "nullable|uuid",
             "title" => "required|max:255",
@@ -55,8 +57,8 @@ class BlogpostController extends Controller
             "topic_id" => "required|Integer",
             "content" => "required",
             "tag_ids" => "nullable|Array",
-            "cover" => "nullable|image",
-            "images" => "nullable|Array",
+            "cover" => "nullable|image|max:" . $max_file_size_kb,
+            "images" => "nullable|Array|max:" . $max_file_size_kb,
             "cover->gradient" => "nullable|string"
         ]);
 
@@ -133,7 +135,6 @@ class BlogpostController extends Controller
                 }
             }
             
-
             // Store images array
             if(isset($validated_data["images"])) {
                 foreach($validated_data["images"] as $image) {

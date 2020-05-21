@@ -180,13 +180,15 @@ class AuthController extends Controller
     }
 
     public function update(Request $request) {
+        $max_file_size_kb = config("app.max_file_size") * 1024;
+
         $validated_data = $request->validate([
             "first_name" => "nullable|alpha",
             "last_name" => "nullable|alpha",
             "username" => "required",
             "biography" => "nullable",
             "links" => "nullable|JSON",
-            "avatar" => "nullable|image|dimensions:ratio=1"
+            "avatar" => "nullable|image|dimensions:ratio=1|max:" . $max_file_size_kb
         ]);
 
         $user = $request->user();

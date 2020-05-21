@@ -116,3 +116,9 @@ Route::get("search", "SearchController@index");
 Route::get("storage/assets", "StorageController@api_assets");
 
 Route::delete("storage/asset/{filename}", "StorageController@api_delete_asset");
+
+// Configuration
+
+Route::get("config/max-file-size", function() {
+    return config("app.max_file_size");
+});

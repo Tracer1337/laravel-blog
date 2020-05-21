@@ -19,6 +19,11 @@ return [
         "Likes Received" => "likes_received"
     ],
 
+    /**
+     * Defines the maximum filesize of user-uploaded files in MB
+     */
+    "max_file_size" => 2,
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

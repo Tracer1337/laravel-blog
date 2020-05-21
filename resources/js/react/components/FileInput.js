@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from "react"
 import { useFormContext } from "react-hook-form"
+import Skeleton from "react-loading-skeleton"
 
 import Icon from "./Icon.js"
 import Dialog from "./Dialog/Dialog.js"
 
-import { MAX_FILE_UPLOAD_SIZE_MB } from "../config/constants.js"
+import useAPIData from "../utils/useAPIData.js"
 
 let idCounter = 0
 
 const FileInput = ({ accept, onChange, icon, name, useHooks, className, ...props }) => {
+    const [maxFileSize] = useAPIData({
+        method: "getMaxFileSize"
+    })
+
     const formHooks = useFormContext()
 
     const [id] = useState(idCounter++)
@@ -20,8 +25,8 @@ const FileInput = ({ accept, onChange, icon, name, useHooks, className, ...props
     const handleChange = event => {
         const file = event.target.files[0]
 
-        if(file.size / 1024 / 1024 > MAX_FILE_UPLOAD_SIZE_MB) {
-            Dialog.error(`The file is too large (Max: ${MAX_FILE_UPLOAD_SIZE_MB}MB)`)
+        if(file.size / 1024 / 1024 > maxFileSize) {
+            Dialog.error(`The file is too large (Max: ${maxFileSize}MB)`)
             return
         }
 
@@ -39,6 +44,15 @@ const FileInput = ({ accept, onChange, icon, name, useHooks, className, ...props
             formHooks.register({ name })
         }
     }, [formHooks])
+
+    if(!maxFileSize) {
+        return (
+            <div className={`file-input-wrapper ${className || ""}`}>
+                <Skeleton circle width={35} height={35}/>
+                <Skeleton width={300} height={35}/>
+            </div>
+        )
+    }
 
     return (
         <div className={`file-input-wrapper ${className || ""}`}>
