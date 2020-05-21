@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Topic;
+use App\Blogpost;
 use App\Http\Resources\Topic as TopicResource;
 use App\Http\Resources\Blogpost as BlogpostResource;
 
@@ -74,6 +75,9 @@ class TopicsController extends Controller
         $topic = Topic::findOrFail($id);
 
         if($topic->delete()) {
+            // Remove topic from blogposts
+            Blogpost::where("topic_id", $id)->update(["topic_id" => null]);
+
             return new TopicResource($topic);
         }
     }

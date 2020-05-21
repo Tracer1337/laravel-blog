@@ -16,7 +16,7 @@ class CreateBlogpostsTable extends Migration
         Schema::create('blogposts', function (Blueprint $table) {
             $table->uuid("id")->primary();
             $table->uuid("user_id");
-            $table->integer("topic_id");
+            $table->integer("topic_id")->nullable();
             $table->string("title");
             $table->text("teaser");
             $table->mediumText("content");

@@ -8,6 +8,7 @@ use App\Http\Resources\User as UserResource;
 use App\Http\Resources\Blogpost as BlogpostResource;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
+use App\Asset;
 
 class UserController extends Controller
 {
@@ -137,7 +138,29 @@ class UserController extends Controller
         }
 
         $user = User::findOrFail($id);
+
         if($user->delete()) {
+            // Delete all likes from user
+            DB::table("likes")->where("user_id", $id)->delete();
+
+            // Delete all recommendations from user
+            DB::table("recommendations")->where("user_id", $id)->delete();
+
+            // Delete all blogposts from user
+            DB::table("blogposts")->where("user_id", $id)->delete();
+
+            // Delete all assets from user
+            $assets = Asset::where("user_id", $id)->get();
+            foreach($assets as $asset) {
+                delete_asset($asset->filename);
+            }
+            
+            // Delete all subscription-entries with user
+            DB::table("followers")->where("user_from_id", $id)->orWhere("user_to_id", $id)->delete();
+
+            // Delete all comments from user
+            DB::table("comments")->where("user_id", $id)->delete();
+            
             return new UserResource($user);
         }
     }

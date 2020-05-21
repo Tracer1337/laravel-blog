@@ -111,6 +111,9 @@ class TagsController extends Controller
         $tag = Tag::findOrFail($id);
         
         if($tag->delete()) {
+            // Remove tag from blogposts
+            DB::table("blogposts_tags")->where("tag_id", $id)->delete();
+
             return new TagResource($tag);
         }
     }

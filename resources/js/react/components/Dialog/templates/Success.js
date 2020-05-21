@@ -3,7 +3,7 @@ import React from "react"
 import Dialog from "../Dialog.js"
 import renderInRoot from "../../../utils/renderInRoot.js"
 
-const Success = content => renderInRoot(({ onClose }) => (
+const Success = ({ onClose, args: [content] }) => (
     <Dialog
         fields={[{
             type: "title",
@@ -17,6 +17,6 @@ const Success = content => renderInRoot(({ onClose }) => (
         }]}
         onSubmit={onClose}
     />
-))
+)
 
-export default Success
+export default renderInRoot(Success)

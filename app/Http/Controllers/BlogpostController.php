@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Blogpost;
 use App\Http\Resources\Blogpost as BlogpostResource;
@@ -233,6 +234,15 @@ class BlogpostController extends Controller
             foreach($assets as $asset) {
                 delete_asset($asset->filename);
             }
+
+            // Delete all likes
+            DB::table("likes")->where("blogpost_id", $id)->delete();
+
+            // Delete all recommendations
+            DB::table("recommendations")->where("blogpost_id", $id)->delete();
+
+            // Delete all comments
+            DB::table("comments")->where("blogpost_id", $id)->delete();
             
             return new BlogpostResource($blogpost);
         }

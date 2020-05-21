@@ -55,10 +55,15 @@ const Form = ({ postId, editData, reload }) => {
     const handleSubmit = async method => {
         const formData = transformValues()
 
+        let successMessage = "Saved"
+
         if (method === 1) {
             formData.append("publish", true)
+            successMessage = "Published"
+
         } else if (method === 2) {
             formData.append("unpublish", true)
+            successMessage = "Unpublished"
         }
 
         setIsLoading(true)
@@ -80,7 +85,7 @@ const Form = ({ postId, editData, reload }) => {
 
         setIsLoading(false)
 
-        Dialog.success(method === 1 ? "Published" : "Saved")
+        Dialog.success(successMessage)
     }
     
     return (
