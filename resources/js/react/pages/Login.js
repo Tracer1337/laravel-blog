@@ -1,11 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import { Helmet } from "react-helmet"
 import { connect } from "react-redux"
 import { useHistory } from "react-router-dom"
 import { useForm } from "react-hook-form"
 
 import Dialog from "../components/Dialog/Dialog.js"
-import LoadingIndicator from "../components/LoadingIndicator.js"
 
 import { login as loginAction } from "../redux/actions.js"
 import { login } from "../config/API.js"
@@ -20,10 +19,7 @@ const Login = ({ loginAction }) => {
         }
     })
 
-    const [isLoading, setIsLoading] = useState(false)
-
     const onSubmit = fields => {
-        setIsLoading(true)
         login(fields)
             .then(data => {
                 loginAction(data)
@@ -31,11 +27,6 @@ const Login = ({ loginAction }) => {
             }).catch(() => {
                 Dialog.error("Login failed")
             })
-            .finally(() => setIsLoading(false))
-    }
-
-    if(isLoading) {
-        return <LoadingIndicator center/>
     }
 
     return (

@@ -29,7 +29,7 @@ const CookiePreferences = ({ onClose }) => {
             <div className="inner-dialog">
                 <h3>Change Preferences</h3>
 
-                <div>
+                <div className="checkbox">
                     <input type="checkbox" ref={register} id="tracking" name="tracking" />
                     <label htmlFor="tracking">Tracking Cookies</label>
                 </div>

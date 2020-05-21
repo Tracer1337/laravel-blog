@@ -1,11 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import { Helmet } from "react-helmet"
 import { connect } from "react-redux"
-import { useHistory } from "react-router-dom"
+import { useHistory, Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 
 import Dialog from "../components/Dialog/Dialog.js"
-import LoadingIndicator from "../components/LoadingIndicator.js"
 
 import { login as loginAction } from "../redux/actions.js"
 import { register as APIRegister } from "../config/API.js"
@@ -20,10 +19,11 @@ const Register = ({ loginAction }) => {
         }
     })
 
-    const [isLoading, setIsLoading] = useState(false)
-
     const onSubmit = fields => {
-        setIsLoading(true)
+        if(!fields.accept_terms) {
+            return
+        }
+
         APIRegister(fields)
             .then(profile => {
                 loginAction(profile)
@@ -31,11 +31,6 @@ const Register = ({ loginAction }) => {
             }).catch(() => {
                 Dialog.error("Registration failed")
             })
-            .finally(() => setIsLoading(false))
-    }
-
-    if(isLoading) {
-        return <LoadingIndicator/>
     }
 
     return (
@@ -74,12 +69,19 @@ const Register = ({ loginAction }) => {
                         <input type="password" name="password" placeholder="Password" className="input" ref={register}/>
                     </div>
 
-                    <p className="em">* Required</p>
+                    <div className="checkbox">
+                        <input type="checkbox" id="accept_terms" name="accept_terms" ref={register()} />
+                        <label htmlFor="accept_terms">
+                            I have read the <Link to="/privacy">Privacy Policy</Link> and agree to our <Link to="/terms-of-service">Terms Of Service</Link> *
+                        </label>
+                    </div>
 
                     <div className="checkbox">
                         <input type="checkbox" id="remember_me" name="remember_me" ref={register()} />
                         <label htmlFor="remember_me">Remember Me</label>
                     </div>
+
+                    <p className="em">* Required</p>
 
                     <button type="submit">Register</button>
                 </form>
