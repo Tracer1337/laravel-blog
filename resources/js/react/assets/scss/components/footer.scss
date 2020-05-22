@@ -1,7 +1,7 @@
 .footer {
     padding: 0 $spacing-normal;
     background-color: $color-light;
-    height: 128px;
+    height: 64px;
     position: relative;
     margin-top: auto;
 
@@ -19,24 +19,9 @@
             margin-right: $spacing-normal;
         }
     }
-
-    &:after {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: $spacing-normal;
-        background-color: white;
-        border-bottom-left-radius: $spacing-normal * 2;
-        border-bottom-right-radius: $spacing-normal * 2;
-    }
-
     @media only screen and (max-width: 1000px) {
         height: unset;
         padding: $spacing-extra-small;
-
-        &:after {
-            content: none;
-        }
 
         .links {
             display: block;
