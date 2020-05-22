@@ -58,7 +58,7 @@ const Preview = ({ data }) => {
 
                     <div className="spacer-small"/>
 
-                    <GradientGapConfig defaultValue={gradientGapDefaultValue} onChange={handleGapChange} imgSrc={cover.url}/>
+                    <GradientGapConfig defaultValue={gradientGapDefaultValue} onChange={handleGapChange} imgSrc={cover?.url}/>
                 </>
             ) : (
                 <em>Preview is not available</em>
