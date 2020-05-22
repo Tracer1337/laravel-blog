@@ -1,9 +1,15 @@
 .footer {
-    padding: 0 $spacing-normal;
-    background-color: $color-light;
+    padding-top: 64px;
     height: 64px;
     position: relative;
     margin-top: auto;
+
+    .inner-footer {
+        background-color: $color-light;
+        padding: 0 $spacing-normal;
+        height: 100%;
+        width: 100%;
+    }
 
     .links {
         position: absolute;
