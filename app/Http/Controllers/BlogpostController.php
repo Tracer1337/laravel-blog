@@ -58,7 +58,7 @@ class BlogpostController extends Controller
             "content" => "required",
             "tag_ids" => "nullable|Array",
             "cover" => "nullable|image|max:" . $max_file_size_kb,
-            "images" => "nullable|Array|max:" . $max_file_size_kb,
+            "assets" => "nullable|Array|max:" . $max_file_size_kb,
             "cover->gradient" => "nullable|string"
         ]);
 
@@ -76,7 +76,7 @@ class BlogpostController extends Controller
         }
 
         // Assign transmitted data
-        $skip_keys = ["tag_ids", "cover", "images", "cover-gradient", "cover->gradient"];
+        $skip_keys = ["tag_ids", "cover", "assets", "cover-gradient", "cover->gradient"];
 
         foreach($validated_data as $key => $value) {
             if(!in_array($key, $skip_keys)) {
@@ -135,27 +135,27 @@ class BlogpostController extends Controller
                 }
             }
             
-            // Store images array
-            if(isset($validated_data["images"])) {
-                foreach($validated_data["images"] as $image) {
-                    if(!$image->isValid()) {
+            // Store assets array
+            if(isset($validated_data["assets"])) {
+                foreach($validated_data["assets"] as $asset) {
+                    if(!$asset->isValid()) {
                         return response(null, 422);
                     }
                 }
 
-                // Filter new images
-                $store_images = get_new_files($validated_data["images"], $blogpost->assets->toArray());
+                // Filter new assets
+                $store_assets = get_new_files($validated_data["assets"], $blogpost->assets->toArray());
 
-                // Store images from array
-                foreach($store_images as $image) {
-                    $new_image = create_asset([
-                        "file" => $image,
+                // Store assets from array
+                foreach($store_assets as $asset) {
+                    $new_asset = create_asset([
+                        "file" => $asset,
                         "blogpost_id" => $blogpost->id,
-                        "type" => "image",
+                        "type" => "asset",
                         "user_id" => $user->id
                     ]);
 
-                    $new_image->save();
+                    $new_asset->save();
                 }
             }
         }

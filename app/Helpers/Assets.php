@@ -82,9 +82,12 @@ function delete_asset($filename) {
 }
 
 function create_asset($data) {
-    $filename = Uuid::generate()->string;
+    $extension = $data["file"]->getClientOriginalExtension();
+    $mime_type = $data["file"]->getMimeType();
+
+    $filename = Uuid::generate()->string . "." . $extension;
     $path = $data["file"]->storeAs("public/assets", $filename);
-    $url = ENV("APP_URL") . "storage/assets/" . $filename;
+    $url = ENV("APP_URL") . "storage/view/assets/" . $filename;
 
     // Create new asset
     $new_image = new Asset;
@@ -93,6 +96,8 @@ function create_asset($data) {
     $new_image->path = $path;
     $new_image->url = $url;
     $new_image->type = $data["type"];
+    $new_image->extension = $extension;
+    $new_image->mime_type = $mime_type;
 
     if(isset($data["blogpost_id"])) {
         $new_image->blogpost_id = $data["blogpost_id"];

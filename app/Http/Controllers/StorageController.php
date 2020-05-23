@@ -23,7 +23,7 @@ function pathToArray($path) {
 class StorageController extends Controller
 {
     public function __construct() {
-        $this->middleware("auth:api", ["except" => ["index"]]);
+        $this->middleware("auth:api", ["except" => ["index", "download"]]);
     }
 
     /**
@@ -41,7 +41,38 @@ class StorageController extends Controller
 
         if($requested_type == "assets") {
             $asset = Asset::where("filename", $requested_name)->first();
-            return Storage::get($asset->path);
+            return response(Storage::get($asset->path))->header("Content-Type", $asset->mime_type);
+        }
+
+        return response(null, 404);
+    }
+
+    /**
+     * Download a file from storage
+     */
+    public function download($path, Request $request) {
+        $params = pathToArray($path);
+
+        if(count($params) < 2) {
+            return response(null, 400);
+        }
+
+        $requested_type = $params[0];
+        $requested_name = $params[1];
+
+        if($requested_type == "assets") {
+            $asset = Asset::where("filename", $requested_name)->first();
+
+            $filename = "download." . $asset->extension;
+
+            $headers = [
+                "Content-Type" => $asset->mime_type
+            ];
+
+            return response()->streamDownload(function() use ($asset) {
+                // readfile() cannot be used here, since it breaks excel files
+                echo file_get_contents($asset->url);
+            }, $filename, $headers);
         }
 
         return response(null, 404);

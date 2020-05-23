@@ -8,7 +8,7 @@ import Skeleton from "react-loading-skeleton"
 import TopicSelection from "./TopicSelection.js"
 import TagSelection from "./TagSelection.js"
 import FileInput from "../FileInput.js"
-import ImageUpload from "./ImageUpload.js"
+import AssetUpload from "./AssetUpload.js"
 import AvailableAssets from "./AvailableAssets.js"
 import Actions from "./Actions.js"
 import Preview from "./Preview.js"
@@ -27,7 +27,13 @@ const MarkdownEditor = Loadable({
 const Form = ({ postId, editData, reload }) => {
     const history = useHistory()
 
-    const { register, control, getValues, setValue, formState } = useForm({ defaultValues: editData })
+    const { register, control, getValues, setValue, formState } = useForm({
+        defaultValues: (function() {
+            const defaultValues = {...editData}
+            delete defaultValues.assets
+            return defaultValues
+        })()
+    })
 
     const [isLoading, setIsLoading] = useState(false)
     const [progress, setProgress] = useState(0)
@@ -91,7 +97,9 @@ const Form = ({ postId, editData, reload }) => {
     useEffect(() => {
         // Show an alert on tab close if the user has unsaved changes
         function handleBeforeUnload(event) {
-            event.returnValue = formState.dirty
+            if(formState.dirty) {
+                event.returnValue = true
+            }
         }
 
         window.addEventListener("beforeunload", handleBeforeUnload)
@@ -135,7 +143,7 @@ const Form = ({ postId, editData, reload }) => {
                         <AvailableAssets data={editData.assets} onRemove={reload}/>
                     )}
 
-                    {postId && <ImageUpload/>}
+                    {postId && <AssetUpload/>}
 
                     <TagSelection control={control} defaultValue={editData?.tags}/>
 

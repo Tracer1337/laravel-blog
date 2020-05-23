@@ -22,6 +22,8 @@ class Assets extends Migration
             $table->string("url");
             $table->string("type");
             $table->text("meta")->nullable();
+            $table->string("extension");
+            $table->string("mime_type");
         });
     }
 

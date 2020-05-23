@@ -19,4 +19,6 @@ Route::get('{path?}', function () {
     return view('react');
 })->where("path", $regex);
 
-Route::get("/storage/{path}", "StorageController@index")->where("path", ".*");
+Route::get("/storage/view/{path}", "StorageController@index")->where("path", ".+");
+
+Route::get("/storage/download/{path}", "StorageController@download")->where("path", ".+");
