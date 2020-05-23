@@ -53,6 +53,8 @@ const BlogpostPage = () => {
 
     const editCommentObject = post.comments?.find(comment => comment.id == commentId)
 
+    // console.log(data)
+
     return (
         <>
             <Helmet>

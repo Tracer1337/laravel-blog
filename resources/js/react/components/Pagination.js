@@ -51,11 +51,11 @@ const Navigation = ({ count, page, onChange }) => {
     )
 }
 
-const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCache = true }, ref) => {
+const Pagination = ({ fetchMethod, renderChildren, className, args = [] }, ref) => {
     const [data, refresh] = useAPIData({
         method: fetchMethod,
         args: [...args, 1],
-        cache: useCache,
+        cache: false,
         initialLoad: false
     })
     const [pageNr, setPageNr] = useState(1)
@@ -64,7 +64,7 @@ const Pagination = ({ fetchMethod, renderChildren, className, args = [], useCach
     const loadPage = async () => {
         window.scrollTo(0, 0)
         setIsLoading(true)
-        await refresh([...args, pageNr], true)
+        await refresh([...args, pageNr])
         setIsLoading(false)
     }
 

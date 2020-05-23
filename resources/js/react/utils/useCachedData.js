@@ -22,9 +22,9 @@ function useCachedData(key) {
     }
 
     useEffect(() => {
-        // Reset redirect counter
-        updateStore(data)
-    }, [])
+        // Reset redirect counter and set data to state
+        setCachedData(getCachedData(key))
+    }, [key])
 
     return [data, setCachedData]
 }

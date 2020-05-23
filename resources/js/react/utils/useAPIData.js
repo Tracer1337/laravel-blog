@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 
 import * as APIMethods from "../config/API.js"
 import useCachedData from "./useCachedData.js"
@@ -23,8 +23,12 @@ function useAPIData({
     // Get (cached) data
     const [data, setData] = cache ? useCachedData(key) : useState()
     
+    const [isInitialLoad, setIsInitialLoad] = useState(true)
+    const [lastKey, setLastKey] = useState(key)
+
     // Fetch data with provided method & args
     const fetchData = (newArgs) => {
+        console.log("%cFetch Data called", "color: green")
         if(removeDataBeforeLoading) {
             setData(null)
         }
@@ -38,10 +42,22 @@ function useAPIData({
 
     // Initial load
     useEffect(() => {
-        if(((cache && !data) || !cache) && initialLoad) {
+        if(((cache && !data) || !cache) && initialLoad && isInitialLoad) {
             fetchData()
         }
+
+        setIsInitialLoad(false)
     }, [method, ...args])
+
+    // Listen to cache changes
+    useEffect(() => {
+        const hasKeyChanged = key !== lastKey
+
+        if (!isInitialLoad && hasKeyChanged && ((cache && !data) || !cache)) {
+            fetchData()
+            setLastKey(key)
+        }
+    }, [data])
 
     return [data, fetchData, setData]
 }
