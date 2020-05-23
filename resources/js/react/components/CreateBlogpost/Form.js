@@ -27,7 +27,7 @@ const MarkdownEditor = Loadable({
 const Form = ({ postId, editData, reload }) => {
     const history = useHistory()
 
-    const { register, control, getValues, setValue, formState } = useForm({
+    const { register, control, getValues, setValue, formState, reset } = useForm({
         defaultValues: (function() {
             const defaultValues = {...editData}
             delete defaultValues.assets
@@ -90,6 +90,7 @@ const Form = ({ postId, editData, reload }) => {
         }
 
         setIsLoading(false)
+        reset()
 
         Dialog.success(successMessage)
     }
