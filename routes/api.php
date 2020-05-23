@@ -67,8 +67,6 @@ Route::get("/user/{id}", "UserController@index");
 
 Route::get("/users/all", "UserController@all");
 
-Route::get("/users/links", "UserController@links");
-
 Route::post("/user/follow", "UserController@follow");
 
 Route::post("/user/unfollow", "UserController@unfollow");
@@ -119,6 +117,4 @@ Route::delete("storage/asset/{filename}", "StorageController@api_delete_asset");
 
 // Configuration
 
-Route::get("config/max-file-size", function() {
-    return config("app.max_file_size");
-});
+Route::get("config", "ConfigController@index");

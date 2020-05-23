@@ -114,8 +114,6 @@ export const getUser = id => axios.get(url("user/"+id)).then(format(user))
 
 export const getAllUsers = () => axios.get(url("users/all"))
 
-export const getAvailableLinks = () => axios.get(url("users/links"))
-
 export const followUser = id => axios.post(url("user/follow"), {id})
 
 export const unfollowUser = id => axios.post(url("user/unfollow"), {id})
@@ -153,4 +151,4 @@ export const getAllAssets = pageNr => axios.get(paginated(url("storage/assets"),
 export const deleteAsset = id => axios.delete(url("storage/asset/" + id))
 
 // Configuration
-export const getMaxFileSize = () => axios.get(url("config/max-file-size"))
+export const getServerConfig = () => axios.get(url("config"))

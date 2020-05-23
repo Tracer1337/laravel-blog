@@ -29,8 +29,6 @@ class UserController extends Controller
         $recommendations->makeHidden(["content"]);
         $user->recommendations = BlogpostResource::collection($recommendations);
 
-        $user->available_statistics = config("app.available_user_statistics");
-
         // Set statistics
         $user->subscriber_count = $user->followers()->count();
         $user->subscription_count = $user->follows()->count();
@@ -187,9 +185,5 @@ class UserController extends Controller
         } else {
             return response(null, 403);
         }
-    }
-    
-    public function links(Request $request) {
-        return config("app.available_link_keys");
     }
 }

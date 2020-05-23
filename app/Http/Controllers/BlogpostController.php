@@ -48,7 +48,7 @@ class BlogpostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $max_file_size_kb = config("app.max_file_size") * 1024;
+        $max_file_size_kb = config("app.max_file_size_mb") * 1024;
 
         $validated_data = $request->validate([
             "id" => "nullable|uuid",

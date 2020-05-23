@@ -8,3 +8,5 @@ export const SET_SETTING = "SET_SETTING"
 export const SET_SETTINGS = "SET_SETTINGS"
 
 export const LOCATION_CHANGE = "LOCATION_CHANGE"
+
+export const SET_SERVER_CONFIG = "SET_SERVER_CONFIG"

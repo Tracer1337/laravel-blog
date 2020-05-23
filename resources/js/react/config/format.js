@@ -22,6 +22,11 @@ const formatBlogpost = post => {
     } else {
         post.assets.forEach(formatAsset)
     }
+
+    // Format relation blogposts
+    if(post.relations) {
+        post.relations.forEach(formatBlogpost)
+    }
 }
 
 const formatSearch = data => {

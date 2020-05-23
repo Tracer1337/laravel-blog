@@ -26,8 +26,8 @@ import GATracking from "./utils/GATracking.js"
 import Dialog from "./components/Dialog/Dialog.js"
 import ReduxRouterBinding from "./utils/ReduxRouterBinding.js"
 
-import { login } from "./redux/actions.js"
-import { getProfile } from "./config/API.js"
+import { login, setServerConfig } from "./redux/actions.js"
+import { getProfile, getServerConfig } from "./config/API.js"
 import Storage from "./utils/Storage.js"
 
 const mapStateToProps = store => ({
@@ -42,18 +42,42 @@ const ProtectedRoute = connect(mapStateToProps)(({ role, path, children, auth })
 
 const shouldLogin = !!Storage.getLocal("JWTToken")
 
-const App = ({ login }) => {
-    const [isLoading, setIsLoading] = useState(shouldLogin)
+const App = ({ login, setServerConfig }) => {
+    const [isLoading, setIsLoading] = useState(true)
+
+    const init = () => {
+        // Define initial requests
+        const requests = [getServerConfig()]
+
+        if(shouldLogin) {
+            requests.push(getProfile())
+        }
+
+        // Perform all initial requests
+        Promise.all(requests)
+            .then(res => {
+                // Prepare results
+                const config = res[0].data
+                const profile = res[1]?.data.data
+                
+                // Handle results
+                setServerConfig(config)
+
+                if(profile) {
+                    login({
+                        profile: profile,
+                        access_token: Storage.getLocal("JWTToken")
+                    })
+                }
+            })
+            .finally(() => {
+                // All requests done
+                setIsLoading(false)
+            })
+    }
 
     useEffect(() => {
-        if(shouldLogin) {
-            getProfile()
-                .then(res => login({
-                    profile: res.data.data,
-                    access_token: Storage.getLocal("JWTToken")
-                }))
-                .finally(() => setIsLoading(false))
-        }
+        init()
     }, [])
 
     return (
@@ -68,7 +92,7 @@ const App = ({ login }) => {
             <div className="app">
                 <Layout isLoading={isLoading}>
                     {isLoading ? (
-                        <LoadingIndicator center message="Logging in..."/>
+                        <LoadingIndicator center/>
                     ) : (
                         <Switch>
                             <ProtectedRoute path="/admin" role="admin">
@@ -150,4 +174,4 @@ const App = ({ login }) => {
     )
 }
 
-export default connect(null, { login })(App)
+export default connect(null, { login, setServerConfig })(App)

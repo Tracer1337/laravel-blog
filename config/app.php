@@ -22,7 +22,16 @@ return [
     /**
      * Defines the maximum filesize of user-uploaded files in MB
      */
-    "max_file_size" => 2,
+    "max_file_size_mb" => 2,
+
+    /**
+     * Defines which configuration in this file should be sent to the client
+     */
+    "client_config_keys" => [
+        "available_link_keys",
+        "available_user_statistics",
+        "max_file_size_mb"
+    ],
 
     /*
     |--------------------------------------------------------------------------

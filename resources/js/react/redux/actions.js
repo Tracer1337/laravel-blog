@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, MODIFY_PROFILE, CACHE_DATA, SET_SETTING, SET_SETTINGS, LOCATION_CHANGE } from "./actionTypes.js"
+import { LOGIN, LOGOUT, MODIFY_PROFILE, CACHE_DATA, SET_SETTING, SET_SETTINGS, LOCATION_CHANGE, SET_SERVER_CONFIG } from "./actionTypes.js"
 
 export function login(data) {
     return {
@@ -50,5 +50,13 @@ export function setSettings(settings) {
 export function locationChange() {
     return {
         type: LOCATION_CHANGE
+    }
+}
+
+
+export function setServerConfig(config) {
+    return {
+        type: SET_SERVER_CONFIG,
+        config
     }
 }

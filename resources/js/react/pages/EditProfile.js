@@ -15,7 +15,6 @@ import Icon from "../components/Icon.js"
 import objectToForm from "../utils/objectToForm.js"
 import { editProfile } from "../config/API.js"
 import { modifyProfile } from "../redux/actions.js"
-import useAPIData from "../utils/useAPIData.js"
 import pageTitle from "../config/pageTitle.js"
 
 const MarkdownEditor = Loadable({
@@ -23,16 +22,17 @@ const MarkdownEditor = Loadable({
     loading: Skeleton
 })
 
-const EditProfile = ({ profile, modifyProfile }) => {
+const EditProfile = ({ profile, modifyProfile, availableLinks }) => {
     const { register, handleSubmit, control } = useForm()
 
     const [avatar, setAvatar] = useState()
-
-    const [availableLinks] = useAPIData({
-        method: "getAvailableLinks"
-    })
     
     const onSubmit = data => {
+        // Remove "null" value from biography
+        if(data.biography === null) {
+            delete data.biography
+        }
+
         const formData = {...data}
         formData.avatar = avatar
 
@@ -113,7 +113,8 @@ const EditProfile = ({ profile, modifyProfile }) => {
 }
 
 const mapStateToProps = store => ({
-    profile: store.auth.profile
+    profile: store.auth.profile,
+    availableLinks: store.serverConfig.available_link_keys
 })
 
 export default connect(mapStateToProps, { modifyProfile })(EditProfile)

@@ -1,21 +1,22 @@
 import React from "react"
+import { connect } from "react-redux"
 import Skeleton from "react-loading-skeleton"
 
-const Head = ({ data }) => (
+const Head = ({ data, availableStatistics }) => (
     <div className="information">
         <ul className="statistics">
-            {!data.available_statistics ? (
-                <Skeleton height={35} width={250} count={5}/>
-            ) : (
-                Object.entries(data.available_statistics).map(([label, selector], i) => (
-                    <li key={i}>
-                        <span className="name">{label}</span>
-                        <span className="value">{!data.username ? <Skeleton width={50} /> : data[selector]}</span>
-                    </li>
-                )
+            {Object.entries(availableStatistics).map(([label, selector], i) => (
+                <li key={i}>
+                    <span className="name">{label}</span>
+                    <span className="value">{!data.username ? <Skeleton width={50} /> : data[selector]}</span>
+                </li>
             ))}
         </ul>
     </div>
 )
 
-export default Head
+const mapStateToProps = store => ({
+    availableStatistics: store.serverConfig.available_user_statistics
+})
+
+export default connect(mapStateToProps)(Head)

@@ -1,6 +1,7 @@
 import auth from "./auth.js"
 import cache from "./cache.js"
 import settings from "./settings.js"
+import serverConfig from "./serverConfig.js"
 
 // Custom implementation of combineReducers
 function combineReducers(reducers) {
@@ -27,7 +28,8 @@ function combineReducers(reducers) {
 const rootReducer = combineReducers({
     auth,
     cache,
-    settings
+    settings,
+    serverConfig
 })
 
 export default rootReducer
