@@ -37,7 +37,7 @@ const FileInput = ({ accept, onChange, icon, name, useHooks, className, maxFileS
         if(useHooks) {
             formHooks.register({ name })
         }
-    }, [formHooks])
+    }, [])
 
     return (
         <div className={`file-input-wrapper ${className || ""}`}>
