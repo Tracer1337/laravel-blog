@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import ReactDOMServer from "react-dom/server"
-import { useHistory } from "react-router-dom"
+import { useHistory, Prompt } from "react-router-dom"
 import { useForm, Controller, FormContext } from "react-hook-form"
 import Loadable from "react-loadable"
 import Skeleton from "react-loading-skeleton"
@@ -27,7 +27,7 @@ const MarkdownEditor = Loadable({
 const Form = ({ postId, editData, reload }) => {
     const history = useHistory()
 
-    const { register, control, getValues, setValue } = useForm({ defaultValues: editData })
+    const { register, control, getValues, setValue, formState } = useForm({ defaultValues: editData })
 
     const [isLoading, setIsLoading] = useState(false)
     const [progress, setProgress] = useState(0)
@@ -87,9 +87,25 @@ const Form = ({ postId, editData, reload }) => {
 
         Dialog.success(successMessage)
     }
+
+    useEffect(() => {
+        // Show an alert on tab close if the user has unsaved changes
+        function handleBeforeUnload(event) {
+            event.returnValue = formState.dirty
+        }
+
+        window.addEventListener("beforeunload", handleBeforeUnload)
+
+        return () => window.removeEventListener("beforeunload", handleBeforeUnload)
+    }, [])
     
     return (
         <FormContext {...{ register, setValue }}>
+            <Prompt
+                when={formState.dirty}
+                message="You have unsaved changes"
+            />
+
             <div className="create-blogpost-form">
                 <form onSubmit={e => e.preventDefault()}>
                     <div>

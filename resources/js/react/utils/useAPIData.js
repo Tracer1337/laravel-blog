@@ -28,7 +28,6 @@ function useAPIData({
 
     // Fetch data with provided method & args
     const fetchData = (newArgs) => {
-        console.log("%cFetch Data called", "color: green")
         if(removeDataBeforeLoading) {
             setData(null)
         }
