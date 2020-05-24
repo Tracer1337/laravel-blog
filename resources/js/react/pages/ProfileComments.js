@@ -10,7 +10,7 @@ import pageTitle from "../config/pageTitle.js"
 
 const Comment = ({ data }) => {
     return (
-        <Link to={!data ? "" : `/blogpost/${data.blogpost_id}?commentId=${data.id}`} className="wrapper-link">
+        <Link to={!data ? "" : `/post/${data.blogpost_id}?commentId=${data.id}`} className="wrapper-link">
             <div className="card comment">
                 <div className="head">
                     <div><span className="prefix">Post:</span> {!data ? <Skeleton width={400}/> : data.blogpost_title}</div>

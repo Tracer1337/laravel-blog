@@ -26,7 +26,7 @@ const CommentForm = ({ onSubmit, blogpostId, edit, seed, forwardRef }) => {
         if(edit) {
             args.id = seed.id
             await editComment(args)
-            history.push(`/blogpost/${blogpostId}?commentId=${seed.id}`)
+            history.push(`/post/${blogpostId}?commentId=${seed.id}`)
         } else {
             await addComment(args)
             setContent("")

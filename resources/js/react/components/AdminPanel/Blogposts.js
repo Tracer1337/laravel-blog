@@ -41,7 +41,7 @@ const Blogposts = () => {
                             {posts.map((post, i) => (
                                 <tr key={post.id || i}>
                                     <td>
-                                        <Link to={!data ? "" : "/blogpost/" + post.id} className="wrapper-link">
+                                        <Link to={!data ? "" : "/post/" + post.id} className="wrapper-link">
                                             {post.title || <Skeleton width={300}/>}
                                         </Link>
                                     </td>

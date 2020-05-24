@@ -131,7 +131,7 @@ const App = ({ login, setServerConfig }) => {
                                 <Topic/>
                             </Route>
 
-                            <Route path="/blogpost/:id">
+                            <Route path="/post/:id">
                                 <Blogpost/>
                             </Route>
 

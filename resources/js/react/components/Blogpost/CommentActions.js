@@ -22,7 +22,7 @@ const CommentActions = ({ comment, profile, onAction }) => {
 
     return (
         <div className="actions">
-            <Link to={`/blogpost/${comment.blogpost_id}?commentId=${comment.id}&editComment=true`}>
+            <Link to={`/post/${comment.blogpost_id}?commentId=${comment.id}&editComment=true`}>
                 <Icon type="edit" className="icon"/>
             </Link>
             <Icon type="delete" className="icon" onClick={handleDelete}/>

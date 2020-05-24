@@ -12,7 +12,7 @@ const BlogpostCard = ({ post, showSkeleton }) => {
     }, [post, showSkeleton])
 
     return (
-        <Link to={showSkeleton ? "" : "/blogpost/"+post.id} className="blogpost-card-wrapper">
+        <Link to={showSkeleton ? "" : "/post/"+post.id} className="blogpost-card-wrapper">
             <div className="blogpost-card">
                 <div className="image-wrapper" style={{ backgroundImage: cover?.meta.gradient }}>
                     { showSkeleton && <Skeleton width={350} height={350 * (3 / 4)}/> }
