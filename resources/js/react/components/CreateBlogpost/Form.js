@@ -18,6 +18,7 @@ import ProgressBar from "../ProgressBar.js"
 
 import { addBlogpost, editBlogpost } from "../../config/API.js"
 import objectToForm from "../../utils/objectToForm.js"
+import { gaEvent } from "../../utils/GATracking.js"
 
 const MarkdownEditor = Loadable({
     loader: () => import("react-simplemde-editor"),
@@ -27,7 +28,7 @@ const MarkdownEditor = Loadable({
 const Form = ({ postId, editData, reload }) => {
     const history = useHistory()
 
-    const { register, control, getValues, setValue, formState, reset } = useForm({
+    const { register, control, getValues, setValue, formState } = useForm({
         defaultValues: (function() {
             const defaultValues = {...editData}
             delete defaultValues.assets
@@ -37,6 +38,7 @@ const Form = ({ postId, editData, reload }) => {
 
     const [isLoading, setIsLoading] = useState(false)
     const [progress, setProgress] = useState(0)
+    const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false)
 
     const transformValues = () => {
         const values = getValues()
@@ -77,10 +79,21 @@ const Form = ({ postId, editData, reload }) => {
 
         try {
             if (postId) {
+                gaEvent({
+                    category: "Blogpost",
+                    action: "Edit",
+                    label: postId
+                })
+
                 formData.append("id", postId)
                 await editBlogpost(formData, handleUploadProgress)
                 reload()
             } else {
+                gaEvent({
+                    category: "Blogpost",
+                    action: "Add"
+                })
+
                 const res = await addBlogpost(formData)
                 history.push("/create-post?post_id=" + res.data.data.id)
             }
@@ -89,8 +102,8 @@ const Form = ({ postId, editData, reload }) => {
             return
         }
 
+        setHasUnsavedChanges(false)
         setIsLoading(false)
-        reset()
 
         Dialog.success(successMessage)
     }
@@ -98,7 +111,7 @@ const Form = ({ postId, editData, reload }) => {
     useEffect(() => {
         // Show an alert on tab close if the user has unsaved changes
         function handleBeforeUnload(event) {
-            if(formState.dirty) {
+            if(hasUnsavedChanges) {
                 event.returnValue = true
             }
         }
@@ -120,11 +133,15 @@ const Form = ({ postId, editData, reload }) => {
             window.removeEventListener("keydown", handleKeyPress)
         }
     }, [])
+
+    useEffect(() => {
+        setHasUnsavedChanges(formState.dirty)
+    }, [formState.dirty])
     
     return (
         <FormContext {...{ register, setValue }}>
             <Prompt
-                when={formState.dirty}
+                when={hasUnsavedChanges}
                 message="You have unsaved changes"
             />
 
