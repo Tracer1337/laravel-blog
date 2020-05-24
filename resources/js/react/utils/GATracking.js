@@ -57,7 +57,7 @@ const GATracking = ({ isLoading, settings, userId }) => {
         // Initialize Google Analytics
         ReactGA.initialize(GATrackingId, {
             testMode: process.env.NODE_ENV !== "production",
-            debug: true,
+            debug: false,
             gaOptions: {
                 userId
             }

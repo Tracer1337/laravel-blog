@@ -58,7 +58,7 @@ const Form = ({ postId, editData, reload }) => {
         setProgress(loaded / total)
     }
     
-    const handleSubmit = async method => {
+    const handleSubmit = async (method = 0) => {
         const formData = transformValues()
 
         let successMessage = "Saved"
@@ -103,9 +103,22 @@ const Form = ({ postId, editData, reload }) => {
             }
         }
 
+        // Save on ctrl + s
+        function handleKeyPress(event) {
+            if(event.keyCode === 83 && event.ctrlKey) {
+                event.preventDefault()
+                handleSubmit()
+            }
+        }
+
         window.addEventListener("beforeunload", handleBeforeUnload)
 
-        return () => window.removeEventListener("beforeunload", handleBeforeUnload)
+        window.addEventListener("keydown", handleKeyPress)
+
+        return () => {
+            window.removeEventListener("beforeunload", handleBeforeUnload)
+            window.removeEventListener("keydown", handleKeyPress)
+        }
     }, [])
     
     return (
