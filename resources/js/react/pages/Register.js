@@ -9,6 +9,7 @@ import Dialog from "../components/Dialog/Dialog.js"
 import { login as loginAction } from "../redux/actions.js"
 import { register as APIRegister } from "../config/API.js"
 import pageTitle from "../config/pageTitle.js"
+import { gaEvent } from "../utils/GATracking.js"
 
 const Register = ({ loginAction }) => {
     const history = useHistory()
@@ -26,6 +27,11 @@ const Register = ({ loginAction }) => {
 
         APIRegister(fields)
             .then(profile => {
+                gaEvent({
+                    category: "Auth",
+                    action: "Register"
+                })
+
                 loginAction(profile)
                 history.push("/")
             }).catch(() => {

@@ -8,6 +8,7 @@ import Icon from "../Icon.js"
 
 import { logout } from "../../redux/actions.js"
 import Storage from "../../utils/Storage.js"
+import { gaEvent } from "../../utils/GATracking.js"
 
 const width = 176
 const marginTop = 8
@@ -64,6 +65,11 @@ class Menu extends React.Component {
     }
 
     handleLogout() {
+        gaEvent({
+            category: "Auth",
+            action: "Logout"
+        })
+
         Storage.removeLocal("JWTToken")
         this.props.logout()
     }

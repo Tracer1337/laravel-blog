@@ -1,15 +1,54 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
 import { useLocation } from "react-router-dom"
 import ReactGA from "react-ga"
 
 import { GATrackingId } from "../config/constants.js"
+import store from "../redux/store.js"
 
-const GATracking = ({ settings }) => {
+// Check if tracking is enabled
+const isTrackingEnabled = (customStore) => {
+    const { settings } = customStore || store.getState()
+    return !!settings["cookies.tracking"]
+} 
+
+// Send GA Event
+const gaEvent = args => {
+    if(isTrackingEnabled()) {
+        ReactGA.event(args)
+    }
+}
+
+// Send GA Modalview
+const gaModalview = args => {
+    if(isTrackingEnabled()) {
+        ReactGA.modalview(args)
+    }
+}
+
+// Dynamic GA Outbound link
+const GAOutboundLink = connect(store => ({ store }))(props => {
+    if(isTrackingEnabled(props.store)) {
+        return (
+            <ReactGA.OutboundLink to={props.to} eventLabel={props.eventLabel} target={props.target}>
+                {props.children}
+            </ReactGA.OutboundLink>
+        )
+    }
+
+    return <a href={props.to} target={props.target}>{props.children}</a>
+})
+
+const GATracking = ({ isLoading, settings, userId }) => {
     const [isInitialized, setIsInitialized] = useState(false)
     const location = useLocation()
 
     useEffect(() => {
+        // Wait until app is loaded
+        if(isLoading) {
+            return
+        }
+
         // Require permissions to track user
         if(!settings["cookies.tracking"]) {
             return
@@ -18,11 +57,14 @@ const GATracking = ({ settings }) => {
         // Initialize Google Analytics
         ReactGA.initialize(GATrackingId, {
             testMode: process.env.NODE_ENV !== "production",
-            debug: false
+            debug: true,
+            gaOptions: {
+                userId
+            }
         })
 
         setIsInitialized(true)
-    }, [settings])
+    }, [isLoading, settings, userId])
 
     useEffect(() => {
         if(!isInitialized || !settings["cookies.tracking"]) {
@@ -38,7 +80,14 @@ const GATracking = ({ settings }) => {
 }
 
 const mapStateToProps = store => ({
-    settings: store.settings
+    settings: store.settings,
+    userId: store.auth.profile?.id
 })
 
 export default connect(mapStateToProps)(GATracking)
+
+export {
+    gaEvent,
+    gaModalview,
+    GAOutboundLink
+}

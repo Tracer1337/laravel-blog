@@ -16,6 +16,7 @@ import objectToForm from "../utils/objectToForm.js"
 import { editProfile } from "../config/API.js"
 import { modifyProfile } from "../redux/actions.js"
 import pageTitle from "../config/pageTitle.js"
+import { gaEvent } from "../utils/GATracking.js"
 
 const MarkdownEditor = Loadable({
     loader: () => import("react-simplemde-editor"),
@@ -48,6 +49,11 @@ const EditProfile = ({ profile, modifyProfile, availableLinks }) => {
 
         editProfile(objectToForm(formData))
             .then(res => {
+                gaEvent({
+                    category: "Profile",
+                    action: "Edit"
+                })
+
                 modifyProfile(res.data.data)
                 Dialog.success("Saved")
             })

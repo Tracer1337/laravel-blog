@@ -84,7 +84,7 @@ const App = ({ login, setServerConfig }) => {
         <Router>
             
             {/* Utilities that require hooks or router */}
-            <GATracking/>
+            <GATracking isLoading={isLoading}/>
             <ReduxRouterBinding/>
 
             {React.createElement(Dialog.cookieConsent)}

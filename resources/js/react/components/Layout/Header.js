@@ -11,19 +11,12 @@ import Auth from "../Auth.js"
 import Icon from "../Icon.js"
 import Dialog from "../Dialog/Dialog.js"
 
-import { logout } from "../../redux/actions.js"
 import { isMobile } from "../../config/constants.js"
-import Storage from "../../utils/Storage.js"
 
-const Header = ({ isLoading, isLoggedIn, profile, logout }) => {
+const Header = ({ isLoading, isLoggedIn, profile }) => {
     const [menuOpen, setMenuOpen] = useState(false)
     const [anchorElement, setAnchorElement] = useState(null)
     const location = useLocation()
-
-    const handleLogout = () => {
-        Storage.removeLocal("JWTToken")
-        logout()
-    }
 
     const openMenu = anchor => {
         setAnchorElement(anchor)
@@ -120,8 +113,6 @@ const Header = ({ isLoading, isLoggedIn, profile, logout }) => {
                         </div>
                     ) : (
                         <div className="auth">
-                            <a href="#" onClick={handleLogout}>Logout</a>
-
                             <div className="profile">
                                 <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.full_name}</strong></Link>
                                 <Avatar onClick={toggleMenu} />
@@ -143,4 +134,4 @@ const mapStateToProps = reducers => ({
     profile: reducers.auth.profile
 })
 
-export default connect(mapStateToProps, { logout })(Header)
+export default connect(mapStateToProps)(Header)

@@ -22,11 +22,12 @@ function settings(state = defaultState, action) {
             }
 
         case SET_SETTINGS:
+            const newState = {...state}
             for(let key in action.settings) {
-                state[key] = action.settings[key]
+                newState[key] = action.settings[key]
             }
 
-            return state
+            return newState
 
         default:
             return state

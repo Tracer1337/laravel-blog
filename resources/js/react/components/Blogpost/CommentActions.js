@@ -6,6 +6,7 @@ import Dialog from "../Dialog/Dialog.js"
 import Icon from "../Icon.js"
 
 import { deleteComment } from "../../config/API.js"
+import { gaEvent } from "../../utils/GATracking.js"
 
 const CommentActions = ({ comment, profile, onAction }) => {
     if(comment.user_id !== profile.id) {
@@ -15,6 +16,11 @@ const CommentActions = ({ comment, profile, onAction }) => {
     const handleDelete = async () => {
         const shouldDelete = await Dialog.verify("The comment will be removed. This action cannot be undone!")
         if(shouldDelete) {
+            gaEvent({
+                category: "Comment",
+                action: "Delete"
+            })
+            
             await deleteComment(comment.id)
             onAction()
         }

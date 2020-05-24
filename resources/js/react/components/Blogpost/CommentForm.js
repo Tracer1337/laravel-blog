@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 
 import { addComment, editComment } from "../../config/API.js"
+import { gaEvent } from "../../utils/GATracking.js"
 
 const CommentForm = ({ onSubmit, blogpostId, edit, seed, forwardRef }) => {
     const [content, setContent] = useState("")
@@ -24,10 +25,20 @@ const CommentForm = ({ onSubmit, blogpostId, edit, seed, forwardRef }) => {
         }
         
         if(edit) {
+            gaEvent({
+                category: "Comment",
+                action: "Edit"
+            })
+
             args.id = seed.id
             await editComment(args)
             history.push(`/post/${blogpostId}?commentId=${seed.id}`)
         } else {
+            gaEvent({
+                category: "Comment",
+                action: "Add"
+            })
+
             await addComment(args)
             setContent("")
         }

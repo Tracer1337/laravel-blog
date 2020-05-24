@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 import store from "../../../redux/store.js"
 import { setSettings } from "../../../redux/actions.js"
 import renderInRoot from "../../../utils/renderInRoot.js"
+import { gaModalview } from "../../../utils/GATracking.js"
 
 const CookiePreferences = ({ onClose }) => {
     const { settings } = store.getState()
@@ -13,6 +14,10 @@ const CookiePreferences = ({ onClose }) => {
             tracking: typeof settings["cookies.tracking"] !== "undefined" ? settings["cookies.tracking"] : true
         }
     })
+
+    useEffect(() => {
+        gaModalview("cookie-preferences")
+    }, [])
 
     const handleSave = () => {
         const newPreferences = {

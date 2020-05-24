@@ -9,6 +9,7 @@ import Dialog from "../components/Dialog/Dialog.js"
 import { login as loginAction } from "../redux/actions.js"
 import { login } from "../config/API.js"
 import pageTitle from "../config/pageTitle.js"
+import { gaEvent } from "../utils/GATracking.js"
 
 const Login = ({ loginAction }) => {
     const history = useHistory()
@@ -22,6 +23,11 @@ const Login = ({ loginAction }) => {
     const onSubmit = fields => {
         login(fields)
             .then(data => {
+                gaEvent({
+                    category: "Auth",
+                    action: "Login"
+                })
+                
                 loginAction(data)
                 history.push("/")
             }).catch(() => {

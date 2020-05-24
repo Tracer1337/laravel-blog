@@ -6,6 +6,7 @@ import Auth from "../Auth.js"
 import LoadingIndicator from "../LoadingIndicator.js"
 
 import { followUser, unfollowUser, followsUser } from "../../config/API.js"
+import { gaEvent } from "../../utils/GATracking.js"
 
 const SubscribeFab = ({ userId, profileId }) => {
     if(userId == profileId) {
@@ -22,11 +23,25 @@ const SubscribeFab = ({ userId, profileId }) => {
     }
 
     const handleClick = async () => {
+        if(isLoading) {
+            return
+        }
+
         setIsLoading(true)
 
         if(hasSubscribed) {
+            gaEvent({
+                category: "User",
+                action: "Unfollow"
+            })
+            
             await unfollowUser(userId)
         } else {
+            gaEvent({
+                category: "User",
+                action: "Follow"
+            })
+            
             await followUser(userId)
         }
 

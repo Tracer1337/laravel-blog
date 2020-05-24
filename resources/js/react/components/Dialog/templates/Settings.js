@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import React, { useMemo, useEffect } from "react"
 import { useForm } from "react-hook-form"
 
 import Dialog from "../Dialog.js"
@@ -7,6 +7,7 @@ import store from "../../../redux/store.js"
 import sizeOf from "../../../utils/sizeOf.js"
 import { setSettings } from "../../../redux/actions.js"
 import renderInRoot from "../../../utils/renderInRoot.js"
+import { gaModalview } from "../../../utils/GATracking.js"
 
 // Map anonymous names to key since useForm converts dots to object
 const nameKeyMap = {
@@ -40,6 +41,10 @@ const Settings = ({ onClose }) => {
     const cacheSizeKB = useMemo(() => {
         const bytes = sizeOf(state.cache)
         return Math.round(bytes / 1000)
+    }, [])
+
+    useEffect(() => {
+        gaModalview("settings")
     }, [])
 
     const handleSave = (data) => {
