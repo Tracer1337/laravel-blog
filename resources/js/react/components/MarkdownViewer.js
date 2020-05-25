@@ -17,20 +17,28 @@ hljs.registerLanguage("xml", xml)
 hljs.registerLanguage("python", python)
 hljs.registerLanguage("php", php)
 
-const getWidth = str => str.match(/w:([^,]*)/)?.[1]
-const getHeight = str => str.match(/h:([^,]*)/)?.[1]
+const getWidth = str => str.match(/width:([^,]*)/)?.[1]
+const getHeight = str => str.match(/height:([^,]*)/)?.[1]
+const getAlign = str => str.match(/align:([^,]*)/)?.[1]
 
 // Define custom renderers
 const renderers = {
     image: ({ src, alt }) => {
-        // Render image with size extracted from alt prop
-        let width, height
+        // Render image with size / pos extracted from alt prop
+        let width, height, align
         if(alt) {
             width = getWidth(alt)
             height = getHeight(alt)
+            align = getAlign(alt)
         }
 
-        return <img src={src} style={{ width, height }}/>
+        console.log({ width, height, align })
+
+        return (
+            <div style={{ textAlign: align }}>
+                <img src={src} style={{ width, height }}/>
+            </div>
+        )
     },
 
     code: ({ language, value }) => {
