@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Helpers\Metadata;
 
 
 // Create react routes
@@ -16,7 +17,12 @@ $exclude_react_paths = array_map($converter, $exclude_react_paths);
 $regex = "^(" . implode("", $exclude_react_paths) . ".)+?.*$";
 
 Route::get('{path?}', function () {
-    return view('react');
+    // Generate metadata for SEO
+    $meta = Metadata::generate();
+
+    return view('react', [
+        "meta" => $meta
+    ]);
 })->where("path", $regex);
 
 Route::get("/storage/view/{path}", "StorageController@index")->where("path", ".+");

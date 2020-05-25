@@ -53,13 +53,10 @@ const BlogpostPage = () => {
 
     const editCommentObject = post.comments?.find(comment => comment.id == commentId)
 
-    // console.log(data)
-
     return (
         <>
             <Helmet>
-                <title>{pageTitle(post.title)}</title>
-                <meta name="description" content={post.teaser}/>
+                {post.title && <title>{pageTitle(post.title)}</title>}
             </Helmet>
 
             <div className="blogpost-page">
