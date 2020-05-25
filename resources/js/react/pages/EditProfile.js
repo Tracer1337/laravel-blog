@@ -19,7 +19,7 @@ import pageTitle from "../config/pageTitle.js"
 import { gaEvent } from "../utils/GATracking.js"
 
 const MarkdownEditor = Loadable({
-    loader: () => import("react-simplemde-editor"),
+    loader: () => import("../components/MarkdownEditor.js"),
     loading: Skeleton
 })
 

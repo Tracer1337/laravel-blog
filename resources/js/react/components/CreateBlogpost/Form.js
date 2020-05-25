@@ -21,7 +21,7 @@ import objectToForm from "../../utils/objectToForm.js"
 import { gaEvent } from "../../utils/GATracking.js"
 
 const MarkdownEditor = Loadable({
-    loader: () => import("react-simplemde-editor"),
+    loader: () => import("../MarkdownEditor.js"),
     loading: Skeleton
 })
 
