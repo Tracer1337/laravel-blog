@@ -4,6 +4,7 @@ export const search = "search"
 export const user = "user"
 export const auth = "auth"
 export const assets = "assets"
+export const featuredPost = "featuredPost"
 
 const formatBlogpost = post => {
     // Format user
@@ -27,6 +28,9 @@ const formatBlogpost = post => {
     if(post.relations) {
         post.relations.forEach(formatBlogpost)
     }
+
+    // Extract cover
+    post.cover = post.assets.find(asset => asset.type === "cover")
 }
 
 const formatSearch = data => {
@@ -85,6 +89,9 @@ const format = type => {
 
     } else if (type === assets) {
         f = res => res.data.data.forEach(formatAsset)
+
+    } else if (type === featuredPost) {
+        f = res => formatBlogpost(res.data.blogpost)
     }
 
     return res => {

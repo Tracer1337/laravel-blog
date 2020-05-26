@@ -29,6 +29,10 @@ const Sidebar = () => {
             <Link to={`${url}/storage`}>
                 <div>Storage</div>
             </Link>
+
+            <Link to={`${url}/featured-post`}>
+                <div>Featured Post</div>
+            </Link>
         </aside>
     )
 }

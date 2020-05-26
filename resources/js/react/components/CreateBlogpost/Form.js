@@ -28,7 +28,7 @@ const MarkdownEditor = Loadable({
 const Form = ({ postId, editData, reload }) => {
     const history = useHistory()
 
-    const { register, control, getValues, setValue, formState } = useForm({
+    const { register, control, getValues, setValue, formState, watch } = useForm({
         defaultValues: (function() {
             const defaultValues = {...editData}
             delete defaultValues.assets
@@ -45,6 +45,9 @@ const Form = ({ postId, editData, reload }) => {
 
         values.topic_id = values.topic_id?.value || editData?.topic_id
         values.tag_ids = values.tag_ids?.map(selection => selection.value)
+
+        // Rename cover_image to cover
+        values.cover = values.cover_image
 
         // Remove null values
         for(let key in values) {
@@ -160,7 +163,7 @@ const Form = ({ postId, editData, reload }) => {
                     </div>
 
                     {postId && (
-                        <FileInput accept="image/*" name="cover" label="Upload Cover" icon="add-a-photo-alternate" useHooks/>
+                        <FileInput accept="image/*" name="cover_image" label="Upload Cover" icon="add-a-photo-alternate" useHooks/>
                     )}
 
                     <div>

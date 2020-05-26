@@ -25,17 +25,24 @@ function useAPIData({
     
     const [isInitialLoad, setIsInitialLoad] = useState(true)
     const [lastKey, setLastKey] = useState(key)
+    const [isLoading, setIsLoading] = useState(false)
 
     // Fetch data with provided method & args
     const fetchData = (newArgs) => {
+        setIsLoading(true)
+
         if(removeDataBeforeLoading) {
             setData(null)
         }
         
         return new Promise(async resolve => {
-            const res = await APIMethods[method].apply(null, newArgs || args)
-            resolve(res.data)
-            setData(res.data)
+            try {
+                const res = await APIMethods[method].apply(null, newArgs || args)
+                resolve(res.data)
+                setData(res.data)
+            } finally {
+                setIsLoading(false)
+            }
         })
     }
 
@@ -58,7 +65,7 @@ function useAPIData({
         }
     }, [data])
 
-    return [data, fetchData, setData]
+    return [data, fetchData, setData, isLoading]
 }
 
 export default useAPIData

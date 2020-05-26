@@ -146,6 +146,9 @@ class CreatePermissionTables extends Migration
         Permission::create(["name" => "view all files"]);
         Permission::create(["name" => "delete any file"]);
 
+        Permission::create(["name" => "create features"]);
+        Permission::create(["name" => "delete features"]);
+
         // Seed roles
         $role_user = Role::create(["name" => "user"]);
         $role_author = Role::create(["name" => "author"]);

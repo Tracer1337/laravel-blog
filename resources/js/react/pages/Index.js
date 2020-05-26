@@ -1,6 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
+import FeaturedPost from "../components/FeaturedPost.js"
 import NewestPosts from "../components/NewestPosts.js"
 import AllTopics from "../components/AllTopics.js"
 import Subscriptions from "../components/Subscriptions.js"
@@ -15,6 +16,8 @@ const Index = () => {
                 <title>{pageTitle("Index")}</title>
                 <meta name="description" content="It is yet another blog"/>
             </Helmet>
+
+            <FeaturedPost/>
 
             <NewestPosts/>
 

@@ -1,4 +1,4 @@
-import format, { blogpost, blogposts, search, user, auth, assets } from "./format.js"
+import format, { blogpost, blogposts, search, user, auth, assets, featuredPost } from "./format.js"
 import Storage from "../utils/Storage.js"
 
 const url = path => `${window.location.origin}/api/${path}`
@@ -152,3 +152,10 @@ export const deleteAsset = id => axios.delete(url("storage/asset/" + id))
 
 // Configuration
 export const getServerConfig = () => axios.get(url("config"))
+
+// Featured Blogpost
+export const getFeaturedPost = () => axios.get(url("featured")).then(format(featuredPost))
+
+export const createFeaturedPost = args => axios.post(url("featured/create"), args)
+
+export const removeFeaturedPost = () => axios.post(url("featured/remove"))

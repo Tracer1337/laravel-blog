@@ -84,4 +84,29 @@
             resize: vertical;
         }
     }
+
+    .featured-post-panel {
+        .title {
+            text-align: left;
+        }
+
+        form {
+            margin-bottom: $spacing-normal;
+        }
+
+        .preview {
+            display: flex;
+            justify-content: center;
+
+            .featured-post-wrapper {
+                zoom: .5;
+                margin: 0;
+
+                .title {
+                    margin: 0 0 25px 0;
+                    text-align: center;
+                }
+            }
+        }
+    }
 }

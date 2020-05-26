@@ -118,3 +118,11 @@ Route::delete("storage/asset/{filename}", "StorageController@api_delete_asset");
 // Configuration
 
 Route::get("config", "ConfigController@index");
+
+// Featured Blogpost
+
+Route::get("featured", "FeaturedController@index");
+
+Route::post("featured/create", "FeaturedController@create_featured");
+
+Route::post("featured/remove", "FeaturedController@remove_featured");

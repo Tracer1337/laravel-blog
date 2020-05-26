@@ -35,6 +35,10 @@
     * view-all
     * delete any
 
+* Feature
+    * Create
+    * Delete
+
 ### Roles
 
 * User
