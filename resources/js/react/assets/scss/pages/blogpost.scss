@@ -69,4 +69,17 @@
     .blogpost-tags span:first-child{
         margin-right: $spacing-small;
     }
+
+    .table-of-contents {
+        .section-link {
+            display: flex;
+            align-items: center;
+        }
+
+        @for $i from 3 through 6 {
+            .indent-#{$i} {
+                margin-left: $spacing-small * ($i - 2);
+            }
+        }
+    }
 }

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef, useEffect, useState } from "react"
 import Markdown from "react-markdown"
 import hljs from "highlight.js/lib/core"
 
@@ -9,6 +9,8 @@ import python from "highlight.js/lib/languages/python"
 import php from "highlight.js/lib/languages/php"
 
 import "highlight.js/styles/github.css"
+
+import Icon from "./Icon.js"
 
 // Define syntax highlighting
 hljs.registerLanguage("javascript", javascript)
@@ -32,8 +34,6 @@ const renderers = {
             align = getAlign(alt)
         }
 
-        console.log({ width, height, align })
-
         return (
             <div style={{ textAlign: align }}>
                 <img src={src} style={{ width, height }}/>
@@ -52,14 +52,68 @@ const renderers = {
     }
 }
 
-const MarkdownViewer = (props) => {
+const TableOfContents = ({ sections }) => {
+    if(!sections.length) {
+        return null
+    }
+
     return (
-        <Markdown
-            {...props}
-            renderers={renderers}
-            escapeHtml={false}
-            className="markdown"
-        />
+        <div className="table-of-contents">
+            <hr/>
+            
+            <h3 className="title">Content</h3>
+
+            {sections.map(({ text, level }, i) => (
+                <a href={"#" + text} key={i} className="wrapper-link">
+                    {React.createElement("h" + level, { className: ["section-link", "indent-" + level].join(" ") }, 
+                        <Icon type="chevron-right" />,
+                        text
+                    )}
+                </a>
+            ))}
+        </div>
+    )
+}
+
+const MarkdownViewer = (props) => {
+    const headings = useRef([])
+    const [sections, setSections] = useState([])
+    
+    const renderHeading = ({ level, children }) => {
+        const text = children[0].props.value
+
+        if(!headings.current.some(h => h.text === text)) {
+            headings.current.push({ text, level })
+        }
+
+        return (
+            <>
+                <a name={text}/>
+                {React.createElement("h" + level, { children })}
+            </>
+        )
+    }
+
+    useEffect(() => {
+        setSections(headings.current)
+    }, [])
+
+    return (
+        <>
+            <TableOfContents sections={sections} />
+
+            <hr/>
+
+            <Markdown
+                {...props}
+                renderers={{
+                    ...renderers,
+                    heading: renderHeading
+                }}
+                escapeHtml={false}
+                className="markdown"
+            />
+        </>
     )
 }
 
