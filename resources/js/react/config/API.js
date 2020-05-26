@@ -83,6 +83,8 @@ export const getTopicBlogposts = (id, pageNr) => axios.get(paginated(url(`topics
 
 export const addTopic = args => axios.post(url("topics"), args)
 
+export const editTopic = args => axios.put(url("topics"), args)
+
 export const deleteTopic = id => axios.delete(url("topics/"+id))
 
 //Tags
@@ -99,6 +101,8 @@ export const getTagsBlogposts = (ids, pageNr) => axios.get(
 ).then(format(blogposts))
 
 export const addTag = args => axios.post(url("tags"), args)
+
+export const editTag = args => axios.put(url("tags"), args)
 
 export const deleteTag = id => axios.delete(url("tags/"+id))
 

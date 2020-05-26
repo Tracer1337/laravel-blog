@@ -13,22 +13,6 @@
         cursor: pointer;
     }
 
-    .add-topic {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .action {
-            @include seperator-left;
-
-            position: relative;
-            padding: 0 $spacing-extra-small * 2;
-            height: 56px;
-            display: flex;
-            align-items: center;
-        }
-    }
-
     .body {
         display: flex;
         margin-right: $spacing-large;
@@ -102,6 +86,14 @@
                 zoom: .5;
                 margin: 0;
             }
+        }
+    }
+
+    .actions .icon {
+        margin-right: $spacing-extra-small;
+
+        &:last-child {
+            margin-right: 0;
         }
     }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Skeleton from "react-loading-skeleton"
 
@@ -7,6 +7,46 @@ import Icon from "../Icon.js"
 
 import * as APIMethods from "../../config/API.js"
 import getAPIData from "../../utils/useAPIData.js"
+
+const Item = ({ element, onRemove, onSave, generateLink }) => {
+    const [editNameValue, setEditNameValue] = useState("")
+
+    const handleNameChange = event => {
+        setEditNameValue(event.target.value)
+    }
+
+    useEffect(() => {
+        if(element?.name && !name) {
+            setEditNameValue(element.name)
+        }
+    }, [element?.name])
+
+    return (
+        <tr>
+            <td>
+                {element ? (
+                    <input type="text" value={editNameValue} onChange={handleNameChange} placeholder="Name" />
+                ) : <Skeleton />}
+            </td>
+
+            <td>
+                {element ? element.blogposts_count : <Skeleton />}
+            </td>
+
+            <td className="actions">
+                {element ? (
+                    <>
+                        <Icon type="delete" className="icon" onClick={onRemove.bind(null, element.id, element.name)} />
+                        <Icon type="save" className="icon" onClick={onSave.bind(null, element.id, editNameValue)} />
+                        <Link to={generateLink(element.id)} className="icon">
+                            <Icon type="link" />
+                        </Link>
+                    </>
+                ) : <Skeleton circle width={30} height={30} />}
+            </td>
+        </tr>
+    )
+}
 
 const SharedControls = ({ methods, label, generateLink }) => {
     const [data, refresh] = getAPIData({
@@ -17,11 +57,17 @@ const SharedControls = ({ methods, label, generateLink }) => {
 
     const [addValue, setAddValue] = useState("")
 
-    const handleRemove = async (name, id) => {
+    const handleRemove = async (id, name) => {
         const shouldRemove = await Dialog.verify(`"${name}" will be deleted`)
         if (shouldRemove) {
             APIMethods[methods.delete](id).then(refresh)
         }
+    }
+
+    const handleSave = async (id, newName) => {
+        const values = { name: newName, id }
+
+        APIMethods[methods.edit](values).then(refresh)
     }
 
     const handleAddChange = event => {
@@ -57,23 +103,13 @@ const SharedControls = ({ methods, label, generateLink }) => {
 
                 <tbody>
                     {elements.map((element, i) => (
-                        <tr key={element?.id || i}>
-                            <td>
-                                <Link to={generateLink(element?.id)} className="wrapper-link">
-                                    <div>{element ? element.name : <Skeleton/>}</div>
-                                </Link>
-                            </td>
-
-                            <td>
-                                {element ? element.blogposts_count : <Skeleton/>}
-                            </td>
-
-                            <td>
-                                {element ? (
-                                    <Icon type="delete" className="icon" onClick={handleRemove.bind(null, element.name, element.id)} />
-                                ) : <Skeleton circle width={30} height={30}/>}
-                            </td>
-                        </tr>
+                        <Item
+                            element={element}
+                            generateLink={generateLink}
+                            key={i}
+                            onRemove={handleRemove}
+                            onSave={handleSave}
+                        />
                     ))}
                 </tbody>
             </table>

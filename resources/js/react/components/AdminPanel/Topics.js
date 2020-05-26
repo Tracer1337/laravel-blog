@@ -10,6 +10,7 @@ const Topics = () => {
             methods={{
                 get: "getAllTopics",
                 add: "addTopic",
+                edit: "editTopic",
                 delete: "deleteTopic"
             }}
         />
