@@ -14,7 +14,7 @@ const Preview = ({ data }) => {
 
     const [gradient, setGradient] = useState()
 
-    const cover = data?.assets.find(asset => asset.type === "cover")
+    const cover = data?.cover
 
     // Format data for BlogpostCard
     const formattedData = useMemo(() => {
