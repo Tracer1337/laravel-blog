@@ -71,6 +71,8 @@ const TableOfContents = ({ sections }) => {
                     )}
                 </a>
             ))}
+
+            <hr/>
         </div>
     )
 }
@@ -96,8 +98,6 @@ const MarkdownViewer = (props) => {
     return (
         <>
             <TableOfContents sections={sections} />
-
-            <hr/>
 
             <Markdown
                 {...props}
