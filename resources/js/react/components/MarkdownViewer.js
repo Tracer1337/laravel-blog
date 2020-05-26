@@ -86,12 +86,7 @@ const MarkdownViewer = (props) => {
             headings.current.push({ text, level })
         }
 
-        return (
-            <>
-                <a name={text}/>
-                {React.createElement("h" + level, { children })}
-            </>
-        )
+        return React.createElement("h" + level, { id: text, children})
     }
 
     useEffect(() => {
