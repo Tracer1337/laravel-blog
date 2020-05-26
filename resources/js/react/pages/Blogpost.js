@@ -49,6 +49,14 @@ const BlogpostPage = () => {
 
     useEffect(handleQuery, [commentId, editComment])
 
+    useEffect(() => {
+        // Enable smooth scrolling
+        document.documentElement.style.scrollBehavior = "smooth"
+
+        // Disable smooth scrolling when leaving page
+        return () => document.documentElement.style.scrollBehavior = null
+    }, [])
+
     const post = data ? data.data : {}
 
     const editCommentObject = post.comments?.find(comment => comment.id == commentId)

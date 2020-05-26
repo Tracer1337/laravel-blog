@@ -35,9 +35,9 @@ const renderers = {
         }
 
         return (
-            <div style={{ textAlign: align }}>
+            <span style={{ textAlign: align, display: "block" }}>
                 <img src={src} style={{ width, height }}/>
-            </div>
+            </span>
         )
     },
 
@@ -63,8 +63,8 @@ const TableOfContents = ({ sections }) => {
             
             <h3 className="title">Content</h3>
 
-            {sections.map(({ text, level }, i) => (
-                <a href={"#" + text} key={i} className="wrapper-link">
+            {sections.map(({ text, level }) => (
+                <a href={"#" + text} key={text} className="wrapper-link">
                     {React.createElement("h" + level, { className: ["section-link", "indent-" + level].join(" ") }, 
                         <Icon type="chevron-right" />,
                         text
@@ -82,11 +82,11 @@ const MarkdownViewer = (props) => {
     const renderHeading = ({ level, children }) => {
         const text = children[0].props.value
 
-        if(!headings.current.some(h => h.text === text)) {
+        if(!headings.current.find(h => h.text === text)) {
             headings.current.push({ text, level })
         }
 
-        return React.createElement("h" + level, { id: text, children})
+        return React.createElement("h" + level, { id: text, children })
     }
 
     useEffect(() => {
