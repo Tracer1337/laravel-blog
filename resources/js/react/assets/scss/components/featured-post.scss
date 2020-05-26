@@ -37,4 +37,23 @@
             }
         }
     }
+
+    @media only screen and (max-width: 1000px) {
+        height: unset;
+        flex-direction: column;
+
+        .text-container {
+            width: 100%;
+            text-align: center;
+            margin: 0;
+        }
+
+        .image-container {
+            width: 100%;
+            
+            .inner-image-container {
+                width: 100%;
+            }
+        }
+    }
 }
