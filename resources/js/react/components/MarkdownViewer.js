@@ -42,7 +42,11 @@ const renderers = {
     },
 
     code: ({ language, value }) => {
-        const formatted = hljs.highlight(language, value)
+        let formatted = { value }
+
+        if(hljs.getLanguage(language) && value) {
+            formatted = hljs.highlight(language, value)
+        }
 
         return (
             <pre>
