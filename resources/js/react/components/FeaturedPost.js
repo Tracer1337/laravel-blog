@@ -12,12 +12,17 @@ const FeaturedPost = () => {
         return null
     }
 
+    const postUrl = data ? "/post/" + data.blogpost.id : ""
+
     return (
         <>
             <section className="featured-post">
                 <div className="text-container">
                     <div className="head">
-                        <div className="blogpost-title">{data ? data.blogpost.title : <Skeleton width={500}/>}</div>
+                        <Link to={postUrl} className="wrapper-link">
+                            <div className="blogpost-title">{data ? data.blogpost.title : <Skeleton width={500}/>}</div>
+                        </Link>
+                        
                         <div className="username">{data ? data.blogpost.user.full_name : <Skeleton width={300}/>}</div>
                     </div>
 
@@ -26,7 +31,7 @@ const FeaturedPost = () => {
 
                 <div className="image-container">
                     <div className="inner-image-container">
-                        <Link to={data ? "/post/" + data.blogpost.id : ""}>
+                        <Link to={postUrl}>
                             {data ? <img alt="cover" src={data.blogpost.cover?.url}/> : <Skeleton height={500}/>}
                         </Link>
                     </div>
