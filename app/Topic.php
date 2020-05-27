@@ -12,10 +12,6 @@ class Topic extends Model
         return $this->hasMany("App\Blogpost");
     }
 
-    public function relations() {
-        return $this->belongsToMany("App\Topic", "topics_relations", "topic_from_id", "topic_to_id");
-    }
-
     public function cover() {
         return $this->hasOne("App\Asset");
     }
