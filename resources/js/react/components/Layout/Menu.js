@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo } from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
@@ -13,7 +13,7 @@ import { gaEvent } from "../../utils/GATracking.js"
 const width = 176
 const marginTop = 8
 
-const links = [
+const linksTemplate = [
     {
         icon: "person",
         label: "View Profile"
@@ -48,71 +48,65 @@ const links = [
     }
 ]
 
-class Menu extends React.Component {
-    constructor(props) {
-        super(props)
-        
-        const rect = this.props.anchor.getBoundingClientRect()
-        this.position = { 
+const Menu = ({ profile, logout, anchor }) => {
+    const position = useMemo(() => {
+        const rect = anchor.getBoundingClientRect()
+        return {
             x: rect.x + rect.width - width,
             y: rect.y + rect.height + marginTop
         }
+    })
 
-        this.links = links
+    // Set link to users profile page
+    const links = [...linksTemplate]
+    const userlink = "/user/" + profile.id
+    links[0].to = userlink
 
-        this.userlink = "/user/" + this.props.profile.id
-        this.links[0].to = this.userlink
-    }
-
-    handleLogout() {
+    const handleLogout = () => {
         gaEvent({
             category: "Auth",
             action: "Logout"
         })
 
         Storage.removeLocal("JWTToken")
-        this.props.logout()
+        logout()
     }
 
-    render() {
-        const { profile } = this.props
+    return (
+        <div className="menu" style={{ transform: `translate(${position.x}px, ${position.y}px)` }}>
+            <Link to={userlink}>
+                <div className="menu-profile">
+                    <Avatar size={58} />
+                    <span className="first">{profile.full_name}</span>
+                    <span className="last">{profile.role}</span>
+                </div>
+            </Link>
 
-        return (
-            <div className="menu" style={{ transform: `translate(${this.position.x}px, ${this.position.y}px)` }}>
-                <Link to={this.userlink}>
-                    <div className="menu-profile">
-                        <Avatar size={58}/>
-                        <span className="first">{profile.full_name}</span>
-                        <span className="last">{profile.role}</span>
-                    </div>
-                </Link>
+            <hr />
 
-                <hr />
+            <ul>
+                {links.map(({ icon, label, to, role }, i) => (
+                    <Auth role={role} key={i}>
+                        <Link to={to}>
+                            <li className="menu-item">
+                                <Icon type={icon} fontSize={24} className="icon" />
+                                <span className="label">
+                                    {label}
+                                </span>
+                            </li>
+                        </Link>
+                    </Auth>
+                ))}
 
-                <ul>
-                    {links.map(({ icon, label, to, role }, i) => (
-                        <Auth role={role} key={i}>
-                            <Link to={to}>
-                                <li className="menu-item">
-                                    <Icon type={icon} fontSize={24} className="icon"/>
-                                    <span className="label">
-                                        {label}
-                                    </span>
-                                </li>
-                            </Link>
-                        </Auth>
-                    ))}
-
-                    <li className="menu-item" onClick={this.handleLogout.bind(this)}>
-                        <Icon type="exit-to-app" fontSize={24} className="icon"/>
-                        <span className="label">
-                            Logout
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        )
-    }
+                <li className="menu-item" onClick={handleLogout}>
+                    <Icon type="exit-to-app" fontSize={24} className="icon" />
+                    <span className="label">
+                        Logout
+                    </span>
+                </li>
+            </ul>
+        </div>
+    )
 }
 
 const mapStateToProps = store => ({
