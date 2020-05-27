@@ -46,21 +46,59 @@ class TopicsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        $user = $request->user();
+        $max_file_size_kb = config("app.max_file_size_mb") * 1024;
+
         $validated_data = $request->validate([
-            "name" => "required|max:255"
+            "name" => "required|max:255",
+            "cover" => "nullable|image|max:" . $max_file_size_kb
         ]);
 
-        $isUpdate = $request->isMethod("put");
+        $isUpdate = $request->input("method_put");
 
-        if(!$isUpdate && !$request->user()->can("create topics")) {
+        if(!$isUpdate && !$user->can("create topics")) {
             return response(null, 403);
-        } else if ($isUpdate && !$request->user()->can("update topics")) {
+        } else if ($isUpdate && !$user->can("update topics")) {
             return reponse(null, 403);
         }
 
         $topic = $isUpdate ? Topic::findOrFail($request->id) : new Topic;
         $topic->id = $request->id;
         $topic->name = $validated_data["name"];
+
+        if($user->can("store files")) {
+            // Store cover image
+            if(isset($validated_data["cover"])) {
+                if(!$validated_data["cover"]->isValid()) {
+                    return response(null, 422);
+                }
+
+                // Check if cover is new
+                $current_cover = $topic->cover;
+                if($current_cover) {
+                    $store_images = get_new_files([$validated_data["cover"]], [$current_cover]);
+                } else {
+                    $store_images = [$validated_data["cover"]];
+                }
+
+                // Store cover
+                if(isset($store_images[0])) {
+                    // Remove old cover
+                    if($current_cover) {
+                        delete_asset($current_cover->filename);
+                    }
+
+                    $new_cover = create_asset([
+                        "file" => $store_images[0],
+                        "topic_id" => $request->id,
+                        "type" => "topic-cover",
+                        "user_id" => $user->id
+                    ]);
+
+                    $new_cover->save();
+                }
+            }
+        }
 
         $topic->save();
 

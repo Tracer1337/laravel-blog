@@ -35,8 +35,6 @@ Route::get("/topics/{id}/blogposts", "TopicsController@blogposts");
 
 Route::post("/topics", "TopicsController@store");
 
-Route::put("/topics", "TopicsController@store");
-
 Route::delete("/topics/{id}", "TopicsController@destroy");
 
 // Tags
@@ -48,8 +46,6 @@ Route::get("/tags/{id}", "TagsController@get_specific")->where("id", "^[0-9]+$")
 Route::get("/tags/blogposts", "TagsController@blogposts");
 
 Route::post("/tags", "TagsController@store");
-
-Route::put("/tags", "TagsController@store");
 
 Route::delete("/tags/{id}", "TagsController@destroy");
 

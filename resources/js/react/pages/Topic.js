@@ -16,6 +16,7 @@ const TopicPage = () => {
     })
 
     const name = data?.data.name || ""
+    const coverUrl = data?.data.cover.url
 
     return (
         <div className="topic-page">
@@ -23,7 +24,9 @@ const TopicPage = () => {
                 <title>{pageTitle(name)}</title>
             </Helmet>
 
-            <h3 className="title">{name}</h3>
+            <div className="cover-background" style={{ backgroundImage: `url(${coverUrl})` }}>
+                <h3 className="title" style={{ color: coverUrl ? "white" : null}}>{name}</h3>
+            </div>
 
             <Pagination 
                 className="paginated-blogposts" 

@@ -5,6 +5,8 @@ export const user = "user"
 export const auth = "auth"
 export const assets = "assets"
 export const featuredPost = "featuredPost"
+export const topic = "topic"
+export const topics = "topics"
 
 const formatBlogpost = post => {
     // Format user
@@ -69,14 +71,22 @@ const formatAsset = data => {
     }
 }
 
-const format = type => {
+const formatTopic = data => {
+    if(!data.cover) {
+        data.cover = {}
+    }
+}
+
+const formatArray = f => res => res.data.data.forEach(f)
+
+const format = type => {    
     let f
     
     if (type === blogpost) {
         f = res => formatBlogpost(res.data.data)
 
     } else if (type === blogposts) {
-        f = res => res.data.data.forEach(formatBlogpost)
+        f = formatArray(formatBlogpost)
 
     } else if (type === search) {
         f = res => formatSearch(res.data)
@@ -88,10 +98,16 @@ const format = type => {
         f = res => formatUser(res.data.profile)
 
     } else if (type === assets) {
-        f = res => res.data.data.forEach(formatAsset)
+        f = formatArray(formatAsset)
 
     } else if (type === featuredPost) {
         f = res => formatBlogpost(res.data.blogpost)
+
+    } else if (type === topic) {
+        f = res => formatTopic(res.data.data)
+
+    } else if (type === topics) {
+        f = formatArray(formatTopic)
     }
 
     return res => {

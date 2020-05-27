@@ -103,6 +103,10 @@ function create_asset($data) {
         $new_image->blogpost_id = $data["blogpost_id"];
     }
 
+    if(isset($data["topic_id"])) {
+        $new_image->topic_id = $data["topic_id"];
+    }
+
     return $new_image;
 }
 

@@ -1,4 +1,4 @@
-import format, { blogpost, blogposts, search, user, auth, assets, featuredPost } from "./format.js"
+import format, { blogpost, blogposts, search, user, auth, assets, featuredPost, topic, topics } from "./format.js"
 import Storage from "../utils/Storage.js"
 
 const url = path => `${window.location.origin}/api/${path}`
@@ -11,6 +11,10 @@ const paginated = (url, pageNr) => query(url, "page", pageNr)
 const putFormData = formData => {
     formData.append("method_put", true)
     return formData
+}
+
+const formHeader = {
+    "Content-Type": "multipart/form-data"
 }
 
 // Auth
@@ -52,16 +56,12 @@ export const getAllBlogposts = pageNr => axios.get(paginated(url("blogposts/all"
 export const getBlogpost = id => axios.get(url("blogpost/"+id)).then(format(blogpost))
 
 export const addBlogpost = formData => axios.post(url("blogpost"), formData, {
-    headers: {
-        "Content-Type": "multipart/form-data"
-    }
+    headers: formHeader
 })
 
 export const editBlogpost = (formData, onUploadProgress) => axios.post(url("blogpost"), putFormData(formData), {
     onUploadProgress,
-    headers: {
-        "Content-Type": "multipart/form-data"
-    }
+    headers: formHeader
 })
 
 export const deleteBlogpost = id => axios.delete(url("blogpost/"+id))
@@ -75,15 +75,17 @@ export const addRecommendation = id => axios.put(url("blogpost/recommend/"+id)).
 export const removeRecommendation = id => axios.delete(url("blogpost/recommend/"+id)).then(format(blogpost))
 
 // Topics
-export const getAllTopics = (withMeta = false) => axios.get(url("topics?with-meta=" + withMeta))
+export const getAllTopics = (withMeta = false) => axios.get(url("topics?with-meta=" + withMeta)).then(format(topics))
 
-export const getTopic = id => axios.get(url("topics/"+id))
+export const getTopic = id => axios.get(url("topics/"+id)).then(format(topic))
 
 export const getTopicBlogposts = (id, pageNr) => axios.get(paginated(url(`topics/${id}/blogposts`), pageNr)).then(format(blogposts))
 
 export const addTopic = args => axios.post(url("topics"), args)
 
-export const editTopic = args => axios.put(url("topics"), args)
+export const editTopic = formData => axios.post(url("topics"), putFormData(formData), {
+    headers: formHeader
+})
 
 export const deleteTopic = id => axios.delete(url("topics/"+id))
 
@@ -102,7 +104,7 @@ export const getTagsBlogposts = (ids, pageNr) => axios.get(
 
 export const addTag = args => axios.post(url("tags"), args)
 
-export const editTag = args => axios.put(url("tags"), args)
+export const editTag = formData => axios.post(url("tags"), putFormData(formData))
 
 export const deleteTag = id => axios.delete(url("tags/"+id))
 
@@ -130,9 +132,7 @@ export const deleteUser = id => axios.delete(url("user/"+id))
 export const getProfile = () => axios.get(url("profile")).then(format(user))
 
 export const editProfile = formData => axios.post(url("profile"), formData, {
-    headers: {
-        "Content-Type": "multipart/form-data"
-    }
+    headers: formHeader
 })
 
 export const getProfileBlogposts = pageNr => axios.get(paginated(url("profile/blogposts"), pageNr)).then(format(blogposts))

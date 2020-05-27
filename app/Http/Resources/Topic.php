@@ -14,7 +14,9 @@ class Topic extends JsonResource
      */
     public function toArray($request)
     {
-        $result = parent::toArray($request);
+        $result = array_merge(parent::toArray($request), [
+            "cover" => $this->cover
+        ]);
 
         // Append metadata
         if($request->query("with-meta")) {
@@ -22,6 +24,8 @@ class Topic extends JsonResource
                 "blogposts_count" => $this->blogposts()->count()
             ]);
         }
+
+        format_assets_for_response([$result["cover"]]);
         
         return $result;
     }

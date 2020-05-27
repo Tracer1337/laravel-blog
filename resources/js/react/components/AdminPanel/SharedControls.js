@@ -4,15 +4,22 @@ import Skeleton from "react-loading-skeleton"
 
 import Dialog from "../Dialog/Dialog.js"
 import Icon from "../Icon.js"
+import FileInput from "../FileInput.js"
 
 import * as APIMethods from "../../config/API.js"
 import getAPIData from "../../utils/useAPIData.js"
+import objectToForm from "../../utils/objectToForm.js"
 
-const Item = ({ element, onRemove, onSave, generateLink }) => {
+const Item = ({ element, onRemove, onSave, generateLink, withCover }) => {
     const [editNameValue, setEditNameValue] = useState("")
+    const [uploadedCover, setUploadedCover] = useState()
 
     const handleNameChange = event => {
         setEditNameValue(event.target.value)
+    }
+
+    const handleCoverChange = (value) => {
+        setUploadedCover(value)
     }
 
     useEffect(() => {
@@ -29,6 +36,16 @@ const Item = ({ element, onRemove, onSave, generateLink }) => {
                 ) : <Skeleton />}
             </td>
 
+            {withCover && (
+                <td className="cover-wrapper">
+                    {element ? (
+                        element.cover.url ? (
+                            <img src={element.cover.url} className="cover" alt="cover"/>
+                        ) : <em>No cover available</em>
+                    ) : <Skeleton/>}
+                </td>
+            )}
+
             <td>
                 {element ? element.blogposts_count : <Skeleton />}
             </td>
@@ -37,10 +54,11 @@ const Item = ({ element, onRemove, onSave, generateLink }) => {
                 {element ? (
                     <>
                         <Icon type="delete" className="icon" onClick={onRemove.bind(null, element.id, element.name)} />
-                        <Icon type="save" className="icon" onClick={onSave.bind(null, element.id, editNameValue)} />
+                        <Icon type="save" className="icon" onClick={onSave.bind(null, element.id, { name: editNameValue, cover: uploadedCover })} />
                         <Link to={generateLink(element.id)} className="icon">
                             <Icon type="link" />
                         </Link>
+                        {withCover && <FileInput icon="add-a-photo-alternate" accept="image/*" onChange={handleCoverChange} />}
                     </>
                 ) : <Skeleton circle width={30} height={30} />}
             </td>
@@ -48,7 +66,7 @@ const Item = ({ element, onRemove, onSave, generateLink }) => {
     )
 }
 
-const SharedControls = ({ methods, label, generateLink }) => {
+const SharedControls = ({ methods, label, generateLink, withCover }) => {
     const [data, refresh] = getAPIData({
         method: methods.get,
         args: [true],
@@ -64,10 +82,11 @@ const SharedControls = ({ methods, label, generateLink }) => {
         }
     }
 
-    const handleSave = async (id, newName) => {
-        const values = { name: newName, id }
+    const handleSave = async (id, args) => {
+        const values = { ...args, id }
+        const formData = objectToForm(values)
 
-        APIMethods[methods.edit](values).then(refresh)
+        APIMethods[methods.edit](formData).then(refresh)
     }
 
     const handleAddChange = event => {
@@ -96,6 +115,7 @@ const SharedControls = ({ methods, label, generateLink }) => {
                 <thead>
                     <tr>
                         <th>Name</th>
+                        {withCover && <th>Cover</th>}
                         <th>Posts Count</th>
                         <th>Actions</th>
                     </tr>
@@ -106,6 +126,7 @@ const SharedControls = ({ methods, label, generateLink }) => {
                         <Item
                             element={element}
                             generateLink={generateLink}
+                            withCover={withCover}
                             key={i}
                             onRemove={handleRemove}
                             onSave={handleSave}

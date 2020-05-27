@@ -20,3 +20,22 @@
         }
     }
 }
+
+.topic-page {
+    .cover-background {
+        background-position: center;
+        background-repeat: no-repeat;
+        height: $spacing-large * 1.5;
+        margin-bottom: $spacing-normal;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .title {
+            mix-blend-mode: difference;
+            margin: 0;
+            font-size: $font-size-large * 2;
+            font-weight: bold;
+        }
+    }
+}

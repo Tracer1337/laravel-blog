@@ -86,7 +86,7 @@ class TagsController extends Controller
             "name" => "required"
         ]);
 
-        $isUpdate = $request->isMethod("put");
+        $isUpdate = $request->input("method_put");
 
         if(!$isUpdate && !$request->user()->can("create tags")) {
             return response(null, 403);

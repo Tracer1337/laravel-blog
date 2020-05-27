@@ -12,6 +12,10 @@ class Asset extends Model
         return $this->belongsTo("App\Blogpost");
     }
 
+    public function topic() {
+        return $this->belongsTo("App\Topic");
+    }
+
     public function user() {
         return $this->belonstTo("App\User");
     }

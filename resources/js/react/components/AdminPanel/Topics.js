@@ -7,6 +7,7 @@ const Topics = () => {
         <SharedControls
             label="Topic"
             generateLink={id => "/topic/" + id}
+            withCover
             methods={{
                 get: "getAllTopics",
                 add: "addTopic",
