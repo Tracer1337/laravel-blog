@@ -57,7 +57,9 @@ const GradientGapVisualisation = ({ imgSrc, gapSize }) => {
     }
 
     useEffect(() => {
-        drawGap()
+        if(imgSrc) {
+            drawGap()
+        }
     }, [imgSrc, gapSize])
 
     return <canvas ref={canvas} />

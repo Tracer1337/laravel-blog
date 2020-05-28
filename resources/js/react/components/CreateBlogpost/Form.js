@@ -90,6 +90,9 @@ const Form = ({ postId, editData, reload }) => {
 
                 formData.append("id", postId)
                 await editBlogpost(formData, handleUploadProgress)
+
+                setHasUnsavedChanges(false)
+
                 reload()
             } else {
                 gaEvent({
@@ -98,6 +101,9 @@ const Form = ({ postId, editData, reload }) => {
                 })
 
                 const res = await addBlogpost(formData)
+
+                setHasUnsavedChanges(false)
+                
                 history.push("/create-post?post_id=" + res.data.data.id)
             }
         } catch(error) {
@@ -105,7 +111,6 @@ const Form = ({ postId, editData, reload }) => {
             return
         }
 
-        setHasUnsavedChanges(false)
         setIsLoading(false)
 
         Dialog.success(successMessage)

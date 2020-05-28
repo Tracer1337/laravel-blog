@@ -63,7 +63,7 @@ function useAPIData({
             fetchData()
             setLastKey(key)
         }
-    }, [data])
+    }, [key, data])
 
     return [data, fetchData, setData, isLoading]
 }
