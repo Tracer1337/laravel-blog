@@ -30,8 +30,8 @@ const Login = ({ loginAction }) => {
                 
                 loginAction(data)
                 history.push("/")
-            }).catch(() => {
-                Dialog.error("Login failed")
+            }).catch(error => {
+                Dialog.error("Login failed", { message: "Wrong credentials" })
             })
     }
 

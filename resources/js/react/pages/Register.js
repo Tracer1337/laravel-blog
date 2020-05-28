@@ -34,8 +34,8 @@ const Register = ({ loginAction }) => {
 
                 loginAction(profile)
                 history.push("/")
-            }).catch(() => {
-                Dialog.error("Registration failed")
+            }).catch(error => {
+                Dialog.error("Registration failed", error.response.data)
             })
     }
 

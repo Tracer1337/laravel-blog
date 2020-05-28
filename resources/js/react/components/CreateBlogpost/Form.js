@@ -100,8 +100,8 @@ const Form = ({ postId, editData, reload }) => {
                 const res = await addBlogpost(formData)
                 history.push("/create-post?post_id=" + res.data.data.id)
             }
-        } catch {
-            Dialog.error("Request failed")
+        } catch(error) {
+            Dialog.error("Request failed", error.response.data)
             return
         }
 

@@ -32,9 +32,7 @@ const authorize = post_url => {
                     formatter(res)
                     resolve(res.data)
                 })
-                .catch(() => {
-                    reject()
-                })
+                .catch(reject)
         })
     }
 }

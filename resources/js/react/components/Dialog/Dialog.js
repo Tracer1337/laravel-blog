@@ -8,6 +8,7 @@ import Button from "./components/Button.js"
 import Caption from "./components/Caption.js"
 import Error from "./components/Error.js"
 import Success from "./components/Success.js"
+import Collapsible from "./components/Collapsible.js"
 
 import Verification from "./templates/Verification.js"
 import ErrorTemplate from "./templates/Error.js"
@@ -72,6 +73,10 @@ class Dialog extends Component {
                 element = <Success {...field}/>
                 break
             
+            case "collapsible":
+                element = <Collapsible {...field}/>
+                break
+                
             default:
                 element = <p>Element type {field.type} not found</p>
                 break

@@ -57,8 +57,8 @@ const EditProfile = ({ profile, modifyProfile, availableLinks }) => {
                 modifyProfile(res.data.data)
                 Dialog.success("Saved")
             })
-            .catch(() => {
-                Dialog.error("Failed")
+            .catch(error => {
+                Dialog.error("Request failed", error.response.data)
             })
     }
 

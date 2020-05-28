@@ -23,7 +23,7 @@ const FeaturedPost = () => {
                     Dialog.success("Saved")
                     reload()
                 })
-                .catch(() => Dialog.error("Request failed"))
+                .catch(error => Dialog.error("Request failed", error.response.data))
 
         } else if (method === 1) {
             // Delete entry
