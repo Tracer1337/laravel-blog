@@ -21,7 +21,7 @@ const Blogposts = () => {
 
     return (
         <Pagination
-            fetchMethod="getAllBlogposts"
+            fetchMethod="getAllBlogpostsPaginated"
             renderChildren={({ data }) => {
                 const posts = data || Array(20).fill({})
 

@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Builder;
 class BlogpostController extends Controller
 {
     public function __construct() {
-        $this->middleware("auth:api", ["except" => ["index", "show"]]);
+        $this->middleware("auth:api", ["except" => ["index", "show", "all"]]);
     }
 
     /**
@@ -31,11 +31,18 @@ class BlogpostController extends Controller
     }
 
     public function all(Request $request) {
-        if(!$request->user()->can("get all blogposts")) {
-            return response(null, 403);
+        if($request->input("page")) {
+            if(!$request->user()->can("get all blogposts")) {
+                return response(null, 403);
+            }
+
+            // Make pagination and include unpublished posts
+            $blogposts = Blogpost::orderBy("published_at", "DESC")->Paginate(50);
+        } else {
+            // Include all published blogposts
+            $blogposts = Blogpost::whereNotNull("published_at")->orderBy("published_at", "DESC")->get();
         }
 
-        $blogposts = Blogpost::orderBy("published_at", "DESC")->Paginate(50);
         $blogposts->makeHidden("content");
 
         return BlogpostResource::collection($blogposts);

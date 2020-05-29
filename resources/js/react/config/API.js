@@ -18,6 +18,7 @@ const formHeader = {
 }
 
 // Auth
+
 const authorize = post_url => {
     const formatter = format(auth)
     
@@ -47,9 +48,12 @@ export const logout = () => {
 }
 
 // Blogposts
+
 export const getNewestBlogposts = () => axios.get(url("blogposts")).then(format(blogposts))
 
-export const getAllBlogposts = pageNr => axios.get(paginated(url("blogposts/all"), pageNr)).then(format(blogposts))
+export const getAllBlogpostsPaginated = pageNr => axios.get(paginated(url("blogposts/all"), pageNr)).then(format(blogposts))
+
+export const getAllBlogposts = () => axios.get(url("blogposts/all")).then(format(blogposts))
 
 export const getBlogpost = id => axios.get(url("blogpost/"+id)).then(format(blogpost))
 
@@ -73,6 +77,7 @@ export const addRecommendation = id => axios.put(url("blogpost/recommend/"+id)).
 export const removeRecommendation = id => axios.delete(url("blogpost/recommend/"+id)).then(format(blogpost))
 
 // Topics
+
 export const getAllTopics = (withMeta = false) => axios.get(url("topics?with-meta=" + withMeta)).then(format(topics))
 
 export const getTopic = id => axios.get(url("topics/"+id)).then(format(topic))
@@ -88,6 +93,7 @@ export const editTopic = formData => axios.post(url("topics"), putFormData(formD
 export const deleteTopic = id => axios.delete(url("topics/"+id))
 
 //Tags
+
 export const getAllTags = (withMeta = false) => axios.get(url("tags?with-meta=" + withMeta))
 
 export const getTag = id => axios.get(url("tags/"+id))
@@ -107,6 +113,7 @@ export const editTag = formData => axios.post(url("tags"), putFormData(formData)
 export const deleteTag = id => axios.delete(url("tags/"+id))
 
 //Comments
+
 export const addComment = args => axios.post(url("comment"), args)
 
 export const editComment = args => axios.put(url("comment"), args)
@@ -114,6 +121,7 @@ export const editComment = args => axios.put(url("comment"), args)
 export const deleteComment = id => axios.delete(url("comment/"+id))
 
 // Users
+
 export const getUser = id => axios.get(url("user/"+id)).then(format(user))
 
 export const getAllUsers = () => axios.get(url("users/all"))
@@ -127,6 +135,7 @@ export const followsUser = id => axios.get(url("user/follows/"+id))
 export const deleteUser = id => axios.delete(url("user/"+id))
 
 // Profile
+
 export const getProfile = () => axios.get(url("profile")).then(format(user))
 
 export const editProfile = formData => axios.post(url("profile"), formData, {
@@ -140,22 +149,27 @@ export const getProfileComments = pageNr => axios.get(paginated(url("profile/com
 export const getNewestSubscriptionPosts = () => axios.get(url("profile/subscriptions")).then(format(blogposts))
 
 // Search
+
 export const getSearchResults = query => axios.get(url("search?query=" + query)).then(format(search))
 
 // Roles
+
 export const getRoles = () => axios.get(url("roles"))
 
 export const assignRole = args => axios.post(url("roles/user"), args)
 
 // Storage
+
 export const getAllAssets = pageNr => axios.get(paginated(url("storage/assets"), pageNr)).then(format(assets))
 
 export const deleteAsset = id => axios.delete(url("storage/asset/" + id))
 
 // Configuration
+
 export const getServerConfig = () => axios.get(url("config"))
 
 // Featured Blogpost
+
 export const getFeaturedPost = () => axios.get(url("featured")).then(format(featuredPost))
 
 export const createFeaturedPost = args => axios.post(url("featured/create"), args)
