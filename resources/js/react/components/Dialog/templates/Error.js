@@ -16,11 +16,11 @@ const Error = ({ onClose, args: [content, details] }) => {
                 value: content
             }, {
                 type: "caption",
-                value: details.message
+                value: details?.message
             }, {
                 type: "collapsible",
                 label: "Details",
-                value: JSON.stringify(details.errors, null, 4)
+                value: JSON.stringify(details?.errors, null, 4)
             }, {
                 type: "submit",
                 value: "Close"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useImperativeHandle } from "react"
 import { connect } from "react-redux"
 import { useFormContext } from "react-hook-form"
 
@@ -7,7 +7,7 @@ import Dialog from "./Dialog/Dialog.js"
 
 let idCounter = 0
 
-const FileInput = ({ accept, onChange, icon, name, useHooks, className, maxFileSizeMB, ...props }) => {
+const FileInput = ({ accept, onChange, icon, name, useHooks, className, maxFileSizeMB, ...props }, forwardedRef) => {
     const formHooks = useFormContext()
 
     const [id] = useState(idCounter++)
@@ -33,11 +33,25 @@ const FileInput = ({ accept, onChange, icon, name, useHooks, className, maxFileS
         }
     }
 
+    const reset = () => {
+        onChange?.(null, name)
+        setLabel(props.label)
+        setSize(null)
+
+        if(useHooks) {
+            formHooks.setValue(name, null)
+        }
+    }
+
     useEffect(() => {
         if(useHooks) {
             formHooks.register({ name })
         }
     }, [])
+
+    useImperativeHandle(forwardedRef, () => ({
+        reset
+    }))
 
     return (
         <div className={`file-input-wrapper ${className || ""}`}>
@@ -64,4 +78,4 @@ const mapStateToProps = store => ({
     maxFileSizeMB: store.serverConfig.max_file_size_mb
 })
 
-export default connect(mapStateToProps)(FileInput)
+export default connect(mapStateToProps, null, null, { forwardRef: true })(React.forwardRef(FileInput))

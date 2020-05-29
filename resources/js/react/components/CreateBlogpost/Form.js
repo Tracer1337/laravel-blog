@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import ReactDOMServer from "react-dom/server"
 import { useHistory, Prompt } from "react-router-dom"
 import { useForm, Controller, FormContext } from "react-hook-form"
@@ -26,6 +26,8 @@ const MarkdownEditor = Loadable({
 })
 
 const Form = ({ postId, editData, reload }) => {
+    const coverInput = useRef()
+
     const history = useHistory()
 
     const { register, control, getValues, setValue, formState, watch } = useForm({
@@ -111,6 +113,7 @@ const Form = ({ postId, editData, reload }) => {
             return
         }
 
+        coverInput.current.reset()
         setIsLoading(false)
 
         Dialog.success(successMessage)
@@ -168,7 +171,7 @@ const Form = ({ postId, editData, reload }) => {
                     </div>
 
                     {postId && (
-                        <FileInput accept="image/*" name="cover_image" label="Upload Cover" icon="add-a-photo-alternate" useHooks/>
+                        <FileInput accept="image/*" name="cover_image" label="Upload Cover" icon="add-a-photo-alternate" useHooks ref={coverInput}/>
                     )}
 
                     <div>
