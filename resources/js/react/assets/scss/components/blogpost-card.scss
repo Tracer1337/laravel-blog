@@ -1,123 +1,122 @@
 .blogpost-card {
-        @include border-normal;
-        $width: 350;
-        $image-ratio: 4 / 3;
-        $image-height: $width * (1 / $image-ratio);
-        
+    @include border-normal;
+    $width: 350;
+    $image-ratio: 4 / 3;
+    $image-height: $width * (1 / $image-ratio);
+    
+    width: #{$width}px;
+    height: 500px;
+
+    .image-wrapper {
         width: #{$width}px;
-        height: 500px;
+        height: #{$image-height}px;
 
-        .image-wrapper {
-            width: #{$width}px;
-            height: #{$image-height}px;
+        background-color: rgba(0, 0, 0, 0.12);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid $color-normal;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
 
-            background-color: rgba(0, 0, 0, 0.12);
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    .body {
+        height: calc(100% - #{$image-height}px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        
+        .top, .bottom {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .left, .right {
+                width: 50%;
+            }
+
+            .left {
+                padding-left: $spacing-extra-small;
+            }
+
+            .right {
+                text-align: right;
+                padding-right: $spacing-extra-small;
+            }
+        }
+
+        .top {
+            padding-top: $spacing-extra-small;
+        }
+
+        .bottom {
+            align-items: flex-end;
+            padding-bottom: $spacing-extra-small;
+        }
+
+        .title {
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-bottom: 1px solid $color-normal;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
+            font-weight: $font-weight-normal;
+            font-size: $font-size-extra-small;
+        }
 
-            img {
-                max-width: 100%;
-                max-height: 100%;
+        .author {
+            font-weight: $font-weight-normal;
+        }
+
+        .teaser {
+            font-size: $font-size-extra-small;
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        margin-bottom: $spacing-small;
+        height: unset;
+        width: unset;
+        border: none;
+
+        .head {
+            display: flex;
+            padding: 0 $spacing-extra-small * 2 $spacing-extra-small $spacing-extra-small * 2;
+            
+            .avatar {
+                margin-right: $spacing-extra-small;
             }
         }
 
         .body {
-            height: calc(100% - #{$image-height}px);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            
-            .top, .bottom {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-
-                .left, .right {
-                    width: 50%;
-                }
-
-                .left {
-                    padding-left: $spacing-extra-small;
-                }
-
-                .right {
-                    text-align: right;
-                    padding-right: $spacing-extra-small;
-                }
-            }
-
-            .top {
-                padding-top: $spacing-extra-small;
-            }
-
-            .bottom {
-                align-items: flex-end;
-                padding-bottom: $spacing-extra-small;
-            }
+            height: unset;
+            display: block;
+            padding: $spacing-extra-small $spacing-extra-small * 2 0 $spacing-extra-small * 2;
 
             .title {
-                position: absolute;
-                top: 0; right: 0; bottom: 0; left: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-weight: $font-weight-normal;
-                font-size: $font-size-extra-small;
-            }
-
-            .author {
-                font-weight: $font-weight-normal;
-            }
-
-            .teaser {
-                font-size: $font-size-extra-small;
+                position: static;
+                display: block;
+                text-align: left;
+                margin: 0;
+                margin-bottom: $spacing-extra-small;
+                font-weight: $font-weight-medium;
             }
         }
 
-        @media only screen and (max-width: 1000px) {
-            margin-bottom: $spacing-small;
-            height: unset;
-            width: unset;
+        .image-wrapper {
+            width: 100vw;
+            height: calc(100vw*3/4);
             border: none;
 
-            .head {
-                display: flex;
-                padding: 0 $spacing-extra-small * 2 $spacing-extra-small $spacing-extra-small * 2;
-                
-                .avatar {
-                    margin-right: $spacing-extra-small;
-                }
-            }
-
-            .body {
-                height: unset;
-                display: block;
-                padding: $spacing-extra-small $spacing-extra-small * 2 0 $spacing-extra-small * 2;
-
-                .title {
-                    position: static;
-                    display: block;
-                    text-align: left;
-                    margin: 0;
-                    margin-bottom: $spacing-extra-small;
-                    font-weight: $font-weight-medium;
-                }
-            }
-
-            .image-wrapper {
-                width: 100vw;
-                height: unset;
-                max-height: 500px;
-                border: none;
-
-                &:empty {
-                    height: 300px;
-                }
+            &:empty {
+                height: 300px;
             }
         }
     }
+}
