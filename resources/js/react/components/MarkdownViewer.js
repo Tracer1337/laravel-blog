@@ -22,23 +22,37 @@ hljs.registerLanguage("php", php)
 const getWidth = str => str.match(/width:([^,]*)/)?.[1]
 const getHeight = str => str.match(/height:([^,]*)/)?.[1]
 const getAlign = str => str.match(/align:([^,]*)/)?.[1]
+const getDisplay = str => str.match(/display:([^,]*)/)?.[1]
 
 // Define custom renderers
 const renderers = {
     image: ({ src, alt }) => {
         // Render image with size / pos extracted from alt prop
         let width, height, align
+        let display = "block"
         if(alt) {
             width = getWidth(alt)
             height = getHeight(alt)
             align = getAlign(alt)
+            display = getDisplay(alt)
         }
 
         return (
-            <span style={{ textAlign: align, display: "block" }}>
+            <span style={{ textAlign: align, display }}>
                 <img src={src} style={{ width, height }}/>
             </span>
         )
+    },
+
+    paragraph: ({ children }) => {
+        // Remove parent <p> from images
+        if (children[0].type.name === "image") {
+            const child = children[0]
+
+            return child
+        }
+
+        return <p>{children}</p> 
     },
 
     code: ({ language, value }) => {
