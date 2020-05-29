@@ -31,6 +31,8 @@
         <meta property="profile:last_name" content="{{ $meta["profile:last_name"] }}"/>
         <meta property="profile:username" content="{{ $meta["profile:username"] }}"/>
 
+        <link rel="canonical" href="{{ ENV("APP_URL") . \Request::path() }}"/>
+
         <title>Yet Another Blog | {{ $meta["title"] }}</title>
     </head>
     <body>
