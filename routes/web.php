@@ -6,7 +6,7 @@ use App\Helpers\Metadata;
 
 // Create react routes
 
-$exclude_react_paths = ["api", "storage", "js"];
+$exclude_react_paths = ["api", "storage", "js", "sitemap"];
 
 $converter = function($string) {
     return "(?!" . $string . ")";
@@ -28,3 +28,5 @@ Route::get('{path?}', function () {
 Route::get("/storage/view/{path}", "StorageController@index")->where("path", ".+");
 
 Route::get("/storage/download/{path}", "StorageController@download")->where("path", ".+");
+
+Route::get("/sitemap", "SitemapController@index");

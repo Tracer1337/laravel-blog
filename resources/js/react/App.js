@@ -19,7 +19,6 @@ import Disclaimer from "./pages/Disclaimer.js"
 import Privacy from "./pages/Privacy.js"
 import TermsOfService from "./pages/TermsOfService.js"
 import Legal from "./pages/Legal.js"
-import Sitemap from "./pages/Sitemap.js"
 
 import Layout from "./components/Layout/Layout.js"
 import LoadingIndicator from "./components/LoadingIndicator.js"
@@ -158,10 +157,6 @@ const App = ({ login, setServerConfig }) => {
 
                             <Route path="/legal">
                                 <Legal/>
-                            </Route>
-
-                            <Route path="/sitemap">
-                                <Sitemap/>
                             </Route>
 
                             <Route exact path="/">
