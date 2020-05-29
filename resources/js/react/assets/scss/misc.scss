@@ -39,8 +39,15 @@ section {
     @media only screen and (max-width: 1000px) {
         padding: 0 $spacing-extra-small;
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+
+        .title {
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+        }
     }
 }
 
@@ -93,6 +100,10 @@ strong {
 
 hr {
     margin: $spacing-normal / 2 0;
+
+    @media only screen and (max-width: 1000px) {
+        opacity: .2;
+    }
 }
 
 .icon {
@@ -150,4 +161,14 @@ hr {
 
 code {
     font-size: 14px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .newest-posts {
+        padding: 0;
+
+        .title {
+            margin-bottom: $spacing-small;
+        }
+    }
 }

@@ -10,6 +10,15 @@
 
     @media only screen and (max-width: 1000px) {
         margin: 0;
+        
+        table {
+            font-size: $font-size-extra-small;
+            margin-bottom: $spacing-small;
+
+            td:first-child {
+                width: unset !important;
+            }
+        }
     }
 }
 

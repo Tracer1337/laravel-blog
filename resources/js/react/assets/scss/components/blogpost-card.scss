@@ -1,7 +1,4 @@
-.blogpost-card-wrapper {
-    text-decoration: none;
-
-    .blogpost-card {
+.blogpost-card {
         @include border-normal;
         $width: 350;
         $image-ratio: 4 / 3;
@@ -83,7 +80,44 @@
         }
 
         @media only screen and (max-width: 1000px) {
-            margin-bottom: $spacing-normal;
+            margin-bottom: $spacing-small;
+            height: unset;
+            width: unset;
+            border: none;
+
+            .head {
+                display: flex;
+                padding: 0 $spacing-extra-small * 2 $spacing-extra-small $spacing-extra-small * 2;
+                
+                .avatar {
+                    margin-right: $spacing-extra-small;
+                }
+            }
+
+            .body {
+                height: unset;
+                display: block;
+                padding: $spacing-extra-small $spacing-extra-small * 2 0 $spacing-extra-small * 2;
+
+                .title {
+                    position: static;
+                    display: block;
+                    text-align: left;
+                    margin: 0;
+                    margin-bottom: $spacing-extra-small;
+                    font-weight: $font-weight-medium;
+                }
+            }
+
+            .image-wrapper {
+                width: 100vw;
+                height: unset;
+                max-height: 500px;
+                border: none;
+
+                &:empty {
+                    height: 300px;
+                }
+            }
         }
     }
-}

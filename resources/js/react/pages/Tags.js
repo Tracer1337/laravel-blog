@@ -11,7 +11,7 @@ import useAPIData from "../utils/useAPIData.js"
 import useQuery from "../utils/useQuery.js"
 import pageTitle from "../config/pageTitle.js"
 
-const TagPage = () => {
+const TagsPage = () => {
     const history = useHistory()
     const location = useLocation()
 
@@ -88,7 +88,7 @@ const TagPage = () => {
                 <title>{pageTitle(tagNames?.join(", "))}</title>
             </Helmet>
 
-            <div className="head">
+            <div className="action">
                 {!options ? <Skeleton /> : (
                     <Select
                         options={options}
@@ -121,4 +121,4 @@ const TagPage = () => {
     )
 }
 
-export default TagPage
+export default TagsPage

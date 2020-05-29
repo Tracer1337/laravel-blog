@@ -8,7 +8,7 @@ if(!defaultState) {
 
     defaultState = {
         "cache.enabled": true,
-        "cache.lifetimeBeforeDiscarding": 5,
+        "cache.lifetimeBeforeDiscarding": 20,
     }
 
 }

@@ -16,6 +16,7 @@ import MarkdownViewer from "../components/MarkdownViewer.js"
 import useQuery from "../utils/useQuery.js"
 import useAPIData from "../utils/useAPIData.js"
 import pageTitle from "../config/pageTitle.js"
+import { isMobile } from "../config/constants.js"
 
 const BlogpostPage = () => {
     const { id } = useParams()
@@ -70,7 +71,7 @@ const BlogpostPage = () => {
             <div className="blogpost-page">
                 <TopicCrumb data={post.topic}/>
 
-                <main>
+                <main className="body">
                     <Head data={post} />
 
                     <hr />
@@ -111,7 +112,8 @@ const BlogpostPage = () => {
                 {post.relations?.length > 0 && (
                     <>
                         <RelatedPosts relations={post.relations} />
-                        <div className="spacer" />
+
+                        {!isMobile && <div className="spacer"/>}
                     </>
                 )}
             </div>

@@ -46,6 +46,11 @@
                 "1fr 1fr";
             grid-gap: $spacing-extra-small * 2;
             margin-bottom: $input-spacing;
+
+            @media only screen and (max-width: 1000px) {
+                grid-template: none;
+                grid-template-columns: 100%;
+            }
         }
 
         .submit {
@@ -124,6 +129,20 @@
         .img-wrapper {
             display: flex;
             justify-content: center;
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        display: block;
+
+        form {
+            margin-right: 0;
+            margin-bottom: $spacing-normal;
+        }
+
+        .preview-not-available {
+            display: block;
+            text-align: center;
         }
     }
 }

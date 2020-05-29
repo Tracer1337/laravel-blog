@@ -23,7 +23,9 @@ const FeaturedPost = () => {
                             <div className="blogpost-title">{data ? data.blogpost.title : <Skeleton width={500}/>}</div>
                         </Link>
                         
-                        <div className="username">{data ? data.blogpost.user.full_name : <Skeleton width={300}/>}</div>
+                        <Link to={data ? "/user/" + data.blogpost.user.id : ""} className="wrapper-link">
+                            <div className="username">{data ? data.blogpost.user.full_name : <Skeleton width={300}/>}</div>
+                        </Link>
                     </div>
 
                     <div className="content">{data ? data.content : <Skeleton height={200}/>}</div>

@@ -54,40 +54,48 @@ const Header = ({ isLoading, isLoggedIn, profile }) => {
         </div>
     )
 
+    /**
+     * Mobile Layout
+     */
     if(isMobile) {
         return (
-            <header className="header">
-                <div className="top">
-                    <Logo/>
+            <>
+                <header className="header">
+                    <div className="top">
+                        <Logo/>
 
-                    {!isLoggedIn ? (
+                        {!isLoggedIn ? (
+                            <Settings />
+                        ) : (
+                            <div className="profile">
+                                <Avatar onClick={toggleMenu} />
+                                <Settings/>
+                            </div>
+                        )}
+                    </div>
+
+                    {!isLoggedIn && (
                         <div className="auth">
                             <Link to="/login">Login</Link>
                             <Link to="/register">Register</Link>
-
-                            <Settings/>
-                        </div>
-                    ) : (
-                        <div className="profile">
-                            <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.full_name}</strong></Link>
-                            <Avatar onClick={toggleMenu} />
-
-                            <Settings/>
                         </div>
                     )}
-                </div>
 
-                <SearchBar/>
+                    <SearchBar/>
 
-                <div id="header-portal"/>
+                    <div id="header-portal"/>
 
-                {menu}
+                    {menu}
+                </header>
 
                 <hr/>
-            </header>
+            </>
         )
     }
 
+    /**
+     * Desktop Layout
+     */
     return (
         <header className="header">
             <div className="left">

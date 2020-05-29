@@ -14,7 +14,7 @@ import ProfileBlogposts from "./pages/ProfileBlogposts.js"
 import AdminPanel from "./pages/AdminPanel.js"
 import Topic from "./pages/Topic.js"
 import Search from "./pages/Search.js"
-import Tag from "./pages/Tag.js"
+import Tags from "./pages/Tags.js"
 import Disclaimer from "./pages/Disclaimer.js"
 import Privacy from "./pages/Privacy.js"
 import TermsOfService from "./pages/TermsOfService.js"
@@ -124,7 +124,7 @@ const App = ({ login, setServerConfig }) => {
                             </Route>
 
                             <Route path="/tags">
-                                <Tag/>
+                                <Tags/>
                             </Route>
 
                             <Route path="/topic/:id">

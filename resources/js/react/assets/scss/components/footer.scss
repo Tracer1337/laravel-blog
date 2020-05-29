@@ -27,12 +27,15 @@
     }
     @media only screen and (max-width: 1000px) {
         height: unset;
-        padding: $spacing-extra-small;
+        
+        .inner-footer {
+            padding: 0;
+        }
 
         .links {
             display: block;
             height: unset;
-            padding: 0;
+            padding: $spacing-extra-small 0;
             position: static;
             text-align: center;
 

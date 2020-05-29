@@ -42,18 +42,41 @@
     @media only screen and (max-width: 1000px) {
         height: unset;
         flex-direction: column;
+        margin: 0;
 
         .text-container {
             width: 100%;
             text-align: center;
             margin: 0;
+
+            .head {
+                margin-bottom: $spacing-extra-small * 2;
+
+                .blogpost-title {
+                    font-size: $font-size-normal;
+                    margin-bottom: $spacing-extra-small;
+                }
+    
+                .username {
+                    font-size: $font-size-small;
+                }
+            }
+
+            .content {
+                font-size: $font-size-small;
+                margin-bottom: $spacing-extra-small * 2;
+            }
         }
 
         .image-container {
-            width: 100%;
+            width: 90%;
             
             .inner-image-container {
                 width: 100%;
+
+                img {
+                    border-radius: 0;
+                }
             }
         }
     }

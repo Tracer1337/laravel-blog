@@ -61,7 +61,7 @@ const Preview = ({ data }) => {
                     <GradientGapConfig defaultValue={gradientGapDefaultValue} onChange={handleGapChange} imgSrc={cover?.url}/>
                 </>
             ) : (
-                <em>Preview is not available</em>
+                <em className="preview-not-available">Preview is not available</em>
             )}
         </div>
     )

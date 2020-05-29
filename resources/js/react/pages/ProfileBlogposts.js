@@ -20,7 +20,10 @@ const ProfileBlogposts = () => {
                 renderChildren={({ data, isLoading }) => {
                     if(!isLoading) {
                         return data.map((post, i) => (
-                            <BlogpostDetailed post={post} key={i}/>
+                            <>
+                                <hr/>
+                                <BlogpostDetailed post={post} key={i}/>  
+                            </>
                         ))
                     } else {
                         return Array(20).fill().map((_, i) => <BlogpostDetailed showSkeleton key={i}/>)
