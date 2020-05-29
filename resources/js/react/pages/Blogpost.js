@@ -77,6 +77,10 @@ const BlogpostPage = () => {
 
                     <div className="blogpost-title">{post.title || <Skeleton/>}</div>
 
+                    <div className="reading-time">
+                        {post.content ? `${post.estimated_reading_time} minutes read` : <Skeleton/>}
+                    </div>
+
                     <div className="content">
                         {post.content ? <MarkdownViewer source={post.content}/> : <Skeleton count={30}/>}
                     </div>

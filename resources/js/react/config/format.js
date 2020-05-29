@@ -33,6 +33,14 @@ const formatBlogpost = post => {
 
     // Extract cover
     post.cover = post.assets.find(asset => asset.type === "cover")
+
+    // Add estimated reading time
+    if(post.content) {
+        const amountOfWords = post.content.match(/[\w\d]+/g).length
+
+        // Calculate with 200 words per minute
+        post.estimated_reading_time = Math.round(amountOfWords / 200)
+    }
 }
 
 const formatSearch = data => {
