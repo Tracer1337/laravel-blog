@@ -1,9 +1,4 @@
 .blogpost-page {
-    hr {
-        margin-left: - $spacing-extra-small * 2;
-        margin-right: - $spacing-extra-small * 2;
-    }
-
     .body {
         .head {
             height: $spacing-normal;
@@ -92,6 +87,13 @@
                     margin-left: $spacing-small * ($i - 2);
                 }
             }
+        }
+    }
+
+    @media only screen and (max-width: 1000px) {
+        hr {
+            margin-left: - $spacing-extra-small * 2;
+            margin-right: - $spacing-extra-small * 2;
         }
     }
 }
