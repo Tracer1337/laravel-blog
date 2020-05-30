@@ -20,7 +20,7 @@ class SitemapController extends Controller
         $blogposts = Blogpost::whereNotNull("published_at")->orderBy("published_at", "DESC")->get();
 
         foreach($blogposts as $blogpost) {
-            echo url("/post/" . $blogpost->id) . "\n";
+            echo url("/post/" . $blogpost->slug) . "\n";
         }
 
         // Print topic pages
