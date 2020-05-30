@@ -89,7 +89,7 @@ const BlogpostPage = () => {
                     <hr />
 
                     <Auth>
-                        <Actions data={post} onAction={handleAction} slug={slug}/>
+                        <Actions data={post} onAction={handleAction} slug={slug} id={post.id}/>
                     </Auth>
 
                     <div className="spacer-small"/>

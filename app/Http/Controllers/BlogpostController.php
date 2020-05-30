@@ -308,6 +308,6 @@ class BlogpostController extends Controller
             $blogpost->recommendations()->sync($user);
         }
 
-        return $this->show($id, $request);
+        return $this->show($blogpost->slug, $request);
     }
 }

@@ -8,7 +8,7 @@ import Icon from "../Icon.js"
 import { likeBlogpost, addRecommendation, removeRecommendation } from "../../config/API.js"
 import { gaEvent } from "../../utils/GATracking.js"
 
-const Actions = ({ data, onAction, slug, profile }) => {
+const Actions = ({ data, onAction, slug, id, profile }) => {
     const [isLoading, setIsLoading] = useState(false)
     const isRecommending = data.recommendations?.some(r => r.id = profile.id)
 
@@ -32,13 +32,13 @@ const Actions = ({ data, onAction, slug, profile }) => {
 
     const handleLike = () => {
         if(!sameUser) {
-            throttleRequest(likeBlogpost.bind(null, slug), "Like")()
+            throttleRequest(likeBlogpost.bind(null, id), "Like")()
         }
     }
 
-    const handleAddRecommendation = throttleRequest(addRecommendation.bind(null, slug), "Add to recommendations")
+    const handleAddRecommendation = throttleRequest(addRecommendation.bind(null, id), "Add to recommendations")
 
-    const handleRemoveRecommendation = throttleRequest(removeRecommendation.bind(null, slug), "Remove from recommendations")
+    const handleRemoveRecommendation = throttleRequest(removeRecommendation.bind(null, id), "Remove from recommendations")
 
     return (
         <div className="actions">
