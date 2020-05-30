@@ -14,7 +14,8 @@ class Comment extends JsonResource
      */
     public function toArray($request) {
         return array_merge(parent::toArray($request), [
-            "blogpost_title" => $this->blogpost->title
+            "blogpost_title" => $this->blogpost->title,
+            "blogpost_slug" => $this->blogpost->slug
         ]);
     }
 }

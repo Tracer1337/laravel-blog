@@ -10,7 +10,7 @@ import Icon from "../Icon.js"
 const Head = ({ data, profile }) => (
     <>
         <div className="head">
-                <Link to={!data.user ? "" : "/user/" + data.user.id} className="user-wrapper">
+                <Link to={!data.user ? "" : "/user/" + data.user.username} className="user-wrapper">
                     <div className="user">
                         <Avatar user={data.user} showSkeleton={!data.user} />
                         <span className="username">{!data.user ? <Skeleton width={150} /> : data.user.full_name}</span>

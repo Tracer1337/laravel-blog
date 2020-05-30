@@ -134,7 +134,6 @@ class CreatePermissionTables extends Migration
 
         Permission::create(["name" => "update any user"]);
         Permission::create(["name" => "delete any user"]);
-        Permission::create(["name" => "view users"]);
         Permission::create(["name" => "follow users"]);
         Permission::create(["name" => "get all users"]);
 
@@ -156,7 +155,6 @@ class CreatePermissionTables extends Migration
 
         $role_user->givePermissionTo("like blogposts");
         $role_user->givePermissionTo("create comments");
-        $role_user->givePermissionTo("view users");
         $role_user->givePermissionTo("follow users");
         
         $role_author->givePermissionTo("create blogposts");
@@ -165,7 +163,6 @@ class CreatePermissionTables extends Migration
         $role_author->givePermissionTo("create comments");
         $role_author->givePermissionTo("create topics");
         $role_author->givePermissionTo("create tags");
-        $role_author->givePermissionTo("view users");
         $role_author->givePermissionTo("follow users");
         $role_author->givePermissionTo("store files");
         $role_author->givePermissionTo("delete files");

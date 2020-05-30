@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom"
 import { addComment, editComment } from "../../config/API.js"
 import { gaEvent } from "../../utils/GATracking.js"
 
-const CommentForm = ({ onSubmit, blogpostId, edit, seed, forwardRef }) => {
+const CommentForm = ({ onSubmit, blogpostSlug, edit, seed, forwardRef }) => {
     const [content, setContent] = useState("")
     const history = useHistory()
 
@@ -21,7 +21,7 @@ const CommentForm = ({ onSubmit, blogpostId, edit, seed, forwardRef }) => {
     const submit = async () => {
         const args = {
             content,
-            "blogpost_id": blogpostId
+            "blogpost_slug": blogpostSlug
         }
         
         if(edit) {
@@ -32,7 +32,7 @@ const CommentForm = ({ onSubmit, blogpostId, edit, seed, forwardRef }) => {
 
             args.id = seed.id
             await editComment(args)
-            history.push(`/post/${blogpostId}?commentId=${seed.id}`)
+            history.push(`/post/${blogpostSlug}?commentId=${seed.id}`)
         } else {
             gaEvent({
                 category: "Comment",

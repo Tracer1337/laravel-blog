@@ -20,6 +20,11 @@ const BlogpostDetailed = ({ post, showSkeleton }) => {
                     </tr>
 
                     <tr>
+                        <td>Slug</td>
+                        <td>{showSkeleton ? <Skeleton/> : post.slug}</td>
+                    </tr>
+
+                    <tr>
                         <td>Teaser</td>
                         <td>{showSkeleton ? <Skeleton /> : post.teaser}</td>
                     </tr>

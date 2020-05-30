@@ -55,7 +55,9 @@ export const getAllBlogpostsPaginated = pageNr => axios.get(paginated(url("blogp
 
 export const getAllBlogposts = () => axios.get(url("blogposts/all")).then(format(blogposts))
 
-export const getBlogpost = id => axios.get(url("blogpost/"+id)).then(format(blogpost))
+export const getBlogpost = slug => axios.get(url("blogpost/"+slug)).then(format(blogpost))
+
+export const getBlogpostById = id => axios.get(url("blogpost/null?id="+id)).then(format(blogpost))
 
 export const addBlogpost = formData => axios.post(url("blogpost"), formData, {
     headers: formHeader
@@ -122,15 +124,15 @@ export const deleteComment = id => axios.delete(url("comment/"+id))
 
 // Users
 
-export const getUser = id => axios.get(url("user/"+id)).then(format(user))
+export const getUser = username => axios.get(url("user/" + username)).then(format(user))
 
 export const getAllUsers = () => axios.get(url("users/all"))
 
-export const followUser = id => axios.post(url("user/follow"), {id})
+export const followUser = username => axios.post(url("user/follow"), {username})
 
-export const unfollowUser = id => axios.post(url("user/unfollow"), {id})
+export const unfollowUser = username => axios.post(url("user/unfollow"), {username})
 
-export const followsUser = id => axios.get(url("user/follows/"+id))
+export const followsUser = username => axios.get(url("user/follows/" + username))
 
 export const deleteUser = id => axios.delete(url("user/"+id))
 

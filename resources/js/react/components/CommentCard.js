@@ -33,7 +33,7 @@ const CommentActions = connect(mapStateToProps)(({ data, profile, onAction }) =>
 
     return (
         <div className="actions">
-            <Link to={`/post/${data.blogpost_id}?commentId=${data.id}&editComment=true`}>
+            <Link to={`/post/${data.blogpost_slug}?commentId=${data.id}&editComment=true`}>
                 <Icon type="edit" className="icon" />
             </Link>
             <Icon type="delete" className="icon" onClick={handleDelete} />
@@ -44,7 +44,7 @@ const CommentActions = connect(mapStateToProps)(({ data, profile, onAction }) =>
 const CommentCard = ({ data, onAction }) => (
     <div className="card comment" data-id={data.id}>
         <div className="comment-head">
-            <Link to={"/user/" + data.user.id} className="wrapper-link">
+            <Link to={"/user/" + data.user.username} className="wrapper-link">
                 <div className="username">{data.user.full_name}</div>
             </Link>
             <div className="dates">

@@ -19,14 +19,14 @@ import pageTitle from "../config/pageTitle.js"
 import { isMobile } from "../config/constants.js"
 
 const BlogpostPage = () => {
-    const { id } = useParams()
+    const { slug } = useParams()
     const commentId = parseInt(useQuery("commentId"))
     const editComment = useQuery("editComment") === "true"
     const formRef = useRef()
 
     const [data, reload, setData] = useAPIData({
         method: "getBlogpost",
-        args: [id],
+        args: [slug],
         removeDataBeforeLoading: false
     })
 
@@ -46,7 +46,7 @@ const BlogpostPage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [id])
+    }, [slug])
 
     useEffect(handleQuery, [commentId, editComment])
 
@@ -89,21 +89,21 @@ const BlogpostPage = () => {
                     <hr />
 
                     <Auth>
-                        <Actions data={post} onAction={handleAction} id={id}/>
+                        <Actions data={post} onAction={handleAction} slug={slug}/>
                     </Auth>
 
                     <div className="spacer-small"/>
 
                     <Tags data={post} />
 
-                    <div className="spacer" />
+                    <div className="spacer"/>
 
                     <Comments comments={post?.comments} onAction={reload} />
 
                     <div className="spacer" />
 
                     <Auth>
-                        <CommentForm blogpostId={id} onSubmit={reload} ref={formRef} edit={editComment} seed={editCommentObject}/>
+                        <CommentForm blogpostSlug={slug} onSubmit={reload} ref={formRef} edit={editComment} seed={editCommentObject}/>
 
                         <div className="spacer" />
                     </Auth>

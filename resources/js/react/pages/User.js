@@ -8,16 +8,17 @@ import Links from "../components/User/Links.js"
 import Biography from "../components/User/Biography.js"
 import Recommendations from "../components/User/Recommendations.js"
 import SubscribeFab from "../components/User/SubscribeFab.js"
+import Auth from "../components/Auth.js"
 
 import useAPIData from "../utils/useAPIData.js"
 import pageTitle from "../config/pageTitle.js"
 
 const User = () => {
-    const { id } = useParams()
+    const { username } = useParams()
 
     const [data] = useAPIData({
         method: "getUser",
-        args: [id]
+        args: [username]
     })
 
     useEffect(() => {
@@ -59,7 +60,9 @@ const User = () => {
                 </>
             )}
 
-            <SubscribeFab userId={id}/>
+            <Auth>
+                <SubscribeFab username={username}/>
+            </Auth>
         </div>
     )
 }

@@ -18,6 +18,7 @@ class CreateBlogpostsTable extends Migration
             $table->uuid("user_id");
             $table->integer("topic_id")->nullable();
             $table->string("title");
+            $table->string("slug");
             $table->text("teaser");
             $table->mediumText("content");
             $table->timestamp("created_at")->nullable();

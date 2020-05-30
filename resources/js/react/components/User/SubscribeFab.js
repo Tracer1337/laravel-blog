@@ -8,8 +8,8 @@ import LoadingIndicator from "../LoadingIndicator.js"
 import { followUser, unfollowUser, followsUser } from "../../config/API.js"
 import { gaEvent } from "../../utils/GATracking.js"
 
-const SubscribeFab = ({ userId, profileId }) => {
-    if(userId == profileId) {
+const SubscribeFab = ({ username, profileName }) => {
+    if(username == profileName) {
         return null
     }
 
@@ -17,7 +17,7 @@ const SubscribeFab = ({ userId, profileId }) => {
     const [isLoading, setIsLoading] = useState(false)
     
     const checkSubscription = async () => {
-        const res = await followsUser(userId)
+        const res = await followsUser(username)
         setHasSubscribed(res.data)
         return
     }
@@ -35,14 +35,14 @@ const SubscribeFab = ({ userId, profileId }) => {
                 action: "Unfollow"
             })
             
-            await unfollowUser(userId)
+            await unfollowUser(username)
         } else {
             gaEvent({
                 category: "User",
                 action: "Follow"
             })
             
-            await followUser(userId)
+            await followUser(username)
         }
 
         await checkSubscription()
@@ -69,7 +69,7 @@ const SubscribeFab = ({ userId, profileId }) => {
 }
 
 const mapStateToProps = store => ({
-    profileId: store.auth.profile.id
+    profileName: store.auth.profile.username
 })
 
 export default connect(mapStateToProps)(SubscribeFab)

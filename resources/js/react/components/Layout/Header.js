@@ -122,7 +122,7 @@ const Header = ({ isLoading, isLoggedIn, profile }) => {
                     ) : (
                         <div className="auth">
                             <div className="profile">
-                                <Link to={"/user/" + profile.id}>Logged in as: <strong>{profile.full_name}</strong></Link>
+                                <Link to={"/user/" + profile.username}>Logged in as: <strong>{profile.full_name}</strong></Link>
                                 <Avatar onClick={toggleMenu} />
                             </div>
                         </div>

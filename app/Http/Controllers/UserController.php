@@ -13,15 +13,11 @@ use App\Asset;
 class UserController extends Controller
 {
     public function __construct() {
-        $this->middleware("auth:api");
+        $this->middleware("auth:api", ["except" => ["index"]]);
     }
 
-    public function index($id, Request $request) {
-        if(!$request->user()->can("view users")) {
-            return response(null, 403);
-        }
-
-        $user = User::findOrFail($id);
+    public function index($username, Request $request) {
+        $user = User::where("username", $username)->firstOrFail();
         $user->role = $user->roles()->first()->name;
         
         // Get Recommendations
@@ -68,7 +64,7 @@ class UserController extends Controller
             return response(null, 403);
         }
 
-        $followUser = User::findOrFail($request->id);
+        $followUser = User::where("username", $request->username)->firstOrFail();
 
         if($user->id != $followUser->id) {
             $user->follows()->attach($followUser);
@@ -85,7 +81,7 @@ class UserController extends Controller
             return response(null, 403);
         }
 
-        $unfollowUser = User::findOrFail($request->id);
+        $unfollowUser = User::where("username", $request->username)->firstOrFail();
 
         if($user->follows()->detach($unfollowUser)) {
             return response(null, 200);
@@ -94,19 +90,19 @@ class UserController extends Controller
         return response(null, 400);
     }
 
-    public function follows($id, Request $request) {
+    public function follows($username, Request $request) {
         $user = $request->user();
 
         if(!$user->can("view users")) {
             return response(null, 403);
         }
 
-        $followsUser = User::findOrFail($id);
+        $followsUser = User::where("username", $username)->firstOrFail();
         $isFollowing = !!DB::table("followers")
             ->select("user_from_id", "user_to_id")
             ->where([
                 ["user_from_id", $user->id],
-                ["user_to_id", $id]
+                ["user_to_id", $followsUser->id]
             ])
             ->count();
 

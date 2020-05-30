@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comment;
+use App\Blogpost;
 use App\Http\Resources\Comment as CommentResource;
 
 class CommentsController extends Controller
@@ -25,7 +26,7 @@ class CommentsController extends Controller
 
         $validated_data = $request->validate([
             "content" => "required",
-            "blogpost_id" => "required|uuid",
+            "blogpost_slug" => "required|string",
             "id" => "nullable|Integer"
         ]);
 
@@ -37,9 +38,11 @@ class CommentsController extends Controller
             return response(null, 403);
         }
 
+        $blogpost = Blogpost::where("slug", $validated_data["blogpost_slug"])->firstOrFail();
+
         $comment->id = isset($validated_data["id"]) ? $validated_data["id"] : null;
         $comment->user_id = $user->id;
-        $comment->blogpost_id = $validated_data["blogpost_id"];
+        $comment->blogpost_id = $blogpost->id;
         $comment->content = $validated_data["content"];
 
         if($comment->save()) {

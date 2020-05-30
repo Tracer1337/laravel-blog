@@ -59,7 +59,7 @@ const Menu = ({ profile, logout, anchor }) => {
 
     // Set link to users profile page
     const links = [...linksTemplate]
-    const userlink = "/user/" + profile.id
+    const userlink = "/user/" + profile.username
     links[0].to = userlink
 
     const handleLogout = () => {

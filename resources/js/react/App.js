@@ -115,9 +115,9 @@ const App = ({ login, setServerConfig }) => {
                                 <EditProfile/>
                             </ProtectedRoute>
 
-                            <ProtectedRoute path="/user/:id">
+                            <Route path="/user/:username">
                                 <User/>
-                            </ProtectedRoute>
+                            </Route>
 
                             <Route path="/search">
                                 <Search/>
@@ -131,7 +131,7 @@ const App = ({ login, setServerConfig }) => {
                                 <Topic/>
                             </Route>
 
-                            <Route path="/post/:id">
+                            <Route path="/post/:slug">
                                 <Blogpost/>
                             </Route>
 

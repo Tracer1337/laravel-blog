@@ -57,7 +57,7 @@ const Users = () => {
                 {users.map((user, i) => (
                     <tr key={user.id || i}>
                         <td>
-                            <Link to={!data ? "" : "/user/" + user.id} className="wrapper-link">
+                            <Link to={!data ? "" : "/user/" + user.username} className="wrapper-link">
                                 {user.username || <Skeleton/>}
                             </Link>
                         </td>

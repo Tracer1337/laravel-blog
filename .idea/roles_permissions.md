@@ -18,7 +18,6 @@
 * user
     * update
     * delete-any
-    * view
     * follow
     * get-all
 

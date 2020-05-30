@@ -19,9 +19,7 @@ class BlogpostController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Get the first 20 posts
      */
     public function index() {
         $blogposts = Blogpost::whereNotNull("published_at")->orderBy("published_at", "DESC")->limit(20)->get();
@@ -60,6 +58,7 @@ class BlogpostController extends Controller
         $validated_data = $request->validate([
             "id" => "nullable|uuid",
             "title" => "required|max:255",
+            "slug" => "required|unique:App\Blogpost|max:64",
             "teaser" => "required|max:512",
             "topic_id" => "required|Integer",
             "content" => "required",
@@ -181,11 +180,20 @@ class BlogpostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id, Request $request) {
-        $blogpost = Blogpost::findOrFail($id);
+    public function show($slug, Request $request) {
+        if($request->query("id")) {
+            // Get blogpost by id
+            $id = $request->query("id");
+            $blogpost = Blogpost::findOrFail($id);
+
+        } else {
+            // Get blogpost by slug
+            $blogpost = Blogpost::where("slug", $slug)->firstOrFail();            
+
+        }
 
         $relations = [];
         
@@ -212,6 +220,7 @@ class BlogpostController extends Controller
 
         foreach($blogpost->comments as $comment) {
             $comment->user;
+            $comment->blogpost_slug = $blogpost->slug;
         }
 
         if(!$blogpost->published_at && (!$request->user() || $blogpost->user->id != $request->user()->id)) {

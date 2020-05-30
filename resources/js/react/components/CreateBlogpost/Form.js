@@ -30,7 +30,7 @@ const Form = ({ postId, editData, reload }) => {
 
     const history = useHistory()
 
-    const { register, control, getValues, setValue, formState, watch } = useForm({
+    const { register, control, getValues, setValue, formState } = useForm({
         defaultValues: (function() {
             const defaultValues = {...editData}
             delete defaultValues.assets
@@ -161,6 +161,11 @@ const Form = ({ postId, editData, reload }) => {
                     <div>
                         <label>Title</label>
                         <input type="text" name="title" placeholder="Title" className="input" ref={register()}/>
+                    </div>
+
+                    <div>
+                        <label>Slug</label>
+                        <input type="text" name="slug" placeholder="Slug" className="input" ref={register()}/>
                     </div>
 
                     <TopicSelection control={control} defaultValue={editData?.topic}/>

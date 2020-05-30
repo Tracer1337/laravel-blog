@@ -12,7 +12,7 @@ const CreateBlogpost = () => {
     const post_id = useQuery("post_id")
 
     const [data, reload] = useAPIData({
-        method: "getBlogpost",
+        method: "getBlogpostById",
         args: [post_id],
         removeDataBeforeLoading: false
     })

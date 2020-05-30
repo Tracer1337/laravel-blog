@@ -14,21 +14,21 @@ const BlogpostCard = ({ post, showSkeleton }) => {
     if(isMobile) {
         return (
             <div className="blogpost-card">
-                <Link to={showSkeleton ? "" : "/user/" + post.user.id} className="wrapper-link">
+                <Link to={showSkeleton ? "" : "/user/" + post.user.username} className="wrapper-link">
                     <div className="head">
                         <Avatar user={post?.user} size={24} showSkeleton={showSkeleton}/>
                         {showSkeleton ? <Skeleton width={200}/> : <div className="username">{post?.user.full_name}</div>}
                     </div>
                 </Link>
 
-                <Link to={showSkeleton ? "" : "/post/" + post.id}>
+                <Link to={showSkeleton ? "" : "/post/" + post.slug}>
                     <div className="image-wrapper" style={{ backgroundImage: post?.cover?.meta.gradient }}>
                         {showSkeleton && <Skeleton width={350} height={350 * (3 / 4)} />}
                         {post?.cover && !showSkeleton && <img src={post.cover.url} alt="cover" />}
                     </div>
                 </Link>
 
-                <Link to={showSkeleton ? "" : "/post/" + post.id} className="wrapper-link">
+                <Link to={showSkeleton ? "" : "/post/" + post.slug} className="wrapper-link">
                     <div className="body">
                         <div className="title">{showSkeleton ? <Skeleton/> : post.title}</div>
                         <div className="teaser">{showSkeleton ? <Skeleton/> : post.teaser}</div>
@@ -42,7 +42,7 @@ const BlogpostCard = ({ post, showSkeleton }) => {
      * Desktop Layout
      */
     return (
-        <Link to={showSkeleton ? "" : "/post/" + post.id} className="wrapper-link">
+        <Link to={showSkeleton ? "" : "/post/" + post.slug} className="wrapper-link">
             <div className="blogpost-card">
                 <div className="image-wrapper" style={{ backgroundImage: post?.cover?.meta.gradient }}>
                     {showSkeleton && <Skeleton width={350} height={350 * (3 / 4)} />}

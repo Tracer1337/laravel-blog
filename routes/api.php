@@ -9,7 +9,7 @@ Route::get("/blogposts", "BlogpostController@index");
 
 Route::get("/blogposts/all", "BlogpostController@all");
 
-Route::get("/blogpost/{id}", "BlogpostController@show");
+Route::get("/blogpost/{slug}", "BlogpostController@show");
 
 Route::post("/blogpost", "BlogpostController@store");
 
@@ -59,7 +59,7 @@ Route::delete("/comment/{id}", "CommentsController@destroy");
 
 // User
 
-Route::get("/user/{id}", "UserController@index");
+Route::get("/user/{username}", "UserController@index");
 
 Route::get("/users/all", "UserController@all");
 
@@ -67,7 +67,7 @@ Route::post("/user/follow", "UserController@follow");
 
 Route::post("/user/unfollow", "UserController@unfollow");
 
-Route::get("/user/follows/{id}", "UserController@follows");
+Route::get("/user/follows/{username}", "UserController@follows");
 
 Route::put("/user", "UserController@update");
 

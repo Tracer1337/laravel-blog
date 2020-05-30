@@ -28,7 +28,6 @@ store.subscribe(() => {
     }
 })
 
-// Render the App
 ReactDOM.render((
     <Provider store={store}>
         <App/>

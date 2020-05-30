@@ -5,6 +5,7 @@ import Pagination from "../components/Pagination.js"
 import BlogpostDetailed from "../components/BlogpostDetailed.js"
 
 import pageTitle from "../config/pageTitle.js"
+import { isMobile } from "../config/constants.js"
 
 const ProfileBlogposts = () => {
     return (
@@ -21,7 +22,7 @@ const ProfileBlogposts = () => {
                     if(!isLoading) {
                         return data.map((post, i) => (
                             <>
-                                <hr/>
+                                {isMobile && <hr/>}
                                 <BlogpostDetailed post={post} key={i}/>  
                             </>
                         ))

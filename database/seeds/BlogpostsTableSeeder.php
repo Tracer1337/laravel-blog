@@ -23,6 +23,7 @@ class BlogpostsTableSeeder extends Seeder
             $blogpost->user_id = $admin->id;
             $blogpost->topic_id = $faker->numberBetween(1, 3);
             $blogpost->title = $faker->text(50);
+            $blogpost->slug = $faker->word . "-" . $faker->word . "-" . $faker->word . "-" . $faker->word;
             $blogpost->teaser = $faker->text(80);
             $blogpost->content = $faker->text(5000);
             $blogpost->published_at = $faker->dateTimeBetween($min = "-1 year", $max = "now");

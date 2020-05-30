@@ -29,9 +29,9 @@ class Metadata {
 
         // Generate metadata for blogpost page
         if(\Request::segment(1) === "post") {
-            $blogpost_id = \Request::segment(2);
+            $blogpost_slug = \Request::segment(2);
 
-            $blogpost = Blogpost::find($blogpost_id);
+            $blogpost = Blogpost::where("slug", $blogpost_slug)->first();
             $topic = Topic::find($blogpost->topic_id);
             $user = User::find($blogpost->user_id);
 
