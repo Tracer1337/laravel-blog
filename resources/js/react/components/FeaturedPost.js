@@ -12,7 +12,7 @@ const FeaturedPost = () => {
         return null
     }
 
-    const postUrl = data ? "/post/" + data.blogpost.id : ""
+    const postUrl = data ? "/post/" + data.blogpost.slug : ""
 
     return (
         <>
