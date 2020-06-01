@@ -87,7 +87,7 @@ function create_asset($data) {
 
     $filename = Uuid::generate()->string . "." . $extension;
     $path = $data["file"]->storeAs("public/assets", $filename);
-    $url = ENV("APP_URL") . "storage/view/assets/" . $filename;
+    $url = ENV("APP_URL") . "/storage/view/assets/" . $filename;
 
     // Create new asset
     $new_image = new Asset;
