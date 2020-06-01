@@ -81,8 +81,8 @@ const TableOfContents = ({ sections }) => {
             
             <h3 className="title">Content</h3>
 
-            {sections.map(({ text, level }) => (
-                <a href={"#" + text} key={text} className="wrapper-link">
+            {sections.map(({ id, text, level }) => (
+                <a href={"#" + id} key={id} className="wrapper-link">
                     {React.createElement("h" + level, { className: ["section-link", "indent-" + level].join(" ") }, 
                         <Icon type="chevron-right" />,
                         text
@@ -98,18 +98,22 @@ const TableOfContents = ({ sections }) => {
 const MarkdownViewer = (props) => {
     const headings = useRef([])
     const [sections, setSections] = useState([])
+    const [isMounted, setIsMounted] = useState(false)
     
+    let index = 0
     const renderHeading = ({ level, children }) => {
         const text = children[0].props.value
-
-        if(!headings.current.find(h => h.text === text)) {
-            headings.current.push({ text, level })
+        const id = index++
+        
+        if(!isMounted) {
+            headings.current.push({ id, text, level })
         }
 
-        return React.createElement("h" + level, { id: text, children })
+        return React.createElement("h" + level, { id, children })
     }
 
     useEffect(() => {
+        setIsMounted(true)
         setSections(headings.current)
     }, [])
 

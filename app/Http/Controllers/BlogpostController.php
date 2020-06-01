@@ -58,7 +58,7 @@ class BlogpostController extends Controller
         $validated_data = $request->validate([
             "id" => "nullable|uuid",
             "title" => "required|max:255",
-            "slug" => "required|unique:App\Blogpost|max:64",
+            "slug" => "required|max:64",
             "teaser" => "required|max:512",
             "topic_id" => "required|Integer",
             "content" => "required",
