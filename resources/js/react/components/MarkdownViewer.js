@@ -63,7 +63,7 @@ const renderers = {
         }
 
         return (
-            <pre>
+            <pre className="code-block">
                 <code dangerouslySetInnerHTML={{ __html: formatted.value }}/>
             </pre>
         )
