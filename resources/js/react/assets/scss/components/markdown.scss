@@ -2,6 +2,10 @@
     padding: $spacing-extra-small;
     border-radius: $border-radius-normal;
     background-color: rgba(0, 0, 0, 0.08);
+
+    @media only screen and (max-width: 1000px) {
+        overflow-x: scroll;
+    }
 }
 
 code {
