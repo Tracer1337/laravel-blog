@@ -67,6 +67,14 @@ const renderers = {
                 <code dangerouslySetInnerHTML={{ __html: formatted.value }}/>
             </pre>
         )
+    },
+
+    tableCell: ({ isHeader, children }) => {
+        if(isHeader) {
+            return children.length == 0 ? null : <th>{children}</th>
+        }
+
+        return <td>{children}</td>
     }
 }
 
